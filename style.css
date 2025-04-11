@@ -36,19 +36,54 @@ button:hover {
 }
 
 /* Styling for the output areas */
-#locationData,
-#compassData {
-    margin-top: 20px; /* Space above the output divs */
-    padding: 15px;
-    border: 1px solid #dee2e6; /* Light grey border */
-    background-color: #ffffff; /* White background */
-    min-height: 60px; /* Ensure they have some height */
-    width: 90%; /* Take up most of the width */
-    max-width: 500px; /* But not too wide on large screens */
-    text-align: center; /* Center the text inside */
-    font-family: monospace; /* Good for displaying coordinates or numbers */
-    word-wrap: break-word; /* Prevent long text from overflowing */
-    border-radius: 5px; /* Match button corners */
+#compassDisplay {
+    margin-top: 30px;
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    position: relative; /* Needed for positioning the needle */
+    /* Optional: Add a border or background */
+    /* border: 1px solid #ccc;
+       border-radius: 50%; */
+}
+
+#compassNeedle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Scale image nicely */
+    /* Make rotation smooth */
+    transition: transform 0.2s linear;
+    /* Set rotation point to the center */
+    transform-origin: center center;
+}
+
+#infoDisplay {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#distanceText, #statusText {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+#statusText {
+    font-style: italic;
+    color: #6c757d; /* Grey color for status */
+}
+
+/* Adjust existing button style if needed */
+#startCompass { /* Use the new ID */
+    /* Your existing button styles */
+    margin-top: 20px;
 }
 
 /* Optional: Add a little heading */

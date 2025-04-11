@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My PWA</title>
+    <title>Beer Compass</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <h1>Beer Compass</h1>
 
-    <button id="getLocation">Get Location</button>
-    <div id="locationData"></div>
+    <button id="startCompass">Find Nearest Beer!</button>
 
-    <button id="getCompass">Get Compass</button>
-    <div id="compassData"></div>
+    <div id="compassDisplay">
+        <img id="compassNeedle" src="beer-bottle.png" alt="Compass Needle">
+    </div>
+
+    <div id="infoDisplay">
+        <p id="distanceText">Distance: --- km</p>
+        <p id="statusText">Click button to start</p>
+    </div>
 
     <script src="script.js"></script>
 </body>
