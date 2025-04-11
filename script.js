@@ -88,7 +88,7 @@ function updateDisplay() {
 
     if (nearestShop) {
         // Update distance text
-        distanceText.textContent = `Distance: <span class="math-inline">\{nearestShop\.distance\.toFixed\(2\)\} km \(</span>{nearestShop.name})`;
+        distanceText.textContent = `Distance: ${nearestShop.distance.toFixed(2)} km (${nearestShop.name})`;
 
         // Calculate bearing if we have position
         const bearing = getBearingFromLatLon(
