@@ -86,7 +86,9 @@ const beerShops = [
     { name: "Systembolaget Gustavsberg C", lat: 59.3260, lon: 18.3880 },
     { name: "Systembolaget Sickla", lat: 59.3070, lon: 18.1180 },
     { name: "Systembolaget Lidingö C", lat: 59.3670, lon: 18.1420 }, // Added
-    { name: "Systembolaget Saltsjöbaden", lat: 59.2840, lon: 18.2500 }  // Added
+    { name: "Systembolaget Saltsjöbaden", lat: 59.2840, lon: 18.2500 },  // Added
+
+    { name: "Systembolaget Boländerna Uppsala", lat: 59.847308235139515, lon: 17.687312396781717 }
     // Add more as needed
 ];
 
