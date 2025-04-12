@@ -9,10 +9,10 @@ const hoursText = document.getElementById('hoursText');
 const beerShops = [
     // Add coordinates for relevant Systembolaget or other shops
     // === SÖDERORT / SOUTH ===
-    { name: "Systembolaget Huddinge C", lat: 59.2380, lon: 17.9950 },
-    { name: "Systembolaget Flemingsberg", lat: 59.2200, lon: 17.9420 },
+    { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459 }
+    { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006 }
     { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075 },
-    { name: "Systembolaget Liljeholmen", lat: 59.3100, lon: 18.0240 },
+    { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033 },
     { name: "Systembolaget Tumba C", lat: 59.2010, lon: 17.8280 },
     { name: "Systembolaget Globen Shopping", lat: 59.2935, lon: 18.0830 },
     { name: "Systembolaget Gullmarsplan", lat: 59.3010, lon: 18.0780 },
@@ -45,7 +45,7 @@ const beerShops = [
     { name: "Systembolaget Ringen C (Skanstull)", lat: 59.3120, lon: 18.0740 }, // Clarified name
     { name: "Systembolaget Folkungagatan 98", lat: 59.3150, lon: 18.0810 }, // Clarified name
     { name: "Systembolaget Hornstull", lat: 59.3170, lon: 18.0360 },
-    { name: "Systembolaget Fridhemsplan", lat: 59.3320, lon: 18.0310 },
+    { name: "Systembolaget Fridhemsplan", lat: 59.334914041394455, lon: 18.03016065483061 },
     { name: "Systembolaget Odenplan", lat: 59.3430, lon: 18.0500 }, // Added
     { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950 }, // Added
     { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430 }, // Added (approx coords)
@@ -59,10 +59,10 @@ const beerShops = [
     { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500 },
     { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330 },
     { name: "Systembolaget Kista Galleria", lat: 59.4030, lon: 17.9460 },
-    { name: "Systembolaget Sundbyberg C", lat: 59.3630, lon: 17.9690 },
-    { name: "Systembolaget Solna C", lat: 59.3580, lon: 18.0050 },
-    { name: "Systembolaget Mall of Scandinavia", lat: 59.3670, lon: 18.0020 },
-    { name: "Systembolaget Bromma Blocks", lat: 59.3560, lon: 17.9540 }, // Added specific request
+    { name: "Systembolaget Sundbyberg C", lat: 59.361282641195146, lon: 17.96761658614288 },
+    { name: "Systembolaget Solna C", lat: 59.3603709947504, lon: 17.999897339919222 },
+    { name: "Systembolaget Mall of Scandinavia", lat: 59.370194330158704, lon: 18.004843423347644 },
+    { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767 },
     { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350 }, // Added
     { name: "Systembolaget Ekerö C", lat: 59.2900, lon: 17.7950 }, // Added
     { name: "Systembolaget Barkarby Handelsplats", lat: 59.4070, lon: 17.8550 }, // Added
@@ -77,7 +77,7 @@ const beerShops = [
     { name: "Systembolaget Vallentuna C", lat: 59.5330, lon: 18.0800 },
     { name: "Systembolaget Märsta", lat: 59.6250, lon: 17.8450 }, // Added
     { name: "Systembolaget Sigtuna", lat: 59.6170, lon: 17.7200 }, // Added
-    { name: "Systembolaget Norrtälje", lat: 59.7580, lon: 18.7050 }, // Added
+    { name: "Systembolaget Norrtälje", lat: 59.757200981639876, lon: 18.700358608072552 },
     { name: "Systembolaget Djursholms Torg", lat: 59.3950, lon: 18.0800 }, // Added
 
     // === NACKA / VÄRMDÖ / EAST + LIDINGÖ ===
