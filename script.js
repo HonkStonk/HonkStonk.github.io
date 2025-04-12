@@ -8,11 +8,85 @@ const hoursText = document.getElementById('hoursText');
 // --- Configuration ---
 const beerShops = [
     // Add coordinates for relevant Systembolaget or other shops
-    // Using example locations near Huddinge/Stockholm
+    // === SÖDERORT / SOUTH ===
     { name: "Systembolaget Huddinge C", lat: 59.2380, lon: 17.9950 },
     { name: "Systembolaget Flemingsberg", lat: 59.2200, lon: 17.9420 },
     { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075 },
     { name: "Systembolaget Liljeholmen", lat: 59.3100, lon: 18.0240 },
+    { name: "Systembolaget Tumba C", lat: 59.2010, lon: 17.8280 },
+    { name: "Systembolaget Globen Shopping", lat: 59.2935, lon: 18.0830 },
+    { name: "Systembolaget Gullmarsplan", lat: 59.3010, lon: 18.0780 },
+    { name: "Systembolaget Årsta Torg", lat: 59.2960, lon: 18.0400 }, // Clarified name
+    { name: "Systembolaget Älvsjö", lat: 59.2770, lon: 18.0080 },
+    { name: "Systembolaget Farsta C", lat: 59.2440, lon: 18.0890 },
+    { name: "Systembolaget Hagsätra", lat: 59.2550, lon: 18.0350 },
+    { name: "Systembolaget Högdalen", lat: 59.2640, lon: 18.0280 },
+    { name: "Systembolaget Skarpnäck", lat: 59.2700, lon: 18.1350 },
+    { name: "Systembolaget Hammarby Sjöstad", lat: 59.3050, lon: 18.1060 },
+    { name: "Systembolaget Fruängen", lat: 59.2820, lon: 17.9740 },
+    { name: "Systembolaget Telefonplan", lat: 59.3005, lon: 18.0190 },
+    { name: "Systembolaget Tyresö C", lat: 59.2400, lon: 18.2250 },
+    { name: "Systembolaget Handen (Haninge C)", lat: 59.1700, lon: 18.1380 }, // Added
+    { name: "Systembolaget Vårberg", lat: 59.2820, lon: 17.8880 }, // Added
+    { name: "Systembolaget Hallunda", lat: 59.2580, lon: 17.8420 }, // Added
+    { name: "Systembolaget Skogås", lat: 59.2250, lon: 18.1250 }, // Added
+    { name: "Systembolaget Södertälje C", lat: 59.1950, lon: 17.6250 }, // Added
+
+    // === CENTRAL STOCKHOLM ===
+    { name: "Systembolaget Hötorget", lat: 59.3338, lon: 18.0645 },
+    { name: "Systembolaget Regeringsgatan 44", lat: 59.3320, lon: 18.0700 }, // Clarified name
+    { name: "Systembolaget Drottninggatan 63", lat: 59.3360, lon: 18.0610 }, // Clarified name
+    { name: "Systembolaget Vasagatan 11 (Centralen)", lat: 59.3310, lon: 18.0580 }, // Clarified name
+    { name: "Systembolaget Rosenlundsgatan (Söder)", lat: 59.3165, lon: 18.0580 },
+    { name: "Systembolaget NK (Hamngatan)", lat: 59.3325, lon: 18.0725 }, // Clarified name
+    { name: "Systembolaget Sturegallerian", lat: 59.3365, lon: 18.0730 }, // Clarified name
+    { name: "Systembolaget Östermalmstorg", lat: 59.3350, lon: 18.0780 },
+    { name: "Systembolaget Medborgarplatsen", lat: 59.3175, lon: 18.0720 },
+    { name: "Systembolaget Ringen C (Skanstull)", lat: 59.3120, lon: 18.0740 }, // Clarified name
+    { name: "Systembolaget Folkungagatan 98", lat: 59.3150, lon: 18.0810 }, // Clarified name
+    { name: "Systembolaget Hornstull", lat: 59.3170, lon: 18.0360 },
+    { name: "Systembolaget Fridhemsplan", lat: 59.3320, lon: 18.0310 },
+    { name: "Systembolaget Odenplan", lat: 59.3430, lon: 18.0500 }, // Added
+    { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950 }, // Added
+    { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430 }, // Added (approx coords)
+    { name: "Systembolaget Garnisonen (Karlavägen)", lat: 59.3370, lon: 18.1050 }, // Added (approx coords)
+
+    // === VÄSTERORT / WEST + SOLNA / SUNDBYBERG ===
+    { name: "Systembolaget Vällingby C", lat: 59.3650, lon: 17.8750 },
+    { name: "Systembolaget Brommaplan", lat: 59.3370, lon: 17.9360 },
+    { name: "Systembolaget Alvik", lat: 59.3330, lon: 17.9800 },
+    { name: "Systembolaget Spånga", lat: 59.3870, lon: 17.9080 },
+    { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500 },
+    { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330 },
+    { name: "Systembolaget Kista Galleria", lat: 59.4030, lon: 17.9460 },
+    { name: "Systembolaget Sundbyberg C", lat: 59.3630, lon: 17.9690 },
+    { name: "Systembolaget Solna C", lat: 59.3580, lon: 18.0050 },
+    { name: "Systembolaget Mall of Scandinavia", lat: 59.3670, lon: 18.0020 },
+    { name: "Systembolaget Bromma Blocks", lat: 59.3560, lon: 17.9540 }, // Added specific request
+    { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350 }, // Added
+    { name: "Systembolaget Ekerö C", lat: 59.2900, lon: 17.7950 }, // Added
+    { name: "Systembolaget Barkarby Handelsplats", lat: 59.4070, lon: 17.8550 }, // Added
+
+    // === NORRORT / NORTH ===
+    { name: "Systembolaget Täby Centrum", lat: 59.4430, lon: 18.0700 }, // Clarified name
+    { name: "Systembolaget Mörby C", lat: 59.3980, lon: 18.0550 },
+    { name: "Systembolaget Sollentuna C", lat: 59.4280, lon: 17.9480 },
+    { name: "Systembolaget Väsby Centrum", lat: 59.5170, lon: 17.9250 }, // Clarified name
+    { name: "Systembolaget Arninge", lat: 59.4520, lon: 18.1250 },
+    { name: "Systembolaget Åkersberga C", lat: 59.4800, lon: 18.2950 },
+    { name: "Systembolaget Vallentuna C", lat: 59.5330, lon: 18.0800 },
+    { name: "Systembolaget Märsta", lat: 59.6250, lon: 17.8450 }, // Added
+    { name: "Systembolaget Sigtuna", lat: 59.6170, lon: 17.7200 }, // Added
+    { name: "Systembolaget Norrtälje", lat: 59.7580, lon: 18.7050 }, // Added
+    { name: "Systembolaget Djursholms Torg", lat: 59.3950, lon: 18.0800 }, // Added
+
+    // === NACKA / VÄRMDÖ / EAST + LIDINGÖ ===
+    { name: "Systembolaget Nacka Forum", lat: 59.3090, lon: 18.1650 },
+    { name: "Systembolaget Orminge C", lat: 59.3160, lon: 18.2480 },
+    { name: "Systembolaget Gustavsberg C", lat: 59.3260, lon: 18.3880 },
+    { name: "Systembolaget Sickla", lat: 59.3070, lon: 18.1180 },
+    { name: "Systembolaget Lidingö C", lat: 59.3670, lon: 18.1420 }, // Added
+    { name: "Systembolaget Saltsjöbaden", lat: 59.2840, lon: 18.2500 }  // Added
     // Add more as needed
 ];
 
