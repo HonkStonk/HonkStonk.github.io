@@ -3,6 +3,7 @@ const startButton = document.getElementById('startCompass');
 const compassNeedle = document.getElementById('compassNeedle');
 const distanceText = document.getElementById('distanceText');
 const statusText = document.getElementById('statusText');
+const hoursText = document.getElementById('hoursText');
 
 // --- Configuration ---
 const beerShops = [
@@ -14,6 +15,18 @@ const beerShops = [
     { name: "Systembolaget Liljeholmen", lat: 59.3100, lon: 18.0240 },
     // Add more as needed
 ];
+
+const openingHours = {
+    // dayOfWeek (0=Sun, 1=Mon,... 6=Sat) : [openHour, closeHour] (24-hour format)
+    // null means closed all day
+    0: null, // Sunday
+    1: [10, 19], // Monday
+    2: [10, 19], // Tuesday
+    3: [10, 19], // Wednesday
+    4: [10, 19], // Thursday
+    5: [10, 19], // Friday
+    6: [10, 15]  // Saturday
+};
 
 // --- State Variables ---
 let currentPosition = null;
@@ -83,6 +96,148 @@ function findNearestShop() {
     return closestShop;
 }
 
+/**
+ * Determines if the shop is open/closed and when the next event (open/close) occurs.
+ * @param {Date} now The current date and time.
+ * @returns {object|null} Object with status, eventType, nextEventTime, or null on error.
+ */
+function getShopStatus(now) {
+    const currentDay = now.getDay(); // 0=Sun, 6=Sat
+    const currentHour = now.getHours();
+    const currentMinutes = now.getMinutes();
+    const currentTimeInMinutes = currentHour * 60 + currentMinutes;
+
+    let status = 'closed';
+    let eventType = 'opens';
+    let nextEventTime = null;
+
+    const todayHours = openingHours[currentDay];
+
+    if (todayHours) { // Shop has hours today
+        const openTimeInMinutes = todayHours[0] * 60;
+        const closeTimeInMinutes = todayHours[1] * 60;
+
+        if (currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes < closeTimeInMinutes) {
+            // Currently Open
+            status = 'open';
+            eventType = 'closes';
+            nextEventTime = new Date(now);
+            nextEventTime.setHours(todayHours[1], 0, 0, 0); // Closing time today
+        } else if (currentTimeInMinutes < openTimeInMinutes) {
+            // Closed, opens later today
+            status = 'closed';
+            eventType = 'opens';
+            nextEventTime = new Date(now);
+            nextEventTime.setHours(todayHours[0], 0, 0, 0); // Opening time today
+        } else {
+            // Closed, already past closing time (handle below)
+            status = 'closed';
+            eventType = 'opens';
+        }
+    } else {
+        // Closed all day today (e.g., Sunday)
+        status = 'closed';
+        eventType = 'opens';
+    }
+
+    // If closed and next event isn't set yet (meaning opens next opening day)
+    if (status === 'closed' && !nextEventTime) {
+        let nextDay = currentDay;
+        let daysToAdd = 0;
+        let attempts = 0; // Safety break for infinite loop
+        do {
+            daysToAdd++;
+            nextDay = (nextDay + 1) % 7;
+            attempts++;
+        } while (!openingHours[nextDay] && attempts < 8); // Find next day with hours
+
+        if (attempts < 8 && openingHours[nextDay]) {
+             const nextOpeningHour = openingHours[nextDay][0];
+             nextEventTime = new Date(now);
+             // Important: Calculate date correctly, avoiding issues near month/year end
+             nextEventTime.setDate(now.getDate() + daysToAdd);
+             nextEventTime.setHours(nextOpeningHour, 0, 0, 0);
+        } else {
+            console.error("Could not find next opening day within 7 days.");
+             return null; // Should not happen with valid schedule
+        }
+    }
+
+    if (!nextEventTime) {
+        console.error("Could not determine next event time.");
+        return null;
+    }
+
+    // Ensure the calculated nextEventTime is in the future
+    if (nextEventTime <= now && status === 'closed') {
+         // This can happen briefly right at opening time if logic isn't perfect,
+         // or if calculation resulted in a past time due to date rollover issues.
+         // Recalculate assuming we need the *next* available slot after 'now'.
+         // This requires more robust logic, for simplicity, let's just indicate recalculating.
+         console.warn("Calculated next event time is in the past, needs refinement.");
+         // return null; // Or return a flag to recalculate
+    }
+
+
+    return {
+        status: status,
+        eventType: eventType,
+        nextEventTime: nextEventTime
+    };
+}
+
+/**
+ * Formats a time difference in milliseconds into a human-readable string.
+ * @param {number} diffMs Time difference in milliseconds.
+ * @returns {string} Formatted string e.g., "1 hour 53 minutes".
+ */
+function formatTimeDifference(diffMs) {
+    if (diffMs < 0) diffMs = 0; // Show 0 if time has passed
+
+    const totalSeconds = Math.floor(diffMs / 1000);
+    const totalMinutes = Math.floor(totalSeconds / 60);
+    const totalHours = Math.floor(totalMinutes / 60);
+    const days = Math.floor(totalHours / 24);
+
+    const minutes = totalMinutes % 60;
+    const hours = totalHours % 24;
+
+    let parts = [];
+    if (days > 0) parts.push(`<span class="math-inline">\{days\} day</span>{days > 1 ? 's' : ''}`);
+    if (hours > 0) parts.push(`<span class="math-inline">\{hours\} hour</span>{hours > 1 ? 's' : ''}`);
+    // Always show minutes if less than an hour or if it's exactly 0
+    if (minutes >= 0 && totalMinutes < 60 || minutes > 0) {
+         parts.push(`<span class="math-inline">\{minutes\} minute</span>{minutes !== 1 ? 's' : ''}`);
+    }
+     // Handle case where it's exactly 0 time left
+     if (parts.length === 0 && diffMs === 0) {
+         return "Now";
+     }
+     // Handle case where calculation is pending or resulted in no parts
+     if (parts.length === 0) {
+         return "Calculating..."
+     }
+
+
+    return parts.join(' ');
+}
+
+
+// --- Add a new function to specifically update the hours text ---
+function updateOpeningHoursDisplay() {
+    const now = new Date();
+    const statusInfo = getShopStatus(now);
+
+    if (statusInfo) {
+        const diffMs = statusInfo.nextEventTime.getTime() - now.getTime();
+        const formattedDiff = formatTimeDifference(diffMs);
+        const prefix = statusInfo.status === 'open' ? 'Closes' : 'Opens';
+        hoursText.textContent = `${prefix} in: ${formattedDiff}`;
+    } else {
+        hoursText.textContent = "Opening hours: Status unavailable";
+    }
+}
+
 function updateDisplay() {
     nearestShop = findNearestShop(); // Find nearest based on currentPosition
 
@@ -114,6 +269,8 @@ function updateDisplay() {
             statusText.textContent = "Waiting for GPS signal...";
          }
     }
+
+    updateOpeningHoursDisplay();
 }
 
 // --- Event Handlers ---
@@ -188,6 +345,10 @@ function requestPermissionsAndStart() {
          // 2. Request Geolocation
          startGeolocation();
     }
+
+    updateOpeningHoursDisplay(); // Initial call
+    // Start the interval timer to update the hours display every minute
+     setInterval(updateOpeningHoursDisplay, 60000); // 60000ms = 1 minute
 }
 
 function startGeolocation() {
