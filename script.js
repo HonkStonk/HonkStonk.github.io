@@ -73,10 +73,10 @@ const beerShops = [
     { name: "Systembolaget Sollentuna C", lat: 59.4280, lon: 17.9480 },
     { name: "Systembolaget Väsby Centrum", lat: 59.5170, lon: 17.9250 }, // Clarified name
     { name: "Systembolaget Arninge", lat: 59.4520, lon: 18.1250 },
-    { name: "Systembolaget Åkersberga C", lat: 59.4800, lon: 18.2950 },
+    { name: "Systembolaget Åkersberga C", lat: 59.479694308737685, lon: 18.300274711380194 },
     { name: "Systembolaget Vallentuna C", lat: 59.5330, lon: 18.0800 },
-    { name: "Systembolaget Märsta", lat: 59.6250, lon: 17.8450 }, // Added
-    { name: "Systembolaget Sigtuna", lat: 59.6170, lon: 17.7200 }, // Added
+    { name: "Systembolaget Märsta", lat: 59.62121118722028, lon: 17.857465378564434 },
+    { name: "Systembolaget Sigtuna", lat: 59.61548401139691, lon: 17.719609162850304 },
     { name: "Systembolaget Norrtälje", lat: 59.757200981639876, lon: 18.700358608072552 },
     { name: "Systembolaget Djursholms Torg", lat: 59.3950, lon: 18.0800 }, // Added
 
