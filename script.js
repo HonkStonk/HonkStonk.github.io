@@ -9,8 +9,8 @@ const hoursText = document.getElementById('hoursText');
 const beerShops = [
     // Add coordinates for relevant Systembolaget or other shops
     // === SÖDERORT / SOUTH ===
-    { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459 }
-    { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006 }
+    { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459 },
+    { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006 },
     { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075 },
     { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033 },
     { name: "Systembolaget Tumba C", lat: 59.2010, lon: 17.8280 },
