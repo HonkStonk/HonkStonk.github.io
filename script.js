@@ -192,7 +192,7 @@ function getShopStatus(now) {
  * @returns {string} Formatted string e.g., "1 hour 53 minutes".
  */
 function formatTimeDifference(diffMs) {
-    if (diffMs < 0) diffMs = 0; // Show 0 if time has passed
+    if (diffMs < 0) diffMs = 0;
 
     const totalSeconds = Math.floor(diffMs / 1000);
     const totalMinutes = Math.floor(totalSeconds / 60);
@@ -203,22 +203,20 @@ function formatTimeDifference(diffMs) {
     const hours = totalHours % 24;
 
     let parts = [];
-    if (days > 0) parts.push(`<span class="math-inline">\{days\} day</span>{days > 1 ? 's' : ''}`);
-    if (hours > 0) parts.push(`<span class="math-inline">\{hours\} hour</span>{hours > 1 ? 's' : ''}`);
-    // Always show minutes if less than an hour or if it's exactly 0
+    // Ensure backticks are used for THESE template literals:
+    if (days > 0) parts.push(`${days} day${days > 1 ? 's' : ''}`);
+    if (hours > 0) parts.push(`${hours} hour${hours > 1 ? 's' : ''}`);
     if (minutes >= 0 && totalMinutes < 60 || minutes > 0) {
-         parts.push(`<span class="math-inline">\{minutes\} minute</span>{minutes !== 1 ? 's' : ''}`);
+         parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`);
     }
-     // Handle case where it's exactly 0 time left
-     if (parts.length === 0 && diffMs === 0) {
-         return "Now";
-     }
-     // Handle case where calculation is pending or resulted in no parts
-     if (parts.length === 0) {
-         return "Calculating..."
-     }
+    if (parts.length === 0 && diffMs === 0) {
+        return "Now";
+    }
+    if (parts.length === 0) {
+        return "Calculating..."
+    }
 
-
+    // This line simply joins the parts with a space
     return parts.join(' ');
 }
 
