@@ -199,6 +199,7 @@ function findNearestShop() {
 
 /**
  * Determines if the shop is open/closed and when the next event (open/close) occurs.
+ * Handles opening hours crossing midnight.
  * @param {Date} now The current date and time.
  * @param {object} shopHours The opening hours object for the specific shop.
  * @returns {object|null} Object with status, eventType, nextEventTime, or null on error.
@@ -219,77 +220,131 @@ function getShopStatus(now, shopHours) {
     let eventType = 'opens';
     let nextEventTime = null;
 
-    const todayHours = shopHours[currentDay];
-
-    if (todayHours && Array.isArray(todayHours) && todayHours.length === 2) { // Check if valid hours array exists for today
-        const openTimeInMinutes = todayHours[0] * 60;
-        const closeTimeInMinutes = todayHours[1] * 60;
-
-        if (currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes < closeTimeInMinutes) {
-            // Currently Open
-            status = 'open';
-            eventType = 'closes';
-            nextEventTime = new Date(now);
-            nextEventTime.setHours(todayHours[1], 0, 0, 0); // Closing time today
-        } else if (currentTimeInMinutes < openTimeInMinutes) {
-            // Closed, opens later today
-            status = 'closed';
-            eventType = 'opens';
-            nextEventTime = new Date(now);
-            nextEventTime.setHours(todayHours[0], 0, 0, 0); // Opening time today
-        } else {
-            // Closed, already past closing time (will be handled below)
-            status = 'closed';
-            eventType = 'opens';
+    // --- Check yesterday's hours first for overnight opening ---
+    const yesterdayDay = (currentDay + 6) % 7; // Day before today
+    const yesterdayHours = shopHours[yesterdayDay];
+    if (yesterdayHours && Array.isArray(yesterdayHours) && yesterdayHours.length === 2) {
+        const yOpen = yesterdayHours[0];
+        const yClose = yesterdayHours[1];
+        // Check if yesterday's hours crossed midnight (close hour < open hour)
+        if (yClose < yOpen) {
+            const yCloseTimeInMinutes = yClose * 60;
+            // Are we currently *before* yesterday's closing time (which occurs today)?
+            if (currentTimeInMinutes < yCloseTimeInMinutes) {
+                // Currently open from yesterday!
+                status = 'open';
+                eventType = 'closes';
+                nextEventTime = new Date(now);
+                nextEventTime.setHours(yClose, 0, 0, 0); // Closing time is today at yClose hour
+                // We've determined the status, no need to check today's opening further for this case
+            }
         }
-    } else {
-        // Closed all day today (e.g., Sunday or null/invalid entry)
-        status = 'closed';
-        eventType = 'opens';
     }
 
-    // If closed and next event isn't set yet (meaning opens next opening day)
+    // --- If not open from yesterday, check today's schedule ---
+    if (status === 'closed') { // Only proceed if not already marked open from yesterday
+        const todayHours = shopHours[currentDay];
+        if (todayHours && Array.isArray(todayHours) && todayHours.length === 2) {
+            const openTime = todayHours[0];
+            const closeTime = todayHours[1];
+            const openTimeInMinutes = openTime * 60;
+            const closeTimeInMinutes = closeTime * 60;
+
+            if (closeTime > openTime) { // Normal case: closes same day
+                if (currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes < closeTimeInMinutes) {
+                    // Currently Open, closes later today
+                    status = 'open';
+                    eventType = 'closes';
+                    nextEventTime = new Date(now);
+                    nextEventTime.setHours(closeTime, 0, 0, 0);
+                } else if (currentTimeInMinutes < openTimeInMinutes) {
+                    // Closed, opens later today
+                    status = 'closed';
+                    eventType = 'opens';
+                    nextEventTime = new Date(now);
+                    nextEventTime.setHours(openTime, 0, 0, 0);
+                }
+                // else: closed past closing time today, will be handled by 'find next opening' logic below
+
+            } else { // Special case: closes after midnight (closeTime < openTime)
+                if (currentTimeInMinutes >= openTimeInMinutes) {
+                    // Currently Open, closes tomorrow morning
+                    status = 'open';
+                    eventType = 'closes';
+                    nextEventTime = new Date(now);
+                    // Set date to tomorrow
+                    nextEventTime.setDate(now.getDate() + 1);
+                    nextEventTime.setHours(closeTime, 0, 0, 0);
+                } else {
+                    // Currently closed, before opening time today (but will close tomorrow)
+                    status = 'closed';
+                    eventType = 'opens';
+                    nextEventTime = new Date(now);
+                    nextEventTime.setHours(openTime, 0, 0, 0); // Opens later today
+                }
+            }
+        }
+        // else: Closed all day today based on todayHours being null or invalid, handled below
+    }
+
+
+    // --- If status is still 'closed' and nextEventTime wasn't set above, find the next opening day/time ---
     if (status === 'closed' && !nextEventTime) {
-        let nextDay = currentDay;
-        let daysToAdd = 0;
-        let attempts = 0; // Safety break
-        let nextOpeningHours = null;
-        do {
-            daysToAdd++;
-            nextDay = (nextDay + 1) % 7;
-            nextOpeningHours = shopHours[nextDay]; // Check next day's hours
-            attempts++;
-        } while ((!nextOpeningHours || !Array.isArray(nextOpeningHours) || nextOpeningHours.length !== 2) && attempts < 8); // Find next day with VALID hours
+         let nextDay = currentDay;
+         let daysToAdd = 0;
+         let attempts = 0; // Safety break
+         let nextOpeningHours = null;
 
-        if (attempts < 8 && nextOpeningHours) {
-            const nextOpeningHour = nextOpeningHours[0];
-            nextEventTime = new Date(now);
-            nextEventTime.setDate(now.getDate() + daysToAdd); // Set to the correct future date
-            nextEventTime.setHours(nextOpeningHour, 0, 0, 0); // Set to opening time
-        } else {
-            console.error("Could not find next valid opening day within 7 days.");
-            return null;
-        }
+         // Start search from tomorrow if we determined we are past closing time today
+         const todayHoursCheck = shopHours[currentDay];
+         if (todayHoursCheck && Array.isArray(todayHoursCheck) && todayHoursCheck.length === 2 &&
+             todayHoursCheck[1] > todayHoursCheck[0] && // Normal closing today
+             currentTimeInMinutes >= (todayHoursCheck[1] * 60)) { // And we are past it
+                 daysToAdd = 1;
+                 nextDay = (currentDay + 1) % 7;
+         }
+         // Also start search from tomorrow if today is null/invalid and it's the first attempt
+         else if (!todayHoursCheck || !Array.isArray(todayHoursCheck) || todayHoursCheck.length !== 2) {
+            // No valid hours today, start search from tomorrow
+            daysToAdd = 1;
+            nextDay = (currentDay + 1) % 7;
+         }
+         // Otherwise, the loop starts by checking the *next* day relative to the last checked 'nextDay'
+
+         do {
+             // If not the first iteration where we might have forced daysToAdd=1, increment day
+              if (attempts > 0 || daysToAdd == 0) { // Ensure we advance day after checking 'currentDay' implicitly if needed
+                    daysToAdd++;
+                    nextDay = (nextDay + 1) % 7;
+              }
+
+             nextOpeningHours = shopHours[nextDay];
+             attempts++;
+              // Ensure we break if we loop all the way around without forcing start from tomorrow
+             if (attempts > 7) {
+                 console.error("Looped through all days without finding opening hours.");
+                 break;
+             }
+         } while ((!nextOpeningHours || !Array.isArray(nextOpeningHours) || nextOpeningHours.length !== 2) && attempts < 8); // Find next day with VALID hours
+
+
+         if (attempts < 8 && nextOpeningHours) {
+             const nextOpeningHour = nextOpeningHours[0];
+             nextEventTime = new Date(now);
+             nextEventTime.setDate(now.getDate() + daysToAdd); // Set to the correct future date
+             nextEventTime.setHours(nextOpeningHour, 0, 0, 0); // Set to opening time
+         } else {
+             // Only log error if we didn't find anything after checking 7+ days
+              if (attempts >= 7) console.error("Could not find next valid opening day within 7 days.");
+             return null;
+         }
     }
 
+    // Final checks and return
     if (!nextEventTime) {
-        console.error("Logical error: Could not determine next event time.");
+        console.error("Logical error: Could not determine next event time at the end.");
         return null;
     }
-
-    // Optional: Refined check for past nextEventTime if closed
-    // This primarily handles the edge case exactly at opening time
-    if (status === 'closed' && nextEventTime <= now) {
-         console.warn("Calculated opening time is now or in the past. Recalculating for the *next* opening slot.");
-         // To handle this robustly, we'd need to call getShopStatus again,
-         // potentially advancing 'now' slightly or adding more complex logic.
-         // For simplicity, we'll let it show "Opens in: Now" or "Opens in: 0 minutes".
-         // Or force it forward:
-         // return getShopStatus(new Date(now.getTime() + 60000), shopHours); // Re-check in 1 minute? Risky recursion.
-
-         // Let's just return the current calculation - it will resolve on the next interval.
-    }
-
 
     return {
         status: status,
