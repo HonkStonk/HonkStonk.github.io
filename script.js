@@ -6,92 +6,119 @@ const statusText = document.getElementById('statusText');
 const hoursText = document.getElementById('hoursText');
 
 // --- Configuration ---
-const standardHours = { 0: null, 1: [10, 19], 2: [1, 19], 3: [10, 19], 4: [10, 19], 5: [10, 19], 6: [10, 15] };
-const mallHours = { 0: null, 1: [10, 20], 2: [10, 20], 3: [10, 20], 4: [10, 20], 5: [10, 20], 6: [10, 18] }; // Example variation for malls
+const standardSystemet = { 
+    0: null, 
+    1: [10, 19], // mon 
+    2: [10, 19], 
+    3: [10, 19], 
+    4: [10, 19], 
+    5: [10, 19], 
+    6: [10, 15] };
+const extendedSystemet = { 
+    0: null, 
+    1: [10, 20], // mon
+    2: [10, 20], 
+    3: [10, 20], 
+    4: [10, 20], 
+    5: [10, 20], 
+    6: [10, 15] };
 
 const beerShops = [
     // === SÖDERORT / SOUTH ===
-    { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459, hours: standardHours },
-    { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Tumba C", lat: 59.2010, lon: 17.8280, hours: standardHours },
-    { name: "Systembolaget Globen Shopping", lat: 59.2935, lon: 18.0830, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Gullmarsplan", lat: 59.3010, lon: 18.0780, hours: standardHours },
-    { name: "Systembolaget Årsta Torg", lat: 59.2960, lon: 18.0400, hours: standardHours },
-    { name: "Systembolaget Älvsjö", lat: 59.2770, lon: 18.0080, hours: standardHours },
-    { name: "Systembolaget Farsta C", lat: 59.2440, lon: 18.0890, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Hagsätra", lat: 59.2550, lon: 18.0350, hours: standardHours },
-    { name: "Systembolaget Högdalen", lat: 59.2640, lon: 18.0280, hours: standardHours },
-    { name: "Systembolaget Skarpnäck", lat: 59.2700, lon: 18.1350, hours: standardHours },
-    { name: "Systembolaget Hammarby Sjöstad", lat: 59.3050, lon: 18.1060, hours: standardHours },
-    { name: "Systembolaget Fruängen", lat: 59.2820, lon: 17.9740, hours: standardHours },
-    { name: "Systembolaget Telefonplan", lat: 59.3005, lon: 18.0190, hours: standardHours },
-    { name: "Systembolaget Tyresö C", lat: 59.2400, lon: 18.2250, hours: standardHours },
-    { name: "Systembolaget Handen (Haninge C)", lat: 59.1700, lon: 18.1380, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Vårberg", lat: 59.2820, lon: 17.8880, hours: standardHours },
-    { name: "Systembolaget Hallunda", lat: 59.2580, lon: 17.8420, hours: standardHours },
-    { name: "Systembolaget Skogås", lat: 59.2250, lon: 18.1250, hours: standardHours },
-    { name: "Systembolaget Södertälje C", lat: 59.1950, lon: 17.6250, hours: standardHours }, // Assuming standard, verify
+    { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459, hours: standardSystemet },
+    { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006, hours: standardSystemet }, // Example: Using mall hours
+    { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075, hours: standardSystemet }, // Example: Using mall hours
+    { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033, hours: standardSystemet }, // Example: Using mall hours
+    { name: "Systembolaget Tumba C", lat: 59.2010, lon: 17.8280, hours: standardSystemet },
+    { name: "Systembolaget Globen Shopping", lat: 59.2935, lon: 18.0830, hours: standardSystemet }, // Example: Using mall hours
+    { name: "Systembolaget Gullmarsplan", lat: 59.3010, lon: 18.0780, hours: standardSystemet },
+    { name: "Systembolaget Årsta Torg", lat: 59.2960, lon: 18.0400, hours: standardSystemet },
+    { name: "Systembolaget Älvsjö", lat: 59.2770, lon: 18.0080, hours: standardSystemet },
+    { name: "Systembolaget Farsta C", lat: 59.2440, lon: 18.0890, hours: standardSystemet }, // Example: Using mall hours
+    { name: "Systembolaget Hagsätra", lat: 59.2550, lon: 18.0350, hours: standardSystemet },
+    { name: "Systembolaget Högdalen", lat: 59.2640, lon: 18.0280, hours: standardSystemet },
+    { name: "Systembolaget Skarpnäck", lat: 59.2700, lon: 18.1350, hours: standardSystemet },
+    { name: "Systembolaget Hammarby Sjöstad", lat: 59.3050, lon: 18.1060, hours: standardSystemet },
+    { name: "Systembolaget Fruängen", lat: 59.2820, lon: 17.9740, hours: standardSystemet },
+    { name: "Systembolaget Telefonplan", lat: 59.3005, lon: 18.0190, hours: standardSystemet },
+    { name: "Systembolaget Tyresö C", lat: 59.2400, lon: 18.2250, hours: standardSystemet },
+    { name: "Systembolaget Handen (Haninge C)", lat: 59.1700, lon: 18.1380, hours: standardSystemet }, 
+    { name: "Systembolaget Vårberg", lat: 59.2820, lon: 17.8880, hours: standardSystemet },
+    { name: "Systembolaget Hallunda", lat: 59.2580, lon: 17.8420, hours: standardSystemet },
+    { name: "Systembolaget Skogås", lat: 59.2250, lon: 18.1250, hours: standardSystemet },
+    { name: "Systembolaget Södertälje C", lat: 59.1950, lon: 17.6250, hours: standardSystemet }, 
 
     // === CENTRAL STOCKHOLM ===
-    { name: "Systembolaget Hötorget", lat: 59.3338, lon: 18.0645, hours: standardHours }, // Usually later close Fri? Verify.
-    { name: "Systembolaget Regeringsgatan 44", lat: 59.3320, lon: 18.0700, hours: standardHours }, // Usually later close Fri? Verify.
-    { name: "Systembolaget Drottninggatan 63", lat: 59.3360, lon: 18.0610, hours: standardHours }, // Usually later close Fri? Verify.
-    { name: "Systembolaget Vasagatan 11 (Centralen)", lat: 59.3310, lon: 18.0580, hours: standardHours }, // Train station hours? Verify.
-    { name: "Systembolaget Rosenlundsgatan (Söder)", lat: 59.3165, lon: 18.0580, hours: standardHours },
-    { name: "Systembolaget NK (Hamngatan)", lat: 59.3325, lon: 18.0725, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Sturegallerian", lat: 59.3365, lon: 18.0730, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Östermalmstorg", lat: 59.3350, lon: 18.0780, hours: standardHours },
-    { name: "Systembolaget Medborgarplatsen", lat: 59.3175, lon: 18.0720, hours: standardHours },
-    { name: "Systembolaget Ringen C (Skanstull)", lat: 59.3120, lon: 18.0740, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Folkungagatan 98", lat: 59.3150, lon: 18.0810, hours: standardHours },
-    { name: "Systembolaget Hornstull", lat: 59.3170, lon: 18.0360, hours: standardHours },
-    { name: "Systembolaget Fridhemsplan", lat: 59.334914041394455, lon: 18.03016065483061, hours: standardHours },
-    { name: "Systembolaget Odenplan", lat: 59.3430, lon: 18.0500, hours: standardHours },
-    { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430, hours: standardHours },
-    { name: "Systembolaget Garnisonen (Karlavägen)", lat: 59.3370, lon: 18.1050, hours: standardHours },
+    { name: "Systembolaget Hötorget", lat: 59.3338, lon: 18.0645, hours: standardSystemet }, 
+    { name: "Systembolaget Regeringsgatan 44", lat: 59.3320, lon: 18.0700, hours: standardSystemet }, 
+    { name: "Systembolaget Drottninggatan 63", lat: 59.3360, lon: 18.0610, hours: standardSystemet }, 
+    { name: "Systembolaget Vasagatan 11 (Centralen)", lat: 59.3310, lon: 18.0580, hours: standardSystemet }, 
+    { name: "Systembolaget Rosenlundsgatan (Söder)", lat: 59.3165, lon: 18.0580, hours: standardSystemet },
+    { name: "Systembolaget NK (Hamngatan)", lat: 59.3325, lon: 18.0725, hours: standardSystemet }, 
+    { name: "Systembolaget Sturegallerian", lat: 59.3365, lon: 18.0730, hours: standardSystemet }, 
+    { name: "Systembolaget Östermalmstorg", lat: 59.3350, lon: 18.0780, hours: standardSystemet },
+    { name: "Systembolaget Medborgarplatsen", lat: 59.3175, lon: 18.0720, hours: standardSystemet },
+    { name: "Systembolaget Ringen C (Skanstull)", lat: 59.3120, lon: 18.0740, hours: standardSystemet }, 
+    { name: "Systembolaget Folkungagatan 98", lat: 59.3150, lon: 18.0810, hours: standardSystemet },
+    { name: "Systembolaget Hornstull", lat: 59.3170, lon: 18.0360, hours: standardSystemet },
+    { name: "Systembolaget Fridhemsplan", lat: 59.334914041394455, lon: 18.03016065483061, hours: standardSystemet },
+    { name: "Systembolaget Odenplan", lat: 59.3430, lon: 18.0500, hours: standardSystemet },
+    { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950, hours: standardSystemet }, 
+    { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430, hours: standardSystemet },
+    { name: "Systembolaget Garnisonen (Karlavägen)", lat: 59.3370, lon: 18.1050, hours: standardSystemet },
 
     // === VÄSTERORT / WEST + SOLNA / SUNDBYBERG ===
-    { name: "Systembolaget Vällingby C", lat: 59.3650, lon: 17.8750, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Brommaplan", lat: 59.3370, lon: 17.9360, hours: standardHours },
-    { name: "Systembolaget Alvik", lat: 59.3330, lon: 17.9800, hours: standardHours },
-    { name: "Systembolaget Spånga", lat: 59.3870, lon: 17.9080, hours: standardHours },
-    { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500, hours: standardHours },
-    { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330, hours: standardHours },
-    { name: "Systembolaget Kista Galleria", lat: 59.4030, lon: 17.9460, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Sundbyberg C", lat: 59.361282641195146, lon: 17.96761658614288, hours: standardHours },
-    { name: "Systembolaget Solna C", lat: 59.3603709947504, lon: 17.999897339919222, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Mall of Scandinavia", lat: 59.370194330158704, lon: 18.004843423347644, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350, hours: standardHours },
-    { name: "Systembolaget Ekerö C", lat: 59.2900, lon: 17.7950, hours: standardHours },
-    { name: "Systembolaget Barkarby Handelsplats", lat: 59.4070, lon: 17.8550, hours: standardHours },
+    { name: "Systembolaget Vällingby C", lat: 59.3650, lon: 17.8750, hours: standardSystemet }, 
+    { name: "Systembolaget Brommaplan", lat: 59.3370, lon: 17.9360, hours: standardSystemet },
+    { name: "Systembolaget Alvik", lat: 59.3330, lon: 17.9800, hours: standardSystemet },
+    { name: "Systembolaget Spånga", lat: 59.3870, lon: 17.9080, hours: standardSystemet },
+    { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500, hours: standardSystemet },
+    { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330, hours: standardSystemet },
+    { name: "Systembolaget Kista Galleria", lat: 59.4030, lon: 17.9460, hours: standardSystemet }, 
+    { name: "Systembolaget Sundbyberg C", lat: 59.361282641195146, lon: 17.96761658614288, hours: standardSystemet },
+    { name: "Systembolaget Solna C", lat: 59.3603709947504, lon: 17.999897339919222, hours: standardSystemet }, 
+    { name: "Systembolaget Mall of Scandinavia", lat: 59.370194330158704, lon: 18.004843423347644, hours: standardSystemet }, 
+    {
+        name: "Tegelbaren",
+        lat: 59.363803965676624,
+        lon: 18.013583562948757,
+        hours: { 0: [12, 1], 1: [13, 1], 2: [13, 1], 3: [13, 1], 4: [13, 1], 5: [13, 1], 6: [12, 1] }
+    },
+    { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767, hours: standardSystemet }, 
+    { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350, hours: standardSystemet },
+    { name: "Systembolaget Ekerö C", lat: 59.2900, lon: 17.7950, hours: standardSystemet },
+    { name: "Systembolaget Barkarby Handelsplats", lat: 59.4070, lon: 17.8550, hours: standardSystemet },
+    { name: "Systembolaget Torsplan", lat: 59.346396781223454, lon: 18.03327258104888, hours: extendedSystemet },
 
     // === NORRORT / NORTH ===
-    { name: "Systembolaget Täby Centrum", lat: 59.4430, lon: 18.0700, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Mörby C", lat: 59.3980, lon: 18.0550, hours: standardHours },
-    { name: "Systembolaget Sollentuna C", lat: 59.4280, lon: 17.9480, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Väsby Centrum", lat: 59.5170, lon: 17.9250, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Arninge", lat: 59.4520, lon: 18.1250, hours: standardHours },
-    { name: "Systembolaget Åkersberga C", lat: 59.479694308737685, lon: 18.300274711380194, hours: standardHours },
-    { name: "Systembolaget Vallentuna C", lat: 59.5330, lon: 18.0800, hours: standardHours },
-    { name: "Systembolaget Märsta", lat: 59.62121118722028, lon: 17.857465378564434, hours: standardHours },
-    { name: "Systembolaget Sigtuna", lat: 59.61548401139691, lon: 17.719609162850304, hours: standardHours },
-    { name: "Systembolaget Norrtälje", lat: 59.757200981639876, lon: 18.700358608072552, hours: standardHours },
-    { name: "Systembolaget Djursholms Torg", lat: 59.3950, lon: 18.0800, hours: standardHours },
+    { name: "Systembolaget Täby Centrum", lat: 59.4430, lon: 18.0700, hours: standardSystemet }, 
+    { name: "Systembolaget Mörby C", lat: 59.3980, lon: 18.0550, hours: standardSystemet },
+    { name: "Systembolaget Sollentuna C", lat: 59.4280, lon: 17.9480, hours: standardSystemet },
+    {
+        name: "Hägges Kök & Bar",
+        lat: 59.4455204605716,
+        lon: 17.93287492364029,
+        hours: { 0: [12, 22], 1: [10, 22], 2: [10, 22], 3: [10, 22], 4: [10, 22], 5: [10, 1], 6: [12, 1] }
+    }, 
+    { name: "Systembolaget Väsby Centrum", lat: 59.5170, lon: 17.9250, hours: standardSystemet }, 
+    { name: "Systembolaget Arninge", lat: 59.4520, lon: 18.1250, hours: standardSystemet },
+    { name: "Systembolaget Åkersberga C", lat: 59.479694308737685, lon: 18.300274711380194, hours: standardSystemet },
+    { name: "Systembolaget Vallentuna C", lat: 59.5330, lon: 18.0800, hours: standardSystemet },
+    { name: "Systembolaget Märsta", lat: 59.62121118722028, lon: 17.857465378564434, hours: standardSystemet },
+    { name: "Systembolaget Sigtuna", lat: 59.61548401139691, lon: 17.719609162850304, hours: standardSystemet },
+    { name: "Systembolaget Norrtälje", lat: 59.757200981639876, lon: 18.700358608072552, hours: standardSystemet },
+    { name: "Systembolaget Djursholms Torg", lat: 59.3950, lon: 18.0800, hours: standardSystemet },
 
     // === NACKA / VÄRMDÖ / EAST + LIDINGÖ ===
-    { name: "Systembolaget Nacka Forum", lat: 59.3090, lon: 18.1650, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Orminge C", lat: 59.3160, lon: 18.2480, hours: standardHours },
-    { name: "Systembolaget Gustavsberg C", lat: 59.3260, lon: 18.3880, hours: standardHours },
-    { name: "Systembolaget Sickla", lat: 59.3070, lon: 18.1180, hours: mallHours }, // Example: Using mall hours
-    { name: "Systembolaget Lidingö C", lat: 59.3670, lon: 18.1420, hours: standardHours },
-    { name: "Systembolaget Saltsjöbaden", lat: 59.2840, lon: 18.2500, hours: standardHours },
+    { name: "Systembolaget Nacka Forum", lat: 59.3090, lon: 18.1650, hours: standardSystemet }, 
+    { name: "Systembolaget Orminge C", lat: 59.3160, lon: 18.2480, hours: standardSystemet },
+    { name: "Systembolaget Gustavsberg C", lat: 59.3260, lon: 18.3880, hours: standardSystemet },
+    { name: "Systembolaget Sickla", lat: 59.3070, lon: 18.1180, hours: standardSystemet }, 
+    { name: "Systembolaget Lidingö C", lat: 59.3670, lon: 18.1420, hours: standardSystemet },
+    { name: "Systembolaget Saltsjöbaden", lat: 59.2840, lon: 18.2500, hours: standardSystemet },
 
     // === UPPSALA ===
-    { name: "Systembolaget Boländerna Uppsala", lat: 59.847308235139515, lon: 17.687312396781717, hours: standardHours }
+    { name: "Systembolaget Boländerna Uppsala", lat: 59.847308235139515, lon: 17.687312396781717, hours: standardSystemet }
 ];
 
 
