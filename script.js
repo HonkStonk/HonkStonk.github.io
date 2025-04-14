@@ -169,32 +169,82 @@ function getBearingFromLatLon(lat1, lon1, lat2, lon2) {
 
 // --- Core Logic Functions ---
 
-function findNearestShop() {
-    if (!currentPosition) return null;
+/**
+ * Finds the target shop based on priority:
+ * 1. Nearest shop that is currently open.
+ * 2. If none open, the nearest shop among those that will open soonest.
+ * @returns {object|null} The target shop object (with distance and statusInfo) or null if none found.
+ */
+function findTargetShop() {
+    if (!currentPosition) return null; // Need user's location first
 
-    let closestShop = null;
-    let minDist = Infinity;
+    const now = new Date();
+    let openShops = [];
+    let closedShopsInfo = []; // To store info about closed shops for fallback
 
+    // Step 1: Iterate, calculate distance, and get status for all shops
     beerShops.forEach(shop => {
-        // Basic check if shop has lat/lon defined
-        if (shop.lat === undefined || shop.lon === undefined) {
-            console.warn(`Shop missing coordinates: ${shop.name}`);
+        // Basic check if shop has essential data
+        if (shop.lat === undefined || shop.lon === undefined || !shop.hours) {
+            console.warn(`Shop missing coordinates or hours: ${shop.name}`);
             return; // Skip this shop
         }
-        const dist = getDistanceFromLatLonInKm(
+
+        const distance = getDistanceFromLatLonInKm(
             currentPosition.coords.latitude,
             currentPosition.coords.longitude,
             shop.lat,
             shop.lon
         );
-        if (dist < minDist) {
-            minDist = dist;
-            closestShop = shop; // Keep the whole shop object
-            // Add distance temporarily for easy access, will be overwritten on next find
-            closestShop.distance = dist;
+
+        const statusInfo = getShopStatus(now, shop.hours);
+
+        // Store calculated info temporarily (doesn't modify original beerShops array)
+        const shopWithInfo = { ...shop, distance: distance, statusInfo: statusInfo };
+
+        if (statusInfo && statusInfo.status === 'open') {
+            openShops.push(shopWithInfo);
+        } else if (statusInfo && statusInfo.status === 'closed' && statusInfo.eventType === 'opens') {
+             // Only consider closed shops that will open eventually
+             closedShopsInfo.push(shopWithInfo);
         }
+        // Ignore shops with status errors or that never open
     });
-    return closestShop;
+
+    // Step 2: Prioritize nearest open shop
+    if (openShops.length > 0) {
+        console.log("Found open shops:", openShops.length);
+        openShops.sort((a, b) => a.distance - b.distance); // Sort open shops by distance
+        return openShops[0]; // Return the nearest open one
+    }
+
+    // Step 3: If no open shops, find the nearest that opens soonest
+    if (closedShopsInfo.length > 0) {
+        console.log("No open shops. Checking closed shops:", closedShopsInfo.length);
+        // Find the minimum next opening time
+        let soonestOpenTime = Infinity;
+        closedShopsInfo.forEach(shop => {
+            if (shop.statusInfo.nextEventTime.getTime() < soonestOpenTime) {
+                soonestOpenTime = shop.statusInfo.nextEventTime.getTime();
+            }
+        });
+
+         // Filter for shops opening at that soonest time
+         const shopsOpeningSoonest = closedShopsInfo.filter(shop =>
+            shop.statusInfo.nextEventTime.getTime() === soonestOpenTime
+         );
+
+         if (shopsOpeningSoonest.length > 0) {
+             // Among those opening soonest, find the nearest one
+             shopsOpeningSoonest.sort((a, b) => a.distance - b.distance);
+             console.log("Targeting nearest shop opening soonest:", shopsOpeningSoonest[0].name);
+             return shopsOpeningSoonest[0];
+         }
+    }
+
+    // Step 4: Fallback - no open shops found, and no closed shops found opening soon
+    console.log("Could not find any open or soon-to-open shops.");
+    return null; // Or return geographically nearest as absolute fallback? Null is clearer.
 }
 
 /**
@@ -391,47 +441,54 @@ function formatTimeDifference(diffMs) {
 
 
 // Updates the opening hours display text
-function updateOpeningHoursDisplay() {
+function updateOpeningHoursDisplay(shopToDisplay) { // Accept target shop as argument
     const now = new Date();
-    // Ensure nearestShop is available and has an hours property
-    if (nearestShop && nearestShop.hours) {
-        const statusInfo = getShopStatus(now, nearestShop.hours); // Pass the specific shop's hours
+
+    // Use the passed shopToDisplay, check if it and its hours exist
+    if (shopToDisplay && shopToDisplay.hours) {
+        // Use the statusInfo already calculated in findTargetShop if available,
+        // otherwise recalculate (recalculation is safer if time passed)
+        const statusInfo = shopToDisplay.statusInfo || getShopStatus(now, shopToDisplay.hours);
 
         if (statusInfo) {
             const diffMs = statusInfo.nextEventTime.getTime() - now.getTime();
             const formattedDiff = formatTimeDifference(diffMs);
-            // Use statusInfo.status to determine prefix
             const prefix = statusInfo.status === 'open' ? 'Closes' : 'Opens';
-            hoursText.textContent = `${prefix} in: ${formattedDiff}`;
+            // Include shop name in the hours text for clarity
+            hoursText.textContent = `${shopToDisplay.name} ${prefix.toLowerCase()} in: ${formattedDiff}`;
         } else {
-            // Error occurred in getShopStatus or hours were invalid
-            hoursText.textContent = "Opening hours: Status unavailable";
+            hoursText.textContent = `Opening hours for ${shopToDisplay.name}: Status unavailable`;
         }
-    } else {
-         // Handle case where nearest shop isn't determined yet or lacks hours data
-         hoursText.textContent = "Opening hours: Waiting for shop data...";
+    } else if (shopToDisplay) {
+         hoursText.textContent = `Opening hours for ${shopToDisplay.name}: Data unavailable`;
     }
+     // else: No target shop determined, message handled in updateDisplay
 }
+
+let targetShop = null;
 
 // Main function to update all UI elements
 function updateDisplay() {
-    nearestShop = findNearestShop(); // Find nearest based on currentPosition
+    targetShop = findTargetShop(); // Find the appropriate target shop
 
-    if (nearestShop) {
+    statusText.textContent = " ";
+    hoursText.textContent = " ";
+    distanceText.textContent = "Distance: --- km";
+
+    if (targetShop) {
         // Update distance text
-        distanceText.textContent = `Distance: ${nearestShop.distance.toFixed(2)} km (${nearestShop.name})`;
+        distanceText.textContent = `Distance: ${targetShop.distance.toFixed(2)} km (${targetShop.name})`;
 
         // Calculate bearing if we have position
         const bearing = getBearingFromLatLon(
             currentPosition.coords.latitude,
             currentPosition.coords.longitude,
-            nearestShop.lat,
-            nearestShop.lon
+            targetShop.lat,
+            targetShop.lon
         );
 
         // Rotate needle if we have heading and bearing
         if (currentHeading !== null) {
-            // Ensure currentHeading is a number
              if (typeof currentHeading === 'number') {
                  const rotation = bearing - currentHeading;
                  compassNeedle.style.transform = `rotate(${rotation}deg)`;
@@ -445,17 +502,18 @@ function updateDisplay() {
               // Optional: Point needle towards target if no compass data? Requires bearing only.
               // compassNeedle.style.transform = `rotate(${bearing}deg)`; // This points North towards target
         }
+        // Update opening hours display using the found targetShop
+        updateOpeningHoursDisplay(targetShop); // Pass targetShop to the hours display function
     } else {
           distanceText.textContent = `Distance: --- km`;
+          hoursText.textContent = "No open or soon-opening shops found.";
+          compassNeedle.style.transform = `rotate(0deg)`;
           if (!currentPosition) {
              statusText.textContent = "Waiting for GPS signal...";
           } else {
-             statusText.textContent = "Could not find nearest shop."; // e.g., if beerShops is empty
+             statusText.textContent = "No target found.";
           }
     }
-
-    // Update hours display regardless of whether shop changed, time always moves
-    updateOpeningHoursDisplay();
 }
 
 // --- Event Handlers ---
@@ -552,10 +610,10 @@ function requestPermissionsAndStart() {
         startGeolocation();
 
         // Call initial update *after* starting requests
-        updateOpeningHoursDisplay();
+        updateDisplay();
 
         // Start the interval timer *after* starting everything
-        hoursIntervalId = setInterval(updateOpeningHoursDisplay, 60000); // 60000ms = 1 minute
+        hoursIntervalId = setInterval(updateDisplay, 60000); // 60000ms = 1 minute
 
     }); // End of orientationPromise.then
 }
