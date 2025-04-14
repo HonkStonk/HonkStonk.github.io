@@ -82,7 +82,7 @@ const beerShops = [
         name: "Tegelbaren",
         lat: 59.363803965676624,
         lon: 18.013583562948757,
-        hours: { 0: [12, 1], 1: [13, 1], 2: [13, 1], 3: [13, 1], 4: [13, 1], 5: [13, 1], 6: [12, 1] }
+        hours: { 0: [12, 1.5], 1: [13, 1.5], 2: [13, 1.5], 3: [13, 1.5], 4: [13, 1.5], 5: [13, 1.5], 6: [12, 1.5] }
     },
     { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767, hours: standardSystemet }, 
     { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350, hours: standardSystemet },
