@@ -26,6 +26,12 @@ const extendedSystemet = {
 const beerShops = [
     // === SÖDERORT / SOUTH ===
     { name: "Systembolaget Huddinge C", lat: 59.236300194867724, lon: 17.98243249516459, hours: standardSystemet },
+    {
+        name: "Steakhouse Huddinge",
+        lat: 59.236403519114646,
+        lon: 17.980697895981507,
+        hours: { 0: [11, 21], 1: [10, 22], 2: [10, 22], 3: [10, 22], 4: [10, 22], 5: [10, 24], 6: [11, 24] }
+    },
     { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006, hours: standardSystemet }, // Example: Using mall hours
     { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075, hours: standardSystemet }, // Example: Using mall hours
     { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033, hours: standardSystemet }, // Example: Using mall hours
@@ -65,6 +71,18 @@ const beerShops = [
     { name: "Systembolaget Odenplan", lat: 59.3430, lon: 18.0500, hours: standardSystemet },
     { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950, hours: standardSystemet }, 
     { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430, hours: standardSystemet },
+    {
+        name: "Patricia Restaurang & Nattklubb",
+        lat: 59.321411566345226,
+        lon: 18.05253223668301,
+        hours: { 0: [22, 5], 1: null, 2: null, 3: null, 4: null, 5: [20, 5], 6: [20, 5] }
+    },
+    {
+        name: "Pub Anchor",
+        lat: 59.341278037258355,
+        lon: 18.058500580773348,
+        hours: { 0: [13, 3], 1: [13, 3], 2: [13, 3], 3: [13, 3], 4: [13, 3], 5: [12, 3], 6: [13, 3] }
+    },
     { name: "Systembolaget Garnisonen (Karlavägen)", lat: 59.3370, lon: 18.1050, hours: standardSystemet },
 
     // === VÄSTERORT / WEST + SOLNA / SUNDBYBERG ===
@@ -85,6 +103,12 @@ const beerShops = [
         hours: { 0: [12, 2], 1: [13, 2], 2: [13, 2], 3: [13, 2], 4: [13, 2], 5: [13, 2], 6: [12, 2] }
     },
     { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767, hours: standardSystemet }, 
+    {
+        name: "NYC Burger Bromma",
+        lat: 59.353590528468665,
+        lon: 17.957536910631937,
+        hours: { 0: null, 1: [11, 15], 2: [11, 15], 3: [11, 15], 4: [11, 15], 5: [11, 15], 6: null }
+    },
     { name: "Systembolaget Jakobsberg (Järfälla)", lat: 59.4220, lon: 17.8350, hours: standardSystemet },
     { name: "Systembolaget Ekerö C", lat: 59.2900, lon: 17.7950, hours: standardSystemet },
     { name: "Systembolaget Barkarby Handelsplats", lat: 59.4070, lon: 17.8550, hours: standardSystemet },
