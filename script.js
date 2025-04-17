@@ -7,7 +7,7 @@ const hoursText = document.getElementById('hoursText');
 
 // --- Configuration ---
 const standardSystemet = { 
-    0: null, 
+    0: null,     // sun
     1: [10, 19], // mon 
     2: [10, 19], 
     3: [10, 19], 
@@ -15,7 +15,7 @@ const standardSystemet = {
     5: [10, 19], 
     6: [10, 15] };
 const extendedSystemet = { 
-    0: null, 
+    0: null,     // sun
     1: [10, 20], // mon
     2: [10, 20], 
     3: [10, 20], 
@@ -72,6 +72,36 @@ const beerShops = [
     { name: "Systembolaget Fältöversten (Karlaplan)", lat: 59.3400, lon: 18.0950, hours: standardSystemet }, 
     { name: "Systembolaget Fleminggatan 58", lat: 59.3355, lon: 18.0430, hours: standardSystemet },
     {
+        name: "Teodoras",
+        lat: 59.3357221671323,
+        lon: 18.033179957356698,
+        hours: { 0: [13, 3], 1: [15, 3], 2: [15, 3], 3: [15, 3], 4: [15, 3], 5: [15, 3], 6: [13, 3] }
+    },
+    {
+        name: "Dovas",
+        lat: 59.33558295461416,
+        lon: 18.03311608644089,
+        hours: { 0: [11, 1], 1: [11, 1], 2: [11, 1], 3: [11, 1], 4: [11, 1], 5: [11, 1], 6: [11, 1] }
+    },
+    {
+        name: "Bistro Fridhem",
+        lat: 59.333315806954126,
+        lon: 18.029850969674058,
+        hours: { 0: [13, 1], 1: [13, 1], 2: [13, 1], 3: [13, 1], 4: [13, 1], 5: [13, 1], 6: [13, 1] }
+    },
+    {
+        name: "Gröne Jägarn",
+        lat: 59.31343881976508,
+        lon: 18.073600117059083,
+        hours: { 0: [12, 1], 1: [12, 1], 2: [12, 1], 3: [12, 1], 4: [12, 1], 5: [12, 1], 6: [12, 1] }
+    },
+    {
+        name: "The Central Bar",
+        lat: 59.31123236268416,
+        lon: 18.0745058824433,
+        hours: { 0: [11, 1], 1: [11, 1], 2: [11, 1], 3: [11, 1], 4: [11, 1], 5: [11, 1], 6: [11, 1] }
+    },
+    {
         name: "Patricia Restaurang & Nattklubb",
         lat: 59.321411566345226,
         lon: 18.05253223668301,
@@ -92,10 +122,40 @@ const beerShops = [
     { name: "Systembolaget Spånga", lat: 59.3870, lon: 17.9080, hours: standardSystemet },
     { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500, hours: standardSystemet },
     { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330, hours: standardSystemet },
+    {
+        name: "Pub Lord & AlDente",
+        lat: 59.401970853764105,
+        lon: 17.94364915167063,
+        hours: { 0: [11, 23], 1: [11, 23], 2: [11, 23], 3: [11, 23], 4: [11, 23], 5: [11, 0], 6: [11, 0] }
+    },    
     { name: "Systembolaget Kista Galleria", lat: 59.4030, lon: 17.9460, hours: standardSystemet }, 
     { name: "Systembolaget Sundbyberg C", lat: 59.361282641195146, lon: 17.96761658614288, hours: standardSystemet },
     { name: "Systembolaget Solna C", lat: 59.3603709947504, lon: 17.999897339919222, hours: standardSystemet }, 
     { name: "Systembolaget Mall of Scandinavia", lat: 59.370194330158704, lon: 18.004843423347644, hours: standardSystemet }, 
+    {
+        name: "Spisa Pizza Solna",
+        lat: 59.38158834903574,
+        lon: 18.001108119987467,
+        hours: { 0: [12, 21], 1: [11, 21], 2: [11, 21], 3: [11, 21], 4: [11, 21], 5: [11, 21], 6: [12, 21] }
+    },
+    {
+        name: "Veneto",
+        lat: 59.381309231723215,
+        lon: 17.9944561320891,
+        hours: { 0: [12, 21], 1: [11, 21], 2: [11, 21], 3: [11, 21], 4: [11, 21], 5: [11, 21], 6: [12, 21] }
+    },
+    {
+        name: "Basic bar & kök",
+        lat: 59.36401813531022,
+        lon: 18.01208967251386,
+        hours: { 0: [12, 23], 1: [14, 23], 2: [14, 23], 3: [14, 23], 4: [14, 23], 5: [14, 0], 6: [12, 0] }
+    },
+    {
+        name: "Curry Flames",
+        lat: 59.3630747852966,
+        lon: 18.022514236956372,
+        hours: { 0: [17, 21], 1: [11, 21], 2: [11, 21], 3: [11, 21], 4: [11, 21], 5: [11, 22], 6: [17, 22] }
+    },
     {
         name: "Tegelbaren",
         lat: 59.363803965676624,
@@ -103,6 +163,24 @@ const beerShops = [
         hours: { 0: [12, 2], 1: [13, 2], 2: [13, 2], 3: [13, 2], 4: [13, 2], 5: [13, 2], 6: [12, 2] }
     },
     { name: "Systembolaget Bromma Blocks", lat: 59.35603722291109, lon: 17.95403819710767, hours: standardSystemet }, 
+    {
+        name: "The Blues Pub",
+        lat: 59.36267525599722,
+        lon: 17.966726780976334,
+        hours: { 0: [15, 1], 1: [16, 1], 2: [16, 1], 3: [16, 1], 4: [16, 1], 5: [15, 1], 6: [15, 1] }
+    },
+    {
+        name: "The Station",
+        lat: 59.36133424480804,
+        lon: 17.967131923444736,
+        hours: { 0: [12, 1], 1: [14, 1], 2: [14, 1], 3: [14, 1], 4: [14, 1], 5: [14, 1], 6: [11, 1] }
+    },
+    {
+        name: "Bistro Berg",
+        lat: 59.36165289687524,
+        lon: 17.9667554387435,
+        hours: { 0: [11, 1], 1: [11, 1], 2: [11, 1], 3: [11, 1], 4: [11, 1], 5: [11, 1], 6: [11, 1] }
+    },
     {
         name: "NYC Burger Bromma",
         lat: 59.353590528468665,
@@ -118,6 +196,24 @@ const beerShops = [
     { name: "Systembolaget Täby Centrum", lat: 59.4430, lon: 18.0700, hours: standardSystemet }, 
     { name: "Systembolaget Mörby C", lat: 59.3980, lon: 18.0550, hours: standardSystemet },
     { name: "Systembolaget Sollentuna C", lat: 59.4280, lon: 17.9480, hours: standardSystemet },
+    {
+        name: "Hamilton Sollentuna",
+        lat: 59.429078263279685,
+        lon: 17.950376315626713,
+        hours: { 0: [12, 0], 1: [11, 0], 2: [11, 0], 3: [11, 0], 4: [11, 0], 5: [11, 1], 6: [12, 1] }
+    },
+    {
+        name: "Paddy's Pub",
+        lat: 59.428882173792154,
+        lon: 17.948595278849236,
+        hours: { 0: [14, 1], 1: [16, 23], 2: [16, 1], 3: [16, 1], 4: [16, 1], 5: [14, 1], 6: [14, 1] }
+    },
+    {
+        name: "Restaurang som hemma",
+        lat: 59.431567691648944,
+        lon: 17.942858160553268,
+        hours: { 0: [12, 20], 1: [11, 20], 2: [10, 21], 3: [10, 21], 4: [10, 21], 5: [12, 20], 6: null }
+    },
     {
         name: "Hägges Kök & Bar",
         lat: 59.4455204605716,
