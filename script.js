@@ -32,6 +32,18 @@ const beerShops = [
         lon: 17.980697895981507,
         hours: { 0: [11, 21], 1: [10, 22], 2: [10, 22], 3: [10, 22], 4: [10, 22], 5: [10, 24], 6: [11, 24] }
     },
+    {
+        name: "Märtas krog",
+        lat: 59.29928116209166,
+        lon: 18.034174376122884,
+        hours: { 0: [12, 22], 1: [15, 22], 2: [15, 22], 3: [15, 22], 4: [15, 22], 5: [15, 23], 6: [12, 23] }
+    },
+    {
+        name: "Två Små Svin",
+        lat: 59.29660270954124,
+        lon: 18.05172463706229,
+        hours: { 0: [12, 22], 1: [12, 22], 2: [12, 22], 3: [12, 23], 4: [12, 23], 5: [12, 23], 6: [12, 23] }
+    },
     { name: "Systembolaget Kungens Kurva", lat: 59.27069281369475, lon: 17.921997461321006, hours: standardSystemet }, // Example: Using mall hours
     { name: "Systembolaget Skärholmen", lat: 59.2758, lon: 17.9075, hours: standardSystemet }, // Example: Using mall hours
     { name: "Systembolaget Liljeholmen", lat: 59.30974291775931, lon: 18.022171971540033, hours: standardSystemet }, // Example: Using mall hours
@@ -96,6 +108,36 @@ const beerShops = [
         hours: { 0: [12, 1], 1: [12, 1], 2: [12, 1], 3: [12, 1], 4: [12, 1], 5: [12, 1], 6: [12, 1] }
     },
     {
+        name: "Tudor Arms",
+        lat: 59.334952279166714,
+        lon: 18.085266462870127,
+        hours: { 0: [13, 20], 1: [16, 22], 2: [16, 22], 3: [16, 23], 4: [16, 23], 5: [15, 23], 6: [13, 23] }
+    },
+    {
+        name: "Balthazar",
+        lat: 59.31651724330777,
+        lon: 18.072821261790484,
+        hours: { 0: [16, 1], 1: [16, 1], 2: [16, 1], 3: [16, 1], 4: [16, 1], 5: [16, 1], 6: [16, 1] }
+    },
+    {
+        name: "Baras Backe",
+        lat: 59.31645391513682,
+        lon: 18.07232335898723,
+        hours: { 0: [14, 1], 1: [15, 1], 2: [15, 1], 3: [15, 1], 4: [15, 1], 5: [15, 1], 6: [14, 1] }
+    },
+    {
+        name: "Old Beefeater Inn",
+        lat: 59.318586114984306,
+        lon: 18.07126669854937,
+        hours: { 0: [12, 0], 1: [14, 0], 2: [14, 1], 3: [14, 1], 4: [14, 1], 5: [12, 3], 6: [12, 3] }
+    },
+    {
+        name: "Big Ben Pub",
+        lat: 59.31566681636484,
+        lon: 18.083364160634602,
+        hours: { 0: [12, 0], 1: [11, 0], 2: [11, 1], 3: [11, 1], 4: [11, 1], 5: [11, 3], 6: [12, 3] }
+    },
+    {
         name: "The Central Bar",
         lat: 59.31123236268416,
         lon: 18.0745058824433,
@@ -119,6 +161,12 @@ const beerShops = [
     { name: "Systembolaget Vällingby C", lat: 59.3650, lon: 17.8750, hours: standardSystemet }, 
     { name: "Systembolaget Brommaplan", lat: 59.3370, lon: 17.9360, hours: standardSystemet },
     { name: "Systembolaget Alvik", lat: 59.3330, lon: 17.9800, hours: standardSystemet },
+    {
+        name: "Kullens Bar & Kök",
+        lat: 59.33540253247618,
+        lon: 17.979256397386333,
+        hours: { 0: [11, 0], 1: [11, 0], 2: [11, 0], 3: [11, 0], 4: [11, 0], 5: [11, 0], 6: [11, 0] }
+    },
     { name: "Systembolaget Spånga", lat: 59.3870, lon: 17.9080, hours: standardSystemet },
     { name: "Systembolaget Hässelby Gård", lat: 59.3760, lon: 17.8500, hours: standardSystemet },
     { name: "Systembolaget Akalla", lat: 59.4160, lon: 17.9330, hours: standardSystemet },
