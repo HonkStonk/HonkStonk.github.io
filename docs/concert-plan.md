@@ -2,7 +2,7 @@
 
 Recorded: 2026-09-05. Status: initial inspection and proposal; no implementation approved or started in this session.
 
-This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions.
+This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 
 ## Working constraints and repository baseline
 
