@@ -1,6 +1,6 @@
 # Magic Compass: concert extension plan
 
-Recorded: 2026-09-05. Updated: 2026-09-07. Status: first UI and data-fetching implementation in the local working tree; not pushed or deployed.
+Recorded: 2026-09-05. Updated: 2026-09-08. Status: first UI and data-fetching implementation completed; latest guitar/guide edits are local and have not been pushed or deployed by Codex.
 
 This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 
@@ -14,6 +14,12 @@ This document preserves the project brief and inspection findings for later Code
 - Inspected HEAD: `0649799` (`and one more`). No commit, branch switch, push or deployment was performed for this plan.
 - No `AGENTS.md` found in the repository, including hidden paths outside `.git`, or its ancestor directories through `C:\`. No repository-specific instructions were found. No `.openai/hosting.json`, package manifest, build configuration, test suite or `.github` workflow directory exists in the inspected checkout.
 - GitHub Pages hosting and primary use on iPhone are supplied by the user. Live hosting settings and the installed iPhone app were not inspected.
+
+## Follow-up — 2026-09-08
+
+The user reports that the app looks OK and works within its current coverage. Replaced the concert needle's Lucide icon with their `sg-guitar.jpg`; preserved the portrait proportions and removed the former 45-degree icon correction. The supplied JPEG contains an opaque checkerboard background. The original image was not edited. Updated the public packaging allowlist accordingly; the beer bottle and compass logic are unchanged.
+
+The user's Ticketmaster screenshot shows an approved app/key and Public APIs enabled. Account setup is complete according to that screenshot, but no authenticated collector run has been verified yet. The needed credential is **Consumer Key**, supplied locally as `TICKETMASTER_API_KEY` or as the identically named GitHub Actions repository secret. Consumer Secret and Callback URL are not used by this Discovery collector. README now explains the local fetch, success message, snapshot reload and the difference between local environment variables and GitHub secrets. No credential was revealed or copied by Codex.
 
 ## Implementation update — 2026-09-07
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T21:28:50+00:00",
+  "generatedAt": "2026-09-07T22:49:21+00:00",
   "coverage": {
     "cities": [
       "Stockholm",
@@ -17,17 +17,1820 @@
       "id": "hovet",
       "name": "Hovet / Stockholm Live",
       "status": "ok",
-      "lastSuccess": "2026-09-07T21:28:50+00:00",
+      "lastSuccess": "2026-09-07T22:49:21+00:00",
       "eventCount": 4
     },
     {
       "id": "ticketmaster",
       "name": "Ticketmaster Sweden",
-      "status": "not_configured",
-      "lastSuccess": null
+      "status": "ok",
+      "lastSuccess": "2026-09-07T22:49:21+00:00",
+      "eventCount": 197
     }
   ],
   "events": [
+    {
+      "id": "ticketmaster:Z698xZq2Z16v1b_bkZ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v1b_bkZ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Waterboys – Fisherman’s Blues Revue featuring Steve Earle",
+      "artists": [
+        "The Waterboys",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-09-08",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-08T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-waterboys--fishermans-blues-revue-featuring-steve-earle-biljetter/1298658180",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k7yOUfy",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k7yOUfy"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Black Moose",
+      "artists": [
+        "Black Moose"
+      ],
+      "styles": [
+        "Hip-Hop/Rap"
+      ],
+      "venue": {
+        "name": "Biblioteket Live",
+        "city": "Stockholm",
+        "lat": 59.31482,
+        "lon": 18.07192
+      },
+      "localDate": "2026-09-12",
+      "localTime": "22:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-12T20:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/black-moose-biljetter/139836539",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1ka6FN04",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1ka6FN04"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "HOLY PRIEST @BERNS",
+      "artists": [
+        "Berns",
+        "ENTR Group",
+        "Holy Priest"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic",
+        "Other"
+      ],
+      "venue": {
+        "name": "Berns, The Ballroom",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2026-09-12",
+      "localTime": "23:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-12T21:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/holy-priest-berns-biljetter/247223915",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16ve614f-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16ve614f-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Supertraditional Festival",
+      "artists": [
+        "Supertraditional Festival",
+        "Sara Parkman",
+        "The Tallest Man On Earth",
+        "One Leg One Eye",
+        "Valkyrien Allstars",
+        "Shida Shahabi",
+        "Clarissa Connelly",
+        "Ale Moller",
+        "Lena Willemark",
+        "Kenneth Lien",
+        "Päivi Hirvonen",
+        "Rostam Mirlashari"
+      ],
+      "styles": [
+        "Europe",
+        "Folk",
+        "World"
+      ],
+      "venue": {
+        "name": "Galejan, Skansen",
+        "city": "Stockholm",
+        "lat": 59.33233,
+        "lon": 18.06293
+      },
+      "localDate": "2026-09-12",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-12T16:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/supertraditional-festival-biljetter/1087295521",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vCvfyJa",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vCvfyJa"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Ella Mai",
+      "artists": [
+        "Ella Mai"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-09-15",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-15T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ella-mai-biljetter/1381539989",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v14ftqt",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v14ftqt"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Megan Moroney - The Cloud 9 Tour",
+      "artists": [
+        "Megan Moroney",
+        "Cirkus"
+      ],
+      "styles": [
+        "Folk",
+        "Other"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-09-15",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-15T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/megan-moroney-the-cloud-9-tour-biljetter/1295529769",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vO6epjf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vO6epjf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Alison Moyet",
+      "artists": [
+        "Alison Moyet",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-09-16",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-16T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/alison-moyet-biljetter/1807096714",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZb_Z16vv6Zdv_",
+      "sourceIds": [
+        "ticketmaster:Z698xZb_Z16vv6Zdv_"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Aquarius konsert i Sjømannskirken Stockholm",
+      "artists": [
+        "Vokalensemblet Aquarius"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Sjømannskirken i Stockholm",
+        "city": "Stockholm",
+        "lat": 59.31658,
+        "lon": 18.08388
+      },
+      "localDate": "2026-09-18",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Oslo",
+      "dateTime": "2026-09-18T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.no/event/aquarius-konsert-i-sjomannskirken-stockholm-billetter/1047003059",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vZZfZ0P",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vZZfZ0P"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Bo Kaspers Orkester - Il magnifico",
+      "artists": [
+        "Bo Kaspers Orkester"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Arena Skövde",
+        "city": "Skövde",
+        "lat": 58.39386,
+        "lon": 13.83901
+      },
+      "localDate": "2026-09-18",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-18T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/bo-kaspers-orkester-il-magnifico-biljetter/1000500925",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vFpxAot",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vFpxAot"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Velveteen Queen - The Greater Good: Album Release Shows",
+      "artists": [
+        "Velveteen Queen"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-09-18",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/velveteen-queen-the-greater-good-album-release-shows-biljetter/1216885469",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOZp73b",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOZp73b"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Clapton vs Springsteen",
+      "artists": [
+        "Clapton vs Springsteen",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-09-19",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-19T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/clapton-vs-springsteen-biljetter/1800584498",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vfoFSvx",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vfoFSvx"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Lemon Twigs",
+      "artists": [
+        "The Lemon Twigs"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-09-19",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-19T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-lemon-twigs-biljetter/1511233062",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16voJbPG4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16voJbPG4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Återupptäck Moses Pergament!",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Miscellaneous",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-09-19",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-19T16:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/aterupptack-moses-pergament-biljetter/1466625315",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16eek4S-s",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16eek4S-s"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "A$AP Rocky - Don't Be Dumb World Tour, Platinum Tickets",
+      "artists": [
+        "A$AP Rocky"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-09-21",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-21T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/aap-rocky-dont-be-dumb-world-tour-platinumbiljetter-biljetter/2086573871",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1keZ-043",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1keZ-043"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Mulaa Joans",
+      "artists": [
+        "Mulaa Joans",
+        "Orlando"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-09-21",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-21T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/mulaa-joans-biljetter/80864552",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vx_vb13",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vx_vb13"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "FRÅN ELVIS PRESLEY TILL JERRY WILLIAMS",
+      "artists": [
+        "FRÅN ELVIS PRESLEY TILL JERRY WILLIAMS"
+      ],
+      "styles": [
+        "Other",
+        "Spectacular"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-09-23",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-23T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/fran-elvis-presley-till-jerry-williams-biljetter/1899058292",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vGV4t_F",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vGV4t_F"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE LONGEST JOHNS",
+      "artists": [
+        "The Longest Johns"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock",
+        "Europe",
+        "World"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-09-23",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-23T16:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-longest-johns-biljetter/1334569648",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vZ4Qe_-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vZ4Qe_-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Holly Humberstone",
+      "artists": [
+        "Holly Humberstone"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nalen",
+        "city": "Stockholm",
+        "lat": 59.33706,
+        "lon": 18.06749
+      },
+      "localDate": "2026-09-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-24T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/holly-humberstone-biljetter/1015682661",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vovJe_3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vovJe_3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN: Fat Moose – bluegrass med tradition och ny energi",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Blues",
+        "Club Dance",
+        "Dance/Electronic",
+        "Jazz Blues"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-09-25",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-25T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-fat-moose--bluegrass-med-tradition-och-ny-energi-biljetter/1441982652",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vfdFsQ7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vfdFsQ7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Paradox in Concert",
+      "artists": [
+        "Paradox in Concert",
+        "Stockholm Concert Orchestra"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2026-09-26",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-26T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/paradox-in-concert-biljetter/1503231684",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1ku6GJ8A",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1ku6GJ8A"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Bagjan Oktyabr SOUL THERAPY - World Tour 2026",
+      "artists": [
+        "Bagjan Oktyabr",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-09-28",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-28T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/bagjan-oktyabr-soul-therapy-world-tour-2026-biljetter/347326405",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kuea8-f",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kuea8-f"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jared James Nichols",
+      "artists": [
+        "Jared James Nichols"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-09-29",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-29T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jared-james-nichols-biljetter/342250854",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16veoG68p",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16veoG68p"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Home Free: Highways & High Seas Tour",
+      "artists": [
+        "Home Free",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Adult Contemporary",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-09-30",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-30T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/home-free-highways--high-seas-tour-biljetter/1091307416",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vJpqg_a",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vJpqg_a"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Best of Mike Oldfield’s Tubular Bells I II & III",
+      "artists": [
+        "Mike Oldfield's Tubular Bells Live in Concert",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-10-01",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-01T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-best-of-mike-oldfields-tubular-bells-i-ii--iii-biljetter/1996775649",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vrA0pOS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vrA0pOS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Isaac And The Soul Machine - A Tribute To Tom Jones",
+      "artists": [
+        "Isaac & The Soul Machine",
+        "Soul Sessions"
+      ],
+      "styles": [
+        "Pop",
+        "R&B",
+        "Rock",
+        "Soul"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-10-02",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-02T16:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/isaac-and-the-soul-machine-a-tribute-to-tom-jones-biljetter/1785916833",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vjeoojF",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vjeoojF"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Isaac And The Soul Machine - A Tribute To Tom Jones",
+      "artists": [
+        "Isaac & The Soul Machine",
+        "Soul Sessions"
+      ],
+      "styles": [
+        "Pop",
+        "R&B",
+        "Rock",
+        "Soul"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-10-02",
+      "localTime": "20:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-02T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/isaac-and-the-soul-machine-a-tribute-to-tom-jones-biljetter/1702451708",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v0xZyGp",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v0xZyGp"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jon Anderson & The Band Geeks",
+      "artists": [
+        "Jon Anderson",
+        "Cirkus"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-03",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jon-anderson--the-band-geeks-biljetter/1922039316",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vjvZeGA",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vjvZeGA"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Masego – Fix Your Face Tour",
+      "artists": [
+        "Masego"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-10-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/masego-fix-your-face-tour-biljetter/1701002305",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kaxZ3fF",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kaxZ3fF"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Tomas Andersson Wij, Kyrkorna 2026 - Finalen",
+      "artists": [
+        "Tomas Andersson Wij",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Other"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-10-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/tomas-andersson-wij-kyrkorna-2026-finalen-biljetter/262012508",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v8p0JvS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v8p0JvS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dexy´s Midnight Runners",
+      "artists": [
+        "Dexy's Midnight Runners",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-10-04",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-04T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dexys-midnight-runners-biljetter/1416926073",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kA4afPU",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kA4afPU"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Max Raabe & Palast Orchester",
+      "artists": [
+        "Max Raabe & Palast Orchester",
+        "Cirkus",
+        "Max Raabe"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-05",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-05T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/max-raabe--palast-orchester-biljetter/155254976",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-8rpa0",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-8rpa0"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Max Raabe & Palast Orchester",
+      "artists": [
+        "Max Raabe & Palast Orchester",
+        "Cirkus",
+        "Max Raabe"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-06",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-06T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/max-raabe--palast-orchester-biljetter/1850796264",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1AN0ejE",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1AN0ejE"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Bass Drum Of Death - (((EUROPÉ 2026)))",
+      "artists": [
+        "Bass Drum of Death"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-10-07",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/bass-drum-of-death-europe-2026--biljetter/23902727",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vG8o3ao",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vG8o3ao"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE VERY BEST OF THIN LIZZY - PHIL LYNOTT AND GARY MOORE",
+      "artists": [
+        "THE VERY BEST OF THIN LIZZY, PHIL LYNOTT AND GARY MOORE",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-10-07",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-07T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-very-best-of-thin-lizzy-phil-lynott-and-gary-moore-biljetter/1310452251",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v0s4tkd",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v0s4tkd"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN STHLM JAZZ\n \nKristin Amparo & Sly Stone Forever",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-10-09",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-09T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-kristin-amparo--sly-stone-forever-biljetter/1931569183",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kFs7YJ7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kFs7YJ7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Magic Numbers",
+      "artists": [
+        "The Magic Numbers"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-10-09",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-09T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-magic-numbers-biljetter/231130984",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kPxZFe_",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kPxZFe_"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN STHLM JAZZ\n \nSüperstar Orkestar",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-10-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-10T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-superstar-orkestar-biljetter/962008099",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k3948Qp",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k3948Qp"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Original Enigma Voices",
+      "artists": [
+        "Original Enigma Voices",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-10",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-10T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/original-enigma-voices-biljetter/497550696",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kb9Q97P",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kb9Q97P"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "HAKEN",
+      "artists": [
+        "Haken"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-10-12",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-12T16:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/haken-biljetter/617697125",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1ko9kAAZ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1ko9kAAZ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "London Symphonic Rock Orchestra",
+      "artists": [
+        "London Symphonic Rock Orchestra",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-10-12",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-12T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/london-symphonic-rock-orchestra-biljetter/457185140",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1A4b3oK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1A4b3oK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Marko Hietala",
+      "artists": [
+        "Marko Hietala"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-10-13",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-13T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/marko-hietala-biljetter/15612453",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v7oGSZ3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v7oGSZ3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN STHLM JAZZ\n \nKetema Yirga Ethiojazz Kvartett",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-10-15",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-15T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-ketema-yirga-ethiojazz-kvartett-biljetter/1111333012",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kxdr8oJ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kxdr8oJ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Janne Schaffer - My Music Story Band fokus Ted Gärdestad 70",
+      "artists": [
+        "Janne Schaffer",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-15",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-15T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/janne-schaffer-my-music-story-band-fokus-ted-gardestad-70-biljetter/883790466",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k4Y_ZOI",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k4Y_ZOI"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN STHLM JAZZ:\n SOUL REIMAGINED-en kväll Katarina Pop",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-10-16",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-16T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-soul-reimagined-en-kvall-katarina-pop-biljetter/570640828",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vCkfJr9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vCkfJr9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Watch plays Genesis - Tales from 1970-1976",
+      "artists": [
+        "The Watch",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-10-16",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-16T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-watch-plays-genesis-tales-from-1970-1976-biljetter/1386526797",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vb4FAAY",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vb4FAAY"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN STHLM JAZZ:\n Linnea Lundgren trio",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2026-10-17",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-17T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-linnea-lundgren-trio-biljetter/1615205170",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vP-4tCa",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vP-4tCa"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dizzee Rascal",
+      "artists": [
+        "Dizzee Rascal"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-10-17",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-17T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dizzee-rascal-biljetter/1961569389",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k_dbxxf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k_dbxxf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "nimino",
+      "artists": [
+        "nimino"
+      ],
+      "styles": [
+        "Dance/Electronic",
+        "Other"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-10-17",
+      "localTime": "21:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-17T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/nimino-keep-me-awake-tour-biljetter/643622894",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kfz-A7S",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kfz-A7S"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "J S Bach Mässa i h-moll",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-10-18",
+      "localTime": "17:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-18T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/j-s-bach-massa-i-h-moll-biljetter/538845133",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOvuVre",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOvuVre"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Los Kjarkas",
+      "artists": [
+        "Los Kjarkas",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Latin"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-10-18",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-18T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/los-kjarkas-biljetter/1801374782",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kC4oJ_k",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kC4oJ_k"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Ricardo Montaner",
+      "artists": [
+        "Ricardo Montaner",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Latin"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-10-19",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-19T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ricardo-montaner-biljetter/395466646",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kGorvA6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kGorvA6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": " Bach / Ranelid / Rydvall / Härenstam - Människan är ett mirakel!",
+      "artists": [
+        "Stockholm Chamber Music",
+        "David Härenstam"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Riddarhussalen - Riddarhuset",
+        "city": "Stockholm",
+        "lat": 59.32587,
+        "lon": 18.0658
+      },
+      "localDate": "2026-10-21",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/-bach-ranelid-rydvall-harenstam-manniskan-ar-ett-mirakel-biljetter/311781147",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kx_axAN",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kx_axAN"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Rosanne Cash with John Leventhal",
+      "artists": [
+        "Rosanne Cash",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Folk"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-10-21",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/rosanne-cash-with-john-leventhal-biljetter/899262163",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vop13Gb",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vop13Gb"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Zucchero",
+      "artists": [
+        "Zucchero",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-10-21",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/zucchero-biljetter/1456292318",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kud-F1v",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kud-F1v"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "GRYMLINGS",
+      "artists": [
+        "GRYMLINGS",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-10-22",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-22T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/grymlings-biljetter/343848281",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v4x0IFA",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v4x0IFA"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Joe Bonamassa: Live in concert,Platinum Tickets",
+      "artists": [
+        "Joe Bonamassa"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-10-23",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-23T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/joe-bonamassa-live-in-concerts-platinumbiljetter-biljetter/1562928205",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
     {
       "id": "hovet:amon-amarth",
       "sourceIds": [
@@ -59,7 +1862,401 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
       "ticketUrl": "https://www.axs.com/se/events/1237690/amon-amarth-tickets",
-      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k__ag4w",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k__ag4w"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "EUROPE",
+      "artists": [
+        "Europe"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-10-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-24T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/europe-biljetter/659275572",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vuko_8o",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vuko_8o"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Ringmasters firar 20 år!",
+      "artists": [
+        "Berns",
+        "ENTR Group"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic",
+        "Hip-Hop/Rap",
+        "Party Rap"
+      ],
+      "venue": {
+        "name": "Berns",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2026-10-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-24T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ringmasters-firar-20-ar-biljetter/1346459411",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kuoe383",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kuoe383"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Deep Purple, Platinum tickets",
+      "artists": [
+        "Deep Purple"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-10-26",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-26T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/deep-purple-platinumbiljetter-biljetter/351092412",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kpb1v7M",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kpb1v7M"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "DJ Krush",
+      "artists": [
+        "DJ Krush"
+      ],
+      "styles": [
+        "Alternative Rock",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Kollektivet Livet",
+        "city": "Stockholm",
+        "lat": 59.31897,
+        "lon": 18.0799
+      },
+      "localDate": "2026-10-28",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-28T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dj-krush-biljetter/598281137",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vvA0zG6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vvA0zG6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Behemoth & Dimmu Borgir: In League With Satan Tour 2026",
+      "artists": [
+        "Behemoth & Dimmu Borgir"
+      ],
+      "styles": [
+        "Hard Rock",
+        "Other",
+        "Rock"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-10-29",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-29T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/behemoth--dimmu-borgir-in-league-with-satan-tour-2026-biljetter/1045938307",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1ka9v9Q8",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1ka9v9Q8"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Fray - Autumn Light Tour",
+      "artists": [
+        "The Fray"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-10-30",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-30T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-fray-autumn-light-tour-biljetter/257057690",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k8oxfuo",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k8oxfuo"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Harry Potter och Dödsrelikerna™ – Del 1 In Concert",
+      "artists": [
+        "Harry Potter Concert Series"
+      ],
+      "styles": [
+        "Family",
+        "Miscellaneous",
+        "Multimedia",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2026-10-31",
+      "localTime": "14:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-31T13:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/harry-potter-och-dodsrelikernaTM--del-1-in-concert-biljetter/411894351",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kO-FxaK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kO-FxaK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Harry Potter och Dödsrelikerna™ – Del 1 In Concert",
+      "artists": [
+        "Harry Potter Concert Series"
+      ],
+      "styles": [
+        "Family",
+        "Miscellaneous",
+        "Multimedia",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2026-10-31",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-31T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/harry-potter-och-dodsrelikernaTM--del-1-in-concert-biljetter/821222253",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vjEAaev",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vjEAaev"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "President",
+      "artists": [
+        "PRESIDENT",
+        "Dreamwake"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock",
+        "Hard Rock",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-11-01",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-01T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/president-biljetter/1727149081",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kxZosZ4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kxZosZ4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "President | Early entry and merchandise experience",
+      "artists": [
+        "PRESIDENT",
+        "Dreamwake"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock",
+        "Hard Rock",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-11-01",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/president-%7C-early-entry-and-merchandise-experience-biljetter/880471015",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vJ3Z_G0",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vJ3Z_G0"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Brev till mitt barn: Sånger byggda på judiska och persiska texter",
+      "artists": [
+        "Stockholm Chamber Music",
+        "David Härenstam"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Riddarhussalen - Riddarhuset",
+        "city": "Stockholm",
+        "lat": 59.32587,
+        "lon": 18.0658
+      },
+      "localDate": "2026-11-04",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-04T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/brev-till-mitt-barn-sanger-byggda-pa-judiska-och-persiska-texter-biljetter/1992019324",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vP-_6aJ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vP-_6aJ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Elvis, Elvis, Elvis!",
+      "artists": [
+        "Elvis Elvis Elvis",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-11-05",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-05T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/elvis-elvis-elvis-2026-biljetter/1961647266",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
       "id": "hovet:fontaines-d-c",
@@ -89,7 +2286,234 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/fontaines-d-c/",
       "ticketUrl": "https://www.axs.com/se/events/1562165/fontaines-dc-tickets?skin=hovet",
-      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kq6708k",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kq6708k"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Goran Bregovic",
+      "artists": [
+        "Goran Bregovic",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Europe",
+        "World"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-11-05",
+      "localTime": "20:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-05T19:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/goran-bregovic-biljetter/747124406",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vPaGMZK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vPaGMZK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Isaac And The Soul Machine - A Tribute To Tom Jones",
+      "artists": [
+        "Isaac & The Soul Machine",
+        "Soul Sessions"
+      ],
+      "styles": [
+        "Pop",
+        "R&B",
+        "Rock",
+        "Soul"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-11-06",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-06T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/isaac-and-the-soul-machine-a-tribute-to-tom-jones-biljetter/1949337013",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1AMe4vb",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1AMe4vb"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Isaac And The Soul Machine - A Tribute To Tom Jones",
+      "artists": [
+        "Isaac & The Soul Machine",
+        "Soul Sessions"
+      ],
+      "styles": [
+        "Pop",
+        "R&B",
+        "Rock",
+        "Soul"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-11-06",
+      "localTime": "20:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-06T19:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/isaac-and-the-soul-machine-a-tribute-to-tom-jones-biljetter/37095058",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k04vJ7b",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k04vJ7b"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Nemzzz",
+      "artists": [
+        "Nemzzz"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-11-06",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-06T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/nemzzz-biljetter/915066118",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v4wOMQK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v4wOMQK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Soweto Gospel Choir",
+      "artists": [
+        "Soweto Gospel Choir",
+        "Cirkus"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-11-06",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-06T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/soweto-gospel-choir-biljetter/1572837693",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kF3fKab",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kF3fKab"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Beth Hart",
+      "artists": [
+        "Beth Hart"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-11-07",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-07T19:00:00Z",
+      "status": "rescheduled",
+      "url": "https://www.ticketmaster.se/event/beth-hart-biljetter/212513258",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v1_0a7t",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v1_0a7t"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Icona Pop - Ritual Tour",
+      "artists": [
+        "Icona Pop"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic"
+      ],
+      "venue": {
+        "name": "Berns",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2026-11-07",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-07T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/icona-pop-ritual-tour-biljetter/1299909129",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
       "id": "hovet:good-charlotte",
@@ -119,7 +2543,3887 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/good-charlotte/",
       "ticketUrl": "https://www.axs.com/se/events/1455771/good-charlotte-tickets",
-      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v--k3ZO",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v--k3ZO"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Good Charlotte - Motel Du Cap EU/UK Tour, Platinum Tickets",
+      "artists": [
+        "Good Charlotte"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.33233,
+        "lon": 18.06293
+      },
+      "localDate": "2026-11-08",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-08T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/good-charlotte-motel-du-cap-eu-uk-tour-platinumbiljetter-biljetter/1861192020",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kfxfAbf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kfxfAbf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE BEST OF CHRISTER SJÖGREN",
+      "artists": [
+        "Christer Sjögren"
+      ],
+      "styles": [
+        "Other",
+        "Spectacular"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-11-08",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-08T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-best-of-christer-sjogren-biljetter/522505614",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k-vaeGt",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k-vaeGt"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Kneecap",
+      "artists": [
+        "Kneecap"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-11-09",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-09T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kneecap-biljetter/841242329",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vJaG9Ob",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vJaG9Ob"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Manfred Mann´s Earth Band",
+      "artists": [
+        "Manfred Mann's Earth Band",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2026-11-09",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-09T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/manfred-manns-earth-band-biljetter/1989317818",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k0w888K",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k0w888K"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Don Toliver: NITROUS - OCTANE WORLD TOUR LEG 2- Platinum Tickets",
+      "artists": [
+        "Don Toliver"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-10T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/don-toliver-nitrous-octane-world-tour-leg-2-platinumbiljetter-biljetter/932410413",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-V-6OS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-V-6OS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Hommage à Piazzolla Bandoneon möter stråkensemble och gitarr!",
+      "artists": [
+        "Stockholm Chamber Music",
+        "David Härenstam"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Riddarhussalen - Riddarhuset",
+        "city": "Stockholm",
+        "lat": 59.32587,
+        "lon": 18.0658
+      },
+      "localDate": "2026-11-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-10T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/hommage-a-piazzolla-bandoneon-moter-strakensemble-och-gitarr-biljetter/1874847833",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v0xQbxv",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v0xQbxv"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "MAKSIM SEGMENTI WORLD TOUR",
+      "artists": [
+        "MAKSIM",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-11-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-10T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/maksim-segmenti-world-tour-biljetter/1922698881",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kofuw_A",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kofuw_A"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "An evening With Nicko Mcbrain",
+      "artists": [
+        "Nicko McBrain",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Hard Rock",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-11-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-11T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/an-evening-with-nicko-mcbrain-biljetter/454372645",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vovpkGM",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vovpkGM"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "J. Cole: The Fall-Off Tour, Platinum Tickets",
+      "artists": [
+        "J. Cole"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-11",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-11T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/j-cole-the-fall-off-tour-platinumbiljetter-biljetter/1441586337",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v7fjbbP",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v7fjbbP"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Simon & Garfunkel Story",
+      "artists": [
+        "The Simon & Garfunkel Story",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Nya Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32458,
+        "lon": 18.0997
+      },
+      "localDate": "2026-11-11",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-11T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-simon--garfunkel-story-biljetter/1114718625",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kAejaCo",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kAejaCo"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "BENJAMIN INGROSSO | WHAT HAPPENS NEXT? | Platinum tickets",
+      "artists": [
+        "Benjamin Ingrosso"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-13",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-13T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/benjamin-ingrosso-%7C-what-happens-next-%7C-platinumbiljetter-biljetter/142709391",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kr6_zC7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kr6_zC7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "BENJAMIN INGROSSO | WHAT HAPPENS NEXT? | Platinum tickets",
+      "artists": [
+        "Benjamin Ingrosso"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-14",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-14T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/benjamin-ingrosso-%7C-what-happens-next-%7C-platinumbiljetter-biljetter/787678384",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kAar7FS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kAar7FS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Den svenska kulturkanonen - Stefan Sundström & den sista jäntan",
+      "artists": [
+        "Stefan Sundstrom"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Lokstallet",
+        "city": "Skövde",
+        "lat": 58.38439,
+        "lon": 13.84663
+      },
+      "localDate": "2026-11-14",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-14T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/den-svenska-kulturkanonen-stefan-sundstrom--den-sista-jantan-biljetter/149784233",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v7yevJe",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v7yevJe"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "GERD",
+      "artists": [
+        "Gerd"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-11-14",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-14T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/gerd-biljetter/1139081982",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kvvPpC7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kvvPpC7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Linda Lampenius x Pete Parkkonen",
+      "artists": [
+        "Linda Lampenius",
+        "Berns",
+        "ENTR Group"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Berns",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2026-11-15",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-15T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/linda-lampenius-x-pete-parkkonen-biljetter/41956384",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v7duyGS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v7duyGS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Tinie Tempah",
+      "artists": [
+        "Tinie Tempah"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-11-16",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-16T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/tinie-tempah-biljetter/1103379333",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k7UF9AJ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k7UF9AJ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ElGrandeToto",
+      "artists": [
+        "ElGrandeToto"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-11-17",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-17T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/elgrandetoto-biljetter/136217166",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vFyoEJ_",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vFyoEJ_"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Tove Lo - ESTRUS TOUR, Platinum Tickets",
+      "artists": [
+        "Tove Lo"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-19",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-19T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/tove-lo-estrus-tour-platinumbiljetter-biljetter/1239467999",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vpv0bZM",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vpv0bZM"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dungen",
+      "artists": [
+        "Dungen"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-11-20",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dungen-biljetter/1581918037",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOxAbe6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOxAbe6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "FlamencoFredag",
+      "artists": [
+        "FlamencoFredag",
+        "Dansens Hus"
+      ],
+      "styles": [
+        "Dance",
+        "Flamenco",
+        "World"
+      ],
+      "venue": {
+        "name": "Dansens Hus Studioscen",
+        "city": "Stockholm",
+        "lat": 59.33623,
+        "lon": 18.05644
+      },
+      "localDate": "2026-11-20",
+      "localTime": "21:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T20:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/flamencofredag-biljetter/1822158087",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kv9ukO0",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kv9ukO0"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Murda - UZAY TOUR",
+      "artists": [
+        "Murda"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2026-11-20",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/murda-uzay-tour-biljetter/57346824",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v_F-8x7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v_F-8x7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Glaive – God Save The Three",
+      "artists": [
+        "glaive",
+        "Kurtains"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Other"
+      ],
+      "venue": {
+        "name": "Fryshuset, Klubben",
+        "city": "Stockholm",
+        "lat": 59.30092,
+        "lon": 18.09017
+      },
+      "localDate": "2026-11-21",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-21T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/glaive--god-save-the-three-biljetter/1648850884",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vfgv3vS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vfgv3vS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Saint Levant  - AFANDI WORLD TOUR",
+      "artists": [
+        "Saint Levant"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other"
+      ],
+      "venue": {
+        "name": "Annexet",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-21",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-21T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/saint-levant-afandi-world-tour-biljetter/1535052073",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-P7JuI",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-P7JuI"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Bryson Tiller Presents: The Neo Trapsoul Tour - Platinum Tickets",
+      "artists": [
+        "Bryson Tiller"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-22",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-22T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/bryson-tiller-presents-the-neo-trapsoul-tour-platinumbiljetter-biljetter/1865126368",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vO_fPG3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vO_fPG3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "KAJ",
+      "artists": [
+        "KAJ",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Spectacular"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-11-23",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-23T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kaj-biljetter/1819525312",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kA6oy0-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kA6oy0-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "KAJ",
+      "artists": [
+        "KAJ",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Spectacular"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-11-24",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-24T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kaj-biljetter/147479921",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kP0a-oa",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kP0a-oa"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "beabadoobee: The Powerlines Tour",
+      "artists": [
+        "beabadoobee"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Fryshuset",
+        "city": "Stockholm",
+        "lat": 59.33233,
+        "lon": 18.06293
+      },
+      "localDate": "2026-11-24",
+      "localTime": "20:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-24T19:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/beabadoobee-the-powerlines-tour-biljetter/964261449",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k-KfyOF",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k-KfyOF"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "C.O.F.F.I.N",
+      "artists": [
+        "C.O.F.F.I.N"
+      ],
+      "styles": [
+        "Other",
+        "Punk",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2026-11-25",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-25T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/coffin-biljetter/853539808",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kOake4p",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kOake4p"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "BLANACE and BERNS presents PAUL VAN DYK & ORJAN NILSEN!",
+      "artists": [
+        "Berns",
+        "ENTR Group",
+        "Paul van Dyk"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic"
+      ],
+      "venue": {
+        "name": "Berns",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2026-11-27",
+      "localTime": "22:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-27T21:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/blanace-and-berns-presents-paul-van-dyk--orjan-nilsen-biljetter/809182556",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v8vxaj0",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v8vxaj0"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Chelsea Wolfe: THE DARK World Tour",
+      "artists": [
+        "Chelsea Wolfe"
+      ],
+      "styles": [
+        "Hip-Hop/Rap"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-11-28",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/chelsea-wolfe-the-dark-world-tour-biljetter/1401889724",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k-ybPoz",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k-ybPoz"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jul i Gamla stan",
+      "artists": [
+        "Jul i Gamla Stan",
+        "Stockholms Kammarkör"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Classical",
+        "Classical/Vocal",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Tyska Kyrkan",
+        "city": "Stockholm",
+        "lat": 59.32393,
+        "lon": 18.0724
+      },
+      "localDate": "2026-11-28",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jul-i-gamla-stan-biljetter/879625478",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kaxJaQ8",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kaxJaQ8"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jul i Gamla stan",
+      "artists": [
+        "Jul i Gamla Stan",
+        "Stockholms Kammarkör"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Classical",
+        "Classical/Vocal",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Tyska Kyrkan",
+        "city": "Stockholm",
+        "lat": 59.32393,
+        "lon": 18.0724
+      },
+      "localDate": "2026-11-28",
+      "localTime": "17:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T16:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jul-i-gamla-stan-biljetter/262989690",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-3Qo-e",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-3Qo-e"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "MAGNUS CARLSSON - ÄNGLARNAS TID",
+      "artists": [
+        "Magnus Carlsson",
+        "Magnus Carlsson – Änglarnas Tid"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Torbjörntorps kyrka",
+        "city": "Falköping",
+        "lat": 58.21174,
+        "lon": 13.59885
+      },
+      "localDate": "2026-11-28",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/magnus-carlsson-anglarnas-tid-biljetter/1852691842",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vxevvj-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vxevvj-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jul i Gamla stan",
+      "artists": [
+        "Jul i Gamla Stan",
+        "Stockholms Kammarkör"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Classical",
+        "Classical/Vocal",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Tyska Kyrkan",
+        "city": "Stockholm",
+        "lat": 59.32393,
+        "lon": 18.0724
+      },
+      "localDate": "2026-11-29",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-29T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jul-i-gamla-stan-biljetter/1882041721",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kFEFyp9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kFEFyp9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jul i Gamla stan",
+      "artists": [
+        "Jul i Gamla Stan",
+        "Stockholms Kammarkör"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Classical",
+        "Classical/Vocal",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Tyska Kyrkan",
+        "city": "Stockholm",
+        "lat": 59.32393,
+        "lon": 18.0724
+      },
+      "localDate": "2026-11-29",
+      "localTime": "17:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-29T16:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jul-i-gamla-stan-biljetter/227239597",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vk9kke_",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vk9kke_"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Maggie Reilly - Ny spelplats",
+      "artists": [
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-11-29",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-29T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/maggie-reilly-ny-spelplats-biljetter/1197186099",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kvaF9_9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kvaF9_9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Noah Kahan: The Great Divide World Tour, Platinum Tickets",
+      "artists": [
+        "Noah Kahan"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2026-11-29",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-29T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/noah-kahan-the-great-divide-world-tour-platinumbiljetter-biljetter/49217657",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kfOpe8v",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kfOpe8v"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ARLO PARKS - DESIRE TOUR",
+      "artists": [
+        "Arlo Parks",
+        "Baird"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock",
+        "Dance/Electronic",
+        "Indie Rock"
+      ],
+      "venue": {
+        "name": "Slaktkyrkan",
+        "city": "Stockholm",
+        "lat": 59.29224,
+        "lon": 18.08012
+      },
+      "localDate": "2026-12-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-02T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/arlo-parks-desire-tour-biljetter/520582401",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kP9Q___",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kP9Q___"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Soul of Christmas 2026",
+      "artists": [
+        "The Soul of Christmas",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-12-02",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-02T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-soul-of-christmas-2026-biljetter/957699659",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kQvPI1o",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kQvPI1o"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-04",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-04T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/681968291",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kOF3_a9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kOF3_a9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Evigt Edvin - Edvin Törnblom",
+      "artists": [
+        "Edvin Törnblom"
+      ],
+      "styles": [
+        "Comedy",
+        "Miscellaneous",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2026-12-05",
+      "localTime": "21:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-05T20:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/evigt-edvin-edvin-tornblom-biljetter/808499257",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vZ8F_-8",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vZ8F_-8"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-05",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-05T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1010219850",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vFpJ3P3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vFpJ3P3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-05",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-05T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1216992952",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vbYZ3Ps",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vbYZ3Ps"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Terra",
+      "artists": [
+        "Terra (SE)"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "B-K",
+        "city": "Stockholm",
+        "lat": 59.3417,
+        "lon": 18.11862
+      },
+      "localDate": "2026-12-05",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-05T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/terra-biljetter/1630012971",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kG8xf-S",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kG8xf-S"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Ben Folds - Paper Airplane Request Tour",
+      "artists": [
+        "Ben Folds",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-12-06",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-06T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ben-folds-paper-airplane-request-tour-biljetter/310894873",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vCb7Oob",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vCb7Oob"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-06",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-06T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1398120458",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-_PeO7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-_PeO7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-10T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1859942804",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k06u3jo",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k06u3jo"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-11",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-11T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/907352711",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v4K1ebk",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v4K1ebk"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Stjärnjul 2026",
+      "artists": [
+        "Stjärnjul"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-12-11",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-11T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/stjarnjul-2026-biljetter/1553282606",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vv-aOjN",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vv-aOjN"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Lucia - familjekonsert",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-12",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/lucia-familjekonsert-biljetter/1061260723",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1Ae034e",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1Ae034e"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Luciakonsert",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-12",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/luciakonsert-biljetter/2912542",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vCkZs7v",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vCkZs7v"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Paris Paloma",
+      "artists": [
+        "Paris Paloma"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Fryshuset",
+        "city": "Stockholm",
+        "lat": 59.33233,
+        "lon": 18.06293
+      },
+      "localDate": "2026-12-12",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/paris-paloma-biljetter/1386031101",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vv30gF6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vv30gF6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-12",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1052935207",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1koeb9PE",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1koeb9PE"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-12",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/442617967",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kQ4Zgrf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kQ4Zgrf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Stjärnjul 2026",
+      "artists": [
+        "Stjärnjul"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-12-12",
+      "localTime": "13:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T12:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/stjarnjul-2026-biljetter/695035794",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k0oGsF9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k0oGsF9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Stjärnjul 2026",
+      "artists": [
+        "Stjärnjul"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-12-12",
+      "localTime": "17:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T16:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/stjarnjul-2026-biljetter/911331217",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kveAKGe",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kveAKGe"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Lucia - familjekonsert",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-13",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-13T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/lucia-familjekonsert-biljetter/42153302",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v3F0IAd",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v3F0IAd"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Luciakonsert",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-13",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-13T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/luciakonsert-biljetter/1488928143",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vA817az",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vA817az"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-13",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-13T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1150284278",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kus4FqY",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kus4FqY"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Stjärnjul 2026",
+      "artists": [
+        "Stjärnjul"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2026-12-13",
+      "localTime": "16:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-13T15:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/stjarnjul-2026-biljetter/371548770",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vafuNk3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vafuNk3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "John Lundvik med Mats Björkes Caravan – Julturné 2026",
+      "artists": [
+        "John Lundvik"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2026-12-15",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-15T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/john-lundvik-med-mats-bjorkes-caravan--julturne-2026-biljetter/1254363192",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kFP4E43",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kFP4E43"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-17",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-17T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/225567552",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-YJ7Jf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-YJ7Jf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-18",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-18T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1870984994",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kvV0PfU",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kvV0PfU"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "BANNA SONA BAND -Christmas Edition 2026",
+      "artists": [],
+      "styles": [
+        "Christmas Music",
+        "Europe",
+        "Holiday",
+        "World"
+      ],
+      "venue": {
+        "name": "Arena Skövde",
+        "city": "Skövde",
+        "lat": 58.39386,
+        "lon": 13.83901
+      },
+      "localDate": "2026-12-19",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-19T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/banna-sona-band-christmas-edition-2026-biljetter/74925536",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vb0e7-J",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vb0e7-J"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Love Actually Live in Concert",
+      "artists": [
+        "Love Actually Live in Concert"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Multimedia",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2026-12-19",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-19T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/love-actually-live-in-concert-biljetter/1624084866",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k17Fxug",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k17Fxug"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-19",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-19T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/284222375",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1AeApP-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1AeApP-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-19",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-19T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/2156961",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v8aqpa6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v8aqpa6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jul i Engelbrekt",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-20",
+      "localTime": "17:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-20T16:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jul-i-engelbrekt-biljetter/1409756247",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vZSP6PJ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vZSP6PJ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "MAGNUS CARLSSON - ÄNGLARNAS TID",
+      "artists": [
+        "Magnus Carlsson",
+        "Magnus Carlsson – Änglarnas Tid"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Uppsala Missionskyrka",
+        "city": "Uppsala",
+        "lat": 59.86157,
+        "lon": 17.63644
+      },
+      "localDate": "2026-12-20",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-20T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/magnus-carlsson-anglarnas-tid-biljetter/1033947966",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vaf79q6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vaf79q6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RITSCH RATSCH på Vasan",
+      "artists": [
+        "Ritsch Ratsch"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2026-12-20",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-20T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1254117747",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16evdZAG4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16evdZAG4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Nötknäpparen – Klassisk julbalett med stråkkvartett",
+      "artists": [
+        "Nötknäpparen med Classical Ukrainian Etoile Ballet",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Ballet",
+        "Dance",
+        "Other"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2026-12-22",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-22T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/notknapparen--klassisk-julbalett-med-strakkvartett-biljetter/2043005315",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v_bokCf",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v_bokCf"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "MUSIK I VINTERTID - SOFIA KÄLLGREN & ROBERT WELLS",
+      "artists": [
+        "MUSIK I VINTERTID - SOFIA KÄLLGREN & ROBERT WELLS",
+        "Sofia Kallgren",
+        "Robert Wells"
+      ],
+      "styles": [
+        "Other",
+        "Spectacular"
+      ],
+      "venue": {
+        "name": "Torbjörntorps kyrka",
+        "city": "Falköping",
+        "lat": 58.21174,
+        "lon": 13.59885
+      },
+      "localDate": "2026-12-28",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-28T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/musik-i-vintertid-sofia-kallgren--robert-wells-biljetter/1658446394",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kCoFOuZ",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kCoFOuZ"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "MAGNUS CARLSSON - ÄNGLARNAS TID",
+      "artists": [
+        "Magnus Carlsson",
+        "Magnus Carlsson – Änglarnas Tid"
+      ],
+      "styles": [
+        "Christmas Music",
+        "Holiday",
+        "Other"
+      ],
+      "venue": {
+        "name": "Gustaf Vasa kyrka",
+        "city": "Stockholm",
+        "lat": 59.342649,
+        "lon": 18.048373
+      },
+      "localDate": "2026-12-29",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-29T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/magnus-carlsson-anglarnas-tid-biljetter/391220340",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v16qfZF",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v16qfZF"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Nyårskonsert Beethovens symfoni nr 9",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2026-12-31",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-31T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/nyarskonsert-beethovens-symfoni-nr-9-biljetter/1287754008",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kvPPMoI",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kvPPMoI"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Nyårskonsert Beethovens symfoni nr 9",
+      "artists": [
+        "Musik i Engelbrektskyrkan och Hjorthagskyrkan"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Other"
+      ],
+      "venue": {
+        "name": "Engelbrektskyrkan",
+        "city": "Stockholm",
+        "lat": 59.34429,
+        "lon": 18.06766
+      },
+      "localDate": "2027-01-01",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-01T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/nyarskonsert-beethovens-symfoni-nr-9-biljetter/65977468",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kAyaFFA",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kAyaFFA"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dan & Phil - Hard Launch World Tour",
+      "artists": [
+        "Dan and Phil",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Comedy"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-01-15",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-15T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dan--phil-hard-launch-world-tour-biljetter/179248205",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kvoCAbN",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kvoCAbN"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "KPOP FOREVER!",
+      "artists": [
+        "K-Pop Forever!",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-01-16",
+      "localTime": "14:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-16T13:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kpop-forever-biljetter/51385623",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kqZ1374",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kqZ1374"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "KPOP FOREVER!",
+      "artists": [
+        "K-Pop Forever!",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-01-16",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-16T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kpop-forever-biljetter/740292115",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOgepZK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOgepZK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Waterloo - A tribute to ABBA firar 30 år",
+      "artists": [
+        "Waterloo Sverige"
+      ],
+      "styles": [
+        "Europe",
+        "Hip-Hop/Rap",
+        "Other",
+        "Party Rap",
+        "World"
+      ],
+      "venue": {
+        "name": "Rival",
+        "city": "Stockholm",
+        "lat": 59.31816,
+        "lon": 18.06364
+      },
+      "localDate": "2027-01-16",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-16T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/waterloo-a-tribute-to-abba-firar-30-ar-biljetter/1835096013",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1krAGYZ4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1krAGYZ4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE BLACK DAHLIA MURDER - TWO DECADES OF NOCTURNAL-EUROPÉ 2027",
+      "artists": [
+        "The Black Dahlia Murder"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2027-01-21",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-21T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-black-dahlia-murder-two-decades-of-nocturnal-europe-2027-biljetter/785330015",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vAfGou9",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vAfGou9"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "aespa LIVE TOUR - SYNK : COMPLæXITY – in STOCKHOLM, Platinum tickets",
+      "artists": [
+        "aespa"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-01-22",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-22T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/aespa-live-tour-synk--complaexity--in-stockholm-platinumbiljetter-biljetter/1154311357",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kuK-6va",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kuK-6va"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Bootleg Beatles",
+      "artists": [
+        "The Bootleg Beatles",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-01-24",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-24T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-bootleg-beatles-biljetter/353847049",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v7yC3AI",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v7yC3AI"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ADÉLA",
+      "artists": [
+        "ADÉLA"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Fryshuset",
+        "city": "Stockholm",
+        "lat": 59.33233,
+        "lon": 18.06293
+      },
+      "localDate": "2027-01-29",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-29T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/adela-biljetter/1139392168",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v4a0ffN",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v4a0ffN"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN: Mikael Rickfors + Louise Raeder och Jonatan Stenson",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Blues",
+        "Jazz Blues",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2027-01-29",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-29T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-mikael-rickfors--louise-raeder-och-jonatan-stenson-biljetter/1549914523",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kC8qZv0",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kC8qZv0"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Dire Straits Experience",
+      "artists": [
+        "The Dire Straits Experience",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-02-07",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-07T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-dire-straits-experience-biljetter/390740064",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vpdQKf-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vpdQKf-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The AMAZING HITS by KISS",
+      "artists": [
+        "The AMAZING HITS by KISS",
+        "Cirkus"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Pop",
+        "Rock",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2027-02-09",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-09T18:00:00Z",
+      "status": "cancelled",
+      "url": "https://www.ticketmaster.se/event/the-amazing-hits-by-kiss-biljetter/1583693521",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vekv9po",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vekv9po"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "KIM WILDE | THE SINGLES TOUR 2027",
+      "artists": [
+        "Kim Wilde",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-02-14",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-14T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/kim-wilde-%7C-the-singles-tour-2027-biljetter/1086057591",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kaeA44s",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kaeA44s"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Music of Hans Zimmer - Lords of the Sound",
+      "artists": [
+        "Lords Of The Sound",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Multimedia",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-02-15",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-15T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-music-of-hans-zimmer-lords-of-the-sound-biljetter/242155571",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kCZpfCK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kCZpfCK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN: EDDA MAGNASON",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2027-02-19",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-19T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-edda-magnason-biljetter/380594393",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16evJjd3e",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16evJjd3e"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Rikas",
+      "artists": [
+        "Rikas"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2027-02-26",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-26T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/rikas-biljetter/2066703482",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1koyfe4K",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1koyfe4K"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dea Matrona",
+      "artists": [
+        "Dea Matrona"
+      ],
+      "styles": [
+        "Other",
+        "Punk",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2027-02-28",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-28T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dea-matrona-biljetter/479502553",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k-8G6_o",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k-8G6_o"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Blanco White",
+      "artists": [
+        "Blanco White",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-03-02",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-02T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/blanco-white-biljetter/850307651",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vf6a8aS",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vf6a8aS"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Dead Poet Society",
+      "artists": [
+        "Dead Poet Society"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2027-03-03",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-03T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dead-poet-society-biljetter/1507250273",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOfvUP4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOfvUP4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Teddy Swims - The UGLY Tour, Platinum tickets",
+      "artists": [
+        "Teddy Swims"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-03-04",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-04T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/teddy-swims-the-ugly-tour-platinumbiljetter-biljetter/1814076955",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vA48yka",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vA48yka"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Teddy Swims - The UGLY Tour, Platinum tickets",
+      "artists": [
+        "Teddy Swims"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-03-05",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-05T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/teddy-swims-the-ugly-tour-platinumbiljetter-biljetter/1155439189",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kaEfFj7",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kaEfFj7"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "HOFFMAESTRO – LIVE AT BERNS",
+      "artists": [
+        "Berns",
+        "ENTR Group",
+        "Hoffmaestro",
+        "All Things Live"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic",
+        "Hip-Hop/Rap",
+        "Other",
+        "Party Rap"
+      ],
+      "venue": {
+        "name": "Berns, The Ballroom",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2027-03-06",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-06T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/hoffmaestro--live-at-berns-biljetter/267508704",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kOAGMxd",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kOAGMxd"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Pink Floyd's DARK SIDE OF THE MOON - Live in Concert",
+      "artists": [
+        "Pink Floyd's Dark Side Of The Moon In Concert",
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Family",
+        "Other"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-06",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-06T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/pink-floyds-dark-side-of-the-moon-live-in-concert-biljetter/805337883",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kubuE3A",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kubuE3A"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE WALL - Live in Concert",
+      "artists": [
+        "The Wall in Concert - Tributekonsert",
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Classic Rock",
+        "Miscellaneous",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-06",
+      "localTime": "17:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-06T16:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-wall-live-in-concert-biljetter/358367485",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vOk_4_K",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vOk_4_K"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Passenger",
+      "artists": [
+        "Passenger",
+        "Filadelfia Convention Center"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-11",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-11T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/passenger-biljetter/1806655653",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kOb3o_E",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kOb3o_E"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "THE MUSIC OF HARRY POTTER - in concert",
+      "artists": [
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-13",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-13T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-music-of-harry-potter-in-concert-biljetter/818491667",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kjUjEke",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kjUjEke"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Best of John Williams",
+      "artists": [
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-13",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-13T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-best-of-john-williams-biljetter/736727182",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vGoZw_b",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vGoZw_b"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Olivia Rodrigo - The Unraveled Tour - Platinum Tickets",
+      "artists": [
+        "Olivia Rodrigo"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-03-19",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-19T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/olivia-rodrigo-the-unraveled-tour-platinumbiljetter-biljetter/1311032658",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16eebo7_d",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16eebo7_d"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "DAGNY - LIVE AT BERNS",
+      "artists": [
+        "Berns",
+        "ENTR Group",
+        "Dagny"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Berns, The Ballroom",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2027-03-20",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-20T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/dagny-live-at-berns-biljetter/2098444643",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16ee7uS48",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16ee7uS48"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Olivia Rodrigo - The Unraveled Tour - Platinum Tickets",
+      "artists": [
+        "Olivia Rodrigo"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-03-20",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-20T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/olivia-rodrigo-the-unraveled-tour-platinumbiljetter-biljetter/2084373550",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v_KjfqY",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v_KjfqY"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Sagan om Ringen, Hobbit och Maktens Ringar – Live in Concert",
+      "artists": [
+        "LORD OF THE RINGS, THE HOBBIT AND THE RINGS OF POWER - in concert",
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-20",
+      "localTime": "16:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-20T15:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/sagan-om-ringen-hobbit-och-maktens-ringar--live-in-concert-biljetter/1653714770",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kP8-Z43",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kP8-Z43"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "The Music of Hans Zimmer & more",
+      "artists": [
+        "Filadelfia Convention Center",
+        "CULTURE NATION NORDIC"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Other",
+        "Theatre"
+      ],
+      "venue": {
+        "name": "Filadelfia Convention Center",
+        "city": "Stockholm",
+        "lat": 59.33948,
+        "lon": 18.03484
+      },
+      "localDate": "2027-03-20",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-20T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/the-music-of-hans-zimmer--more-biljetter/950840552",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kkKFgj3",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kkKFgj3"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "EIVØR",
+      "artists": [
+        "Eivor"
+      ],
+      "styles": [
+        "Alternative",
+        "Alternative Rock"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2027-03-26",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-26T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/eivr-biljetter/193235712",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vk_aVvg",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vk_aVvg"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Omid & Jamshid – Live in Concert",
+      "artists": [
+        "Jamshid",
+        "Omid Soltani",
+        "Cirkus"
+      ],
+      "styles": [
+        "Miscellaneous",
+        "Theatre",
+        "World"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2027-03-26",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-26T19:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/omid--jamshid--live-in-concert-biljetter/1199274075",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kbp_tOt",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kbp_tOt"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jordan Rakei",
+      "artists": [
+        "Jordan Rakei"
+      ],
+      "styles": [
+        "Other"
+      ],
+      "venue": {
+        "name": "Vasateatern",
+        "city": "Stockholm",
+        "lat": 59.3342,
+        "lon": 18.05586
+      },
+      "localDate": "2027-03-27",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-27T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jordan-rakei-biljetter/616669829",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vv0_yv-",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vv0_yv-"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Star Wars: A New Hope Live in Concert",
+      "artists": [
+        "Star Wars Live In Concert",
+        "Stockholm Concert Orchestra"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2027-03-27",
+      "localTime": "15:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-27T14:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/star-wars-a-new-hope-live-in-concert-biljetter/1064679061",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vx40y09",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vx40y09"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Star Wars: A New Hope Live in Concert",
+      "artists": [
+        "Star Wars Live In Concert",
+        "Stockholm Concert Orchestra"
+      ],
+      "styles": [
+        "Classical",
+        "Classical/Vocal",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Stockholm Waterfront",
+        "city": "Stockholm",
+        "lat": 59.32982,
+        "lon": 18.05621
+      },
+      "localDate": "2027-03-27",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-27T18:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/star-wars-a-new-hope-live-in-concert-biljetter/1895939917",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kpZ4gfF",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kpZ4gfF"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Greczula",
+      "artists": [
+        "Berns",
+        "ENTR Group",
+        "Greczula"
+      ],
+      "styles": [
+        "Hip-Hop/Rap",
+        "Other",
+        "Party Rap",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Berns, The Ballroom",
+        "city": "Stockholm",
+        "lat": 59.33226,
+        "lon": 18.07509
+      },
+      "localDate": "2027-04-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-02T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/greczula-biljetter/580575508",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1ANjx7Z",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1ANjx7Z"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "RUSH, FIFTY SOMETHING, Platinum Tickets",
+      "artists": [
+        "RUSH"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-04-08",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-08T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/rush-fifty-something-platinumbiljetter-biljetter/23722100",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vqk3au6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vqk3au6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Copenhagen Drummers - Next level tour",
+      "artists": [
+        "Copenhagen Drummers",
+        "Göta Lejon"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic"
+      ],
+      "venue": {
+        "name": "Göta Lejon",
+        "city": "Stockholm",
+        "lat": 59.31378,
+        "lon": 18.07384
+      },
+      "localDate": "2027-04-14",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-14T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/copenhagen-drummers-next-level-tour-biljetter/1746489347",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v-Y7YAd",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v-Y7YAd"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN: Lamine Cissokho & Christer Lyssarides",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Club Dance",
+        "Dance/Electronic",
+        "Other"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2027-04-16",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-16T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-lamine-cissokho--christer-lyssarides-biljetter/1870130143",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kkFuy7I",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kkFuy7I"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "NANNE GRÖNVALLS JUBILEUMSTURNÈ - HÄR ÄR JAG",
+      "artists": [
+        "Nanne Grönvall",
+        "Cirkus"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Cirkus",
+        "city": "Stockholm",
+        "lat": 59.32457,
+        "lon": 18.09969
+      },
+      "localDate": "2027-04-18",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-18T16:00:00Z",
+      "status": "rescheduled",
+      "url": "https://www.ticketmaster.se/event/nanne-gronvalls-jubileumsturne-har-ar-jag-biljetter/188379128",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1kPO4oJ6",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1kPO4oJ6"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Jake Bugg -  Alamo - UK & European Tour",
+      "artists": [
+        "Jake Bugg"
+      ],
+      "styles": [
+        "Alternative",
+        "Indie Pop",
+        "Other"
+      ],
+      "venue": {
+        "name": "Debaser Strand",
+        "city": "Stockholm",
+        "lat": 59.31465,
+        "lon": 18.03185
+      },
+      "localDate": "2027-04-23",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-23T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/jake-bugg-alamo-uk--european-tour-biljetter/960551987",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16v848kuK",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16v848kuK"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "SOMBR // You Are The Reason Tour // Stockholm | Platinum Tickets",
+      "artists": [
+        "Sombr"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-05-09",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-05-09T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/sombr-you-are-the-reason-tour-stockholm-%7C-platinumbiljetter-biljetter/1415406353",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k7xfFxb",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k7xfFxb"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "ALLHELGONASERIEN: SÖDRA BERGENS BALALAJKOR",
+      "artists": [
+        "Katarina forsamling"
+      ],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Allhelgonakyrkan",
+        "city": "Stockholm",
+        "lat": 59.30982,
+        "lon": 18.07379
+      },
+      "localDate": "2027-05-14",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-05-14T17:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/allhelgonaserien-sodra-bergens-balalajkor-biljetter/122508898",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vQZO6Go",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vQZO6Go"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Gracie Abrams: The Look at My Life Tour",
+      "artists": [
+        "Gracie Abrams"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-05-18",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-05-18T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/gracie-abrams-the-look-at-my-life-tour-biljetter/1680807311",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z1k-PbVJ4",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z1k-PbVJ4"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "Gracie Abrams: The Look at My Life Tour",
+      "artists": [
+        "Gracie Abrams"
+      ],
+      "styles": [
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29416,
+        "lon": 18.08081
+      },
+      "localDate": "2027-05-19",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-05-19T18:00:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/gracie-abrams-the-look-at-my-life-tour-biljetter/865634995",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
       "id": "hovet:weezer",
@@ -149,7 +6453,39 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/weezer/",
       "ticketUrl": "https://www.axs.com/se/events/1542684/weezer-tickets",
-      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "ticketmaster:Z698xZq2Z16vqIOM03",
+      "sourceIds": [
+        "ticketmaster:Z698xZq2Z16vqIOM03"
+      ],
+      "providers": [
+        "ticketmaster"
+      ],
+      "title": "John Vincent III",
+      "artists": [
+        "John Vincent III"
+      ],
+      "styles": [
+        "Other",
+        "Pop",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Debaser Nova",
+        "city": "Stockholm",
+        "lat": 59.31366,
+        "lon": 18.03503
+      },
+      "localDate": "2027-06-04",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-06-04T17:30:00Z",
+      "status": "scheduled",
+      "url": "https://www.ticketmaster.se/event/john-vincent-iii-biljetter/1768837912",
+      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     }
   ]
 }

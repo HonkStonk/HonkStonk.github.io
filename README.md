@@ -43,6 +43,10 @@ The collector is implemented, but an authenticated live request has not been tes
 3. Name the secret **`TICKETMASTER_API_KEY`** and paste the consumer key as its value. Keep it out of source files and chat.
 4. Once these changes are pushed and you're ready to enable automation, use the workflow below. Ticketmaster collection starts automatically when the secret exists.
 
+If your Ticketmaster app already shows **Approved**, with **Public APIs Enabled**, the account setup is done. On its **Credentials** tab, use the copy icon beside **Consumer Key**. The Discovery collector does not use **Consumer Secret** or **Callback URL**, so leave those alone. [Discovery authentication](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
+
+To update the app you're previewing locally, use the PowerShell commands below in a new terminal in this repository and paste the Consumer Key when prompted. The existing preview server can keep running. When the collector finishes, look for **`Ticketmaster Sweden: ok`**, then use **Check for updates** in Concerts. A GitHub Actions secret is only available to GitHub workflows; adding it there does not configure your local terminal. For the GitHub workflow, a run with **Publish** unchecked fetches/tests and uploads an artifact without updating the live site.
+
 The collector searches music in Stockholm, Uppsala, Falköping and Skövde over the next 365 days. Edit `data/concert-sources.json` to expand collection. Changing cities in the app filters known events; it does not change server-side collection. Date windows split automatically to respect the API's deep-paging cap; unknown-date events are also queried. Requests are paced below two per second, with bounded retries. [Discovery API documentation](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
 
 For a local authenticated refresh in PowerShell, enter the key without adding it to command history:
@@ -90,6 +94,6 @@ python scripts/package_site.py
 
 JavaScript tests need Node 22+; it is a development tool only. A verified portable Node executable was used locally under ignored `.local/node/`. Python collector tests, JavaScript rules/controller tests and syntax checks cover feedback separation, mode switching, overnight hours, date uncertainty, deduplication, rescheduling, failed refreshes and import validation. DOM doubles do not verify browser layout, native dialogs or physical compass direction. iPhone Safari/installed-PWA testing is still needed. No offline cache has been added to `sw.js`.
 
-The original bottle image is unchanged. The guitar uses the [Lucide guitar icon](https://github.com/lucide-icons/lucide/blob/main/icons/guitar.svg), recoloured and aligned as a compass needle; its license is in `licenses/lucide.txt`.
+The original bottle image is unchanged. The concert needle uses the supplied `sg-guitar.jpg`, displayed upright with its aspect ratio preserved. Its checkerboard background is baked into the JPEG. The previous Lucide icon and its license remain in the source checkout, but that icon is no longer used by the app or packaged for Pages.
 
 The durable brief, user preferences and progress notes are in [docs/concert-plan.md](docs/concert-plan.md). Current instruction: work directly on `main`, preserve existing edits, and do not push or deploy without a later instruction.
