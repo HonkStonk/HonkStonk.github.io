@@ -1,0 +1,20 @@
+{
+  "cities": ["Stockholm", "Falköping", "Skövde", "Uppsala"],
+  "horizonDays": 365,
+  "venueSources": [
+    {
+      "id": "hovet",
+      "name": "Hovet / Stockholm Live",
+      "indexUrl": "https://hovetarena.se/evenemang/musik-show/",
+      "eventPrefix": "https://hovetarena.se/evenemang/musik-show/",
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.2948624,
+        "lon": 18.0817942,
+        "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
+      },
+      "artistStyles": {"amon amarth": ["Metal", "Melodic death metal"]}
+    }
+  ]
+}

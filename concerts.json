@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-07T21:28:50+00:00",
+  "coverage": {
+    "cities": [
+      "Stockholm",
+      "Falköping",
+      "Skövde",
+      "Uppsala"
+    ],
+    "horizonDays": 365,
+    "complete": false,
+    "note": "Hovet music calendar; Ticketmaster city searches when connected. Other venues and providers are not yet covered."
+  },
+  "sources": [
+    {
+      "id": "hovet",
+      "name": "Hovet / Stockholm Live",
+      "status": "ok",
+      "lastSuccess": "2026-09-07T21:28:50+00:00",
+      "eventCount": 4
+    },
+    {
+      "id": "ticketmaster",
+      "name": "Ticketmaster Sweden",
+      "status": "not_configured",
+      "lastSuccess": null
+    }
+  ],
+  "events": [
+    {
+      "id": "hovet:amon-amarth",
+      "sourceIds": [
+        "hovet:amon-amarth"
+      ],
+      "providers": [
+        "hovet"
+      ],
+      "title": "Amon Amarth",
+      "artists": [
+        "Amon Amarth"
+      ],
+      "styles": [
+        "Melodic death metal",
+        "Metal"
+      ],
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.2948624,
+        "lon": 18.0817942,
+        "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
+      },
+      "localDate": "2026-10-24",
+      "localTime": "18:30",
+      "timeKind": "start",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-24T16:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
+      "ticketUrl": "https://www.axs.com/se/events/1237690/amon-amarth-tickets",
+      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+    },
+    {
+      "id": "hovet:fontaines-d-c",
+      "sourceIds": [
+        "hovet:fontaines-d-c"
+      ],
+      "providers": [
+        "hovet"
+      ],
+      "title": "Fontaines D.C.",
+      "artists": [
+        "Fontaines D.C."
+      ],
+      "styles": [],
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.2948624,
+        "lon": 18.0817942,
+        "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
+      },
+      "localDate": "2026-11-05",
+      "localTime": "19:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-05T18:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://hovetarena.se/evenemang/musik-show/fontaines-d-c/",
+      "ticketUrl": "https://www.axs.com/se/events/1562165/fontaines-dc-tickets?skin=hovet",
+      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+    },
+    {
+      "id": "hovet:good-charlotte",
+      "sourceIds": [
+        "hovet:good-charlotte"
+      ],
+      "providers": [
+        "hovet"
+      ],
+      "title": "Good Charlotte",
+      "artists": [
+        "Good Charlotte"
+      ],
+      "styles": [],
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.2948624,
+        "lon": 18.0817942,
+        "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
+      },
+      "localDate": "2026-11-08",
+      "localTime": "19:30",
+      "timeKind": "start",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-08T18:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://hovetarena.se/evenemang/musik-show/good-charlotte/",
+      "ticketUrl": "https://www.axs.com/se/events/1455771/good-charlotte-tickets",
+      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+    },
+    {
+      "id": "hovet:weezer",
+      "sourceIds": [
+        "hovet:weezer"
+      ],
+      "providers": [
+        "hovet"
+      ],
+      "title": "Weezer",
+      "artists": [
+        "Weezer"
+      ],
+      "styles": [],
+      "venue": {
+        "name": "Hovet",
+        "city": "Stockholm",
+        "lat": 59.2948624,
+        "lon": 18.0817942,
+        "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
+      },
+      "localDate": "2027-05-30",
+      "localTime": "18:30",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-05-30T16:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://hovetarena.se/evenemang/musik-show/weezer/",
+      "ticketUrl": "https://www.axs.com/se/events/1542684/weezer-tickets",
+      "lastVerifiedAt": "2026-09-07T21:28:50+00:00"
+    }
+  ]
+}

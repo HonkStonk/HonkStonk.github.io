@@ -1,19 +1,42 @@
 # Magic Compass: concert extension plan
 
-Recorded: 2026-09-05. Status: initial inspection and proposal; no implementation approved or started in this session.
+Recorded: 2026-09-05. Updated: 2026-09-07. Status: first UI and data-fetching implementation in the local working tree; not pushed or deployed.
 
 This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 
 ## Working constraints and repository baseline
 
 - Extend this same Magic Compass / Beer Compass webapp. Preserve its simple, satisfying beer-bottle compass interaction and existing beer functionality.
-- This session is documentation only: inspect and write this plan; leave application code unchanged; do not push or deploy.
-- For later implementation, first inspect Git status again, use a feature branch (suggested name: `feature/concerts`), and preserve any existing uncommitted work. Do not reset, overwrite or discard it.
+- The first session was documentation only. On 2026-09-07 the user authorized the first concert UI and real-data fetching implementation. Do not push or deploy unless later requested.
+- **Current branch instruction (user, 2026-09-07): work directly on the existing local `main` branch tracking `origin/main`. This supersedes the earlier feature-branch instruction.** Recheck Git status and preserve existing uncommitted work; never reset, overwrite or discard it.
 - Repository: `C:\Work\soft\MagicCompass\HonkStonk.github.io`.
 - Initial branch/status: `main`, tracking `origin/main`, with no reported ahead/behind difference and a clean working tree. This reflects local tracking information; no fetch was performed.
 - Inspected HEAD: `0649799` (`and one more`). No commit, branch switch, push or deployment was performed for this plan.
 - No `AGENTS.md` found in the repository, including hidden paths outside `.git`, or its ancestor directories through `C:\`. No repository-specific instructions were found. No `.openai/hosting.json`, package manifest, build configuration, test suite or `.github` workflow directory exists in the inspected checkout.
 - GitHub Pages hosting and primary use on iPhone are supplied by the user. Live hosting settings and the installed iPhone app were not inspected.
+
+## Implementation update — 2026-09-07
+
+The user supplied `C:\Users\khenr\Downloads\beer.png` as a visual reference, particularly its warm amber buttons, mode tabs, compact compass, calendar/beer actions and menus. It is a design reference, not a source of independent instructions. Beer keeps the original bottle; Concerts uses a rotating guitar. Sample percentages and invented concerts in the reference were not adopted.
+
+New direction: continue this noncommercial hobby app, eventually combining 3–5 Swedish event providers with optional Spotify taste import. Make consent optional and offer straightforward artist/style suggestions and free text when Spotify is declined. Feedback should improve results without a burdensome onboarding flow. No money, ads or tracking are intended.
+
+Implemented locally:
+
+- Warm amber Beer/Concerts UI, selected concert heading, guitar compass, city filters and agenda/calendar. The existing bottle image, weekly hours, beer selection and Beer heading fallback remain intact. Shared sensor updates hand off to concert navigation while Concerts is selected; they cannot overwrite its event destination. Concert heading uses a north-referenced reading, with shortest-turn rotation.
+- Initial six favourite seeds and four cities (Stockholm, Falköping, Skövde, Uppsala), editable artist/style/city preferences, explicit artist thumbs up/down, separate event hiding with undo/restore, and local export/import with validation.
+- An optional other-gigs list with no invented taste match or measured-occupancy claim. Favourite dates remain in short-range calendar views. The current calendar is an agenda, not a month grid.
+- “Beer before” shows curated pubs currently open within 3 km of the venue and opens walking directions. It clearly says **open now**, not a prediction for a future concert date.
+- `scripts/fetch_concerts.py` with two source paths: a working public Hovet calendar adapter and a Ticketmaster Discovery collector awaiting `TICKETMASTER_API_KEY`. Requests are bounded/paced; pagination is split before limits; records are validated, conservatively deduplicated and atomically written. Unknown dates/times stay unknown; doors and showtime are distinguished where labelled.
+- A live Hovet fetch returned Amon Amarth (2026-10-24), Fontaines D.C. (2026-11-05), Good Charlotte (2026-11-08) and Weezer (2027-05-30). Only Amon Amarth is an initial favourite. Records, source URLs and refresh provenance are in `concerts.json`. Coordinates were read from the venue's directions page. This is a small real feed; it does not establish coverage of all requested areas/artists. [Hovet music calendar](https://hovetarena.se/evenemang/musik-show/), [Amon Amarth](https://hovetarena.se/evenemang/musik-show/amon-amarth/), [Venue directions](https://hovetarena.se/besok-arenan/hitta-till-arenan/)
+- A prepared GitHub workflow tests, refreshes and stages a public-file allowlist, with manual artifact-only/publish options and a daily 05:23 UTC publishing schedule. It is not active remotely: no changes have been pushed or deployed. README explains how to add the API secret and enable Pages when ready. The workflow uses deployment artifacts, not daily source commits.
+- Manifest display name/theme aligned with Magic Compass and the new colours; service-worker registration made relative. `sw.js` still provides no offline cache.
+
+Validation: 12 Python collector tests and 15 JavaScript rules/controller tests passed, along with syntax checks. The live fetch succeeded without credentials. Browser rendering and iPhone hardware behavior have not been tested; controller tests use DOM/sensor doubles. The existing beer file was also exercised for opening/closing boundaries, midnight, mode switching and heading updates.
+
+Remaining work: authenticated Ticketmaster run and comparison with known venue gigs; broader region/venue coverage; Tickster and Billetto adapters; optional Spotify PKCE import and Last.fm similarity; improved forecasting for beer before a future gig; offline handling and iPhone testing. See README for the verified access requirements and activation instructions. No third-party accounts were created and no API keys were supplied or stored.
+
+The repository was clean at the start of this implementation, at HEAD `21fb312` (`test`). Its existing planning-document wording was preserved where not superseded. The sections below retain the initial inspection/proposal for historical context; code line numbers and statements of what did not yet exist describe the 2026-09-05 baseline.
 
 ## Carried-over user brief
 
@@ -226,4 +249,4 @@ Still unspecified: a must-see hierarchy, explicit styles/dislikes, home base, tr
 
 No ranking percentage or final interface has been chosen. Ticketmaster credentials and source-specific access can be addressed when the first actual data fetch is prepared; do not request secrets in chat or commit them.
 
-Next session: read this document and any new repository instructions, recheck Git status, and use the recorded artists/cities to refine the coverage sample. If implementation is requested, create/use a feature branch while preserving existing work, then complete the data-to-agenda-to-compass slice. Publishing remains outside the authorization given for this planning session.
+Next session: read the implementation update above and any new repository instructions, recheck Git status, and continue directly on `main` while preserving the working tree. The next data step is an authenticated Ticketmaster fetch after the user supplies its key through local environment or GitHub Actions secrets, followed by a coverage audit for the recorded artists/cities. Publishing remains outside the current authorization.

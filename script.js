@@ -305,6 +305,7 @@ const beerShops = [
 // --- State Variables ---
 let currentPosition = null;
 let currentHeading = null;
+let currentConcertHeading = null;
 let nearestShop = null;
 let watchId = null; // To store the watchPosition ID
 let hoursIntervalId = null; // To store the interval timer ID
@@ -649,6 +650,11 @@ let targetShop = null;
 
 // Main function to update all UI elements
 function updateDisplay() {
+    // A selected gig owns the shared compass while Concerts is active.
+    if (window.Concerts && window.Concerts.isActive()) {
+        window.Concerts.updateNavigation(currentPosition, currentConcertHeading);
+        return;
+    }
     targetShop = findTargetShop(); // Find the appropriate target shop
 
     statusText.textContent = " ";
@@ -705,6 +711,7 @@ function handleLocationUpdate(pos) {
 }
 
 function handleLocationError(err) {
+    if (window.Concerts) window.Concerts.locationError(err);
     console.error("Location Error:", err.message, `(Code: ${err.code})`);
     statusText.textContent = `Error getting location: ${err.message}`;
     if (err.code === 1) { // PERMISSION_DENIED
@@ -719,12 +726,19 @@ function handleLocationError(err) {
 }
 
 function handleOrientationUpdate(event) {
+    // Concert navigation requires a north-referenced heading. Preserve the
+    // established Beer-mode fallback independently.
+    if (Number.isFinite(event.webkitCompassHeading)) {
+        currentConcertHeading = event.webkitCompassHeading;
+    } else if (event.absolute === true && Number.isFinite(event.alpha)) {
+        currentConcertHeading = (360 - event.alpha) % 360;
+    }
     let heading = null;
      // Prefer absolute orientation if available
     if (event.absolute === true && event.alpha !== null) {
         heading = event.alpha;
     } else if (event.webkitCompassHeading !== undefined) {
-        heading = event.webkitCompassHeading; // Fallback for older iOS
+        heading = event.webkitCompassHeading;
     } else if (event.alpha !== null) {
         // Use alpha, but be aware it might be relative, not true north
         // depending on the device and browser implementation.
@@ -733,7 +747,7 @@ function handleOrientationUpdate(event) {
     }
 
 
-    if (typeof heading === 'number') {
+    if (typeof heading === 'number' && Number.isFinite(heading)) {
           currentHeading = heading;
           // console.log("Heading update:", currentHeading); // Reduce console noise
           updateDisplay(); // Update display when heading changes
@@ -746,6 +760,8 @@ function handleOrientationUpdate(event) {
 // Request permissions and start tracking
 function requestPermissionsAndStart() {
     statusText.textContent = "Requesting permissions...";
+    currentConcertHeading = null;
+    if (window.Concerts) window.Concerts.sensorStatus('Requesting location and compass…');
 
     // Clear previous interval timer if any
     if (hoursIntervalId) {
@@ -766,6 +782,7 @@ function requestPermissionsAndStart() {
                 } else {
                     console.log("Orientation permission denied.");
                     statusText.textContent = "Compass permission denied.";
+                    if (window.Concerts) window.Concerts.sensorStatus('Compass permission denied. Event details still work.', true);
                     // Don't throw error, just proceed without compass maybe
                     return false; // Indicate failure
                 }
@@ -773,6 +790,7 @@ function requestPermissionsAndStart() {
             .catch(error => {
                 console.error("Orientation Permission Request Error:", error);
                 statusText.textContent = "Error requesting compass permission.";
+                if (window.Concerts) window.Concerts.sensorStatus('Could not enable the compass. Event details still work.', true);
                 return false; // Indicate failure
             });
     }
@@ -853,11 +871,26 @@ startButton.addEventListener('click', requestPermissionsAndStart);
 // Register the service worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => { // Register SW after page load
-         navigator.serviceWorker.register('/sw.js')
+         navigator.serviceWorker.register('./sw.js')
             .then(registration => console.log('Service Worker registered with scope:', registration.scope))
             .catch(error => console.error('Service Worker registration failed:', error));
     });
 }
+
+// Keep sensors and the curated beer logic shared, without exposing mutable state.
+window.BeerCompass = {
+    start: requestPermissionsAndStart,
+    refresh: updateDisplay,
+    getPosition: () => currentPosition,
+    getHeading: () => currentConcertHeading,
+    distance: getDistanceFromLatLonInKm,
+    bearing: getBearingFromLatLon,
+    nearbyBeer: (lat, lon) => beerShops
+        .filter(shop => !shop.name.startsWith('Systembolaget'))
+        .map(shop => ({ ...shop, distance: getDistanceFromLatLonInKm(lat, lon, shop.lat, shop.lon), statusInfo: getShopStatus(new Date(), shop.hours) }))
+        .filter(shop => shop.statusInfo && shop.statusInfo.status === 'open' && shop.distance <= 3)
+        .sort((a, b) => a.distance - b.distance).slice(0, 5)
+};
 
 // Optional: Add visibility change listener to potentially pause/resume expensive tracking?
 // document.addEventListener("visibilitychange", () => {

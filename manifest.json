@@ -1,9 +1,9 @@
 {
-    "name": "My Compass/GPS PWA",
-    "short_name": "My PWA",
+    "name": "Magic Compass",
+    "short_name": "Compass",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#fff",
+    "background_color": "#14120f",
+    "theme_color": "#14120f",
     "icons": []
 }
