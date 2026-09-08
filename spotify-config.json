@@ -1,3 +1,4 @@
 {
-  "clientId": ""
+  "clientId": "",
+  "accessMode": "development"
 }

@@ -151,6 +151,10 @@ def normalize_venue_event(raw, page, url, source, now):
 def collect_venue(source, now, get=fetch):
     if source.get("adapter") == "katalin":
         return collect_katalin(source, now, get)
+    if source.get("adapter") == "kollektivet_livet":
+        return collect_livet(source, now, get)
+    if source.get("adapter") == "slakthusen":
+        return collect_slakthusen(source, now, get)
     index = Page(get(source["indexUrl"]))
     prefix = source["eventPrefix"]
     links = sorted({urljoin(source["indexUrl"], link).split("#")[0].split("?")[0] for link in index.links})
@@ -169,6 +173,211 @@ def collect_venue(source, now, get=fetch):
 
 def plain_text(value):
     return " ".join(Page(unescape(str(value or ""))).text)
+
+
+class Element:
+    def __init__(self, tag="root", attrs=()):
+        self.tag, self.attrs, self.children = tag, dict(attrs), []
+
+    def find(self, tag=None, cls=None):
+        for child in self.children:
+            if isinstance(child, Element):
+                if (tag is None or child.tag == tag) and (cls is None or cls in child.attrs.get("class", "").split()):
+                    yield child
+                yield from child.find(tag, cls)
+
+    def text(self):
+        return " ".join(c.text() if isinstance(c, Element) else c for c in self.children).strip()
+
+
+class CalendarHTML(HTMLParser):
+    """Small tree reader for public calendar cards; scripts/styles are never data."""
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+
+    def __init__(self, html):
+        super().__init__(convert_charrefs=True)
+        self.root = Element()
+        self.stack = [self.root]
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        node = Element(tag, attrs)
+        self.stack[-1].children.append(node)
+        if tag not in self.VOID:
+            self.stack.append(node)
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if tag not in self.VOID:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.stack) - 1, 0, -1):
+            if self.stack[i].tag == tag:
+                del self.stack[i:]
+                break
+
+    def handle_data(self, data):
+        if not any(n.tag in {"script", "style"} for n in self.stack):
+            self.stack[-1].children.append(data.strip())
+
+
+def one_element(root, tag=None, cls=None):
+    found = list(root.find(tag, cls))
+    if len(found) != 1:
+        raise ValueError("Venue calendar markup changed")
+    return found[0]
+
+
+def calendar_event(source, url, title, day, local_time, time_kind, now, styles=None, venue=None, ticket=None):
+    datetime.strptime(day, "%Y-%m-%d")
+    if local_time:
+        local_time = datetime.strptime(local_time, "%H:%M").strftime("%H:%M")
+    instant = datetime.fromisoformat(day + "T" + local_time).replace(tzinfo=ZoneInfo("Europe/Stockholm")) if local_time else None
+    identifier = source["id"] + ":" + urlparse(url).path.strip("/").split("/")[-1]
+    return {"id": identifier, "sourceIds": [identifier], "providers": [source["id"]],
+            "title": " ".join(title.split()), "artists": [], "styles": styles or [],
+            "venue": venue or source["venue"], "localDate": day, "localTime": local_time,
+            "timeKind": time_kind, "timeZone": "Europe/Stockholm",
+            "dateTime": instant.astimezone(timezone.utc).isoformat() if instant else None,
+            "status": "cancelled" if re.search(r"\b(inställt|inställd|cancelled|canceled)\b", title, re.I) else status_name(title),
+            "url": url, "ticketUrl": ticket if safe_url(ticket) else None, "lastVerifiedAt": now}
+
+
+def collect_livet(source, now, get=fetch):
+    """Follow public offset links; pair each card's full date with its own details."""
+    base, url, cards, visited = source["indexUrl"], source["indexUrl"], {}, set()
+    while url:
+        if url in visited or len(visited) >= 40:
+            raise ValueError("Kollektivet Livet calendar pagination repeated or exceeded limit")
+        visited.add(url)
+        tree = CalendarHTML(get(url)).root
+        listing = one_element(tree, cls="event-list")
+        rows = list(listing.find(cls="event"))
+        for card in rows:
+            link = one_element(one_element(card, "h3"), "a").attrs["href"]
+            if not link.startswith(source["eventPrefix"]) or link in cards:
+                raise ValueError("Kollektivet Livet calendar returned repeated or unexpected event")
+            start = datetime.fromisoformat(one_element(card, "time").attrs["datetime"])
+            cards[link] = start.date().isoformat()
+        next_links = {urljoin(base, a.attrs["href"]) for a in tree.find("a") if "offset=" in a.attrs.get("href", "")}
+        if len(next_links) > 1 or len(cards) > 450:
+            raise ValueError("Kollektivet Livet calendar is incomplete")
+        # This site keeps rendering a next-offset link even on an empty terminal
+        # page. Require its event-list container, then stop at that empty page.
+        if not rows:
+            break
+        url = next(iter(next_links), None)
+        if url:
+            parts, expected = urlparse(url), urlparse(base)
+            offset = parse_qs(parts.query).get("offset", [""])[0]
+            if parts.netloc != expected.netloc or parts.path != expected.path or not offset.isdigit():
+                raise ValueError("Unexpected Kollektivet Livet pagination link")
+    if not cards:
+        raise ValueError("Kollektivet Livet calendar returned no dated events")
+    events = []
+    for link, day in sorted(cards.items()):
+        tree = CalendarHTML(get(link)).root
+        boxes = list(tree.find(cls="info-box-event"))
+        # Desktop/mobile versions may repeat the same event summary.
+        if not boxes or len({" ".join(b.text().split()) for b in boxes}) != 1:
+            raise ValueError("Kollektivet Livet event summary changed or conflicts")
+        info = boxes[0]
+        fields = {}
+        for row in one_element(info, "table", "event-info").find("tr"):
+            fields[one_element(row, "td", "key").text()] = one_element(row, "td", "value").text()
+        categories = [s.strip() for s in fields["Vad"].split(",") if s.strip()]
+        # The venue hosts exhibitions, talks and DJ parties as well as concerts.
+        if "konsert" not in {name_key(c) for c in categories}:
+            continue
+        title = one_element(info, "h1").text()
+        styles = [s for s in categories if name_key(s) not in {"konsert", "klubb", "festival"}]
+        tickets = list(info.find("a", "buy-ticket"))
+        doors = fields.get("Dörrar")
+        if doors and doors.strip() in {"-", "–", "TBA"}:
+            doors = None
+        events.append(calendar_event(source, link, title, day, doors, "doors", now, styles,
+                                     ticket=tickets[0].attrs.get("href") if tickets else None))
+    return events
+
+
+SWEDISH_MONTHS = {name: i for i, name in enumerate(["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"], 1)}
+
+
+def collect_slakthusen(source, now, get=fetch):
+    """Read the operator's upcoming cards and explicit event-date fields.
+
+    BlogPosting publication dates are deliberately ignored. Only named concert
+    rooms and pages with explicit live-music wording qualify; ambiguous items
+    remain outside this supplement.
+    """
+    base, url, links, visited = source["indexUrl"], source["indexUrl"], set(), set()
+    while url:
+        if url in visited or len(visited) >= 30:
+            raise ValueError("Slakthusen calendar pagination repeated or exceeded limit")
+        visited.add(url)
+        tree = CalendarHTML(get(url)).root
+        listings = [e for e in tree.find("ul") if e.attrs.get("id") == "nm-blog-list"]
+        if len(listings) != 1:
+            raise ValueError("Slakthusen calendar changed")
+        cards = list(listings[0].find("li"))
+        for card in cards:
+            link = one_element(card, "a").attrs["href"]
+            if not link.startswith(base) or link in links:
+                raise ValueError("Slakthusen calendar returned repeated or unexpected event")
+            links.add(link)
+        next_links = {a.attrs["href"] for a in tree.find("a") if re.fullmatch(re.escape(base) + r"page/\d+/", a.attrs.get("href", ""))}
+        if len(next_links) > 1 or (next_links and not cards) or len(links) > 350:
+            raise ValueError("Slakthusen calendar is incomplete")
+        url = next(iter(next_links), None)
+    if not links:
+        raise ValueError("Slakthusen calendar returned no events")
+    events = []
+    for link in sorted(links):
+        tree = CalendarHTML(get(link)).root
+        room = one_element(tree, cls="stalle-s").text().strip()
+        if room not in source["venues"]:
+            continue
+        title = one_element(tree, cls="titel-s").text()
+        article = one_element(tree, "article")
+        description = article.text()
+        # Some posts have a stale room category/footer. Prefer a room explicitly
+        # named in both the event title and its labelled programme details.
+        for named_room in source["venues"]:
+            if (re.search(r"\|\s*" + re.escape(named_room) + r"\s*$", title, re.I)
+                    and re.search(r"\b(?:Lokal|Venue)\s*:\s*" + re.escape(named_room) + r"\b", description, re.I)):
+                room = named_room
+        # A wrestling show or a DJ-only club must not become a concert.
+        if re.search(r"wrestling|stand\s*-?\s*up|quiz", title, re.I) or not re.search(r"\b(?:band\s*:|live\s*(?:från|på scen|:)|konsert\w*|concert\w*|spelning\w*)", description, re.I):
+            continue
+        date_text = one_element(tree, cls="datum-s").text()
+        match = re.fullmatch(r"\w+\s+(\w+)\s+(\d{1,2}),\s+(\d{4})", date_text.strip())
+        if not match:
+            raise ValueError("Slakthusen event date changed")
+        month, day, year = match.groups()
+        date = f"{int(year):04d}-{SWEDISH_MONTHS[month[:3].lower()]:02d}-{int(day):02d}"
+        times = list(tree.find(cls="tid-b"))
+        local_time = times[0].text().strip() if times else None
+        if local_time in {"", "-", "–", "TBA"}:
+            local_time = None
+        if local_time:
+            clock = re.fullmatch(r"(\d{1,2})[.:](\d{2})(?:\s*[-–]\s*\d{1,2}[.:]\d{2})?", local_time)
+            if not clock:
+                raise ValueError("Slakthusen listed time changed")
+            local_time = f"{int(clock[1]):02d}:{clock[2]}"
+        doors = re.search(r"\bInsläpp\s*:?\s*(?:kl\.?\s*)?(\d{1,2})[.:](\d{2})", description, re.I)
+        kind = "listed"
+        if doors:
+            local_time = f"{int(doors[1]):02d}:{doors[2]}"
+            kind = "doors"
+        tickets = list(one_element(tree, cls="ticket-s").find("a"))
+        # Styles must be stated on this event page, never assigned to an entire venue.
+        styles = [label for label, pattern in source.get("stylePatterns", {}).items() if re.search(pattern, title + " " + description, re.I)]
+        clean_title = re.sub(r"\s*\|\s*" + re.escape(room) + r"\s*$", "", title, flags=re.I)
+        events.append(calendar_event(source, link, clean_title, date, local_time, kind, now, styles,
+                                     source["venues"][room], tickets[0].attrs.get("href") if tickets else None))
+        events[-1]["styleEvidence"] = "description"
+    return events
 
 
 def collect_katalin(source, now, get=fetch):
@@ -467,7 +676,7 @@ def refresh(config, previous, now, venue_collector=collect_venue, ticketmaster_c
     last_day = (day + timedelta(days=config["horizonDays"])).isoformat()
     events = [e for e in deduplicate(events, previous.get("events", [])) if not e["localDate"] or day.isoformat() <= e["localDate"] <= last_day]
     validate(events)
-    return {"schemaVersion": 1, "generatedAt": now, "coverage": {"cities": config["cities"], "horizonDays": config["horizonDays"], "complete": False, "note": "Hovet and Katalin music calendars; Ticketmaster and Tickster city searches when connected. Tickster covers musik/konsert-tagged performances. Coverage is partial; untagged events and other venues/providers may be missing."}, "sources": sources, "events": sorted(events, key=lambda e: (e["localDate"] or "9999", e["title"]))}
+    return {"schemaVersion": 1, "generatedAt": now, "coverage": {"cities": config["cities"], "horizonDays": config["horizonDays"], "complete": False, "gaps": config.get("coverageGaps", []), "note": "Public venue music calendars and Ticketmaster/Tickster city searches when connected. Coverage is partial; ambiguous or untagged events and other venues/providers may be missing."}, "sources": sources, "events": sorted(events, key=lambda e: (e["localDate"] or "9999", e["title"]))}
 
 
 def main():

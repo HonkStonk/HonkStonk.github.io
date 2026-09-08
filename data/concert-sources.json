@@ -1,7 +1,18 @@
 {
-  "cities": ["Stockholm", "Falköping", "Skövde", "Uppsala"],
+  "cities": [
+    "Stockholm",
+    "Falköping",
+    "Skövde",
+    "Uppsala"
+  ],
   "horizonDays": 365,
-  "tickster": {"musicTags": ["musik", "konsert"], "maxDetails": 600},
+  "tickster": {
+    "musicTags": [
+      "musik",
+      "konsert"
+    ],
+    "maxDetails": 600
+  },
   "venueSources": [
     {
       "id": "hovet",
@@ -15,7 +26,12 @@
         "lon": 18.0817942,
         "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
       },
-      "artistStyles": {"amon amarth": ["Metal", "Melodic death metal"]}
+      "artistStyles": {
+        "amon amarth": [
+          "Metal",
+          "Melodic death metal"
+        ]
+      }
     },
     {
       "id": "katalin",
@@ -30,7 +46,121 @@
         "lon": 17.6452262,
         "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
       },
-      "musicGenres": ["Afro pop", "Akustiskt", "Americana", "AOR", "Black Metal", "Blues", "Country", "Dansband", "Darkwave", "Disco", "Elektroniskt", "Experimentell", "Folkmusik", "Folkrock", "Funk", "Gospel", "Hardcore", "Hårdrock", "Hip Hop", "Indie", "Jazz", "Julkonsert", "Klassiskt", "Klezmer", "Latino", "Metal", "Opera", "Pop", "Progg", "Progressiv rock", "Punk", "R&B", "Reggae", "Rock", "Rock'n'Roll", "Rockabilly", "Rythm & Blues", "singer songwriter", "Soul", "Storbands jazz", "Studentmusik", "swing", "Synthpop", "Visa"]
+      "musicGenres": [
+        "Afro pop",
+        "Akustiskt",
+        "Americana",
+        "AOR",
+        "Black Metal",
+        "Blues",
+        "Country",
+        "Dansband",
+        "Darkwave",
+        "Disco",
+        "Elektroniskt",
+        "Experimentell",
+        "Folkmusik",
+        "Folkrock",
+        "Funk",
+        "Gospel",
+        "Hardcore",
+        "Hårdrock",
+        "Hip Hop",
+        "Indie",
+        "Jazz",
+        "Julkonsert",
+        "Klassiskt",
+        "Klezmer",
+        "Latino",
+        "Metal",
+        "Opera",
+        "Pop",
+        "Progg",
+        "Progressiv rock",
+        "Punk",
+        "R&B",
+        "Reggae",
+        "Rock",
+        "Rock'n'Roll",
+        "Rockabilly",
+        "Rythm & Blues",
+        "singer songwriter",
+        "Soul",
+        "Storbands jazz",
+        "Studentmusik",
+        "swing",
+        "Synthpop",
+        "Visa"
+      ]
+    },
+    {
+      "id": "kollektivet_livet",
+      "name": "Kollektivet Livet, Stockholm",
+      "adapter": "kollektivet_livet",
+      "indexUrl": "https://kollektivetlivet.se/evenemang-biljetter/",
+      "eventPrefix": "https://kollektivetlivet.se/event/",
+      "venue": {
+        "name": "Kollektivet Livet",
+        "city": "Stockholm",
+        "lat": 59.319416,
+        "lon": 18.0775996,
+        "address": "Stadsgårdshamnen 6",
+        "addressSource": "https://kollektivetlivet.se/hitta-hit/",
+        "coordinateSource": "https://stadsgardsterminalen.com/kontakt/"
+      }
+    },
+    {
+      "id": "slakthusen",
+      "name": "Slakthusen: Hus 7, Slaktkyrkan & Kapellet",
+      "adapter": "slakthusen",
+      "indexUrl": "https://slakthusen.se/",
+      "venues": {
+        "Hus 7": {
+          "name": "Hus 7",
+          "city": "Stockholm",
+          "lat": 59.2926044,
+          "lon": 18.0803376,
+          "coordinateSource": "https://goo.gl/maps/9ennEVKdjEPgVJAD9"
+        },
+        "Slaktkyrkan": {
+          "name": "Slaktkyrkan",
+          "city": "Stockholm",
+          "lat": 59.2925931,
+          "lon": 18.080304,
+          "coordinateSource": "https://slakthusen.se/helt-off/"
+        },
+        "Kapellet": {
+          "name": "Kapellet",
+          "city": "Stockholm",
+          "lat": 59.2925027,
+          "lon": 18.0804772,
+          "coordinateSource": "https://slakthusen.se/chuck-ragan-kapellet/"
+        }
+      },
+      "stylePatterns": {
+        "Punk": "\\b(?:punk\\w*|post[- ]?punk\\w*)\\b",
+        "Hardcore": "\\bhardcore\\w*\\b",
+        "Indie": "\\bindie\\w*\\b",
+        "Metal": "\\b(?:metal\\w*|doom|sludge)\\b",
+        "Rock": "\\b(?:rock\\w*|postrock\\w*|psykedelisk rock)\\b",
+        "Synth": "\\b(?:synth\\w*|syntpop|darkwave)\\b",
+        "Jazz": "\\bjazz\\w*\\b",
+        "Folk": "\\b(?:folkmusik|folkrock|americana)\\b",
+        "Reggae": "\\breggae\\w*\\b",
+        "Pop": "\\bpop\\w*\\b"
+      }
+    }
+  ],
+  "coverageGaps": [
+    {
+      "name": "Kafé 44 / Scen 44",
+      "url": "https://kafe44.org/scen-44/",
+      "note": "Not imported yet. The venue directs visitors to Facebook for its current programme."
+    },
+    {
+      "name": "Cyklopen",
+      "url": "https://cyklopen.se/",
+      "note": "Not imported yet. No reliable upcoming concert feed found on the public website."
     }
   ]
 }

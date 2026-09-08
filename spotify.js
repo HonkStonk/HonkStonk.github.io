@@ -90,6 +90,10 @@
             }
             const client = createClient({ storage: root.sessionStorage, crypto: root.crypto, fetch: root.fetch.bind(root) });
             $('spotifySection').hidden = false;
+            $('connectSpotify').disabled = false;
+            $('spotifyAvailability').textContent = config.accessMode === 'extended'
+                ? 'Optional. Connect your own Spotify account to choose artists for your favourites.'
+                : 'Spotify import is currently available to invited testers only. Other visitors can add artists below.';
             $('connectSpotify').onclick = async () => {
                 $('connectSpotify').disabled = true;
                 $('spotifyStatus').textContent = '';

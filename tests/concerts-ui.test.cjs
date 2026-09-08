@@ -23,9 +23,10 @@ class Element {
     querySelectorAll(selector) { return this.children.filter(c => c instanceof Element && selector === '[aria-pressed="true"]' && c.getAttribute('aria-pressed') === 'true'); }
 }
 
-async function app({ offline = false, spotify = false } = {}) {
+async function app({ offline = false, spotify = false, spotifyConfig = { clientId: 'a'.repeat(32) }, gaps = [], sources = [] } = {}) {
     const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
     const elements = new Map([...html.matchAll(/\bid="([^"]+)"/g)].map(m => [m[1], new Element()]));
+    elements.get('connectSpotify').disabled = true;
     elements.get('calendarRange').value = 'all';
     elements.get('spotifyRange').value = 'medium_term';
     const document = {
@@ -36,8 +37,8 @@ async function app({ offline = false, spotify = false } = {}) {
     const saved = new Map();
     const session = new Map();
     // Fixed test records keep scheduled tests independent of touring calendars.
-    const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', sources: [], events: [
-        { id: 'test:amon', title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], localDate: '2026-10-24', localTime: '18:30', timeKind: 'start', status: 'scheduled', url: 'https://example.com/amon', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } },
+    const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', coverage: { gaps }, sources, events: [
+        { id: 'test:amon', providers: ['ticketmaster'], title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], localDate: '2026-10-24', localTime: '18:30', timeKind: 'start', status: 'scheduled', url: 'https://example.com/amon', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } },
         { id: 'test:other', title: 'Another band', artists: ['Another band'], styles: ['Indie'], localDate: '2027-05-30', localTime: null, timeKind: 'listed', status: 'scheduled', url: 'https://example.com/other', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } }
     ] };
     let geolocationStarts = 0;
@@ -51,13 +52,50 @@ async function app({ offline = false, spotify = false } = {}) {
         setTimeout: () => 1, clearTimeout() {}, setInterval: () => 1, clearInterval() {},
         localStorage: { getItem: k => saved.get(k) || null, setItem: (k, v) => saved.set(k, v) },
         navigator: { geolocation: { watchPosition() { geolocationStarts++; return 1; }, clearWatch() {} } },
-        fetch: async url => { if (offline) throw new Error('offline'); return { ok: true, json: async () => url === './spotify-config.json' ? { clientId: 'a'.repeat(32) } : snapshot }; }
+        fetch: async url => { if (offline) throw new Error('offline'); return { ok: true, json: async () => url === './spotify-config.json' ? spotifyConfig : snapshot }; }
     });
     context.window = context;
     for (const file of ['script.js', 'concerts-core.js', ...(spotify ? ['spotify.js'] : []), 'concerts.js']) vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
     await new Promise(resolve => setImmediate(resolve));
     return { context, elements, saved, get geolocationStarts() { return geolocationStarts; } };
 }
+
+test('Spotify configuration gates sign-in and explains the invited-user restriction', async () => {
+    const absent = await app({ spotify: true, spotifyConfig: { clientId: '' } });
+    assert.equal(absent.elements.get('connectSpotify').disabled, true);
+    assert.equal(absent.elements.get('connectSpotify').onclick, undefined);
+    const invited = await app({ spotify: true });
+    assert.equal(invited.elements.get('connectSpotify').disabled, false);
+    assert.match(invited.elements.get('spotifyAvailability').textContent, /invited testers only/);
+});
+
+test('coverage gaps render safely without breaking the concert snapshot', async () => {
+    const { elements } = await app({ gaps: [
+        { name: 'Scen 44', note: 'Not imported yet.', url: 'https://example.com/programme' },
+        { name: '<script>no</script>', note: 'Unavailable', url: 'javascript:alert(1)' }
+    ] });
+    const details = elements.get('sourceDetails');
+    assert.match(details.textContent, /Scen 44: Not imported yet/);
+    assert.equal(details.children[0].children[0].href, 'https://example.com/programme');
+    assert.equal(details.children[1].children.length, 0);
+    assert.match(elements.get('dataStatus').textContent, /gigs in current sources/);
+});
+
+test('previous Ticketmaster success with saved listings is distinguished from never connected', async () => {
+    for (const status of ['not_configured', 'error', 'ok']) {
+        const { elements } = await app({ sources: [
+            { id: 'ticketmaster', name: 'Ticketmaster Sweden', status, lastSuccess: '2026-09-07T12:00:00Z' },
+            { id: 'tickster', name: 'Tickster Sweden', status: 'not_configured', lastSuccess: null }
+        ] });
+        const rows = elements.get('sourceDetails').children;
+        assert.match(rows[0].textContent, status === 'ok' ? /checked · 1 listings/ : /using 1 saved listings/);
+        if (status === 'not_configured') assert.match(rows[0].textContent, /live refresh not connected/);
+        if (status === 'error') assert.match(rows[0].textContent, /latest refresh failed/);
+        assert.match(rows[0].textContent, /last checked/);
+        assert.doesNotMatch(rows[0].textContent, /not connected yet/);
+        assert.match(rows[1].textContent, /not connected yet/);
+    }
+});
 
 test('Spotify remains opt-in and saves edited choices before redirecting for consent', async () => {
     const { context, elements, saved } = await app({ spotify: true });

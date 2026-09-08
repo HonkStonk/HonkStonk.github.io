@@ -185,8 +185,22 @@
             $('sourceDetails').replaceChildren();
             for (const source of snapshot.sources) {
                 const text = typeof source.name === 'string' ? source.name : 'Concert source';
-                const state = source.status === 'ok' ? 'checked' : source.status === 'not_configured' ? 'not connected yet' : 'update unavailable';
-                const paragraph = node('p', text + ': ' + state + (source.lastSuccess ? ' · ' + new Date(source.lastSuccess).toLocaleDateString('en-GB') : '') + '.');
+                const count = snapshot.events.filter(event => event.providers?.includes(source.id)).length;
+                const state = source.status === 'ok' ? 'checked · ' + count + ' listings'
+                    : count ? 'using ' + count + ' saved listings · ' + (source.status === 'not_configured' ? 'live refresh not connected' : 'latest refresh failed')
+                    : source.status === 'not_configured' ? (source.lastSuccess ? 'no current listings · live refresh not connected' : 'not connected yet')
+                    : 'no current listings · update unavailable';
+                const paragraph = node('p', text + ': ' + state + (source.lastSuccess ? ' · last checked ' + new Date(source.lastSuccess).toLocaleDateString('en-GB') : '') + '.');
+                $('sourceDetails').append(paragraph);
+            }
+            for (const gap of Array.isArray(snapshot.coverage?.gaps) ? snapshot.coverage.gaps : []) {
+                if (typeof gap.name !== 'string' || typeof gap.note !== 'string') continue;
+                const paragraph = node('p', gap.name + ': ' + gap.note + ' ');
+                if (C.safeURL(gap.url)) {
+                    const link = node('a', 'Venue programme ↗');
+                    link.href = gap.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+                    paragraph.append(link);
+                }
                 $('sourceDetails').append(paragraph);
             }
             render();

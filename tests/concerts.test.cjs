@@ -8,6 +8,14 @@ const C = require('../concerts-core.js');
 const now = new Date('2026-09-07T12:00:00Z');
 const gig = overrides => ({ id: 'venue:1', title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 }, localDate: '2027-05-10', localTime: null, status: 'scheduled', url: 'https://example.com/gig', ...overrides });
 
+test('genre words in event prose are labelled as mentions, separate from source genre tags', () => {
+    const prefs = { ...C.defaultPreferences(), favourites: [], styles: ['Punk'] };
+    const event = gig({ artists: [], title: 'Local gig', styles: ['Punk'], styleEvidence: 'description' });
+    assert.equal(C.match(event, prefs).label, 'Style mention');
+    assert.match(C.match(event, prefs).reason, /event page mentions Punk/);
+    assert.equal(C.match({ ...event, styleEvidence: undefined }, prefs).label, 'Style match');
+});
+
 test('event hiding never changes artist taste or hides a different date', () => {
     const prefs = C.defaultPreferences();
     const before = JSON.stringify(prefs.favourites);

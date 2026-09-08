@@ -17,7 +17,7 @@ Open [the local app](http://localhost:8765). Use an HTTP server instead of openi
 - **Menu / Tune your taste:** favourite artists, style suggestions, free text and cities. Artist 👍/👎 affects that artist. **Hide this gig** only hides that event and offers undo.
 - **Calendar:** favourite concerts remain visible outside the selected short date window.
 - **Beer before:** currently shows curated pubs within 3 km of the venue that are open **now**, with map directions. It does not forecast opening on the gig date.
-- Preferences stay in browser local storage; export/import a backup from the menu. Optional Spotify artist import is implemented and appears once the owner configures a Client ID (setup below).
+- Preferences stay in browser local storage; export/import a backup from the menu. Spotify import is visible in preferences; its button becomes available once the owner configures a Client ID. Each invited visitor signs into their own account (walkthrough below).
 
 ## Real concert data: what works now
 
@@ -27,10 +27,18 @@ Install the collector's timezone database once with `python -m pip install -r re
 | --- | --- |
 | [Hovet](https://hovetarena.se/evenemang/musik-show/) | Live, no key. Four gigs verified again on 8 September 2026. |
 | [Katalin, Uppsala](https://www.katalin.com/events/) | Live, no key. Added 94 upcoming music records on 8 September 2026. |
+| [Kollektivet Livet, Stockholm](https://kollektivetlivet.se/evenemang-biljetter/) | Live, no key. 100 upcoming concert listings verified on 9 September 2026. |
+| [Slakthusen: Hus 7, Slaktkyrkan, Kapellet](https://slakthusen.se/) | Live, no key. 43 upcoming concerts verified on 9 September 2026: 25 at Hus 7, 17 at Slaktkyrkan, 1 at Kapellet. |
 | [Ticketmaster Sweden](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) | Working: the user's saved 7 September snapshot contains 197 records from a successful authenticated run. No key is currently available to this Codex terminal, so that data was retained with its original verification time. |
 | [Tickster Sweden](https://developer.tickster.com/documentation/events/1.0) | Adapter and workflow configuration implemented, tested against the published v1.0 schema. Needs `TICKSTER_API_KEY` for its first authenticated live check. |
 
-The expanded snapshot has 295 records. This is partial coverage, not 295 guaranteed distinct performances: conservative merging can leave cross-provider duplicates where line-ups, venue names or times differ.
+The latest snapshot has **435 upcoming records**, including **337 in Stockholm**, as of 9 September 2026. The two new sources contribute 143 upcoming records; three older records have fallen out since the previous 295-record snapshot. Coverage remains partial: conservative merging can leave cross-provider duplicates where line-ups, venue names or times differ.
+
+Kollektivet Livet follows the public calendar's offset pages and imports only events explicitly tagged **Konsert**. It reads the card's full event date and the event page's doors time, genre tags and ticket link. Slakthusen follows the public calendar pagination, then reads full event dates from programme fields, not WordPress publication dates. It includes configured concert rooms and explicit live-music wording, excluding wrestling, comedy, quizzes and ambiguous items. Slakthusen genres are words mentioned in the title/description, labelled **Style mention** with a check-the-description explanation; these can refer to influences or earlier projects. Neither adapter invents artist identities from prose or splits titles into assumed line-ups. Full-title favourite matches still work; multi-band titles may need style matching or browsing **Other gigs**.
+
+The new venue coordinates come from map links on the venues' own pages: [Stadsgårdsterminalen](https://stadsgardsterminalen.com/kontakt/), [Hus 7](https://slakthusen.se/sylvies-head-hus-7/), [Slaktkyrkan](https://slakthusen.se/helt-off/), [Kapellet](https://slakthusen.se/chuck-ragan-kapellet/). Room categories can be stale: if an explicit room in the title agrees with the labelled programme venue, those fields take precedence over the category.
+
+**Ticketmaster status:** the earlier authenticated run was real. The current local refresh had no Ticketmaster key available and retained 196 upcoming listings from that successful run. Source details now distinguish **using saved listings · live refresh not connected**, **latest refresh failed**, and a successful fresh check. The old **not connected yet** label was misleading when saved listings existed. An Actions secret remains separate from the local terminal's environment.
 
 The original Hovet import contains:
 
@@ -75,6 +83,8 @@ The `tzdata` package in `requirements.txt` provides Swedish timezone rules on Wi
 
 ## Add Tickster
 
+Your API-key request is submitted and awaiting Tickster's response, according to your screenshot. No further registration is needed while waiting. The direct venue sources work independently.
+
 1. Use Tickster's published [Request API key](https://developer.tickster.com/register) link. Describe a noncommercial personal concert finder for Stockholm, Uppsala, Falköping and Skövde, with a daily refresh, short factual listings and links back to the event/ticket page. This link returned HTTP 403 to the automated check; try it in your browser. Access approval has not been obtained by Codex.
 2. When approved, add a GitHub Actions repository secret named **`TICKSTER_API_KEY`**, alongside `TICKETMASTER_API_KEY`. The workflow already reads both.
 3. For a local test, use the same secure prompt pattern with the Tickster environment variable:
@@ -104,7 +114,11 @@ If one source fails, its recent previous records are retained for up to seven da
 
 ## Optional Spotify setup
 
-The flow is implemented: **Menu → Connect Spotify → consent → review artists → Add selected artists**. The connection option stays hidden until a valid public Client ID is configured. Nothing contacts Spotify until the user starts sign-in. Declining returns to the artist/style form. Imports preserve explicit dislikes and hidden gigs, and merge only selected artists into favourites. Tokens are used for this one import and are not saved; reconnect to import again. Users can remove imported favourites in the menu and revoke the app at [Spotify account apps](https://www.spotify.com/account/apps/).
+**Start with the [click-by-click Spotify walkthrough](docs/spotify-setup.md).** It separates your one-time app registration from each visitor's sign-in and gives exact field values, success checks and troubleshooting.
+
+The flow is implemented: **Concerts → Tune your taste → Connect Spotify → sign in to your own Spotify account → consent → review artists → Add selected artists**. Registering Magic Compass under your developer account identifies the app; it does not make visitors import your music. Visitors do not need developer accounts or API keys.
+
+The connection section is visible, with a disabled button until a valid public Client ID is configured. Development-mode apps say **invited testers only**. Nothing contacts Spotify until the user starts sign-in. Declining returns to the artist/style form. Imports preserve explicit dislikes and hidden gigs, and merge only selected artists into favourites. Tokens are used for this one import and are not saved; reconnect to import again. Users can remove imported favourites in the menu and revoke the app at [Spotify account apps](https://www.spotify.com/account/apps/).
 
 1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard), create an app named **Magic Compass**, and select **Web API** if asked. Website: `https://honkstonk.github.io/`.
 2. In the app settings, register these exact redirect URIs:
@@ -113,15 +127,15 @@ The flow is implemented: **Menu → Connect Spotify → consent → review artis
 3. Copy **Client ID** into the `clientId` value in `spotify-config.json`. This is public configuration and can be committed. **Do not use Client Secret**; the browser uses OAuth PKCE with a random, short-lived, single-use state/verifier. [Spotify PKCE guide](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
 4. Add permitted test accounts in **Settings → Users Management**. Open the local app at `http://127.0.0.1:8765/index.html`, then use the menu's Spotify option. Spotify rejects `localhost` callback addresses; begin and finish in the same browser tab/origin. Local preferences belong to that origin, so switching from `localhost` to `127.0.0.1` uses separate browser storage. [Redirect URI requirements](https://developer.spotify.com/documentation/web-api/concepts/redirect_uri)
 
-Spotify currently requires Premium for the development-mode app owner and limits an app to five allowlisted users. A public consent button does not let unlimited visitors bypass that limit. Extended access currently requires an eligible organization, so it should not be assumed available to this hobby project. The import requests only `user-top-read`, fetching up to 50 artists for the chosen approximate four-week, six-month or one-year period. Spotify ranks these by listening affinity, not raw play counts. Artist genres are deprecated, so the importer does not rely on them. [Quota modes](https://developer.spotify.com/documentation/web-api/concepts/quota-modes), [Top items](https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks)
+Spotify currently requires Premium for the development-mode app owner and limits an app to five allowlisted users. A public consent button does not let unlimited visitors bypass that limit. Extended access requires an eligible organization and at least 250,000 monthly active users, among other criteria; this hobby project does not meet those stated requirements. The `accessMode` configuration changes explanatory text only, not access rights. The import requests only `user-top-read`, fetching up to 50 artists for the chosen approximate four-week, six-month or one-year period. Spotify ranks these by listening affinity, not raw play counts. Artist genres are deprecated, so the importer does not rely on them. [Quota modes](https://developer.spotify.com/documentation/web-api/concepts/quota-modes), [Top items](https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks)
 
 No Spotify Client ID/account was supplied, so real consent, API access and the iPhone Safari/installed-PWA return path remain unverified. Unit tests cover PKCE, state/expiry/replay checks, denial, 403/429 responses, no token storage and safe preference merging. The menu keeps manual artist/style entry available regardless of Spotify access.
 
 ## Further event coverage
 
-Next priorities: verify Tickster's first authenticated run, then add targeted venues around Falköping/Skövde where the present snapshot is sparse. [Billetto public event search](https://api.billetto.com/reference/list-public-events) is another documented provider candidate with `Api-Keypair` credentials; no adapter or authenticated coverage check is claimed yet. Hovet's Amon Amarth ticket link goes to AXS, illustrating why venue supplements help. Multiple venues from one operator are not counted as independent nationwide providers.
+Current priority is Stockholm's small punk, hardcore and indie gigs. Kollektivet Livet and Slakthusen are now direct sources. Kafé 44's [Scen 44 page](https://kafe44.org/scen-44/) points to Facebook for current dates; its static website does not provide a dated programme. Cyklopen's checked website did not expose a reliable upcoming concert feed. Both gaps are visible under **About the concert data**, with source links. Neither is counted as an imported feed. Tickster's first authenticated run and targeted Falköping/Skövde venues remain follow-ups. Multiple venues from one operator are not counted as independent nationwide providers.
 
-Last.fm similarity can follow once event coverage is useful. Current matches are **Favourite**, **Title match**, **Style match** or **Explore**, not inferred musical relationships or invented percentages. This remains a noncommercial hobby project without ads or tracking.
+Last.fm similarity can follow once event coverage is useful. Current matches are **Favourite**, **Title match**, **Style match**, **Style mention** or **Explore**, not inferred musical relationships or invented percentages. This remains a noncommercial hobby project without ads or tracking.
 
 ## Checks and implementation notes
 

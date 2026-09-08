@@ -76,11 +76,12 @@
     <dialog id="preferencesDialog" aria-labelledby="preferencesTitle">
         <div class="dialog-heading"><h2 id="preferencesTitle">Your music. Your places.</h2><button class="icon-button" data-close="preferencesDialog" aria-label="Close preferences">×</button></div>
         <p class="muted">A few favourites are all we need to get started. Change these whenever you like.</p>
-        <section id="spotifySection" hidden aria-label="Optional Spotify import">
-            <p>Let your listening help. Import artists from Spotify, then choose which ones to add.</p>
+        <section id="spotifySection" aria-label="Optional Spotify import">
+            <p>Bring your taste from Spotify. Sign in to your own account, review your top artists, then choose which ones to add.</p>
             <label for="spotifyRange">Your top artists over</label>
             <select id="spotifyRange"><option value="medium_term">About 6 months</option><option value="short_term">About 4 weeks</option><option value="long_term">About a year</option></select>
-            <button id="connectSpotify" class="secondary wide" type="button">Connect Spotify</button>
+            <button id="connectSpotify" class="secondary wide" type="button" disabled>Connect Spotify</button>
+            <p id="spotifyAvailability" class="small muted">Spotify import is not available in this app yet. You can add artists below.</p>
             <p class="small muted">Optional. Your current choices below are saved before sign-in. We only read top artists; we don't keep Spotify access tokens.</p>
             <p id="spotifyStatus" class="small" role="status"></p>
         </section>

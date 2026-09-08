@@ -67,7 +67,9 @@
             if (prefs.dislikedArtists.some(a => key(a) === key(event.title))) return { tier: -1, label: 'Skipped artist', reason: 'Event title matches your artist skip list' };
         }
         const style = prefs.styles.find(s => event.styles.some(t => key(t) === key(s) || (' ' + key(t) + ' ').includes(' ' + key(s) + ' ')));
-        if (style) return { tier: 1, label: 'Style match', reason: 'Your taste: ' + style };
+        if (style) return event.styleEvidence === 'description'
+            ? { tier: 1, label: 'Style mention', reason: 'The event page mentions ' + style + ' — check the description' }
+            : { tier: 1, label: 'Style match', reason: 'Your taste: ' + style };
         return { tier: 0, label: 'Explore', reason: 'Another gig in your places' };
     }
     function isHidden(event, prefs) {

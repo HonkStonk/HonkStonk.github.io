@@ -1,6 +1,6 @@
 # Magic Compass: concert extension plan
 
-Recorded: 2026-09-05. Updated: 2026-09-08. Status: destination-compass fixes, Katalin expansion, Tickster adapter and optional Spotify import implemented locally; no push or deployment by Codex.
+Recorded: 2026-09-05. Updated: 2026-09-09. Status: Stockholm venue expansion and clearer Spotify/Ticketmaster status implemented locally; no push or deployment by Codex.
 
 This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 
@@ -16,6 +16,20 @@ This document preserves the project brief and inspection findings for later Code
 - GitHub Pages hosting and primary use on iPhone are supplied by the user. Live hosting settings and the installed iPhone app were not inspected.
 
 ## Source expansion and Spotify — 2026-09-08
+
+### Follow-up completed on 2026-09-09
+
+User confirmed the guitar and compass changes work. Main priority is now more small Stockholm punk, hardcore and indie gigs, specifically Kollektivet Livet and Kafé 44. Tickster's API-key request is submitted and awaiting approval; do not send the user through registration again. Spotify must connect each visitor's own account, with explicit step-by-step owner setup guidance. The user also reported Ticketmaster's misleading “not connected yet” label despite existing imported listings.
+
+- Added direct public-calendar collectors for **Kollektivet Livet** and **Slakthusen**, covering Hus 7, Slaktkyrkan and Kapellet. No new API credentials or Python dependencies. Bounded pagination, schema checks and existing per-source failure retention apply. Only explicit concerts/live-music listings are included; no fabricated dates, showtimes or performer identities. Livet's terminal empty calendar still has a next link, and its mobile summary can duplicate the desktop one; both are handled and tested.
+- Slakthusen uses explicit event dates rather than BlogPosting dates. An explicit programme room agreeing with the title overrides a stale room category. Genres found in event prose use **Style mention** and explain the limitation; they are not presented as authoritative performer genres. Artist lists remain empty where no structured line-up exists. This limits favourite matching for multi-band titles; style matches and Other gigs remain available.
+- Live refresh started 2026-09-08T22:07:34Z (9 September in Sweden) succeeded for all four direct venue sources. Snapshot: **435 upcoming records**, Stockholm 337, Uppsala 93, Skövde 3, Falköping 2. New sources: Livet 100, Slakthusen 43 (Hus 7 25, Slaktkyrkan 17, Kapellet 1). Three older records expired between snapshots. Hovet 4, Katalin 92 and retained Ticketmaster 196 complete the total. Records are not guaranteed unique across providers.
+- **Kafé 44 / Scen 44 remains a coverage gap**: its own website directs readers to Facebook for current programme dates. No reliable dated feed was obtained. Cyklopen also remains unimported. The app now exposes these gaps with programme links; neither is claimed as a working collector.
+- **Ticketmaster status fixed:** `not_configured` means the latest collector run lacked a key; it never disproved the previous authenticated success. The UI derives counts from the actual snapshot and now says **using 196 saved listings · live refresh not connected**, with the original last-check date. Fresh checks, failed refreshes with retained data, and never-connected sources are distinguished. Secrets in GitHub Actions are not automatically available locally.
+- **Spotify:** visible preference section, disabled until public Client ID exists; configured development mode says invited testers only. No Client ID supplied; no live consent test done. Each visitor's OAuth flow imports their own top artists. [spotify-setup.md](spotify-setup.md) gives explicit owner and visitor steps. Current Spotify rules block arbitrary public users for a new hobby app: owner Premium, five invited accounts; extended access requires an eligible organization and at least 250k MAUs. `accessMode` changes UI wording only, not permissions. This limitation must be explained before asking the user to spend time registering.
+- Verification: live collector succeeded; regression checks cover calendar pagination/duplicates, genre filtering, explicit venue corrections, date/time/DST semantics, retained-source status, Spotify gating and safe gap links. Browser visual QA could not run because the computer-use runtime reported no available browser. iPhone/PWA Spotify consent remains unverified. Work stays local on main; no commit, push or deployment by Codex.
+
+The older implementation notes below are retained as history; this follow-up supersedes their counts, hidden Spotify UI and region-priority statements.
 
 Latest user direction: use the newly supplied `guitar.png`; remove N/E/S/W from both destination compasses; expand event sources as the main priority; prepare optional Spotify listening-based artist import. Work remains directly on `main`. Initial status this turn was user deletions of `sg-guitar.jpg` and `sg-guitar.png`, plus untracked `guitar.png`; those deletions are preserved. No other uncommitted changes were present.
 
