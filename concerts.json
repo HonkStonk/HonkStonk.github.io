@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T22:07:34+00:00",
+  "generatedAt": "2026-09-08T23:14:58+00:00",
   "coverage": {
     "cities": [
       "Stockholm",
@@ -14,7 +14,7 @@
       {
         "name": "Kafé 44 / Scen 44",
         "url": "https://kafe44.org/scen-44/",
-        "note": "Not imported yet. The venue directs visitors to Facebook for its current programme."
+        "note": "Partial coverage from BrewPunk and Nu på gång/Bandsintown. The full Scen 44 programme is not imported from Facebook."
       },
       {
         "name": "Cyklopen",
@@ -29,29 +29,57 @@
       "id": "hovet",
       "name": "Hovet / Stockholm Live",
       "status": "ok",
-      "lastSuccess": "2026-09-08T22:07:34+00:00",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
       "eventCount": 4
     },
     {
       "id": "katalin",
       "name": "Katalin, Uppsala",
       "status": "ok",
-      "lastSuccess": "2026-09-08T22:07:34+00:00",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
       "eventCount": 94
     },
     {
       "id": "kollektivet_livet",
       "name": "Kollektivet Livet, Stockholm",
       "status": "ok",
-      "lastSuccess": "2026-09-08T22:07:34+00:00",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
       "eventCount": 100
     },
     {
       "id": "slakthusen",
       "name": "Slakthusen: Hus 7, Slaktkyrkan & Kapellet",
       "status": "ok",
-      "lastSuccess": "2026-09-08T22:07:34+00:00",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
       "eventCount": 44
+    },
+    {
+      "id": "brewpunk",
+      "name": "BrewPunk: Kafé 44 & independent punk gigs",
+      "status": "ok",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
+      "eventCount": 9
+    },
+    {
+      "id": "geronimos",
+      "name": "Geronimo's FGT, Stockholm",
+      "status": "ok",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
+      "eventCount": 7
+    },
+    {
+      "id": "larrys_corner",
+      "name": "Larry's Corner, Stockholm",
+      "status": "ok",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
+      "eventCount": 23
+    },
+    {
+      "id": "kafe44_nupagang",
+      "name": "Kafé 44 via Nu på gång / Bandsintown",
+      "status": "ok",
+      "lastSuccess": "2026-09-08T23:14:58+00:00",
+      "eventCount": 2
     },
     {
       "id": "ticketmaster",
@@ -95,7 +123,38 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/anders-bergcrantz-sven-berggren-konsert-och-jam/",
       "ticketUrl": "https://secure.tickster.com/sv/fc7944xgxn79v4w/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "brewpunk:6eef8e7dddbfae630c62",
+      "sourceIds": [
+        "brewpunk:6eef8e7dddbfae630c62"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Crash Nomada (och filmvisning)",
+      "artists": [],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Bio Aspen",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-09",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "kollektivet_livet:gula-gangen-grus",
@@ -128,7 +187,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/gula-gangen-grus/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17050",
@@ -158,7 +217,71 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/minns-du-tio-i-topp/",
       "ticketUrl": "https://secure.tickster.com/sv/m2xw9r5zkfvgfd4/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:a-trio-made-in-heaven",
+      "sourceIds": [
+        "larrys_corner:a-trio-made-in-heaven"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "a trio made in heaven",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-09",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-09T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/a-trio-made-in-heaven",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "brewpunk:b542cc1f3a0a7a22fb28",
+      "sourceIds": [
+        "brewpunk:b542cc1f3a0a7a22fb28"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Dis, Dissekerad, Yuppiecrusher",
+      "artists": [
+        "Dis",
+        "Dissekerad",
+        "Yuppiecrusher"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Kafé 44",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-10",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "kollektivet_livet:oscar-stembridge-jackie-mere",
@@ -190,7 +313,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/oscar-stembridge-jackie-mere/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16277",
@@ -220,7 +343,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/succehyllningen-atervander-till-katalins-jazzbar/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/jr4txvmazazebt3/2026-09-30/succehyllningen-atervander-till-katalins-jazzbar",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:sylvies-head-hus-7",
@@ -251,7 +374,38 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/sylvies-head-hus-7/",
       "ticketUrl": "https://billetto.se/e/sylvie-s-head-hus-7-biljetter-1932562",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "geronimos:mad-mans-run-live-geronimos-gamla-stan-557",
+      "sourceIds": [
+        "geronimos:mad-mans-run-live-geronimos-gamla-stan-557"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "True Desire",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-09-10",
+      "localTime": "19:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-10T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/mad-mans-run-live-geronimos-gamla-stan-557/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -285,7 +439,42 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/besvarjelsen-kungens-man/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "brewpunk:20be4c76e71b8789889f",
+      "sourceIds": [
+        "brewpunk:20be4c76e71b8789889f"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Cockney Rejects, Hyrda Knektar, Gatans Lag",
+      "artists": [
+        "Cockney Rejects",
+        "Hyrda Knektar",
+        "Gatans Lag"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Kulturhuset",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-11",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "slakthusen:helt-off",
@@ -313,7 +502,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/helt-off/",
       "ticketUrl": "https://billetto.se/e/helt-off-slaktkyrkan-biljetter-1889938/select?from=btn",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -349,7 +538,43 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/mamas-gun-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "brewpunk:6e36690d0d7d7089571d",
+      "sourceIds": [
+        "brewpunk:6e36690d0d7d7089571d"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "No Saving Grace, Deadbeater, Smoke Trail, Master Killer",
+      "artists": [
+        "No Saving Grace",
+        "Deadbeater",
+        "Smoke Trail",
+        "Master Killer"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Paviljon Subterra",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-11",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "katalin:16776",
@@ -379,7 +604,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/organismen-afasi/",
       "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/vupyr6plyhv7wdn/selectproductgroup?_gl=1%2Amvf3gb%2A_gcl_au%2AODAxNTQ4MzAyLjE3NzQyMDQ2NTc.",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:roky-erickson-kvall-the-cold-aligators-hus-7",
@@ -407,7 +632,38 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/roky-erickson-kvall-the-cold-aligators-hus-7/",
       "ticketUrl": "https://billetto.se/e/roky-erickson-kvall-the-cold-aligators-hus-7-biljetter-1945608",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "larrys_corner:david-kontra-trio",
+      "sourceIds": [
+        "larrys_corner:david-kontra-trio"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "david kontra trio!!",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-11",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-11T17:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/david-kontra-trio",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -472,7 +728,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/club-killers-2/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1ka6FN04",
@@ -534,7 +790,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/katharina-nuttall-hus-7/",
       "ticketUrl": "https://billetto.se/e/katharina-nutall-hus-7-biljetter-1964273",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -565,7 +821,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/kulturnatten-13/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16ve614f-",
@@ -638,7 +894,39 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/vjs-official-afterparty/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:mattias-and-andreas-and-like-wow",
+      "sourceIds": [
+        "larrys_corner:mattias-and-andreas-and-like-wow"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "mattias and andreas and like wow",
+      "artists": [],
+      "styles": [
+        "Rock",
+        "Pop"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-12",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-12T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/mattias-and-andreas-and-like-wow",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "kollektivet_livet:dan-berglund-extrainsatt-forestallning-dan-berglund",
@@ -673,7 +961,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/dan-berglund-extrainsatt-forestallning-dan-berglund/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:ella-mai-slaktkyrkan",
@@ -701,7 +989,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/ella-mai-slaktkyrkan/",
       "ticketUrl": "https://www.ticketmaster.se/event/1381539989",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -763,7 +1051,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazzlunch-med-daniel-lantz-och-sings-swings/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16856",
@@ -793,7 +1081,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/johnny-delaware-klubb-uffe/",
       "ticketUrl": "https://secure.tickster.com/sv/bmxmy2x7ndj4ggj/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v14ftqt",
@@ -861,6 +1149,38 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "geronimos:caboose-live-geronimos-gamla-stan",
+      "sourceIds": [
+        "geronimos:caboose-live-geronimos-gamla-stan"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "Caboose",
+      "artists": [],
+      "styles": [
+        "Metal",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-09-16",
+      "localTime": "19:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-16T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/caboose-live-geronimos-gamla-stan/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "slakthusen:chuck-ragan-kapellet",
       "sourceIds": [
         "slakthusen:chuck-ragan-kapellet"
@@ -890,7 +1210,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/chuck-ragan-kapellet/",
       "ticketUrl": "https://billetto.se/e/chuck-ragan-kapellet-biljetter-1922986",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -926,7 +1246,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/dan-berglund/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16468",
@@ -956,7 +1276,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/den-flygande-bokrullen-katalins-jazzbar-2/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/cfm0zkylf1x65lg/2026-09-16/den-flygande-bokrullen-katalins-jazzbar",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:bruno-berle-slaktkyrkan-2",
@@ -987,8 +1307,75 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/bruno-berle-slaktkyrkan-2/",
       "ticketUrl": "https://billetto.se/e/bruno-berle-slaktkyrkan-biljetter-1890520",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
+    },
+    {
+      "id": "geronimos:dead-express-the-hideous-live-music-gamla-stan-geronimos",
+      "sourceIds": [
+        "geronimos:dead-express-the-hideous-live-music-gamla-stan-geronimos"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "DEAD EXPRESS + THE HIDEOUS",
+      "artists": [],
+      "styles": [
+        "Punk",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-09-17",
+      "localTime": "19:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-17T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/dead-express-the-hideous-live-music-gamla-stan-geronimos/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "brewpunk:e83d031107d55bd54f70",
+      "sourceIds": [
+        "brewpunk:e83d031107d55bd54f70"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Devil's Cigarette, Callgirl, Reb & Reggit",
+      "artists": [
+        "Devil's Cigarette",
+        "Callgirl",
+        "Reb & Reggit"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Kafé 44",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-17",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "kollektivet_livet:eddie-the-hot-rods-kollektivet-livet",
@@ -1021,7 +1408,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/eddie-the-hot-rods-kollektivet-livet/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:fine-hus-7",
@@ -1051,7 +1438,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/fine-hus-7/",
       "ticketUrl": "https://billetto.se/e/fine-hus-7-biljetter-1770345",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -1082,7 +1469,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-carling-sisters-katalins-bakficka/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/3hmpkdzx6jalu2u/2026-09-17/the-carling-sisters-katalins-bakficka",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZb_Z16vv6Zdv_",
@@ -1148,6 +1535,42 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "brewpunk:4a0b41c8a07066a8f051",
+      "sourceIds": [
+        "brewpunk:4a0b41c8a07066a8f051"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Destitute, Mindlock, Arrogante, Järnbörd",
+      "artists": [
+        "Destitute",
+        "Mindlock",
+        "Arrogante",
+        "Järnbörd"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Kulturhuset Femman",
+        "city": "Uppsala",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-18",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
+    },
+    {
       "id": "katalin:15633",
       "sourceIds": [
         "katalin:15633"
@@ -1175,7 +1598,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/eddie-the-hot-rods-uk/",
       "ticketUrl": "https://secure.tickster.com/sv/jrbk28llzhgacp5/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16926",
@@ -1205,7 +1628,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazz-fellows-laura-gustavz-orkester/",
       "ticketUrl": "https://secure.tickster.com/sv/ra68d2ttfz0fg2d/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:martial-canterel-hus-7",
@@ -1235,7 +1658,36 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/martial-canterel-hus-7/",
       "ticketUrl": "https://billetto.se/e/martial-canterel-hus-7-biljetter-1984989",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "geronimos:robert-johnson-and-punchdrunks-releaseparty-and-live-at-geronimos-september-18-1800-2200",
+      "sourceIds": [
+        "geronimos:robert-johnson-and-punchdrunks-releaseparty-and-live-at-geronimos-september-18-1800-2200"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "Robert Johnson and Punchdrunks",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-09-18",
+      "localTime": "18:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-18T16:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/robert-johnson-and-punchdrunks-releaseparty-and-live-at-geronimos-september-18-1800-2200/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -1269,7 +1721,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/sator/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vFpxAot",
@@ -1303,6 +1755,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "larrys_corner:bram-van-langen",
+      "sourceIds": [
+        "larrys_corner:bram-van-langen"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "bram van langen!!",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-18",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-18T17:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/bram-van-langen",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "kollektivet_livet:arvid-nero-maria-jane-smith",
       "sourceIds": [
         "kollektivet_livet:arvid-nero-maria-jane-smith"
@@ -1332,7 +1815,42 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/arvid-nero-maria-jane-smith/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "brewpunk:ed19ada731263dafdb7a",
+      "sourceIds": [
+        "brewpunk:ed19ada731263dafdb7a"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Björnarna, Peanutz, Skithuvve",
+      "artists": [
+        "Björnarna",
+        "Peanutz",
+        "Skithuvve"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Kulturhuset",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-19",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vOZp73b",
@@ -1393,7 +1911,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/dolce-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/dolce-slaktkyrkan-biljetter-1942373",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -1428,7 +1946,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/gans/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16938",
@@ -1458,7 +1976,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/red-hot-five-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/c07l4lldkvm9ub5/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vfoFSvx",
@@ -1619,7 +2137,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazzlunch-med-maria-holstad-hogberg/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16835",
@@ -1649,7 +2167,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/thomas-lindroth-fran-good-morning-blues-2/",
       "ticketUrl": "https://secure.tickster.com/sv/fy7fdczveugkyrg/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:black-market-karma",
@@ -1684,7 +2202,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/black-market-karma/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vx_vb13",
@@ -1749,7 +2267,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/hellripper-necrofier-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17086",
@@ -1779,7 +2297,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/svavar-knutur/",
       "ticketUrl": "https://secure.tickster.com/sv/nlt3mfegh8j6xwx/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vGV4t_F",
@@ -1842,7 +2360,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/gibrish-i-sparen-av-bob-dylan/",
       "ticketUrl": "https://secure.tickster.com/sv/n57k008690b2llj/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vZ4Qe_-",
@@ -1908,7 +2426,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/svart-katt/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:15602",
@@ -1938,7 +2456,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-undertones-50th-anniversary-tour/",
       "ticketUrl": "https://secure.tickster.com/97hf034d5vac340",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vovJe_3",
@@ -2001,7 +2519,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/andreas-hellkvist-orgelparty-i-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/f48j9c0cz2dkxpw/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:apocalypse-orchestra",
@@ -2035,7 +2553,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/apocalypse-orchestra/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:crucified-barbara-the-crypt",
@@ -2068,7 +2586,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/crucified-barbara-the-crypt/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16074",
@@ -2098,7 +2616,48 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/division-7/",
       "ticketUrl": "https://secure.tickster.com/h4vu7w09xdvjcmg",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "brewpunk:a053490c880a4f4dcf9d",
+      "sourceIds": [
+        "brewpunk:a053490c880a4f4dcf9d"
+      ],
+      "providers": [
+        "brewpunk"
+      ],
+      "title": "Blisterhead, Kardborrebandet, Myteri, Harlequin, Pastoratet, Slaveriet, Vänsternäven, Snutjävel, Mähälium",
+      "artists": [
+        "Blisterhead",
+        "Kardborrebandet",
+        "Myteri",
+        "Harlequin",
+        "Pastoratet",
+        "Slaveriet",
+        "Vänsternäven",
+        "Snutjävel",
+        "Mähälium"
+      ],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Skövde Kulturhus",
+        "city": "Skövde",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-26",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://brewpunk.se/live-shows/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "punk_calendar",
+      "listingNote": "Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue."
     },
     {
       "id": "katalin:15717",
@@ -2128,7 +2687,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/joulin-younis-katalins-jazzbar/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/1kg786em3z5u6pw/2026-09-26/joulin-younis-katalins-jazzbar",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:organismen-afasi",
@@ -2161,7 +2720,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/organismen-afasi/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vfdFsQ7",
@@ -2226,7 +2785,71 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/varlden-brinner/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:and-lets-give-a-big-warm-larrys-corner-welcome-to-wilclore",
+      "sourceIds": [
+        "larrys_corner:and-lets-give-a-big-warm-larrys-corner-welcome-to-wilclore"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "and lets give a big warm larrys corner welcome to WILCLORE!",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-26",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-26T17:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/and-lets-give-a-big-warm-larrys-corner-welcome-to-wilclore",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "larrys_corner:wilcore",
+      "sourceIds": [
+        "larrys_corner:wilcore"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "wilcore",
+      "artists": [],
+      "styles": [
+        "Rock",
+        "Jazz",
+        "Folk"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-09-26",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-26T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/wilcore",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "kollektivet_livet:zanna",
@@ -2259,7 +2882,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/zanna/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1ku6GJ8A",
@@ -2292,6 +2915,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/bagjan-oktyabr-soul-therapy-world-tour-2026-biljetter/347326405",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "kafe44_nupagang:89524",
+      "sourceIds": [
+        "kafe44_nupagang:89524"
+      ],
+      "providers": [
+        "kafe44_nupagang"
+      ],
+      "title": "Grommet",
+      "artists": [
+        "Grommet"
+      ],
+      "styles": [],
+      "venue": {
+        "name": "Kafé 44",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-09-29",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-29T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://nupagang.se/sv/event/89524/",
+      "ticketUrl": "https://www.bandsintown.com/e/108861463-grommet-at-kafe-44?came_from=257&utm_medium=web&utm_source=home&utm_campaign=ticket_rsvp",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "listingNote": "Listed by Nu på gång, with a Bandsintown source link. Confirm time and line-up on the source page."
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kuea8-f",
@@ -2352,7 +3005,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazzlunch-med-claes-janson-2/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16860",
@@ -2383,7 +3036,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/ward-hayden-the-outliers-klubb-uffe-5/",
       "ticketUrl": "https://secure.tickster.com/sv/v06clb3zngk00z2/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16veoG68p",
@@ -2419,6 +3072,38 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "geronimos:decibel-blonde-monstera",
+      "sourceIds": [
+        "geronimos:decibel-blonde-monstera"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "DECIBEL BLONDE + Mønstera",
+      "artists": [],
+      "styles": [
+        "Punk",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-10-01",
+      "localTime": "19:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-01T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/decibel-blonde-monstera/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "kollektivet_livet:stefan-sundstrom",
       "sourceIds": [
         "kollektivet_livet:stefan-sundstrom"
@@ -2452,7 +3137,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/stefan-sundstrom/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:stu-larsen-stockholm",
@@ -2486,7 +3171,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/stu-larsen-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vJpqg_a",
@@ -2554,7 +3239,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/black-celebration-40-ar-the-new-dress/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:indian-nightmare-nagasaki-sunrise-crutches-sex-dwarf-hus-7",
@@ -2586,7 +3271,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/indian-nightmare-nagasaki-sunrise-crutches-sex-dwarf-hus-7/",
       "ticketUrl": "https://varningproductions.com/events/?fbclid=IwY2xjawTxRRhwZG9mAWV4dG4DYWVtAjEwAGJyaWQRMGV1TVFtRjJvWnE4YXNvRmJzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEesyPGWxhuBDVeSUsJrs_-vZ3zw3lAx1QMZ5CVZRyUq6XhMTPgA9kuhgTaef0_aem_U7sowt8SyAWpii3nJl87ug&event=metal-punk-indian-nightmare-nagasaki-sunrise",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -2685,7 +3370,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/markus-berjlund-katalins-bakfickan/",
       "ticketUrl": "https://billetto.se/e/markus-berjlund-albumrelease-biljetter-1948711?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:syl",
@@ -2718,7 +3403,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/syl/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:xkatedral-x-katalog-abul-mogard-maria-w-horn-par-thorn-dj-sara-parkman-slaktkyrkan",
@@ -2749,7 +3434,38 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/xkatedral-x-katalog-abul-mogard-maria-w-horn-par-thorn-dj-sara-parkman-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/xkatedral-x-katalog-abul-mogard-maria-w-horn-par-thorn-dj-sara-parkman-slaktkyrkan-biljetter-1989090",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "larrys_corner:yeahwe-got-the-rasmus-mannervik-trio",
+      "sourceIds": [
+        "larrys_corner:yeahwe-got-the-rasmus-mannervik-trio"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "yeah..we got the Rasmus Mannervik trio",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-10-02",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-02T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/yeahwe-got-the-rasmus-mannervik-trio",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -2780,7 +3496,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/jelly-crystal-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/jelly-crystal-slaktkyrkan-biljetter-1910259",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -2843,7 +3559,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/luke-elliot-the-king-of-rock-and-roll-tour/",
       "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/rfml93e5btgucge/selectproductgroup?_gl=1%2A1gr4ha6%2A_gcl_au%2AODAxNTQ4MzAyLjE3NzQyMDQ2NTc.",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vjvZeGA",
@@ -2909,7 +3625,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/perkele-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kaxZ3fF",
@@ -2970,7 +3686,39 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/tove-gustavsson-the-blues-uppsala/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/69rn2rf0gzbkuhr/2026-10-03/tove-gustavsson-the-blues-uppsala",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "geronimos:askvader-the-empire-strikes",
+      "sourceIds": [
+        "geronimos:askvader-the-empire-strikes"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "Åskväder + The Empire Strikes",
+      "artists": [],
+      "styles": [
+        "Rock",
+        "Pop"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-10-03",
+      "localTime": "19:00",
+      "timeKind": "doors",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/askvader-the-empire-strikes/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "kollektivet_livet:andi-almqvist",
@@ -3005,7 +3753,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/andi-almqvist/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v8p0JvS",
@@ -3101,7 +3849,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazzlunch-med-anything-goes/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v-8rpa0",
@@ -3165,7 +3913,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/tess-liautaud-klubb-uffe/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/v9103ug80ax09zz/2026-10-06/tess-liautaud-klubb-uffe",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1AN0ejE",
@@ -3229,7 +3977,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/belphegor-krisiun-asagraum/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:daniel-levi",
@@ -3261,7 +4009,38 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/daniel-levi/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:ruben-westerlund-guitar-eskil-bofjall-bass-and-david-isaksson-drums",
+      "sourceIds": [
+        "larrys_corner:ruben-westerlund-guitar-eskil-bofjall-bass-and-david-isaksson-drums"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Ruben Westerlund (guitar), Eskil Bofjäll (bass), and David Isaksson (Drums).",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-10-07",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-07T17:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/ruben-westerlund-guitar-eskil-bofjall-bass-and-david-isaksson-drums",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vG8o3ao",
@@ -3324,8 +4103,36 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/farveblind-hus-7/",
       "ticketUrl": "https://billetto.se/e/farveblind-hus-7-biljetter-1906734",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
+    },
+    {
+      "id": "kafe44_nupagang:87145",
+      "sourceIds": [
+        "kafe44_nupagang:87145"
+      ],
+      "providers": [
+        "kafe44_nupagang"
+      ],
+      "title": "Feversea",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Kafé 44",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      },
+      "localDate": "2026-10-08",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-08T16:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://nupagang.se/sv/event/87145/",
+      "ticketUrl": "https://www.bandsintown.com/e/108812170-feversea-at-kafe-44?came_from=257&utm_medium=web&utm_source=home&utm_campaign=ticket_rsvp",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "listingNote": "Listed by Nu på gång, with a Bandsintown source link. Confirm time and line-up on the source page."
     },
     {
       "id": "kollektivet_livet:havok-blood-red-throne-xonor-eradikated",
@@ -3359,7 +4166,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/havok-blood-red-throne-xonor-eradikated/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:mon-rayon",
@@ -3392,7 +4199,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/mon-rayon/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16885",
@@ -3422,7 +4229,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/uppsala-internationella-gitarrfestival-4/",
       "ticketUrl": "https://secure.tickster.com/sv/pdm9n77v6cn2w73/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:7ebra",
@@ -3454,7 +4261,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/7ebra/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v0s4tkd",
@@ -3514,7 +4321,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/camilla-widell-quartet-pa-katalins-backficka/",
       "ticketUrl": "https://secure.tickster.com/sv/yx51gwzep532tpz/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:halina-rice-slaktkyrkan",
@@ -3542,7 +4349,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/halina-rice-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/en/e/halina-rice-slaktkyrkan-biljetter-1923559",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -3609,7 +4416,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/tomma-intet-crescenterna/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kPxZFe_",
@@ -3672,7 +4479,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/bodyfest-2026/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:massgrav-30-ar-hus-7",
@@ -3702,7 +4509,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/massgrav-30-ar-hus-7/",
       "ticketUrl": "https://billetto.se/e/massgrav-30-ar-hus-7-biljetter-1859299",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -3764,7 +4571,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/svenska-trion-tolkar-jan-johansson-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/w5yv0bp0xw48b54/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16376",
@@ -3794,7 +4601,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-plan-4/",
       "ticketUrl": "https://secure.tickster.com/ypzhmyrp2lk94n3",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kb9Q97P",
@@ -3890,7 +4697,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/grandmas-house-hus-7/",
       "ticketUrl": "https://billetto.se/e/grandmas-house-hus-7-biljetter-1956769",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -3921,7 +4728,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazzlunch-med-hemkart-5/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1A4b3oK",
@@ -3986,7 +4793,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/yaima/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16853",
@@ -4016,7 +4823,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/fredrik-lindborg-konsert-och-jamsession-2/",
       "ticketUrl": "https://secure.tickster.com/sv/wyybha8epcf0djz/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:stockholm-jazz-festival-moses-yoofee-trio-slaktkyrkan",
@@ -4046,7 +4853,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/stockholm-jazz-festival-moses-yoofee-trio-slaktkyrkan/",
       "ticketUrl": "https://stockholmjazz.se/program/moses-yoofee-trio-2026-10-14",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -4077,7 +4884,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-animals-60th-anniversary-world-tour/",
       "ticketUrl": "https://secure.tickster.com/sv/8e944nma96u313y/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v7oGSZ3",
@@ -4137,7 +4944,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/isabella-lundgren-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/93xd7rp77tn3km5/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kxdr8oJ",
@@ -4204,7 +5011,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/jesca-hoop/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:lovad",
@@ -4236,7 +5043,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/lovad/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16789",
@@ -4267,7 +5074,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/stefan-sundstrom-10/",
       "ticketUrl": "https://secure.tickster.com/brx91kx4m2m78j8",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k4Y_ZOI",
@@ -4331,7 +5138,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/coffinshakers-kristoffer-grip/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17236",
@@ -4361,7 +5168,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/daniel-lantz-jazz-standards/",
       "ticketUrl": "https://secure.tickster.com/sv/ecfx6c8gyw7bz89/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:eternal-evil-atonement",
@@ -4394,7 +5201,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/eternal-evil-atonement/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:meanwhile-languid-paranoid-dissekerad-svaveldioxid-nagasaki-hus-7",
@@ -4426,7 +5233,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/meanwhile-languid-paranoid-dissekerad-svaveldioxid-nagasaki-hus-7/",
       "ticketUrl": "https://varningproductions.com/?fbclid=IwY2xjawSCcKVleHRuA2FlbQIxMABicmlkETBRN2hOZUF5U2p3a1E4Nm9Bc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlkpw9173QDhKoik_udaeZLaA5PzcPKdw9HZMPvt-wjfncOWgB2P1jskIAOp_aem_7Bj3cwrmyDjbNqOf5mkaFQ#/events?event=d-beat-massacre-over-stockholm",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -4490,7 +5297,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/corto-alto-slaktkyrkan/",
       "ticketUrl": "https://nortic.se/ticket/show/333691",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -4551,7 +5358,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/celso-paco-dynamo-de-luxekopia-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/mkk703b1mmulwez/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:club-king-kong-dorotea-bleak-streak-buffalo-hus-7",
@@ -4584,7 +5391,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/club-king-kong-dorotea-bleak-streak-buffalo-hus-7/",
       "ticketUrl": "https://billetto.se/e/club-king-kong-dorotea-buffalo-bleak-streak-hus-7-biljetter-1990850",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -4650,7 +5457,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/strom-devils-cigarette-2/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:15820",
@@ -4680,7 +5487,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-watch-plays-genesis-2/",
       "ticketUrl": "https://secure.tickster.com/740u4e3nnk159k2",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k_dbxxf",
@@ -4809,7 +5616,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/sturle-dagsland-livmodr/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:krallice-stockholm-krallice",
@@ -4842,7 +5649,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/krallice-stockholm-krallice/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kC4oJ_k",
@@ -4907,7 +5714,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/teddybears-extrakonsert/",
       "ticketUrl": "https://secure.tickster.com/43xuemdp9dxjhd6",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:stormy",
@@ -4943,7 +5750,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/stormy/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16849",
@@ -4976,7 +5783,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/teddybears/",
       "ticketUrl": "https://secure.tickster.com/dkp90bnexze4avh",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kGorvA6",
@@ -5039,7 +5846,41 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/langbacka-badagard-katalins-backficka/",
       "ticketUrl": "https://secure.tickster.com/sv/544l30392u0ergz/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:michael-plater-and-tim-williams",
+      "sourceIds": [
+        "larrys_corner:michael-plater-and-tim-williams"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Michael Plater and Tim Williams.",
+      "artists": [],
+      "styles": [
+        "Indie",
+        "Folk",
+        "Pop",
+        "Experimental"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-10-21",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/michael-plater-and-tim-williams",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kx_axAN",
@@ -5100,7 +5941,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/sara-parkman-2/",
       "ticketUrl": "https://secure.tickster.com/78c1lm096awzf3h",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vop13Gb",
@@ -5165,7 +6006,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/backstreet-girls/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16931",
@@ -5195,7 +6036,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/daniel-lemma-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/1n30wv8krbb0r9t/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:deathchant-hus-7",
@@ -5226,7 +6067,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/deathchant-hus-7/",
       "ticketUrl": "https://billetto.se/e/deathchant-hus-7-biljetter-1963820",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -5263,6 +6104,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "geronimos:hippie-death-cult-usa-live-at-geronimos-october-22-2000",
+      "sourceIds": [
+        "geronimos:hippie-death-cult-usa-live-at-geronimos-october-22-2000"
+      ],
+      "providers": [
+        "geronimos"
+      ],
+      "title": "Hippie Death Cult (USA)",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "localDate": "2026-10-22",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://www.geronimosfgt.se/events/hippie-death-cult-usa-live-at-geronimos-october-22-2000/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "kollektivet_livet:agabas",
       "sourceIds": [
         "kollektivet_livet:agabas"
@@ -5294,7 +6166,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/agabas/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v4x0IFA",
@@ -5355,7 +6227,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/john-lindberg-trio-13/",
       "ticketUrl": "https://secure.tickster.com/sv/b0chlt6hexgl88f/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "hovet:amon-amarth",
@@ -5388,7 +6260,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
       "ticketUrl": "https://www.axs.com/se/events/1237690/amon-amarth-tickets",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k__ag4w",
@@ -5452,7 +6324,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/humanitys-last-breath-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vuko_8o",
@@ -5521,7 +6393,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/then-comes-silence-lakeside-x/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16900",
@@ -5551,7 +6423,36 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/william-sundman-saaf-2/",
       "ticketUrl": "https://secure.tickster.com/sv/b63jvll7p4jt96y",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:yoko-miura-piano-lars-brondum-elektronik-per-gardin-saxofon-vad-tror-du",
+      "sourceIds": [
+        "larrys_corner:yoko-miura-piano-lars-brondum-elektronik-per-gardin-saxofon-vad-tror-du"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Yoko Miura, piano; Lars Bröndum, elektronik; Per Gärdin, saxofon. Vad tror du?",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-10-24",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-24T17:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/yoko-miura-piano-lars-brondum-elektronik-per-gardin-saxofon-vad-tror-du",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kuoe383",
@@ -5616,7 +6517,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/tungsten/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kpb1v7M",
@@ -5681,7 +6582,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/dj-krush/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17012",
@@ -5711,7 +6612,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jonatan-stenson-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/5k13eg4wze32f7l/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:svart-tulpan-urban-hane",
@@ -5743,7 +6644,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/svart-tulpan-urban-hane/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17138",
@@ -5773,7 +6674,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/terra-extrakonsert/",
       "ticketUrl": "https://secure.tickster.com/fj2mkwvn0terxl1",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vvA0zG6",
@@ -5835,7 +6736,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/kekht-arakh-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/kekth-arakh-slaktkyrkan-biljetter-1984665",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -5870,7 +6771,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/martin-rev/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17089",
@@ -5900,7 +6801,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/terra-2/",
       "ticketUrl": "https://secure.tickster.com/l2ygdth812avj6e",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:the-radio-dept-hus-7",
@@ -5928,7 +6829,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/the-radio-dept-hus-7/",
       "ticketUrl": "https://billetto.se/e/the-radio-dept-hus-7-biljetter-1950836",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -5964,7 +6865,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/zilverzurf/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:marky-ramones-blitzkrieg-stockholm",
@@ -5998,7 +6899,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/marky-ramones-blitzkrieg-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1ka9v9Q8",
@@ -6060,7 +6961,36 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/mwuana-3/",
       "ticketUrl": "https://secure.tickster.com/4gyb5n9pxd40zvt",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:lova-and-andres-bringing-some-magic",
+      "sourceIds": [
+        "larrys_corner:lova-and-andres-bringing-some-magic"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "lova and andres bringing some magic",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-10-30",
+      "localTime": null,
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": null,
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/lova-and-andres-bringing-some-magic",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k8oxfuo",
@@ -6160,7 +7090,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/klubb-overload-marvel-joseph-toll-true-moon-hus-7/",
       "ticketUrl": "https://billetto.se/e/klubb-overload-marvel-joseph-toll-true-moon-hus-7-biljetter-1990867",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -6191,7 +7121,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/marky-ramones-blitzkrieg-us/",
       "ticketUrl": "https://secure.tickster.com/fc5nge7c565wkby",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:olof-dreijer-slaktkyrkan",
@@ -6219,7 +7149,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/olof-dreijer-slaktkyrkan/",
       "ticketUrl": "https://secure.tickster.com/sv/2r5fcbv30k46txw/eventsaleclosed?fbclid=IwY2xjawThgWdwZG9mAWV4dG4DYWVtAjEwAGJyaWQRMVJVUGU1NEVFdVJjS2lMT0FzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeV4JdJc3FlHEKefBwGlig4h2PFGGEPF56uAOhq2onjsrv5PhmkhmvGqGVZvI_aem_NGH5rOPr7SHPz8x8s4dFEQ",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -6250,7 +7180,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/dungen-4/",
       "ticketUrl": "https://secure.tickster.com/hay7utmctlpkd36",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vjEAaev",
@@ -6351,7 +7281,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/ronnie-romero-gus-g/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16862",
@@ -6381,7 +7311,7 @@
       "status": "cancelled",
       "url": "https://www.katalin.com/events/shurman-klubb-uffe/",
       "ticketUrl": "https://secure.tickster.com/sv/lf9epdwruu0hwk5/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:sondre-lerche-solo-hus-7",
@@ -6412,7 +7342,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/sondre-lerche-solo-hus-7/",
       "ticketUrl": "https://billetto.se/e/sondre-lerche-solo-hus-7-biljetter-1954771",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -6477,7 +7407,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/hardcore-superstar-8/",
       "ticketUrl": "https://secure.tickster.com/f0462pryj6lb4p7",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16395",
@@ -6507,7 +7437,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/yttling-jazz-jazzbaren/",
       "ticketUrl": "https://secure.tickster.com/sv/h3hznumbfldp6vm/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:bror-gunnar-jansson-the-escapism",
@@ -6542,7 +7472,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/bror-gunnar-jansson-the-escapism/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vP-_6aJ",
@@ -6605,7 +7535,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/fontaines-d-c/",
       "ticketUrl": "https://www.axs.com/se/events/1562165/fontaines-dc-tickets?skin=hovet",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kq6708k",
@@ -6667,7 +7597,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/horse-lords-hus-7/",
       "ticketUrl": "https://billetto.se/e/horse-lords-hus-7-biljetter-1887804",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -6698,7 +7628,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/boris-jpn-planning-for-a-burial-hus-7/",
       "ticketUrl": "https://billetto.se/e/boris-jpn-planning-for-a-burial-hus-7-biljetter-1929045",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -6770,6 +7700,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "larrys_corner:maria-e-andin",
+      "sourceIds": [
+        "larrys_corner:maria-e-andin"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Maria E Andin",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-06",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-06T18:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/maria-e-andin",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1k04vJ7b",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1k04vJ7b"
@@ -6833,7 +7794,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/paris-25-arsjubileum/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:sarcator-zadism",
@@ -6866,7 +7827,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/sarcator-zadism/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v4wOMQK",
@@ -6933,7 +7894,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/anaal-nathrakh-orecus-floating/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kF3fKab",
@@ -6996,7 +7957,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/god-mother-svart-samtid-denim-demons-hus-7/",
       "ticketUrl": "https://billetto.se/e/god-mother-svart-samtid-denim-demons-biljetter-1990890",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -7058,7 +8019,36 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/rekordaren-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/rekordaren-slaktkyrkan-biljetter-1929051?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1929051",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
+      "id": "larrys_corner:like-wow-official-claire-with-leroy-bach-from-wilco-and-special-guest-jonathan-segel",
+      "sourceIds": [
+        "larrys_corner:like-wow-official-claire-with-leroy-bach-from-wilco-and-special-guest-jonathan-segel"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "like wow! official claire with leroy bach from wilco and special guest jonathan segel",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-07",
+      "localTime": "19:31",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-07T18:31:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/like-wow-official-claire-with-leroy-bach-from-wilco-and-special-guest-jonathan-segel",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -7089,7 +8079,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/good-charlotte/",
       "ticketUrl": "https://www.axs.com/se/events/1455771/good-charlotte-tickets",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v--k3ZO",
@@ -7153,7 +8143,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/lucifer/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kfxfAbf",
@@ -7214,7 +8204,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/voice-of-ukraine-olya-polyakova-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/olya-polyakova-voice-of-ukraine-biljetter-1958644?",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -7313,7 +8303,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/campaign-for-musical-destruction/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k0w888K",
@@ -7412,7 +8402,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/jamie-woon/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16865",
@@ -7442,7 +8432,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jesper-lindell-brunnsvik-sounds-klubb-uffe/",
       "ticketUrl": "https://secure.tickster.com/sv/zwj0zgdxm9jkyjy/selectproductgroup?fbclid=IwY2xjawSbdmlleHRuA2FlbQIxMABicmlkETFFc0wwYklPZFpTN245Mlg2c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtvP1NTLU2TVc3g2DVWsCqYuV4bXdZLJ299xGNuiYgBMHu-oDDjIHfFhk5nr_aem_sVAoVl2R3sBi54GXQ9xZIg",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v0xQbxv",
@@ -7509,7 +8499,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-washboard-union/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kofuw_A",
@@ -7577,7 +8567,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/eleine-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16272",
@@ -7607,7 +8597,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/happy-birthday-neil-young/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/3kpne7exwtlge3l/2026-11-11/happy-birthday-neil-young",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vovpkGM",
@@ -7669,7 +8659,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/really-good-time-hus-7/",
       "ticketUrl": "https://billetto.se/e/really-good-time-hus-7-biljetter-1962173",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -7700,7 +8690,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/rotting-christ/",
       "ticketUrl": "https://secure.tickster.com/hu3dyzhnhg35bvt",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v7fjbbP",
@@ -7766,7 +8756,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/evergrey-stockholm-evergrey/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:feeble-little-horse-hus-7",
@@ -7798,7 +8788,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/feeble-little-horse-hus-7/",
       "ticketUrl": "https://billetto.se/e/feeble-little-horse-hus-7-biljetter-1932398",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -7829,7 +8819,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/gerd-2/",
       "ticketUrl": "https://secure.tickster.com/sv/agj66wep02bpn2d/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16275",
@@ -7859,7 +8849,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/happy-birthday-neil-young-2/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/7m443cyl9c54uk1/2026-11-12/happy-birthday-neil-young",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:oddjob",
@@ -7891,7 +8881,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/oddjob/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kAejaCo",
@@ -7956,7 +8946,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/hets-20-ar-av-svensk-indie-och-punk/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16883",
@@ -7987,7 +8977,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/les-big-byrd-3/",
       "ticketUrl": "https://secure.tickster.com/rmgj8y2mgvljcmb",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:the-quireboys-trench-dogs",
@@ -8020,7 +9010,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-quireboys-trench-dogs/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kr6_zC7",
@@ -8081,7 +9071,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/cola-hus-7/",
       "ticketUrl": "https://billetto.se/e/cola-hus-7-biljetter-1890183",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -8174,7 +9164,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jonas-lundqvist-5/",
       "ticketUrl": "https://secure.tickster.com/kr8mp1x0x3ftb6x",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kvvPpC7",
@@ -8237,7 +9227,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/solomon-fox-hus-7/",
       "ticketUrl": "https://billetto.se/e/solomon-fox-hus-7-biljetter-1900555",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -8272,7 +9262,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-obsessed-klastos-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v7duyGS",
@@ -8365,7 +9355,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/monica-mac/",
       "ticketUrl": "https://secure.tickster.com/bjv49wfceyjyeef",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16854",
@@ -8395,7 +9385,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/klas-toresson-konsert-och-jamsession/",
       "ticketUrl": "https://secure.tickster.com/sv/kb7m0pnpp34l20x/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17169",
@@ -8425,7 +9415,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/moonica-mac-extrakonsert/",
       "ticketUrl": "https://secure.tickster.com/93lgrljfzgyhazj",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:the-browning-supports",
@@ -8459,7 +9449,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-browning-supports/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:archspire-crown-magnetar-the-zenith-passage",
@@ -8492,7 +9482,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/archspire-crown-magnetar-the-zenith-passage/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17218",
@@ -8522,7 +9512,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/atomic-swing-2/",
       "ticketUrl": "https://secure.tickster.com/jbxpthwt3hz4nv2",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:druha-rika",
@@ -8554,7 +9544,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/druha-rika/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vFyoEJ_",
@@ -8647,7 +9637,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/en-kvall-pa-operan/",
       "ticketUrl": "https://secure.tickster.com/sv/njg90jma3embk0c/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vOxAbe6",
@@ -8713,7 +9703,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/motormannen/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kv9ukO0",
@@ -8774,7 +9764,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/pascal-2/",
       "ticketUrl": "https://secure.tickster.com/sv/p0f85rd2utcn7b5/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:trinix-stockholm",
@@ -8809,7 +9799,38 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/trinix-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:petter-rylen-coming-back",
+      "sourceIds": [
+        "larrys_corner:petter-rylen-coming-back"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "petter rylen coming back!",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-20",
+      "localTime": "19:32",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T18:32:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/petter-rylen-coming-back",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v_F-8x7",
@@ -8875,7 +9896,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/imperial-triumphant-knoll/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vfgv3vS",
@@ -8936,7 +9957,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/shadows-tribute-i-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/d68bdjx9zu6uh44/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17009",
@@ -8966,7 +9987,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/uppsala-blues-festival/",
       "ticketUrl": "https://secure.tickster.com/sv/lyteel2l67pdxfr/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:vit-pals-stockholm",
@@ -9001,7 +10022,36 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/vit-pals-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:yeah-its-a-visit-from-yes-its-ananias",
+      "sourceIds": [
+        "larrys_corner:yeah-its-a-visit-from-yes-its-ananias"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "yeah! its a visit from YES IT''S ANANIAS!",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-21",
+      "localTime": "19:41",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-21T18:41:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/yeah-its-a-visit-from-yes-its-ananias",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v-P7JuI",
@@ -9066,7 +10116,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/employed-to-serve-cabal-employed-to-serve-cabalmall-stora-scen/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vO_fPG3",
@@ -9226,7 +10276,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/honeymilk/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:kallsup-hus-7",
@@ -9254,7 +10304,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/kallsup-hus-7/",
       "ticketUrl": "https://billetto.se/e/kallsup-hus-7-biljetter-1984674",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -9289,7 +10339,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/master-boot-record-fulci-arottenbit/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:aurell-gullberg-killarna-mot-tjejerna",
@@ -9321,7 +10371,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/aurell-gullberg-killarna-mot-tjejerna/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kOake4p",
@@ -9386,7 +10436,39 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/den-svenska-bjornstammen-9/",
       "ticketUrl": "https://secure.tickster.com/dypwy88b3nyd7xl",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:les-issambres-och-the-tantz",
+      "sourceIds": [
+        "larrys_corner:les-issambres-och-the-tantz"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Les Issambres och The Täntz",
+      "artists": [],
+      "styles": [
+        "Indie",
+        "Synth"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-27",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-27T18:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/les-issambres-och-the-tantz",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "kollektivet_livet:per-persson-nya-packet",
@@ -9420,7 +10502,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/per-persson-nya-packet/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:any-given-day-kollektivet-livet",
@@ -9453,7 +10535,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/any-given-day-kollektivet-livet/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v8vxaj0",
@@ -9614,7 +10696,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/maggie-reilly-uk/",
       "ticketUrl": "https://secure.tickster.com/zj9z073x7lux5jm",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17238",
@@ -9644,7 +10726,36 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/pepperbyrds-pa-katalins-bakficka/",
       "ticketUrl": "https://secure.tickster.com/sv/hnvxczyuh19axt4/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:solrun-mjoll-and-jaakko-arola-isfi",
+      "sourceIds": [
+        "larrys_corner:solrun-mjoll-and-jaakko-arola-isfi"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Sólrún Mjöll & Jaakko Arola (IS/FI)",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-11-28",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T18:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/solrun-mjoll-and-jaakko-arola-isfi",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vxevvj-",
@@ -9804,7 +10915,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/daniel-lantz-quartet-ft-sara-englund/",
       "ticketUrl": "https://secure.tickster.com/sv/94lydx74zkjz6n7/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kfOpe8v",
@@ -9869,7 +10980,36 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/amanda-ginsburg-det-ar-jul-nu-igen/",
       "ticketUrl": "https://secure.tickster.com/8g8b38tkxtlz0a8",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:giulio-stermieri-italian-pianist-and-composer",
+      "sourceIds": [
+        "larrys_corner:giulio-stermieri-italian-pianist-and-composer"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Giulio Stermieri, Italian pianist and composer.",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-12-02",
+      "localTime": "19:34",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-02T18:34:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/giulio-stermieri-italian-pianist-and-composer",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kP9Q___",
@@ -9931,7 +11071,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/froken-elvis-jul-2/",
       "ticketUrl": "https://secure.tickster.com/c5mwgtfxmh27cma",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kQvPI1o",
@@ -9992,7 +11132,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-fantastic-four-a-motown-christmas-2/",
       "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/hr4k0nrulzxhhd7/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kOF3_a9",
@@ -10054,7 +11194,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/pernilla-andersson-vintersanger-fran-garbo/",
       "ticketUrl": "https://secure.tickster.com/sv/jz54x83e4617292/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vZ8F_-8",
@@ -10176,7 +11316,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/widowspeak-hus-7/",
       "ticketUrl": "https://billetto.se/e/widowspeak-hus-7-biljetter-1902208",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -10274,7 +11414,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/mental-cruelty-ov-sulfur-extermination-dismemberment-acranius-mental-cruelty/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16855",
@@ -10304,7 +11444,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/markus-ahlberg-konsert-och-jamsession-2/",
       "ticketUrl": "https://secure.tickster.com/sv/h029ng1tbzhfndg/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v-_PeO7",
@@ -10367,7 +11507,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/bombus-mass-worship/",
       "ticketUrl": "https://secure.tickster.com/sv/l9jmlxtjwwcb2ba/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:16841",
@@ -10397,7 +11537,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/en-kvall-pa-operan-2/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/mpgxk6jjd77w0vn/2026-12-11/en-kvall-pa-operan",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:joshua-idehen-slaktkyrkan",
@@ -10425,7 +11565,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/joshua-idehen-slaktkyrkan/",
       "ticketUrl": "https://billetto.se/e/joshua-idehen-slaktkyrkan-biljetter-1945605",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -10491,6 +11631,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "larrys_corner:fornan",
+      "sourceIds": [
+        "larrys_corner:fornan"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "förnan!!",
+      "artists": [],
+      "styles": [
+        "Synth"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-12-11",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-11T18:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/fornan",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
+    },
+    {
       "id": "kollektivet_livet:aret-var",
       "sourceIds": [
         "kollektivet_livet:aret-var"
@@ -10522,7 +11693,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/aret-var/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17020",
@@ -10552,7 +11723,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/emma-the-dusty-roses/",
       "ticketUrl": "https://secure.tickster.com/sv/4jfal2cu9uutnh8/products",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:larz-kristerz",
@@ -10586,7 +11757,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/larz-kristerz/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vv-aOjN",
@@ -10837,7 +12008,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-last-waltz/",
       "ticketUrl": "https://secure.tickster.com/sv/jbptmjw6b7k06a0/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kveAKGe",
@@ -10993,7 +12164,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-ocean-hypno5e-pothamus/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vafuNk3",
@@ -11054,7 +12225,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/valter-nilsson-3/",
       "ticketUrl": "https://secure.tickster.com/2vxg5hpyv2a43kg",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17022",
@@ -11084,7 +12255,38 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/valter-nilsson-2/",
       "ticketUrl": "https://secure.tickster.com/sv/7bhdp3pf0ugbwuh/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:odysseas-and-friends",
+      "sourceIds": [
+        "larrys_corner:odysseas-and-friends"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "odysseas and friends",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2026-12-16",
+      "localTime": "19:32",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-16T18:32:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/odysseas-and-friends",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kFP4E43",
@@ -11145,7 +12347,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/the-crown/",
       "ticketUrl": "https://secure.tickster.com/sv/72ypaj48u516nlj/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:punk-3-stockholms-stadsmission-slaktkyrkan",
@@ -11175,7 +12377,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/punk-3-stockholms-stadsmission-slaktkyrkan/",
       "ticketUrl": "https://www.tickster.com/se/sv/events/ruwz4ebg6ylfd66/2026-12-18/punk-stockholms-stadsmission",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -11242,7 +12444,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/the-crown-no-tomorrow-farewell-stockholm/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kvV0PfU",
@@ -11307,7 +12509,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/julen-enligt-timo/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vb0e7-J",
@@ -11432,7 +12634,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/self-deception-ankor-lauren-babic-slaktkyrkan/",
       "ticketUrl": "https://www.eventim.se/event/21696776/?affiliate=FKS",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -11722,7 +12924,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/per-persson-nya-packet-4/",
       "ticketUrl": "https://secure.tickster.com/aau6px0u72p8bgj",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17093",
@@ -11752,7 +12954,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/elvis-presley-birthday-party-2027/",
       "ticketUrl": "https://secure.tickster.com/sv/u3uwyfm19bnxv1c/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kAyaFFA",
@@ -11877,7 +13079,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/tms-bowie-lowheroes/",
       "ticketUrl": "https://secure.tickster.com/sv/7z2bw1c1xeneehb/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vOgepZK",
@@ -12006,7 +13208,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/di-leva/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kuK-6va",
@@ -12039,6 +13241,40 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/the-bootleg-beatles-biljetter/353847049",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "larrys_corner:en-kyss-som-ser-ut-som-ett-fejs",
+      "sourceIds": [
+        "larrys_corner:en-kyss-som-ser-ut-som-ett-fejs"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "”En Kyss Som Ser Ut Som Ett Fejs”",
+      "artists": [],
+      "styles": [
+        "Rock",
+        "Jazz",
+        "Folk",
+        "Pop"
+      ],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2027-01-26",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-26T18:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/en-kyss-som-ser-ut-som-ett-fejs",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v7yC3AI",
@@ -12135,7 +13371,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/hannes-aitman-2/",
       "ticketUrl": "https://secure.tickster.com/sv/v93449drn3txn9u/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:chaos-fest-iv-tyrann-century-mutation",
@@ -12168,7 +13404,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/chaos-fest-iv-tyrann-century-mutation/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "katalin:17150",
@@ -12198,7 +13434,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/geoff-tate-the-final-chapter/",
       "ticketUrl": "https://secure.tickster.com/vzxc44bxnwzezdk",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "slakthusen:primitive-ring-hus-7",
@@ -12228,7 +13464,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/primitive-ring-hus-7/",
       "ticketUrl": "https://billetto.se/e/primitive-ring-hus-7-biljetter-1920483",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -12262,7 +13498,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/taake-svartkonst/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:st-jimi-sebastian-cricket-club",
@@ -12296,7 +13532,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/st-jimi-sebastian-cricket-club/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kC8qZv0",
@@ -12395,7 +13631,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/signs-of-the-swarm-ten56-oceans-ate-alaska-face-yourself/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:elder",
@@ -12425,7 +13661,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/elder/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vekv9po",
@@ -12490,7 +13726,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/melrose-avenue/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kaeA44s",
@@ -12591,7 +13827,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/mol-together-to-the-stars/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:bloodred-hourglass",
@@ -12623,7 +13859,36 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/bloodred-hourglass/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:christoffer-eriksson-and-company",
+      "sourceIds": [
+        "larrys_corner:christoffer-eriksson-and-company"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "Christoffer Eriksson and company",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2027-02-26",
+      "localTime": "19:33",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-26T18:33:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/christoffer-eriksson-and-company",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16evJjd3e",
@@ -12750,7 +14015,7 @@
       "status": "scheduled",
       "url": "https://www.katalin.com/events/jazz-pa-svenska-broderna-johansson/",
       "ticketUrl": "https://secure.tickster.com/sv/uxfta84v5rjre74/selectproductgroup",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vf6a8aS",
@@ -12843,7 +14108,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/morgan-wallen-tribute-uk/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vA48yka",
@@ -13107,7 +14372,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/kalandra/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vGoZw_b",
@@ -13168,7 +14433,7 @@
       "status": "scheduled",
       "url": "https://slakthusen.se/trentemoller-slaktkyrkan/",
       "ticketUrl": "https://secure.tickster.com/p3rkawg3khke5cc",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00",
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
       "styleEvidence": "description"
     },
     {
@@ -13692,7 +14957,36 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/andy-and-the-rockets/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
+    },
+    {
+      "id": "larrys_corner:sails",
+      "sourceIds": [
+        "larrys_corner:sails"
+      ],
+      "providers": [
+        "larrys_corner"
+      ],
+      "title": "sails!!",
+      "artists": [],
+      "styles": [],
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "localDate": "2027-04-24",
+      "localTime": "19:32",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-04-24T17:32:00+00:00",
+      "status": "scheduled",
+      "url": "https://larryscorner.nu/en/events/sails",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00",
+      "styleEvidence": "description"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v848kuK",
@@ -13845,7 +15139,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/weezer/",
       "ticketUrl": "https://www.axs.com/se/events/1542684/weezer-tickets",
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vqIOM03",
@@ -13907,7 +15201,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/uk-subs/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     },
     {
       "id": "kollektivet_livet:chrom-the-mobile-homes",
@@ -13942,7 +15236,7 @@
       "status": "scheduled",
       "url": "https://kollektivetlivet.se/event/chrom-the-mobile-homes/",
       "ticketUrl": null,
-      "lastVerifiedAt": "2026-09-08T22:07:34+00:00"
+      "lastVerifiedAt": "2026-09-08T23:14:58+00:00"
     }
   ]
 }

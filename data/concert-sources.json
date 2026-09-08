@@ -149,13 +149,124 @@
         "Reggae": "\\breggae\\w*\\b",
         "Pop": "\\bpop\\w*\\b"
       }
+    },
+    {
+      "id": "brewpunk",
+      "name": "BrewPunk: Kafé 44 & independent punk gigs",
+      "adapter": "brewpunk",
+      "indexUrl": "https://brewpunk.se/live-shows/",
+      "venues": {
+        "Kafé 44, Stockholm": {
+          "name": "Kafé 44",
+          "city": "Stockholm",
+          "lat": null,
+          "lon": null
+        },
+        "Bio Aspen, Aspudden, Stockholm": {
+          "name": "Bio Aspen",
+          "city": "Stockholm",
+          "lat": null,
+          "lon": null
+        },
+        "Kulturhuset, Stockholm": {
+          "name": "Kulturhuset",
+          "city": "Stockholm",
+          "lat": null,
+          "lon": null
+        },
+        "Paviljon Subterra, Högdalen, Stockholm": {
+          "name": "Paviljon Subterra",
+          "city": "Stockholm",
+          "lat": null,
+          "lon": null
+        },
+        "Kulturhuset Femman, Uppsala": {
+          "name": "Kulturhuset Femman",
+          "city": "Uppsala",
+          "lat": null,
+          "lon": null
+        },
+        "Skövde Kulturhus, Skövde": {
+          "name": "Skövde Kulturhus",
+          "city": "Skövde",
+          "lat": null,
+          "lon": null
+        }
+      }
+    },
+    {
+      "id": "geronimos",
+      "name": "Geronimo's FGT, Stockholm",
+      "adapter": "geronimos",
+      "indexUrl": "https://www.geronimosfgt.se/shows-events-live-music/",
+      "eventPrefix": "https://www.geronimosfgt.se/events/",
+      "ajaxUrl": "https://www.geronimosfgt.se/wp-admin/admin-ajax.php",
+      "venue": {
+        "name": "Geronimo's FGT",
+        "city": "Stockholm",
+        "lat": 59.32522,
+        "lon": 18.067858,
+        "coordinateSource": "https://maps.app.goo.gl/pxMPKqKdRQSWcYT98"
+      },
+      "stylePatterns": {
+        "Punk": "\\b(?:punk\\w*|post[- ]?punk\\w*)\\b",
+        "Hardcore": "\\bhardcore\\w*\\b",
+        "Indie": "\\bindie\\w*\\b",
+        "Metal": "\\b(?:metal\\w*|doom|sludge)\\b",
+        "Rock": "\\b(?:rock\\w*|postrock\\w*|psykedelisk rock)\\b",
+        "Synth": "\\b(?:synth\\w*|syntpop|darkwave)\\b",
+        "Jazz": "\\bjazz\\w*\\b",
+        "Folk": "\\b(?:folkmusik|folkrock|americana)\\b",
+        "Reggae": "\\breggae\\w*\\b",
+        "Pop": "\\bpop\\w*\\b"
+      }
+    },
+    {
+      "id": "larrys_corner",
+      "name": "Larry's Corner, Stockholm",
+      "adapter": "larrys_corner",
+      "indexUrl": "https://larryscorner.nu/en/events",
+      "venue": {
+        "name": "Larry's Corner",
+        "city": "Stockholm",
+        "lat": 59.3092727,
+        "lon": 18.067435,
+        "coordinateSource": "https://maps.app.goo.gl/Xq5g7jC7YHP57RLcA"
+      },
+      "musicPattern": "\\b(?:music\\w*|musik\\w*|jazz\\w*|guitar\\w*|gitarr\\w*|sax\\w*|piano\\w*|pianist\\w*|drums|trumm\\w*|bassist\\w*|sång\\w*|singer\\w*|song\\w*|band|trio|duo|quartet|kvartett|konsert\\w*|concert\\w*|noise|ambient)\\b",
+      "stylePatterns": {
+        "Punk": "\\b(?:punk\\w*|post[- ]?punk\\w*)\\b",
+        "Hardcore": "\\bhardcore\\w*\\b",
+        "Indie": "\\bindie\\w*\\b",
+        "Metal": "\\b(?:metal\\w*|doom|sludge)\\b",
+        "Rock": "\\b(?:rock\\w*|postrock\\w*|psykedelisk rock)\\b",
+        "Synth": "\\b(?:synth\\w*|syntpop|darkwave)\\b",
+        "Jazz": "\\bjazz\\w*\\b",
+        "Folk": "\\b(?:folk|folkmusik|folkrock|americana)\\b",
+        "Reggae": "\\breggae\\w*\\b",
+        "Pop": "\\bpop\\w*\\b",
+        "Experimental": "\\b(?:experimental|experimentell\\w*|noise)\\b"
+      }
+    },
+    {
+      "id": "kafe44_nupagang",
+      "name": "Kafé 44 via Nu på gång / Bandsintown",
+      "adapter": "nupagang_venue",
+      "indexUrl": "https://nupagang.se/sv/venue/kafe-44-stockholm/",
+      "eventPrefix": "https://nupagang.se/sv/event/",
+      "venue": {
+        "name": "Kafé 44",
+        "city": "Stockholm",
+        "lat": null,
+        "lon": null
+      }
     }
   ],
   "coverageGaps": [
     {
       "name": "Kafé 44 / Scen 44",
       "url": "https://kafe44.org/scen-44/",
-      "note": "Not imported yet. The venue directs visitors to Facebook for its current programme."
+      "note": "Partial coverage from BrewPunk and Nu på gång/Bandsintown. The full Scen 44 programme is not imported from Facebook."
     },
     {
       "name": "Cyklopen",

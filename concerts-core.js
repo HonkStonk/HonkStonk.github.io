@@ -69,6 +69,8 @@
         const style = prefs.styles.find(s => event.styles.some(t => key(t) === key(s) || (' ' + key(t) + ' ').includes(' ' + key(s) + ' ')));
         if (style) return event.styleEvidence === 'description'
             ? { tier: 1, label: 'Style mention', reason: 'The event page mentions ' + style + ' — check the description' }
+            : event.styleEvidence === 'punk_calendar'
+            ? { tier: 1, label: 'Punk calendar', reason: 'Selected by BrewPunk’s independent punk-gig calendar' }
             : { tier: 1, label: 'Style match', reason: 'Your taste: ' + style };
         return { tier: 0, label: 'Explore', reason: 'Another gig in your places' };
     }

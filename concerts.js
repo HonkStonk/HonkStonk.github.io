@@ -120,7 +120,7 @@
         const event = selected();
         $('concertTitle').textContent = event ? event.title : 'Your next gig is out there.';
         $('concertSubtitle').textContent = event ? event.venue.city + ' · ' + dateLabel(event) : 'Try a few more artists or styles.';
-        $('matchReason').textContent = event ? C.match(event, preferences).reason : 'LET YOUR TASTE LEAD';
+        $('matchReason').textContent = event ? C.match(event, preferences).reason + (typeof event.listingNote === 'string' ? ' · ' + event.listingNote : '') : 'LET YOUR TASTE LEAD';
         $('gigMatch').textContent = event ? C.match(event, preferences).label : 'No match yet';
         $('pointToGig').disabled = !event || !C.coordinates(event.venue) || event.status === 'postponed';
         $('beerBeforeButton').disabled = !event || !C.coordinates(event.venue);

@@ -6,6 +6,7 @@ explicitly configured public calendars; Ticketmaster uses TICKETMASTER_API_KEY.
 from __future__ import annotations
 
 import argparse
+import hashlib
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from html import unescape
@@ -19,6 +20,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urljoin, urlparse, parse_qs, unquote, quote
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
+from collector_credentials import load_ticketmaster_key
 
 ROOT = Path(__file__).resolve().parent.parent
 USER_AGENT = "MagicCompass/0.1 (personal concert calendar; https://honkstonk.github.io/)"
@@ -34,12 +36,12 @@ def safe_url(value):
     return parsed.scheme == "https" and bool(parsed.hostname) and not parsed.username and not parsed.password
 
 
-def fetch(url, headers=None):
+def fetch(url, headers=None, data=None):
     """Bounded retries and response sizes; never print URLs containing credentials."""
     for attempt in range(3):
         time.sleep(0.55)  # Below both published Ticketmaster per-second limits.
         try:
-            with urlopen(Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json,text/html", **(headers or {})}), timeout=25) as response:
+            with urlopen(Request(url, data=data, headers={"User-Agent": USER_AGENT, "Accept": "application/json,text/html", **(headers or {})}), timeout=25) as response:
                 content = response.read(4_000_001)
                 if len(content) > 4_000_000:
                     raise ValueError("Source response is unexpectedly large")
@@ -155,6 +157,14 @@ def collect_venue(source, now, get=fetch):
         return collect_livet(source, now, get)
     if source.get("adapter") == "slakthusen":
         return collect_slakthusen(source, now, get)
+    if source.get("adapter") == "brewpunk":
+        return collect_brewpunk(source, now, get)
+    if source.get("adapter") == "geronimos":
+        return collect_geronimos(source, now, get)
+    if source.get("adapter") == "larrys_corner":
+        return collect_larrys(source, now, get)
+    if source.get("adapter") == "nupagang_venue":
+        return collect_nupagang_venue(source, now, get)
     index = Page(get(source["indexUrl"]))
     prefix = source["eventPrefix"]
     links = sorted({urljoin(source["indexUrl"], link).split("#")[0].split("?")[0] for link in index.links})
@@ -377,6 +387,174 @@ def collect_slakthusen(source, now, get=fetch):
         events.append(calendar_event(source, link, clean_title, date, local_time, kind, now, styles,
                                      source["venues"][room], tickets[0].attrs.get("href") if tickets else None))
         events[-1]["styleEvidence"] = "description"
+    return events
+
+
+def collect_nupagang_venue(source, now, get=fetch):
+    html = get(source["indexUrl"])
+    lists = [o for o in objects(Page(html).json_ld) if o.get("@type") == "ItemList"]
+    cards = list(CalendarHTML(html).root.find("article", "vote-card"))
+    if len(lists) != 1 or lists[0].get("numberOfItems") != len(cards) or len(cards) > 150:
+        raise ValueError("Nu på gång venue calendar changed or is incomplete")
+    expected = {i["url"] for i in lists[0]["itemListElement"]}
+    actual = {c.attrs.get("data-share-url") for c in cards}
+    if expected != actual or len(actual) != len(cards):
+        raise ValueError("Nu på gång calendar identities disagree")
+    events = []
+    for card in cards:
+        if card.attrs.get("data-kind") != "concert":
+            continue
+        url = card.attrs["data-share-url"]
+        if not url.startswith(source["eventPrefix"]):
+            raise ValueError("Unexpected Nu på gång event URL")
+        page = Page(get(url))
+        raw_events = [o for o in objects(page.json_ld) if o.get("@type") in {"Event", "MusicEvent"} and o.get("url") == url]
+        if len(raw_events) != 1:
+            raise ValueError("Nu på gång event schema changed")
+        raw = raw_events[0]
+        location = raw.get("location", {})
+        if (name_key(location.get("name")) != name_key(source["venue"]["name"])
+                or name_key(location.get("address", {}).get("addressLocality")) != name_key(source["venue"]["city"])):
+            raise ValueError("Nu på gång event moved to another venue")
+        gig = normalize_venue_event(raw, page, url, source, now)
+        gig["listingNote"] = "Listed by Nu på gång, with a Bandsintown source link. Confirm time and line-up on the source page."
+        events.append(gig)
+    return events
+
+
+def collect_brewpunk(source, now, get=fetch):
+    tree = CalendarHTML(get(source["indexUrl"])).root
+    tables = [t for t in tree.find("table") if [n.text().strip() for n in t.find("th")] == ["När", "Vilka", "Var"]]
+    if len(tables) != 1:
+        raise ValueError("BrewPunk calendar headings changed")
+    events, seen = [], set()
+    venues = {name_key(k): v for k, v in source["venues"].items()}
+    rows = list(tables[0].find("tr"))
+    if not 1 < len(rows) <= 1000:
+        raise ValueError("BrewPunk calendar size changed")
+    for row in rows:
+        cells = list(row.find("td"))
+        if not cells:
+            continue
+        if len(cells) != 3:
+            raise ValueError("BrewPunk calendar row changed")
+        day, bill, place = [" ".join(c.text().split()) for c in cells]
+        venue = venues.get(name_key(place))
+        if not venue:
+            continue  # Explicit venue scope avoids guessing cities from festival names.
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day):
+            raise ValueError("BrewPunk selected gig has an ambiguous or multi-day date")
+        # This is an editorial calendar with a named 'Who' column, but annotations
+        # like film screenings are not artist names. Keep those bills title-only.
+        artists = [] if re.search(r"[():]|\bTBA\b|fler band", bill, re.I) else [a.strip() for a in bill.split(",") if a.strip()]
+        identifier = source["id"] + ":" + hashlib.sha256((name_key(place) + day + name_key(bill)).encode()).hexdigest()[:20]
+        if identifier in seen:
+            raise ValueError("Repeated BrewPunk listing")
+        seen.add(identifier)
+        gig = calendar_event(source, source["indexUrl"], bill, day, None, "listed", now, ["Punk"], venue)
+        gig.update(id=identifier, sourceIds=[identifier], artists=artists, styleEvidence="punk_calendar",
+                   listingNote="Listed by BrewPunk's independent punk calendar. Time and current line-up need checking with the venue.")
+        events.append(gig)
+    return events
+
+
+def collect_geronimos(source, now, get=fetch):
+    html = get(source["indexUrl"])
+    settings = dict(re.findall(r'(id|end_date|offset|current_month_divider|atts|ajax_url):\s*"([^"]*)"', html[html.index('.mecListView('):]))
+    if settings.get("ajax_url") != source["ajaxUrl"]:
+        raise ValueError("Geronimo calendar endpoint changed")
+    links, cursors = set(), set()
+    for page_number in range(20):
+        tree = CalendarHTML(html).root
+        cards = list(tree.find("article", "mec-event-article"))
+        if not cards and page_number == 0:
+            raise ValueError("Geronimo calendar changed")
+        for card in cards:
+            anchor = one_element(one_element(card, cls="mec-event-title"), "a")
+            link, title = anchor.attrs["href"], anchor.text()
+            if not link.startswith(source["eventPrefix"]):
+                raise ValueError("Unexpected Geronimo event link")
+            # Ignore quiz, bingo and DJ listings even if their description says music.
+            if not re.search(r"\blive\b|\bkonsert\b", title, re.I) or re.search(r"\b(?:DJ|quiz|bingo|disco)\b", title, re.I):
+                continue
+            if link in links:
+                raise ValueError("Repeated Geronimo concert in calendar")
+            links.add(link)
+        cursor = (settings["end_date"], str(settings["offset"]))
+        if cursor in cursors:
+            raise ValueError("Geronimo pagination repeated")
+        cursors.add(cursor)
+        data = urlencode({"action": "mec_list_load_more", "mec_start_date": settings["end_date"],
+                          "mec_offset": settings["offset"], "current_month_divider": settings["current_month_divider"],
+                          "apply_sf_date": 0}) + "&" + settings["atts"]
+        result = json.loads(get(source["ajaxUrl"], data=data.encode(), headers={"Content-Type": "application/x-www-form-urlencoded"}))
+        if not isinstance(result, dict) or not isinstance(result.get("html"), str) or not str(result.get("count", "")).isdigit():
+            raise ValueError("Geronimo pagination schema changed")
+        if int(result["count"]) == 0:
+            break
+        html = result["html"]
+        if len(list(CalendarHTML(html).root.find("article", "mec-event-article"))) != int(result["count"]):
+            raise ValueError("Geronimo pagination returned incomplete cards")
+        settings.update({k: result[k] for k in ("end_date", "offset", "current_month_divider")})
+    else:
+        raise ValueError("Geronimo pagination limit exceeded")
+    events = []
+    for url in sorted(links):
+        tree = CalendarHTML(get(url)).root
+        date_text = one_element(tree, cls="mec-start-date-label").text().strip()
+        date_parts = re.fullmatch(r"(\w+)\s+(\d{1,2})\s+(\d{4})", date_text)
+        if not date_parts:
+            raise ValueError("Geronimo event date changed")
+        month, day, year = date_parts.groups()
+        day = f"{int(year):04d}-{SWEDISH_MONTHS[month[:3].lower()]:02d}-{int(day):02d}"
+        title = one_element(tree, cls="mec-single-title").text()
+        body = one_element(tree, cls="mec-single-event-description").text()
+        doors = re.search(r"\bDoors\s*:\s*(\d{1,2})[.:](\d{2})", body, re.I)
+        local_time, kind = (f"{int(doors[1]):02d}:{doors[2]}", "doors") if doors else (None, "listed")
+        title = title.split("•")[0].strip()
+        styles = [label for label, pattern in source.get("stylePatterns", {}).items() if re.search(pattern, body, re.I)]
+        gig = calendar_event(source, url, title, day, local_time, kind, now, styles)
+        gig["styleEvidence"] = "description"
+        events.append(gig)
+    return events
+
+
+def collect_larrys(source, now, get=fetch):
+    tree = CalendarHTML(get(source["indexUrl"])).root
+    grouped = {}
+    for anchor in tree.find("a"):
+        href = anchor.attrs.get("href", "")
+        text = " ".join(anchor.text().split())
+        if href.startswith("/en/events/") and text:
+            if text not in grouped.setdefault(href, []):
+                grouped[href].append(text)
+    if not grouped or len(grouped) > 250:
+        raise ValueError("Larry's Corner upcoming calendar changed")
+    events = []
+    date_pattern = r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) (\d{1,2}) ([A-Za-z]+) (\d{4})(?:\s*•\s*(\d{1,2})[.:](\d{2})(am|pm))?"
+    months = {m: n for n, m in enumerate(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 1)}
+    for href, parts in grouped.items():
+        url = urljoin(source["indexUrl"], href)
+        text = " ".join(parts)
+        match = re.match(date_pattern, text)
+        if not match:
+            raise ValueError("Larry's Corner event date changed")
+        d, month, year, hour, minute, period = match.groups()
+        date = f"{int(year):04d}-{months[month]:02d}-{int(d):02d}"
+        clock = f"{int(hour) % 12 + (12 if period == 'pm' else 0):02d}:{minute}" if hour else None
+        title = text[match.end():].strip()
+        detail = CalendarHTML(get(url)).root
+        # The programme also includes poetry and visual art. Only affirmative
+        # music wording in the event's own paragraphs/title qualifies here.
+        description = " ".join(n.text() for n in detail.find("p"))
+        if not re.search(source["musicPattern"], title + " " + description, re.I):
+            continue
+        if re.search(r"\b(?:poetry reading|poesi|vernissage|art exhibition)\b", title, re.I):
+            continue
+        styles = [label for label, pattern in source.get("stylePatterns", {}).items() if re.search(pattern, description, re.I)]
+        gig = calendar_event(source, url, title, date, clock, "listed", now, styles)
+        gig["styleEvidence"] = "description"
+        events.append(gig)
     return events
 
 
@@ -683,7 +861,35 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "concerts.json")
     parser.add_argument("--previous-url", help="Optional published snapshot to use for failure recovery")
+    parser.add_argument("--check-ticketmaster", action="store_true", help="Check Ticketmaster credentials without changing the snapshot")
+    parser.add_argument("--require-ticketmaster", action="store_true", help="Do not replace the snapshot unless Ticketmaster refresh succeeds")
     args = parser.parse_args()
+    try:
+        credential_mode = load_ticketmaster_key(ROOT)
+    except RuntimeError as error:
+        print(str(error))
+        return 1
+    if args.check_ticketmaster:
+        key = os.environ.get("TICKETMASTER_API_KEY", "").strip()
+        if not key:
+            print("No Ticketmaster key available. Run scripts/connect-ticketmaster.ps1.")
+            return 1
+        try:
+            probe = json.loads(fetch("https://app.ticketmaster.com/discovery/v2/events.json?" + urlencode({"apikey": key, "countryCode": "SE", "classificationName": "music", "size": 1})))
+            if not isinstance(probe.get("page"), dict):
+                raise ValueError("Unexpected API response")
+        except Exception:
+            print("Ticketmaster key check failed. Verify the Consumer Key and internet connection. No key was printed or saved.")
+            return 1
+        print("Ticketmaster key accepted.")
+        return 0
+    if credential_mode == "absent":
+        print("Ticketmaster key missing: run scripts/connect-ticketmaster.ps1 for persistent local setup. GitHub Actions needs the TICKETMASTER_API_KEY secret.", flush=True)
+        if args.require_ticketmaster:
+            print("Required Ticketmaster refresh is not configured. Existing snapshot unchanged.")
+            return 1
+    else:
+        print("Ticketmaster key loaded from " + ("encrypted local storage." if credential_mode == "encrypted_local" else "environment."), flush=True)
     config = json.loads((ROOT / "data/concert-sources.json").read_text(encoding="utf-8"))
     previous = json.loads(args.output.read_text(encoding="utf-8")) if args.output.exists() else {}
     if args.previous_url:
@@ -700,6 +906,8 @@ def main():
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     try:
         result = refresh(config, previous, now)
+        if args.require_ticketmaster and not any(s["id"] == "ticketmaster" and s["status"] == "ok" for s in result["sources"]):
+            raise RuntimeError("Required Ticketmaster refresh failed")
     except Exception as error:
         print("Refresh failed; existing data unchanged (" + type(error).__name__ + ").")
         return 1

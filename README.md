@@ -29,6 +29,10 @@ Install the collector's timezone database once with `python -m pip install -r re
 | [Katalin, Uppsala](https://www.katalin.com/events/) | Live, no key. Added 94 upcoming music records on 8 September 2026. |
 | [Kollektivet Livet, Stockholm](https://kollektivetlivet.se/evenemang-biljetter/) | Live, no key. 100 upcoming concert listings verified on 9 September 2026. |
 | [Slakthusen: Hus 7, Slaktkyrkan, Kapellet](https://slakthusen.se/) | Live, no key. 43 upcoming concerts verified on 9 September 2026: 25 at Hus 7, 17 at Slaktkyrkan, 1 at Kapellet. |
+| [BrewPunk](https://brewpunk.se/live-shows/) | Independent editorial punk calendar. Includes Kafé 44 and selected smaller Stockholm/Uppsala/Skövde venues; date-only bills keep their time unknown. |
+| [Kafé 44 through Nu på gång](https://nupagang.se/sv/venue/kafe-44-stockholm/) | Supplementary venue feed with original Bandsintown links. Two additional upcoming gigs checked on 9 September. |
+| [Geronimo's FGT](https://www.geronimosfgt.se/shows-events-live-music/) | Direct public calendar; seven live shows checked. Follows Load More; excludes DJ, quiz, disco and bingo listings. |
+| [Larry's Corner](https://larryscorner.nu/en/events) | Direct current website at `.nu`; 23 identifiable music listings checked. Poetry/art/ambiguous descriptions are not assumed to be concerts. |
 | [Ticketmaster Sweden](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) | Working: the user's saved 7 September snapshot contains 197 records from a successful authenticated run. No key is currently available to this Codex terminal, so that data was retained with its original verification time. |
 | [Tickster Sweden](https://developer.tickster.com/documentation/events/1.0) | Adapter and workflow configuration implemented, tested against the published v1.0 schema. Needs `TICKSTER_API_KEY` for its first authenticated live check. |
 
@@ -56,6 +60,22 @@ Katalin collection follows the upcoming calendar's pagination, then reads only t
 An empty city view means **no matches in current coverage**, not that there are no concerts there. The app's update button reloads the snapshot; it does not run a scraper from the phone. All sources are bounded to the configured horizon and use Swedish local dates and daylight-saving rules.
 
 ## Connect Ticketmaster next
+
+**The repeated “live refresh not connected” message came from a temporary terminal key.** The user confirmed the key was entered for just one run; it was not saved. Closing that terminal removed it. Changing a label cannot establish a new authenticated refresh.
+
+For persistent setup on this Windows computer, in VS Code choose **Terminal → New Terminal** in this repository and run:
+
+```powershell
+.\scripts\connect-ticketmaster.ps1
+```
+
+Paste the **Consumer Key** at the hidden prompt and press Enter. The script validates it with Ticketmaster, then saves a Windows-encrypted SecureString in the ignored `.local/ticketmaster-key.xml` and refreshes the local snapshot. The normal Python collector now automatically loads this credential on future runs under the same Windows account. Environment variables take precedence. The encrypted file is never packaged into the public site; copying it to another computer/account will not configure that environment. The script never prints the key. Add `-SetupOnly` to save/check without starting the full refresh, then use `python scripts/fetch_concerts.py --require-ticketmaster` later.
+
+Expect **Ticketmaster key accepted**, then **Ticketmaster Sweden: ok** after the full refresh. Reload the local app to see **checked** and a new date. The phone's hosted site changes only after the updated site/snapshot is deployed. Real authentication still requires the user to enter the key once; a dummy-key encryption test does not establish Ticketmaster access.
+
+For automatic daily refresh, also save the same Consumer Key in the repository's **Settings → Secrets and variables → Actions → New repository secret**, named exactly **TICKETMASTER_API_KEY**. The Windows encrypted file cannot configure GitHub's Linux runner. The workflow now requires a successful Ticketmaster refresh: a missing key or failed Ticketmaster request stops publication and leaves the previous site intact, rather than silently publishing a snapshot with disconnected Ticketmaster. Codex has not configured a remote secret or deployed this change.
+
+The earlier one-session setup below remains available for temporary testing; it does not persist a key.
 
 Your saved snapshot shows that Ticketmaster has already worked. Keep its key available in each environment where you want collection to run; the steps below also cover setting up another machine.
 

@@ -14,6 +14,7 @@ test('genre words in event prose are labelled as mentions, separate from source 
     assert.equal(C.match(event, prefs).label, 'Style mention');
     assert.match(C.match(event, prefs).reason, /event page mentions Punk/);
     assert.equal(C.match({ ...event, styleEvidence: undefined }, prefs).label, 'Style match');
+    assert.equal(C.match({ ...event, styleEvidence: 'punk_calendar' }, prefs).label, 'Punk calendar');
 });
 
 test('event hiding never changes artist taste or hides a different date', () => {
