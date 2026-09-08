@@ -213,16 +213,18 @@
         $('restoreHidden').textContent = 'Restore hidden gigs (' + preferences.hiddenEvents.length + ')';
         openDialog('preferencesDialog');
     }
-    $('preferencesForm').onsubmit = event => {
-        event.preventDefault();
-        try {
-            const next = { ...preferences,
+    function preferencesFromForm() {
+        return C.validatePreferences({ ...preferences,
                 favourites: C.splitList($('favouriteArtists').value),
                 dislikedArtists: C.splitList($('dislikedArtists').value),
                 cities: C.splitList($('preferredCities').value),
                 styles: [...new Set([...Array.from($('styleOptions').querySelectorAll('[aria-pressed="true"]')).map(button => button.textContent), ...C.splitList($('customStyles').value)])]
-            };
-            C.validatePreferences(next);
+        });
+    }
+    $('preferencesForm').onsubmit = event => {
+        event.preventDefault();
+        try {
+            const next = preferencesFromForm();
             cityFilter = '';
             savePreferences(next);
             $('preferencesDialog').close();
@@ -289,6 +291,10 @@
         sensorStatus(message, sticky = false) { sensorMessage = sticky ? message : ''; if (active) $('gigNavigationStatus').textContent = message; },
         locationError(error) { locationMessage = error.code === 1 ? 'Location permission denied. You can still browse gigs.' : 'Location is unavailable. Try again outside.'; if (active) $('gigNavigationStatus').textContent = locationMessage; }
     };
+    window.SpotifyImport?.init({
+        getPreferences: () => preferences, savePreferences, openPreferences, notify,
+        beforeConnect: () => savePreferences(preferencesFromForm()), showConcerts: () => switchMode(true)
+    });
     loadConcerts();
     if (storageNotice) notify(storageNotice);
 })();

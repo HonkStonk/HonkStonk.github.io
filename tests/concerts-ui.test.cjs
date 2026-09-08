@@ -23,16 +23,18 @@ class Element {
     querySelectorAll(selector) { return this.children.filter(c => c instanceof Element && selector === '[aria-pressed="true"]' && c.getAttribute('aria-pressed') === 'true'); }
 }
 
-async function app({ offline = false } = {}) {
+async function app({ offline = false, spotify = false } = {}) {
     const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
     const elements = new Map([...html.matchAll(/\bid="([^"]+)"/g)].map(m => [m[1], new Element()]));
     elements.get('calendarRange').value = 'all';
+    elements.get('spotifyRange').value = 'medium_term';
     const document = {
         getElementById(id) { assert.ok(elements.has(id), 'HTML contains #' + id); return elements.get(id); },
         createElement: tag => new Element(tag),
         createTextNode: text => String(text), querySelectorAll: () => []
     };
     const saved = new Map();
+    const session = new Map();
     // Fixed test records keep scheduled tests independent of touring calendars.
     const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', sources: [], events: [
         { id: 'test:amon', title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], localDate: '2026-10-24', localTime: '18:30', timeKind: 'start', status: 'scheduled', url: 'https://example.com/amon', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } },
@@ -41,18 +43,33 @@ async function app({ offline = false } = {}) {
     let geolocationStarts = 0;
     class FixedDate extends Date { constructor(...args) { super(...(args.length ? args : ['2026-09-07T12:00:00Z'])); } static now() { return new Date('2026-09-07T12:00:00Z').getTime(); } }
     const context = vm.createContext({
-        document, console: { log() {}, warn() {}, error() {} }, Date: FixedDate, URL, Blob, AbortController,
+        document, console: { log() {}, warn() {}, error() {} }, Date: FixedDate, URL, URLSearchParams, Blob, AbortController,
+        TextEncoder, btoa, crypto: require('node:crypto').webcrypto,
+        location: { href: 'https://example.com/index.html', assign(url) { this.href = url; } }, history: { replaceState() {} },
+        sessionStorage: { getItem: k => session.get(k) || null, setItem: (k, v) => session.set(k, v), removeItem: k => session.delete(k) },
         addEventListener() {}, removeEventListener() {},
         setTimeout: () => 1, clearTimeout() {}, setInterval: () => 1, clearInterval() {},
         localStorage: { getItem: k => saved.get(k) || null, setItem: (k, v) => saved.set(k, v) },
         navigator: { geolocation: { watchPosition() { geolocationStarts++; return 1; }, clearWatch() {} } },
-        fetch: async () => { if (offline) throw new Error('offline'); return { ok: true, json: async () => snapshot }; }
+        fetch: async url => { if (offline) throw new Error('offline'); return { ok: true, json: async () => url === './spotify-config.json' ? { clientId: 'a'.repeat(32) } : snapshot }; }
     });
     context.window = context;
-    for (const file of ['script.js', 'concerts-core.js', 'concerts.js']) vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
+    for (const file of ['script.js', 'concerts-core.js', ...(spotify ? ['spotify.js'] : []), 'concerts.js']) vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
     await new Promise(resolve => setImmediate(resolve));
     return { context, elements, saved, get geolocationStarts() { return geolocationStarts; } };
 }
+
+test('Spotify remains opt-in and saves edited choices before redirecting for consent', async () => {
+    const { context, elements, saved } = await app({ spotify: true });
+    assert.equal(context.location.href, 'https://example.com/index.html');
+    elements.get('preferencesButton').click();
+    elements.get('favouriteArtists').value = 'New favourite';
+    await elements.get('connectSpotify').click();
+    assert.equal(new URL(context.location.href).origin, 'https://accounts.spotify.com');
+    const prefs = JSON.parse(saved.get('magic-compass.preferences.v1'));
+    assert.deepEqual(prefs.favourites, ['New favourite']);
+    assert.equal(elements.get('spotifyReviewDialog').open, undefined);
+});
 
 test('concert view loads a real favourite without asking for location; bottle and guitar switch', async () => {
     const state = await app();

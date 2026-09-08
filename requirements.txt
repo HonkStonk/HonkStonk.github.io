@@ -1,0 +1,2 @@
+# IANA timezone database, needed by zoneinfo on Windows.
+tzdata==2026.3

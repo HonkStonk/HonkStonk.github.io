@@ -1,6 +1,6 @@
 # Magic Compass: concert extension plan
 
-Recorded: 2026-09-05. Updated: 2026-09-08. Status: first UI and data-fetching implementation completed; latest guitar/guide edits are local and have not been pushed or deployed by Codex.
+Recorded: 2026-09-05. Updated: 2026-09-08. Status: destination-compass fixes, Katalin expansion, Tickster adapter and optional Spotify import implemented locally; no push or deployment by Codex.
 
 This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 
@@ -15,7 +15,30 @@ This document preserves the project brief and inspection findings for later Code
 - No `AGENTS.md` found in the repository, including hidden paths outside `.git`, or its ancestor directories through `C:\`. No repository-specific instructions were found. No `.openai/hosting.json`, package manifest, build configuration, test suite or `.github` workflow directory exists in the inspected checkout.
 - GitHub Pages hosting and primary use on iPhone are supplied by the user. Live hosting settings and the installed iPhone app were not inspected.
 
-## Follow-up — 2026-09-08
+## Source expansion and Spotify — 2026-09-08
+
+Latest user direction: use the newly supplied `guitar.png`; remove N/E/S/W from both destination compasses; expand event sources as the main priority; prepare optional Spotify listening-based artist import. Work remains directly on `main`. Initial status this turn was user deletions of `sg-guitar.jpg` and `sg-guitar.png`, plus untracked `guitar.png`; those deletions are preserved. No other uncommitted changes were present.
+
+Implemented:
+
+- The shared compass now has no cardinal-letter elements/styles, and uses `guitar.png` in concert mode. Original bottle, heading math and beer selection/opening-hours code are unchanged. Public packaging includes the new image and removes only retired images from the generated staging folder.
+- **Katalin, Uppsala:** live public-calendar adapter. Follows upcoming `?tab=` pagination and batch-reads the corresponding public WordPress event fields. Filters configured music genres; does not crawl historical archives or confuse post publication date with event date. Extracts explicit local times, ticket links and genre labels. Coordinates verified through the map linked by the venue: 59.8601379, 17.6452262. No structured performer list is exposed, so `artists` is empty; the UI can make an explicitly labelled whole-title match to a favourite, without interpreting promotional text or tribute titles as artist identities.
+- **Ticketmaster:** the user's committed snapshot already contained 197 records with successful source status, verified 2026-09-07T22:49:21Z. This supersedes the earlier statement that no authenticated import had been seen. No key is available in the present agent terminal; recent records are retained with original timestamps. No credentials were inspected or printed.
+- **Tickster:** adapter against the [published v1.0 OpenAPI schema](https://event.api.tickster.com/swagger/v1/swagger.json). Uses `X-API-KEY`, city searches for observed `musik`/`konsert` tags, `take`/`skip` pagination, detail requests for performers/coordinates/UTC times, and skips production/collection containers. Tags do not guarantee complete music coverage. Bounded requests and all-or-source failure retention. Workflow reads `TICKSTER_API_KEY` in addition to Ticketmaster's secret. **Authenticated access and actual resulting coverage remain unverified.** The [key request link](https://developer.tickster.com/register) returned 403 to the automated check; user should try their browser and request access for the hobby app.
+- Collector now uses IANA Swedish timezone rules, including DST and local-day boundaries. `requirements.txt` pins `tzdata==2026.3`, verified available from PyPI. This is needed on Windows; installed in the ignored local virtual environment `.local/collector-venv/`. GitHub workflow installs requirements. Global Python environment was not modified.
+- **Spotify:** `spotify.js` implements opt-in Authorization Code with PKCE, single-use state and a 15-minute pending-session limit, one top-artists request with `user-top-read` and a selected approximate 4-week/6-month/1-year range. Top artists reflect Spotify's affinity ranking, not exact play counts. Artist genres are deprecated and not used. Tokens are not persisted; consent denial/API failure returns to manual preferences. Review checkboxes merge chosen names into favourites without overriding dislikes or hidden events. Current manual form edits are saved before redirect, as explained in the UI. Client-ID configuration is public in `spotify-config.json`, currently empty; the connect section is hidden until configured. No actual Spotify consent or iPhone/PWA return has been verified.
+
+Live source check at 2026-09-08T21:13:34Z: Hovet 4 fresh records, Katalin 94 fresh music records, 197 recent Ticketmaster records retained, Tickster not configured. Expanded snapshot: **295 records**, distributed across Stockholm 195, Uppsala 95, Skövde 3, Falköping 2. These counts reflect records, not guaranteed unique performances; conservative merging can leave duplicates across providers when venue names, line-ups or time semantics differ. Do not count Hovet and Katalin as nationwide ticket providers.
+
+Validation: Python adapter tests cover source pagination/incompleteness, genre filtering, Swedish midnight/DST, nullable empty results, source failure retention and secret redaction; JavaScript tests cover title matching, consent opt-in, PKCE/state/expiry/replay, API errors and preference merging, alongside existing beer/concert rules. Real Katalin fetching succeeded. Browser rendering and physical iPhone behavior were not tested.
+
+Next user setup (full steps in README):
+
+1. Request Tickster public Event API access; store the approved key as `TICKSTER_API_KEY` in the environment used for collection. Validate its first live run and granted rate limit before claiming coverage.
+2. In the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard), create a Web API app. Register `https://honkstonk.github.io/index.html` and local `http://127.0.0.1:8765/index.html`. Put only its public Client ID in `spotify-config.json`; no Client Secret. Add test accounts under Users Management. Spotify's [current quota rules](https://developer.spotify.com/documentation/web-api/concepts/quota-modes) require Premium for the owner and allow five approved users; a public hobby app cannot assume access for unlimited visitors. Localhost is not an accepted OAuth callback. Begin and return in the same browser/origin.
+3. Continue event expansion with targeted Falköping/Skövde sources after Tickster coverage is measured; Billetto remains a credential-dependent candidate, not an implemented source. Last.fm similarity is still future work.
+
+## Earlier follow-up — 2026-09-08
 
 The user reports that the app looks OK and works within its current coverage. Replaced the concert needle's Lucide icon with their `sg-guitar.jpg`; preserved the portrait proportions and removed the former 45-degree icon correction. The supplied JPEG contains an opaque checkerboard background. The original image was not edited. Updated the public packaging allowlist accordingly; the beer bottle and compass logic are unchanged.
 

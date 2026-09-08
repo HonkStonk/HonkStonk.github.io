@@ -22,6 +22,16 @@ test('must-see favourites survive a short calendar window', () => {
     assert.equal(C.inCalendarRange(gig(), prefs, '30', now), true);
     assert.equal(C.inCalendarRange(gig({ artists: ['Other artist'] }), prefs, '30', now), false);
 });
+test('venue titles match only an entire favourite name when no lineup exists', () => {
+    const prefs = C.defaultPreferences();
+    assert.equal(C.match(gig({ artists: [] }), prefs).label, 'Title match');
+    assert.equal(C.inCalendarRange(gig({ artists: [] }), prefs, '30', now), true);
+    assert.equal(C.match(gig({ artists: [], title: 'A tribute to Amon Amarth' }), prefs).tier, 0);
+    assert.equal(C.match(gig({ artists: ['Tribute Band'] }), prefs).tier, 0);
+    prefs.favourites = [];
+    prefs.dislikedArtists = ['Amon Amarth'];
+    assert.equal(C.match(gig({ artists: [] }), prefs).tier, -1);
+});
 test('feedback is explicit and matching does not mistake a support dislike for a favourite veto', () => {
     const prefs = C.defaultPreferences();
     prefs.dislikedArtists = ['Support act'];

@@ -59,6 +59,13 @@
         const favourite = event.artists.find(a => prefs.favourites.some(b => key(a) === key(b)));
         if (favourite) return { tier: 2, label: 'Favourite', reason: 'You love ' + favourite };
         if (event.artists.some(a => prefs.dislikedArtists.some(b => key(a) === key(b)))) return { tier: -1, label: 'Skipped artist', reason: 'In your artist skip list' };
+        // Some venue calendars expose only a title. Match a whole title, never
+        // names mentioned inside tribute nights or promotional descriptions.
+        if (!event.artists.length) {
+            const titleFavourite = prefs.favourites.find(a => key(a) === key(event.title));
+            if (titleFavourite) return { tier: 2, label: 'Title match', reason: 'Event title matches ' + titleFavourite + ' — check the line-up' };
+            if (prefs.dislikedArtists.some(a => key(a) === key(event.title))) return { tier: -1, label: 'Skipped artist', reason: 'Event title matches your artist skip list' };
+        }
         const style = prefs.styles.find(s => event.styles.some(t => key(t) === key(s) || (' ' + key(t) + ' ').includes(' ' + key(s) + ' ')));
         if (style) return { tier: 1, label: 'Style match', reason: 'Your taste: ' + style };
         return { tier: 0, label: 'Explore', reason: 'Another gig in your places' };

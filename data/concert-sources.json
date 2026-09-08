@@ -1,6 +1,7 @@
 {
   "cities": ["Stockholm", "Falköping", "Skövde", "Uppsala"],
   "horizonDays": 365,
+  "tickster": {"musicTags": ["musik", "konsert"], "maxDetails": 600},
   "venueSources": [
     {
       "id": "hovet",
@@ -15,6 +16,21 @@
         "coordinateSource": "https://hovetarena.se/besok-arenan/hitta-till-arenan/"
       },
       "artistStyles": {"amon amarth": ["Metal", "Melodic death metal"]}
+    },
+    {
+      "id": "katalin",
+      "name": "Katalin, Uppsala",
+      "adapter": "katalin",
+      "indexUrl": "https://www.katalin.com/events/",
+      "apiUrl": "https://www.katalin.com/wp-json/wp/v2",
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "musicGenres": ["Afro pop", "Akustiskt", "Americana", "AOR", "Black Metal", "Blues", "Country", "Dansband", "Darkwave", "Disco", "Elektroniskt", "Experimentell", "Folkmusik", "Folkrock", "Funk", "Gospel", "Hardcore", "Hårdrock", "Hip Hop", "Indie", "Jazz", "Julkonsert", "Klassiskt", "Klezmer", "Latino", "Metal", "Opera", "Pop", "Progg", "Progressiv rock", "Punk", "R&B", "Reggae", "Rock", "Rock'n'Roll", "Rockabilly", "Rythm & Blues", "singer songwriter", "Soul", "Storbands jazz", "Studentmusik", "swing", "Synthpop", "Visa"]
     }
   ]
 }

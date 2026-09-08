@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T22:49:21+00:00",
+  "generatedAt": "2026-09-08T21:13:34+00:00",
   "coverage": {
     "cities": [
       "Stockholm",
@@ -10,25 +10,97 @@
     ],
     "horizonDays": 365,
     "complete": false,
-    "note": "Hovet music calendar; Ticketmaster city searches when connected. Other venues and providers are not yet covered."
+    "note": "Hovet and Katalin music calendars; Ticketmaster and Tickster city searches when connected. Tickster covers musik/konsert-tagged performances. Coverage is partial; untagged events and other venues/providers may be missing."
   },
   "sources": [
     {
       "id": "hovet",
       "name": "Hovet / Stockholm Live",
       "status": "ok",
-      "lastSuccess": "2026-09-07T22:49:21+00:00",
+      "lastSuccess": "2026-09-08T21:13:34+00:00",
       "eventCount": 4
+    },
+    {
+      "id": "katalin",
+      "name": "Katalin, Uppsala",
+      "status": "ok",
+      "lastSuccess": "2026-09-08T21:13:34+00:00",
+      "eventCount": 94
     },
     {
       "id": "ticketmaster",
       "name": "Ticketmaster Sweden",
-      "status": "ok",
-      "lastSuccess": "2026-09-07T22:49:21+00:00",
-      "eventCount": 197
+      "status": "not_configured",
+      "lastSuccess": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "tickster",
+      "name": "Tickster Sweden",
+      "status": "not_configured",
+      "lastSuccess": null
     }
   ],
   "events": [
+    {
+      "id": "katalin:17098",
+      "sourceIds": [
+        "katalin:17098"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Swingin’ Uppsala – The Beauty of Swing",
+      "artists": [],
+      "styles": [
+        "swing"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-08",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-08T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-swingin-uppsala-the-beauty-of-swing/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16735",
+      "sourceIds": [
+        "katalin:16735"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Oscar Stembridge",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-08",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-08T18:00:00+00:00",
+      "status": "cancelled",
+      "url": "https://www.katalin.com/events/oscar-stembridge/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/wxdf6b56atujwle/2026-09-08/oscar-stenbridge-pa-katalins-bakficka",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
     {
       "id": "ticketmaster:Z698xZq2Z16v1b_bkZ",
       "sourceIds": [
@@ -60,6 +132,126 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/the-waterboys--fishermans-blues-revue-featuring-steve-earle-biljetter/1298658180",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16851",
+      "sourceIds": [
+        "katalin:16851"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Anders Bergcrantz / Sven Berggren Konsert och jam!",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-09",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-09T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/anders-bergcrantz-sven-berggren-konsert-och-jam/",
+      "ticketUrl": "https://secure.tickster.com/sv/fc7944xgxn79v4w/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17050",
+      "sourceIds": [
+        "katalin:17050"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Minns du Tio i Topp?",
+      "artists": [],
+      "styles": [
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-09",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-09T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/minns-du-tio-i-topp/",
+      "ticketUrl": "https://secure.tickster.com/sv/m2xw9r5zkfvgfd4/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16277",
+      "sourceIds": [
+        "katalin:16277"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Succéhyllningen återvänder till Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Rock'n'Roll"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-10",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-10T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/succehyllningen-atervander-till-katalins-jazzbar/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/jr4txvmazazebt3/2026-09-30/succehyllningen-atervander-till-katalins-jazzbar",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16776",
+      "sourceIds": [
+        "katalin:16776"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Organismen + Afasi",
+      "artists": [],
+      "styles": [
+        "Hip Hop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-11T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/organismen-afasi/",
+      "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/vupyr6plyhv7wdn/selectproductgroup?_gl=1%2Amvf3gb%2A_gcl_au%2AODAxNTQ4MzAyLjE3NzQyMDQ2NTc.",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k7yOUfy",
@@ -124,6 +316,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/holy-priest-berns-biljetter/247223915",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17228",
+      "sourceIds": [
+        "katalin:17228"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Kulturnatten",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-12",
+      "localTime": "14:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-12T12:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/kulturnatten-13/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16ve614f-",
@@ -200,6 +422,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17100",
+      "sourceIds": [
+        "katalin:17100"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Daniel Lantz och Sings & Swings",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-15",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-15T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-daniel-lantz-och-sings-swings/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16856",
+      "sourceIds": [
+        "katalin:16856"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Johnny Delaware – Klubb Uffe",
+      "artists": [],
+      "styles": [
+        "Country"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-15",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-15T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/johnny-delaware-klubb-uffe/",
+      "ticketUrl": "https://secure.tickster.com/sv/bmxmy2x7ndj4ggj/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v14ftqt",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v14ftqt"
@@ -265,6 +547,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16468",
+      "sourceIds": [
+        "katalin:16468"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Den Flygande Bokrullen – Bakficka",
+      "artists": [],
+      "styles": [
+        "Folkmusik"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-16",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-16T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/den-flygande-bokrullen-katalins-jazzbar-2/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/cfm0zkylf1x65lg/2026-09-16/den-flygande-bokrullen-katalins-jazzbar",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16771",
+      "sourceIds": [
+        "katalin:16771"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Carling Sisters – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-17",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-17T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-carling-sisters-katalins-bakficka/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/3hmpkdzx6jalu2u/2026-09-17/the-carling-sisters-katalins-bakficka",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZb_Z16vv6Zdv_",
       "sourceIds": [
         "ticketmaster:Z698xZb_Z16vv6Zdv_"
@@ -326,6 +668,66 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/bo-kaspers-orkester-il-magnifico-biljetter/1000500925",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:15633",
+      "sourceIds": [
+        "katalin:15633"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Eddie & The Hot Rods (UK)",
+      "artists": [],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-18",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-18T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/eddie-the-hot-rods-uk/",
+      "ticketUrl": "https://secure.tickster.com/sv/jrbk28llzhgacp5/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16926",
+      "sourceIds": [
+        "katalin:16926"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazz Fellows & Laura / Gustavz Orkester",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-18",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-18T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazz-fellows-laura-gustavz-orkester/",
+      "ticketUrl": "https://secure.tickster.com/sv/ra68d2ttfz0fg2d/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vFpxAot",
@@ -390,6 +792,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/clapton-vs-springsteen-biljetter/1800584498",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16938",
+      "sourceIds": [
+        "katalin:16938"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Red Hot Five – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-19",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-19T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/red-hot-five-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/c07l4lldkvm9ub5/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vfoFSvx",
@@ -523,6 +955,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17097",
+      "sourceIds": [
+        "katalin:17097"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Maria Holstad Högberg",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-22",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-22T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-maria-holstad-hogberg/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16835",
+      "sourceIds": [
+        "katalin:16835"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Thomas Lindroth (från Good Morning Blues)",
+      "artists": [],
+      "styles": [
+        "Blues"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-22",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-22T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/thomas-lindroth-fran-good-morning-blues-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/fy7fdczveugkyrg/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vx_vb13",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vx_vb13"
@@ -552,6 +1044,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/fran-elvis-presley-till-jerry-williams-biljetter/1899058292",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17086",
+      "sourceIds": [
+        "katalin:17086"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Svavar Knútur (ISL) – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Folkmusik"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-23",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-23T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/svavar-knutur/",
+      "ticketUrl": "https://secure.tickster.com/sv/nlt3mfegh8j6xwx/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vGV4t_F",
@@ -587,6 +1109,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16837",
+      "sourceIds": [
+        "katalin:16837"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Gibrish – I spåren av Bob Dylan",
+      "artists": [],
+      "styles": [
+        "Folkrock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-24T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/gibrish-i-sparen-av-bob-dylan/",
+      "ticketUrl": "https://secure.tickster.com/sv/n57k008690b2llj/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vZ4Qe_-",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vZ4Qe_-"
@@ -617,6 +1169,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/holly-humberstone-biljetter/1015682661",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:15602",
+      "sourceIds": [
+        "katalin:15602"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Undertones 50th Anniversary Tour",
+      "artists": [],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-24T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-undertones-50th-anniversary-tour/",
+      "ticketUrl": "https://secure.tickster.com/97hf034d5vac340",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vovJe_3",
@@ -650,6 +1232,96 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/allhelgonaserien-fat-moose--bluegrass-med-tradition-och-ny-energi-biljetter/1441982652",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17209",
+      "sourceIds": [
+        "katalin:17209"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Andreas Hellkvist Orgelparty I Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-25",
+      "localTime": "18:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-25T16:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/andreas-hellkvist-orgelparty-i-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/f48j9c0cz2dkxpw/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16074",
+      "sourceIds": [
+        "katalin:16074"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Division 7",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-25",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-25T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/division-7/",
+      "ticketUrl": "https://secure.tickster.com/h4vu7w09xdvjcmg",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:15717",
+      "sourceIds": [
+        "katalin:15717"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Joulin Younis – Bakficka",
+      "artists": [],
+      "styles": [
+        "Country"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-26",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-26T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/joulin-younis-katalins-jazzbar/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/1kg786em3z5u6pw/2026-09-26/joulin-younis-katalins-jazzbar",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vfdFsQ7",
@@ -746,6 +1418,67 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/jared-james-nichols-biljetter/342250854",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17208",
+      "sourceIds": [
+        "katalin:17208"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Claes Janson",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-29",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-29T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-claes-janson-2/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16860",
+      "sourceIds": [
+        "katalin:16860"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Ward Hayden & The Outliers – Klubb Uffe",
+      "artists": [],
+      "styles": [
+        "Americana",
+        "Country"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-09-29",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-09-29T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/ward-hayden-the-outliers-klubb-uffe-5/",
+      "ticketUrl": "https://secure.tickster.com/sv/v06clb3zngk00z2/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16veoG68p",
@@ -883,6 +1616,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16921",
+      "sourceIds": [
+        "katalin:16921"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "MARKUS BERJLUND – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "singer songwriter"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-02T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/markus-berjlund-katalins-bakfickan/",
+      "ticketUrl": "https://billetto.se/e/markus-berjlund-albumrelease-biljetter-1948711?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v0xZyGp",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v0xZyGp"
@@ -913,6 +1676,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/jon-anderson--the-band-geeks-biljetter/1922039316",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16828",
+      "sourceIds": [
+        "katalin:16828"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Luke Elliot – The King of Rock and Roll Tour",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/luke-elliot-the-king-of-rock-and-roll-tour/",
+      "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/rfml93e5btgucge/selectproductgroup?_gl=1%2A1gr4ha6%2A_gcl_au%2AODAxNTQ4MzAyLjE3NzQyMDQ2NTc.",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vjvZeGA",
@@ -975,6 +1768,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/tomas-andersson-wij-kyrkorna-2026-finalen-biljetter/262012508",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16842",
+      "sourceIds": [
+        "katalin:16842"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Tove Gustavsson – The Blues Uppsala",
+      "artists": [],
+      "styles": [
+        "Blues"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-03T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/tove-gustavsson-the-blues-uppsala/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/69rn2rf0gzbkuhr/2026-10-03/tove-gustavsson-the-blues-uppsala",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v8p0JvS",
@@ -1043,6 +1866,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17207",
+      "sourceIds": [
+        "katalin:17207"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Anything goes",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-06",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-06T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-anything-goes/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v-8rpa0",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v-8rpa0"
@@ -1075,6 +1928,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/max-raabe--palast-orchester-biljetter/1850796264",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17252",
+      "sourceIds": [
+        "katalin:17252"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Tess Liautaud – Klubb Uffe",
+      "artists": [],
+      "styles": [
+        "Americana"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-06",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-06T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/tess-liautaud-klubb-uffe/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/v9103ug80ax09zz/2026-10-06/tess-liautaud-klubb-uffe",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1AN0ejE",
@@ -1141,6 +2024,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16885",
+      "sourceIds": [
+        "katalin:16885"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Uppsala Internationella Gitarrfestival",
+      "artists": [],
+      "styles": [
+        "Blues"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-08",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-08T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/uppsala-internationella-gitarrfestival-4/",
+      "ticketUrl": "https://secure.tickster.com/sv/pdm9n77v6cn2w73/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v0s4tkd",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v0s4tkd"
@@ -1169,6 +2082,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-kristin-amparo--sly-stone-forever-biljetter/1931569183",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17232",
+      "sourceIds": [
+        "katalin:17232"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Camilla Widell Quartet – på Katalins Backficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-09",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-09T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/camilla-widell-quartet-pa-katalins-backficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/yx51gwzep532tpz/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kFs7YJ7",
@@ -1264,6 +2207,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16942",
+      "sourceIds": [
+        "katalin:16942"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Svenska Trion tolkar Jan Johansson – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-10",
+      "localTime": "19:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-10T17:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/svenska-trion-tolkar-jan-johansson-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/w5yv0bp0xw48b54/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16376",
+      "sourceIds": [
+        "katalin:16376"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Plan",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-10",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-10T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-plan-4/",
+      "ticketUrl": "https://secure.tickster.com/ypzhmyrp2lk94n3",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kb9Q97P",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kb9Q97P"
@@ -1327,6 +2330,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17205",
+      "sourceIds": [
+        "katalin:17205"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazzlunch med Hemkärt",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-13",
+      "localTime": "12:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-13T10:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazzlunch-med-hemkart-5/",
+      "ticketUrl": null,
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1A4b3oK",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1A4b3oK"
@@ -1359,6 +2392,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16853",
+      "sourceIds": [
+        "katalin:16853"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Fredrik Ljungkvist – Konsert och Jamsession",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-14",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-14T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/fredrik-lindborg-konsert-och-jamsession-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/wyybha8epcf0djz/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17044",
+      "sourceIds": [
+        "katalin:17044"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Animals – 60th Anniversary World Tour",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-14",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-14T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-animals-60th-anniversary-world-tour/",
+      "ticketUrl": "https://secure.tickster.com/sv/8e944nma96u313y/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v7oGSZ3",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v7oGSZ3"
@@ -1387,6 +2480,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-ketema-yirga-ethiojazz-kvartett-biljetter/1111333012",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16930",
+      "sourceIds": [
+        "katalin:16930"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Isabella Lundgren – Katalins bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-15",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-15T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/isabella-lundgren-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/93xd7rp77tn3km5/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kxdr8oJ",
@@ -1422,6 +2545,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16789",
+      "sourceIds": [
+        "katalin:16789"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Stefan Sundström",
+      "artists": [],
+      "styles": [
+        "singer songwriter",
+        "Visa"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-15",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-15T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/stefan-sundstrom-10/",
+      "ticketUrl": "https://secure.tickster.com/brx91kx4m2m78j8",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1k4Y_ZOI",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1k4Y_ZOI"
@@ -1450,6 +2604,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/allhelgonaserien-sthlm-jazz-soul-reimagined-en-kvall-katarina-pop-biljetter/570640828",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17236",
+      "sourceIds": [
+        "katalin:17236"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Daniel Lantz ”Jazz Standards”",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-16",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-16T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/daniel-lantz-jazz-standards/",
+      "ticketUrl": "https://secure.tickster.com/sv/ecfx6c8gyw7bz89/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vCkfJr9",
@@ -1515,6 +2699,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16941",
+      "sourceIds": [
+        "katalin:16941"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Celso paco & Dynamo de Luxekopia – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Afro pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-17",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-17T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/celso-paco-dynamo-de-luxekopia-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/mkk703b1mmulwez/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vP-4tCa",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vP-4tCa"
@@ -1544,6 +2758,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/dizzee-rascal-biljetter/1961569389",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:15820",
+      "sourceIds": [
+        "katalin:15820"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Watch – Plays Genesis",
+      "artists": [],
+      "styles": [
+        "Progressiv rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-17",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-17T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-watch-plays-genesis-2/",
+      "ticketUrl": "https://secure.tickster.com/740u4e3nnk159k2",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k_dbxxf",
@@ -1671,6 +2915,73 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17045",
+      "sourceIds": [
+        "katalin:17045"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Teddybears – Extrakonsert",
+      "artists": [],
+      "styles": [
+        "Elektroniskt",
+        "Hip Hop",
+        "Indie",
+        "Punk",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-19",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-19T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/teddybears-extrakonsert/",
+      "ticketUrl": "https://secure.tickster.com/43xuemdp9dxjhd6",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16849",
+      "sourceIds": [
+        "katalin:16849"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Teddybears",
+      "artists": [],
+      "styles": [
+        "Elektroniskt",
+        "Hip Hop",
+        "Indie",
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-20",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-20T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/teddybears/",
+      "ticketUrl": "https://secure.tickster.com/dkp90bnexze4avh",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kGorvA6",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kGorvA6"
@@ -1704,6 +3015,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16944",
+      "sourceIds": [
+        "katalin:16944"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Långbacka/Bådagård – Katalins Backficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-21",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/langbacka-badagard-katalins-backficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/544l30392u0ergz/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kx_axAN",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kx_axAN"
@@ -1733,6 +3074,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/rosanne-cash-with-john-leventhal-biljetter/899262163",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17215",
+      "sourceIds": [
+        "katalin:17215"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Sara Parkman",
+      "artists": [],
+      "styles": [
+        "Folkmusik"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-21",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-21T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/sara-parkman-2/",
+      "ticketUrl": "https://secure.tickster.com/78c1lm096awzf3h",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vop13Gb",
@@ -1766,6 +3137,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/zucchero-biljetter/1456292318",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16931",
+      "sourceIds": [
+        "katalin:16931"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Daniel Lemma – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Reggae"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-22",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-22T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/daniel-lemma-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/1n30wv8krbb0r9t/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kud-F1v",
@@ -1832,6 +3233,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17083",
+      "sourceIds": [
+        "katalin:17083"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "John Lindberg Trio",
+      "artists": [],
+      "styles": [
+        "Rockabilly"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-23",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-23T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/john-lindberg-trio-13/",
+      "ticketUrl": "https://secure.tickster.com/sv/b0chlt6hexgl88f/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "hovet:amon-amarth",
       "sourceIds": [
         "hovet:amon-amarth"
@@ -1862,7 +3293,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/amon-amarth/",
       "ticketUrl": "https://www.axs.com/se/events/1237690/amon-amarth-tickets",
-      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k__ag4w",
@@ -1931,6 +3362,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16900",
+      "sourceIds": [
+        "katalin:16900"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "William Sundman Sääf",
+      "artists": [],
+      "styles": [
+        "singer songwriter"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-24",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-24T18:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/william-sundman-saaf-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/b63jvll7p4jt96y",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kuoe383",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kuoe383"
@@ -1993,6 +3454,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17012",
+      "sourceIds": [
+        "katalin:17012"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jonatan Stenson – Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Blues"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-28",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-28T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jonatan-stenson-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/5k13eg4wze32f7l/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17138",
+      "sourceIds": [
+        "katalin:17138"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Terra – Extrakonsert",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-28",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-28T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/terra-extrakonsert/",
+      "ticketUrl": "https://secure.tickster.com/fj2mkwvn0terxl1",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vvA0zG6",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vvA0zG6"
@@ -2025,6 +3546,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17089",
+      "sourceIds": [
+        "katalin:17089"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Terra",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-29",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-29T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/terra-2/",
+      "ticketUrl": "https://secure.tickster.com/l2ygdth812avj6e",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1ka9v9Q8",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1ka9v9Q8"
@@ -2055,6 +3606,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/the-fray-autumn-light-tour-biljetter/257057690",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16979",
+      "sourceIds": [
+        "katalin:16979"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Mwuanas",
+      "artists": [],
+      "styles": [
+        "Hip Hop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-30",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-30T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/mwuana-3/",
+      "ticketUrl": "https://secure.tickster.com/4gyb5n9pxd40zvt",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k8oxfuo",
@@ -2125,6 +3706,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:15671",
+      "sourceIds": [
+        "katalin:15671"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Marky Ramone´s Blitzkrieg (US)",
+      "artists": [],
+      "styles": [
+        "Punk"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-10-31",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-10-31T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/marky-ramones-blitzkrieg-us/",
+      "ticketUrl": "https://secure.tickster.com/fc5nge7c565wkby",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17212",
+      "sourceIds": [
+        "katalin:17212"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Dungen",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-01",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-01T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/dungen-4/",
+      "ticketUrl": "https://secure.tickster.com/hay7utmctlpkd36",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vjEAaev",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vjEAaev"
@@ -2193,6 +3834,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16862",
+      "sourceIds": [
+        "katalin:16862"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Shurman – Klubb Uffe",
+      "artists": [],
+      "styles": [
+        "Americana"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-03T19:00:00+00:00",
+      "status": "cancelled",
+      "url": "https://www.katalin.com/events/shurman-klubb-uffe/",
+      "ticketUrl": "https://secure.tickster.com/sv/lf9epdwruu0hwk5/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vJ3Z_G0",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vJ3Z_G0"
@@ -2224,6 +3895,67 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/brev-till-mitt-barn-sanger-byggda-pa-judiska-och-persiska-texter-biljetter/1992019324",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16821",
+      "sourceIds": [
+        "katalin:16821"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Hardcore Superstar",
+      "artists": [],
+      "styles": [
+        "Hårdrock",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-04",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-04T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/hardcore-superstar-8/",
+      "ticketUrl": "https://secure.tickster.com/f0462pryj6lb4p7",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16395",
+      "sourceIds": [
+        "katalin:16395"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Yttling Jazz – Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-04",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-04T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/yttling-jazz-jazzbaren/",
+      "ticketUrl": "https://secure.tickster.com/sv/h3hznumbfldp6vm/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vP-_6aJ",
@@ -2286,7 +4018,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/fontaines-d-c/",
       "ticketUrl": "https://www.axs.com/se/events/1562165/fontaines-dc-tickets?skin=hovet",
-      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kq6708k",
@@ -2543,7 +4275,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/good-charlotte/",
       "ticketUrl": "https://www.axs.com/se/events/1455771/good-charlotte-tickets",
-      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v--k3ZO",
@@ -2736,6 +4468,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16865",
+      "sourceIds": [
+        "katalin:16865"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jesper Lindell & Brunnsvik Sounds – Klubb Uffe",
+      "artists": [],
+      "styles": [
+        "Americana"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-10",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-10T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jesper-lindell-brunnsvik-sounds-klubb-uffe/",
+      "ticketUrl": "https://secure.tickster.com/sv/zwj0zgdxm9jkyjy/selectproductgroup?fbclid=IwY2xjawSbdmlleHRuA2FlbQIxMABicmlkETFFc0wwYklPZFpTN245Mlg2c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtvP1NTLU2TVc3g2DVWsCqYuV4bXdZLJ299xGNuiYgBMHu-oDDjIHfFhk5nr_aem_sVAoVl2R3sBi54GXQ9xZIg",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v0xQbxv",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v0xQbxv"
@@ -2801,6 +4563,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16272",
+      "sourceIds": [
+        "katalin:16272"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Happy Birthday Neil Young!",
+      "artists": [],
+      "styles": [
+        "Rock'n'Roll"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-11T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/happy-birthday-neil-young/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/3kpne7exwtlge3l/2026-11-11/happy-birthday-neil-young",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vovpkGM",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vovpkGM"
@@ -2830,6 +4622,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/j-cole-the-fall-off-tour-platinumbiljetter-biljetter/1441586337",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16464",
+      "sourceIds": [
+        "katalin:16464"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Rotting Christ",
+      "artists": [],
+      "styles": [
+        "Metal"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-11T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/rotting-christ/",
+      "ticketUrl": "https://secure.tickster.com/hu3dyzhnhg35bvt",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v7fjbbP",
@@ -2865,6 +4687,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17200",
+      "sourceIds": [
+        "katalin:17200"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "GERD",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-12",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-12T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/gerd-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/agj66wep02bpn2d/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16275",
+      "sourceIds": [
+        "katalin:16275"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Happy Birthday Neil Young!",
+      "artists": [],
+      "styles": [
+        "Rock'n'Roll"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-12",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-12T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/happy-birthday-neil-young-2/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/7m443cyl9c54uk1/2026-11-12/happy-birthday-neil-young",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kAejaCo",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kAejaCo"
@@ -2894,6 +4776,37 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/benjamin-ingrosso-%7C-what-happens-next-%7C-platinumbiljetter-biljetter/142709391",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16883",
+      "sourceIds": [
+        "katalin:16883"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Les Big Byrd",
+      "artists": [],
+      "styles": [
+        "Indie",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-13",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-13T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/les-big-byrd-3/",
+      "ticketUrl": "https://secure.tickster.com/rmgj8y2mgvljcmb",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kr6_zC7",
@@ -2987,6 +4900,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/gerd-biljetter/1139081982",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16897",
+      "sourceIds": [
+        "katalin:16897"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jonas Lundqvist",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-14",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-14T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jonas-lundqvist-5/",
+      "ticketUrl": "https://secure.tickster.com/kr8mp1x0x3ftb6x",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kvvPpC7",
@@ -3087,6 +5030,126 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16949",
+      "sourceIds": [
+        "katalin:16949"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Moonica Mac",
+      "artists": [],
+      "styles": [
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-17",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-17T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/monica-mac/",
+      "ticketUrl": "https://secure.tickster.com/bjv49wfceyjyeef",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16854",
+      "sourceIds": [
+        "katalin:16854"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Klas Toresson Konsert och jamsession!!!!",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-18",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-18T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/klas-toresson-konsert-och-jamsession/",
+      "ticketUrl": "https://secure.tickster.com/sv/kb7m0pnpp34l20x/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17169",
+      "sourceIds": [
+        "katalin:17169"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Moonica Mac – Extrakonsert",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-18",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-18T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/moonica-mac-extrakonsert/",
+      "ticketUrl": "https://secure.tickster.com/93lgrljfzgyhazj",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17218",
+      "sourceIds": [
+        "katalin:17218"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Atomic Swing",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-19",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-19T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/atomic-swing-2/",
+      "ticketUrl": "https://secure.tickster.com/jbxpthwt3hz4nv2",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16vFyoEJ_",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16vFyoEJ_"
@@ -3148,6 +5211,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/dungen-biljetter/1581918037",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16839",
+      "sourceIds": [
+        "katalin:16839"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "En kväll på Operan…",
+      "artists": [],
+      "styles": [
+        "Opera"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-20",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/en-kvall-pa-operan/",
+      "ticketUrl": "https://secure.tickster.com/sv/njg90jma3embk0c/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vOxAbe6",
@@ -3214,6 +5307,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17145",
+      "sourceIds": [
+        "katalin:17145"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Pascal",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-20",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-20T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/pascal-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/p0f85rd2utcn7b5/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v_F-8x7",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v_F-8x7"
@@ -3276,6 +5399,66 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/saint-levant-afandi-world-tour-biljetter/1535052073",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17128",
+      "sourceIds": [
+        "katalin:17128"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Shadows Tribute I Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-21",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-21T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/shadows-tribute-i-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/d68bdjx9zu6uh44/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17009",
+      "sourceIds": [
+        "katalin:17009"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "UPPSALA BLUES FESTIVAL",
+      "artists": [],
+      "styles": [
+        "Blues"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-21",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-21T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/uppsala-blues-festival/",
+      "ticketUrl": "https://secure.tickster.com/sv/lyteel2l67pdxfr/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v-P7JuI",
@@ -3469,6 +5652,38 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16710",
+      "sourceIds": [
+        "katalin:16710"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Den Svenska Björnstammen",
+      "artists": [],
+      "styles": [
+        "Elektroniskt",
+        "Indie",
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-27",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-27T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/den-svenska-bjornstammen-9/",
+      "ticketUrl": "https://secure.tickster.com/dypwy88b3nyd7xl",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v8vxaj0",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v8vxaj0"
@@ -3598,6 +5813,66 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/magnus-carlsson-anglarnas-tid-biljetter/1852691842",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16374",
+      "sourceIds": [
+        "katalin:16374"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Maggie Reilly (UK)",
+      "artists": [],
+      "styles": [
+        "Pop"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-28",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/maggie-reilly-uk/",
+      "ticketUrl": "https://secure.tickster.com/zj9z073x7lux5jm",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17238",
+      "sourceIds": [
+        "katalin:17238"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "PEPPERBYRDS på Katalins Bakficka",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-11-28",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-11-28T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/pepperbyrds-pa-katalins-bakficka/",
+      "ticketUrl": "https://secure.tickster.com/sv/hnvxczyuh19axt4/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vxevvj-",
@@ -3730,6 +6005,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17234",
+      "sourceIds": [
+        "katalin:17234"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "DANIEL LANTZ QUARTET ft. SARA ENGLUND",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-01",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-01T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/daniel-lantz-quartet-ft-sara-englund/",
+      "ticketUrl": "https://secure.tickster.com/sv/94lydx74zkjz6n7/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kfOpe8v",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kfOpe8v"
@@ -3764,6 +6069,37 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16697",
+      "sourceIds": [
+        "katalin:16697"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Amanda Ginsburg- Det är jul nu igen",
+      "artists": [],
+      "styles": [
+        "Jazz",
+        "Julkonsert"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-02T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/amanda-ginsburg-det-ar-jul-nu-igen/",
+      "ticketUrl": "https://secure.tickster.com/8g8b38tkxtlz0a8",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kP9Q___",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kP9Q___"
@@ -3794,6 +6130,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/the-soul-of-christmas-2026-biljetter/957699659",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16602",
+      "sourceIds": [
+        "katalin:16602"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Fröken Elvis Jul",
+      "artists": [],
+      "styles": [
+        "Julkonsert"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-03",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-03T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/froken-elvis-jul-2/",
+      "ticketUrl": "https://secure.tickster.com/c5mwgtfxmh27cma",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kQvPI1o",
@@ -3827,6 +6193,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16511",
+      "sourceIds": [
+        "katalin:16511"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Fantastic Four – A Motown Christmas",
+      "artists": [],
+      "styles": [
+        "Julkonsert"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-04",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-04T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-fantastic-four-a-motown-christmas-2/",
+      "ticketUrl": "https://biljett.kulturaktiebolaget.se/sv/hr4k0nrulzxhhd7/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kOF3_a9",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kOF3_a9"
@@ -3857,6 +6253,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/evigt-edvin-edvin-tornblom-biljetter/808499257",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16947",
+      "sourceIds": [
+        "katalin:16947"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Pernilla Andersson – Vintersånger från Garbo",
+      "artists": [],
+      "styles": [
+        "Julkonsert"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-05",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-05T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/pernilla-andersson-vintersanger-fran-garbo/",
+      "ticketUrl": "https://secure.tickster.com/sv/jz54x83e4617292/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vZ8F_-8",
@@ -4016,6 +6442,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16855",
+      "sourceIds": [
+        "katalin:16855"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Markus Ahlberg Konsert och jamsession!!!!",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-09",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-09T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/markus-ahlberg-konsert-och-jamsession-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/h029ng1tbzhfndg/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z16v-_PeO7",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z16v-_PeO7"
@@ -4045,6 +6501,68 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/1859942804",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16888",
+      "sourceIds": [
+        "katalin:16888"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Bombus & Mass Worship",
+      "artists": [],
+      "styles": [
+        "Hårdrock",
+        "Metal",
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-11T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/bombus-mass-worship/",
+      "ticketUrl": "https://secure.tickster.com/sv/l9jmlxtjwwcb2ba/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:16841",
+      "sourceIds": [
+        "katalin:16841"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "En kväll på operan…",
+      "artists": [],
+      "styles": [
+        "Opera"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-11",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-11T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/en-kvall-pa-operan-2/",
+      "ticketUrl": "https://www.tickster.com/se/sv/events/mpgxk6jjd77w0vn/2026-12-11/en-kvall-pa-operan",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1k06u3jo",
@@ -4107,6 +6625,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/stjarnjul-2026-biljetter/1553282606",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17020",
+      "sourceIds": [
+        "katalin:17020"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Emma & The Dusty Roses – Bakfickan",
+      "artists": [],
+      "styles": [
+        "Country"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-12",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/emma-the-dusty-roses/",
+      "ticketUrl": "https://secure.tickster.com/sv/4jfal2cu9uutnh8/products",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vv-aOjN",
@@ -4330,6 +6878,36 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:16779",
+      "sourceIds": [
+        "katalin:16779"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Last Waltz!",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-12",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-12T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-last-waltz/",
+      "ticketUrl": "https://secure.tickster.com/sv/jbptmjw6b7k06a0/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kveAKGe",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kveAKGe"
@@ -4487,6 +7065,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17074",
+      "sourceIds": [
+        "katalin:17074"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Valter Nilsson – Extrakonsert",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-15",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-15T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/valter-nilsson-3/",
+      "ticketUrl": "https://secure.tickster.com/2vxg5hpyv2a43kg",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17022",
+      "sourceIds": [
+        "katalin:17022"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Valter Nilsson",
+      "artists": [],
+      "styles": [
+        "Indie"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-16",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-16T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/valter-nilsson-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/7bhdp3pf0ugbwuh/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kFP4E43",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kFP4E43"
@@ -4516,6 +7154,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/ritsch-ratsch-pa-vasan-biljetter/225567552",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:15727",
+      "sourceIds": [
+        "katalin:15727"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "The Crown",
+      "artists": [],
+      "styles": [
+        "Metal"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2026-12-17",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2026-12-17T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/the-crown/",
+      "ticketUrl": "https://secure.tickster.com/sv/72ypaj48u516nlj/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16v-YJ7Jf",
@@ -4933,6 +7601,66 @@
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
     },
     {
+      "id": "katalin:17177",
+      "sourceIds": [
+        "katalin:17177"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Per Persson & Nya Packet",
+      "artists": [],
+      "styles": [
+        "singer songwriter"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-01-08",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-08T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/per-persson-nya-packet-4/",
+      "ticketUrl": "https://secure.tickster.com/aau6px0u72p8bgj",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17093",
+      "sourceIds": [
+        "katalin:17093"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Elvis Presley Birthday Party 2027",
+      "artists": [],
+      "styles": [
+        "Rock'n'Roll"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-01-09",
+      "localTime": "18:30",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-09T17:30:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/elvis-presley-birthday-party-2027/",
+      "ticketUrl": "https://secure.tickster.com/sv/u3uwyfm19bnxv1c/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
       "id": "ticketmaster:Z698xZq2Z1kAyaFFA",
       "sourceIds": [
         "ticketmaster:Z698xZq2Z1kAyaFFA"
@@ -5026,6 +7754,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/kpop-forever-biljetter/740292115",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:17091",
+      "sourceIds": [
+        "katalin:17091"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "TMS BOWIE LOW+HEROES",
+      "artists": [],
+      "styles": [
+        "Rock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-01-16",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-16T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/tms-bowie-lowheroes/",
+      "ticketUrl": "https://secure.tickster.com/sv/7z2bw1c1xeneehb/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vOgepZK",
@@ -5220,6 +7978,68 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/allhelgonaserien-mikael-rickfors--louise-raeder-och-jonatan-stenson-biljetter/1549914523",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16825",
+      "sourceIds": [
+        "katalin:16825"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Hannes Aitman",
+      "artists": [],
+      "styles": [
+        "Indie",
+        "Pop",
+        "singer songwriter"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-01-29",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-01-29T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/hannes-aitman-2/",
+      "ticketUrl": "https://secure.tickster.com/sv/v93449drn3txn9u/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
+    },
+    {
+      "id": "katalin:17150",
+      "sourceIds": [
+        "katalin:17150"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Geoff Tate – The Final Chapter",
+      "artists": [],
+      "styles": [
+        "Hårdrock"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-02-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-02-02T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/geoff-tate-the-final-chapter/",
+      "ticketUrl": "https://secure.tickster.com/vzxc44bxnwzezdk",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z1kC8qZv0",
@@ -5482,6 +8302,36 @@
       "status": "scheduled",
       "url": "https://www.ticketmaster.se/event/blanco-white-biljetter/850307651",
       "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+    },
+    {
+      "id": "katalin:16881",
+      "sourceIds": [
+        "katalin:16881"
+      ],
+      "providers": [
+        "katalin"
+      ],
+      "title": "Jazz på Svenska – Bröderna Johansson",
+      "artists": [],
+      "styles": [
+        "Jazz"
+      ],
+      "venue": {
+        "name": "Katalin",
+        "city": "Uppsala",
+        "lat": 59.8601379,
+        "lon": 17.6452262,
+        "coordinateSource": "https://maps.app.goo.gl/E2k2n47qSQVMwUGg7"
+      },
+      "localDate": "2027-03-02",
+      "localTime": "20:00",
+      "timeKind": "listed",
+      "timeZone": "Europe/Stockholm",
+      "dateTime": "2027-03-02T19:00:00+00:00",
+      "status": "scheduled",
+      "url": "https://www.katalin.com/events/jazz-pa-svenska-broderna-johansson/",
+      "ticketUrl": "https://secure.tickster.com/sv/uxfta84v5rjre74/selectproductgroup",
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vf6a8aS",
@@ -6453,7 +9303,7 @@
       "status": "scheduled",
       "url": "https://hovetarena.se/evenemang/musik-show/weezer/",
       "ticketUrl": "https://www.axs.com/se/events/1542684/weezer-tickets",
-      "lastVerifiedAt": "2026-09-07T22:49:21+00:00"
+      "lastVerifiedAt": "2026-09-08T21:13:34+00:00"
     },
     {
       "id": "ticketmaster:Z698xZq2Z16vqIOM03",
