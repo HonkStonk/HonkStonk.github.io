@@ -40,7 +40,7 @@ jobs:
         env:
           TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
           TICKSTER_API_KEY: ${{ secrets.TICKSTER_API_KEY }}
-        run: python scripts/fetch_concerts.py --require-ticketmaster --previous-url https://honkstonk.github.io/concerts.json
+        run: python scripts/fetch_concerts.py --require-ticketmaster --require-tickster --previous-url https://honkstonk.github.io/concerts.json
       - name: Validate and stage the public app
         run: |
           node -e "require('./concerts-core.js').validateSnapshot(require('./concerts.json'))"

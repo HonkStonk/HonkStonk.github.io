@@ -6,6 +6,7 @@ explicitly configured public calendars; Ticketmaster uses TICKETMASTER_API_KEY.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
@@ -20,7 +21,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urljoin, urlparse, parse_qs, unquote, quote
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
-from collector_credentials import load_ticketmaster_key
+from collector_credentials import load_ticketmaster_key, load_tickster_key
 
 ROOT = Path(__file__).resolve().parent.parent
 USER_AGENT = "MagicCompass/0.1 (personal concert calendar; https://honkstonk.github.io/)"
@@ -46,6 +47,28 @@ def fetch(url, headers=None, data=None):
                 if len(content) > 4_000_000:
                     raise ValueError("Source response is unexpectedly large")
                 return content.decode("utf-8")
+        except HTTPError as error:
+            if error.code in (429, 500, 502, 503, 504) and attempt < 2:
+                delay = error.headers.get("Retry-After", "2")
+                time.sleep(min(int(delay) if delay.isdigit() else 2, 20) * (attempt + 1))
+                continue
+            raise RuntimeError(f"Source returned HTTP {error.code}") from None
+        except (URLError, TimeoutError):
+            if attempt == 2:
+                raise RuntimeError("Source request timed out or could not connect") from None
+    raise RuntimeError("Source request failed")
+
+
+def fetch_binary(url, maximum=40_000_000):
+    """Download a bounded binary source without ever logging its signed URL."""
+    for attempt in range(3):
+        time.sleep(0.55)
+        try:
+            with urlopen(Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json,application/gzip"}), timeout=60) as response:
+                content = response.read(maximum + 1)
+                if len(content) > maximum:
+                    raise ValueError("Source response is unexpectedly large")
+                return content
         except HTTPError as error:
             if error.code in (429, 500, 502, 503, 504) and attempt < 2:
                 delay = error.headers.get("Retry-After", "2")
@@ -633,7 +656,7 @@ def collect_katalin(source, now, get=fetch):
 def normalize_tickster(raw, now):
     venue = raw.get("venue") or {}
     geo = venue.get("geo") or {}
-    start = raw.get("startUtc")
+    start = raw.get("startUtc") or raw.get("start")
     instant = datetime.fromisoformat(start.replace("Z", "+00:00")) if start else None
     # The documented field is UTC even if an upstream value omits its offset.
     if instant and not instant.tzinfo:
@@ -652,50 +675,52 @@ def normalize_tickster(raw, now):
                       "lat": number_or_none(geo.get("latitude"), 90), "lon": number_or_none(geo.get("longitude"), 180)},
             "localDate": local.date().isoformat() if local else None, "localTime": local.strftime("%H:%M") if local else None,
             "timeKind": "listed", "timeZone": "Europe/Stockholm", "dateTime": instant.isoformat() if instant else None,
-            "status": status_name(raw.get("state", "")), "url": raw["infoUrl"],
-            "ticketUrl": raw.get("shopUrl") if safe_url(raw.get("shopUrl")) else None, "lastVerifiedAt": now}
+            "status": status_name(raw.get("state") or raw.get("eventState", "")), "url": raw.get("infoUrl") or raw["infoUri"],
+            "ticketUrl": next((url for url in (raw.get("shopUrl"), raw.get("shopUri")) if safe_url(url)), None), "lastVerifiedAt": now}
 
 
-def collect_tickster(config, api_key, now, get=fetch):
-    """Tickster's documented v1.0 search/detail API; live access requires a key."""
-    base = "https://event.api.tickster.com/api/v1.0/sv/events"
-    headers = {"X-API-KEY": api_key}
-    candidates = {}
+def collect_tickster(config, api_key, now, get=fetch, get_binary=fetch_binary):
+    """Use Tickster's once-daily dump: two requests instead of one per event."""
+    metadata_url = "https://api.tickster.com/sv/api/0.4/events/dump/upcoming?" + urlencode({"key": api_key})
+    metadata = json.loads(get(metadata_url))
+    dump_url = metadata.get("uri")
+    parsed_dump_url = urlparse(str(dump_url or ""))
+    # Tickster still returns its S3 signed URL as HTTP. Upgrade only its documented
+    # dump host before downloading so event data and the temporary signature use TLS.
+    if parsed_dump_url.scheme == "http" and parsed_dump_url.hostname == "event-api-dumps.s3-eu-west-1.amazonaws.com":
+        dump_url = parsed_dump_url._replace(scheme="https").geturl()
+    if not isinstance(metadata.get("id"), str) or not metadata["id"] or not safe_url(dump_url):
+        raise ValueError("Unexpected Tickster dump metadata")
+    packed = get_binary(dump_url)
+    try:
+        content = gzip.decompress(packed) if packed[:2] == b"\x1f\x8b" else packed
+        if len(content) > 120_000_000:
+            raise ValueError("Tickster dump is unexpectedly large")
+        data = json.loads(content.decode("utf-8"))
+    except (gzip.BadGzipFile, UnicodeDecodeError, json.JSONDecodeError):
+        raise ValueError("Unexpected Tickster dump encoding") from None
+    rows, venues = data.get("events"), data.get("venues")
+    if (not isinstance(rows, list) or not isinstance(venues, list) or
+            (data.get("count") is not None and data.get("count") != len(rows))):
+        raise ValueError("Unexpected Tickster dump schema")
     options = config.get("tickster", {})
-    for city in config["cities"]:
-        for tag in options.get("musicTags", ["musik", "konsert"]):
-            skip, seen = 0, set()
-            for _ in range(20):
-                params = {"query": "city:" + city + " tagged:" + tag, "take": 100, "skip": skip}
-                data = json.loads(get(base + "?" + urlencode(params), headers=headers))
-                if data.get("totalItems") == 0 and data.get("items") is None:
-                    data["items"] = []  # The published schema permits null collections.
-                if not isinstance(data.get("totalItems"), int) or not isinstance(data.get("items"), list):
-                    raise ValueError("Unexpected Tickster search schema")
-                rows = data["items"]
-                if (not rows and skip < data["totalItems"]) or any(r["id"] in seen for r in rows):
-                    raise ValueError("Incomplete or repeated Tickster page")
-                for row in rows:
-                    seen.add(row["id"])
-                    if row.get("eventHierarchyType") not in ("event", "production-child"):
-                        continue  # A collection/production is not an individual performance.
-                    venue = row.get("venue") or {}
-                    if venue.get("country") != "SE" or name_key(venue.get("city")) != name_key(city):
-                        continue
-                    candidates[row["id"]] = row
-                skip += len(rows)
-                if skip >= data["totalItems"]:
-                    break
-            else:
-                raise ValueError("Tickster pagination limit reached")
-    if len(candidates) > options.get("maxDetails", 600):
-        raise ValueError("Tickster detail request budget exceeded; narrow collection")
+    if len(rows) > options.get("maxDumpEvents", 100_000):
+        raise ValueError("Tickster dump event bound exceeded")
+    venue_by_id = {venue.get("id"): venue for venue in venues if isinstance(venue, dict) and venue.get("id")}
+    cities = {name_key(city) for city in config["cities"]}
+    music_tags = {name_key(tag) for tag in options.get("musicTags", ["musik", "konsert"])}
     events = []
-    for identifier in sorted(candidates):
-        raw = json.loads(get(base + "/" + quote(identifier, safe=""), headers=headers))
-        if raw.get("id") != identifier:
-            raise ValueError("Unexpected Tickster event identity")
-        events.append(normalize_tickster(raw, now))
+    for raw in rows:
+        if not isinstance(raw, dict) or raw.get("hierarchyType") not in ("event", "production-child"):
+            continue
+        venue = venue_by_id.get(raw.get("venueId"), {})
+        tags = {name_key(tag) for tag in (raw.get("tags") or []) if isinstance(tag, str)}
+        if (str(venue.get("country") or "").upper() != "SE" or
+                name_key(venue.get("city")) not in cities or not tags & music_tags):
+            continue
+        event = dict(raw)
+        event["venue"] = venue
+        events.append(normalize_tickster(event, now))
     return events
 
 
@@ -862,10 +887,13 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "concerts.json")
     parser.add_argument("--previous-url", help="Optional published snapshot to use for failure recovery")
     parser.add_argument("--check-ticketmaster", action="store_true", help="Check Ticketmaster credentials without changing the snapshot")
+    parser.add_argument("--check-tickster", action="store_true", help="Check Tickster credentials without changing the snapshot")
     parser.add_argument("--require-ticketmaster", action="store_true", help="Do not replace the snapshot unless Ticketmaster refresh succeeds")
+    parser.add_argument("--require-tickster", action="store_true", help="Do not replace the snapshot unless Tickster refresh succeeds")
     args = parser.parse_args()
     try:
-        credential_mode = load_ticketmaster_key(ROOT)
+        ticketmaster_mode = load_ticketmaster_key(ROOT)
+        tickster_mode = load_tickster_key(ROOT)
     except RuntimeError as error:
         print(str(error))
         return 1
@@ -883,13 +911,34 @@ def main():
             return 1
         print("Ticketmaster key accepted.")
         return 0
-    if credential_mode == "absent":
+    if args.check_tickster:
+        key = os.environ.get("TICKSTER_API_KEY", "").strip()
+        if not key:
+            print("No Tickster key available. Run scripts/connect-tickster.ps1.")
+            return 1
+        try:
+            probe = json.loads(fetch("https://event.api.tickster.com/api/v1.0/sv/events?" + urlencode({"take": 1}), headers={"X-API-KEY": key}))
+            if not isinstance(probe.get("totalItems"), int) or not isinstance(probe.get("items"), (list, type(None))):
+                raise ValueError("Unexpected API response")
+        except Exception:
+            print("Tickster key check failed. Verify the API key and internet connection. No key was printed or saved.")
+            return 1
+        print("Tickster key accepted.")
+        return 0
+    if ticketmaster_mode == "absent":
         print("Ticketmaster key missing: run scripts/connect-ticketmaster.ps1 for persistent local setup. GitHub Actions needs the TICKETMASTER_API_KEY secret.", flush=True)
         if args.require_ticketmaster:
             print("Required Ticketmaster refresh is not configured. Existing snapshot unchanged.")
             return 1
     else:
-        print("Ticketmaster key loaded from " + ("encrypted local storage." if credential_mode == "encrypted_local" else "environment."), flush=True)
+        print("Ticketmaster key loaded from " + ("encrypted local storage." if ticketmaster_mode == "encrypted_local" else "environment."), flush=True)
+    if tickster_mode == "absent":
+        print("Tickster key missing: run scripts/connect-tickster.ps1 for persistent local setup. GitHub Actions needs the TICKSTER_API_KEY secret.", flush=True)
+        if args.require_tickster:
+            print("Required Tickster refresh is not configured. Existing snapshot unchanged.")
+            return 1
+    else:
+        print("Tickster key loaded from " + ("encrypted local storage." if tickster_mode == "encrypted_local" else "environment."), flush=True)
     config = json.loads((ROOT / "data/concert-sources.json").read_text(encoding="utf-8"))
     previous = json.loads(args.output.read_text(encoding="utf-8")) if args.output.exists() else {}
     if args.previous_url:
@@ -908,6 +957,8 @@ def main():
         result = refresh(config, previous, now)
         if args.require_ticketmaster and not any(s["id"] == "ticketmaster" and s["status"] == "ok" for s in result["sources"]):
             raise RuntimeError("Required Ticketmaster refresh failed")
+        if args.require_tickster and not any(s["id"] == "tickster" and s["status"] == "ok" for s in result["sources"]):
+            raise RuntimeError("Required Tickster refresh failed")
     except Exception as error:
         print("Refresh failed; existing data unchanged (" + type(error).__name__ + ").")
         return 1

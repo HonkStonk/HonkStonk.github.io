@@ -10,7 +10,7 @@ from types import SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'scripts'))
 import fetch_concerts as fc
-from collector_credentials import load_ticketmaster_key
+from collector_credentials import load_ticketmaster_key, load_tickster_key
 
 NOW = '2026-09-09T00:00:00+00:00'
 VENUE = {'name': 'Kafé 44', 'city': 'Stockholm', 'lat': None, 'lon': None}
@@ -97,6 +97,8 @@ class CredentialTests(unittest.TestCase):
     def test_environment_wins_without_reading_local_storage(self):
         env = {'TICKETMASTER_API_KEY': 'environment-key'}
         self.assertEqual(load_ticketmaster_key('/unused', environ=env, run=lambda *a, **k: self.fail()), 'environment')
+        env = {'TICKSTER_API_KEY': 'environment-key'}
+        self.assertEqual(load_tickster_key('/unused', environ=env, run=lambda *a, **k: self.fail()), 'environment')
 
     def test_local_key_load_and_errors_never_reveal_process_output(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -108,6 +110,11 @@ class CredentialTests(unittest.TestCase):
                 load_ticketmaster_key(tmp, environ={}, platform='nt', run=lambda *a, **k: SimpleNamespace(returncode=1, stdout='private-key'))
             self.assertNotIn('private-key', str(caught.exception))
             self.assertEqual(load_ticketmaster_key(tmp, environ={}, platform='posix'), 'absent')
+
+    def test_required_tickster_preflight_does_not_fetch_or_replace_snapshot(self):
+        with patch.object(sys, 'argv', ['fetch_concerts.py', '--require-tickster']), patch.object(fc, 'load_ticketmaster_key', return_value='absent'), patch.object(fc, 'load_tickster_key', return_value='absent'), patch.object(fc, 'refresh') as refresh, redirect_stdout(StringIO()):
+            self.assertEqual(fc.main(), 1)
+            refresh.assert_not_called()
 
 
 if __name__ == '__main__': unittest.main()

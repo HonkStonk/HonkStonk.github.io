@@ -33,16 +33,16 @@ Install the collector's timezone database once with `python -m pip install -r re
 | [Kafé 44 through Nu på gång](https://nupagang.se/sv/venue/kafe-44-stockholm/) | Supplementary venue feed with original Bandsintown links. Two additional upcoming gigs checked on 9 September. |
 | [Geronimo's FGT](https://www.geronimosfgt.se/shows-events-live-music/) | Direct public calendar; seven live shows checked. Follows Load More; excludes DJ, quiz, disco and bingo listings. |
 | [Larry's Corner](https://larryscorner.nu/en/events) | Direct current website at `.nu`; 23 identifiable music listings checked. Poetry/art/ambiguous descriptions are not assumed to be concerts. |
-| [Ticketmaster Sweden](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) | Working: the user's saved 7 September snapshot contains 197 records from a successful authenticated run. No key is currently available to this Codex terminal, so that data was retained with its original verification time. |
-| [Tickster Sweden](https://developer.tickster.com/documentation/events/1.0) | Adapter and workflow configuration implemented, tested against the published v1.0 schema. Needs `TICKSTER_API_KEY` for its first authenticated live check. |
+| [Ticketmaster Sweden](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/) | Working. The encrypted local key was successfully checked again on 12 September 2026, and the scheduled GitHub workflow is also refreshing successfully. |
+| [Tickster Sweden](https://developer.tickster.com/documentation/eventdump) | Working. The first authenticated import succeeded on 12 September 2026 with 259 source records from Tickster's once-daily Event Dump API. |
 
-The latest snapshot has **435 upcoming records**, including **337 in Stockholm**, as of 9 September 2026. The two new sources contribute 143 upcoming records; three older records have fallen out since the previous 295-record snapshot. Coverage remains partial: conservative merging can leave cross-provider duplicates where line-ups, venue names or times differ.
+The latest snapshot has **723 upcoming records**, including **524 in Stockholm**, **193 in Uppsala**, four in Skövde and two in Falköping, as of 12 September 2026. Tickster contributes to 257 final records after four cross-source merges. Coverage remains partial: conservative merging can leave cross-provider duplicates where line-ups, venue names or times differ.
 
 Kollektivet Livet follows the public calendar's offset pages and imports only events explicitly tagged **Konsert**. It reads the card's full event date and the event page's doors time, genre tags and ticket link. Slakthusen follows the public calendar pagination, then reads full event dates from programme fields, not WordPress publication dates. It includes configured concert rooms and explicit live-music wording, excluding wrestling, comedy, quizzes and ambiguous items. Slakthusen genres are words mentioned in the title/description, labelled **Style mention** with a check-the-description explanation; these can refer to influences or earlier projects. Neither adapter invents artist identities from prose or splits titles into assumed line-ups. Full-title favourite matches still work; multi-band titles may need style matching or browsing **Other gigs**.
 
 The new venue coordinates come from map links on the venues' own pages: [Stadsgårdsterminalen](https://stadsgardsterminalen.com/kontakt/), [Hus 7](https://slakthusen.se/sylvies-head-hus-7/), [Slaktkyrkan](https://slakthusen.se/helt-off/), [Kapellet](https://slakthusen.se/chuck-ragan-kapellet/). Room categories can be stale: if an explicit room in the title agrees with the labelled programme venue, those fields take precedence over the category.
 
-**Ticketmaster status:** the earlier authenticated run was real. The current local refresh had no Ticketmaster key available and retained 196 upcoming listings from that successful run. Source details now distinguish **using saved listings · live refresh not connected**, **latest refresh failed**, and a successful fresh check. The old **not connected yet** label was misleading when saved listings existed. An Actions secret remains separate from the local terminal's environment.
+**Ticketmaster status:** the earlier authenticated run was real, its encrypted local key is available, and a fresh credential check succeeded on 12 September 2026. The successful scheduled runs also establish that `TICKETMASTER_API_KEY` is available to GitHub Actions. Source details distinguish **using saved listings · live refresh not connected**, **latest refresh failed**, and a successful fresh check.
 
 The original Hovet import contains:
 
@@ -57,7 +57,7 @@ These are real source-linked records, not UI demo events. `concerts.json` includ
 
 Katalin collection follows the upcoming calendar's pagination, then reads only those events' public WordPress metadata in batches. It uses the event date, not the post publication date, and includes only configured music genres; stand-up, lectures and ambiguous categories are excluded. The venue's own [map link](https://maps.app.goo.gl/E2k2n47qSQVMwUGg7) supplies coordinates. Katalin does not expose a structured line-up, so artist lists remain empty. An exact whole-title match to a favourite is labelled **Title match — check the line-up**; names embedded in tribute titles or descriptions are not assumed to be performers. Genre matches still work.
 
-An empty city view means **no matches in current coverage**, not that there are no concerts there. The app's update button reloads the snapshot; it does not run a scraper from the phone. All sources are bounded to the configured horizon and use Swedish local dates and daylight-saving rules.
+An empty city view means **no matches in current coverage**, not that there are no concerts there. The app's **Check for updates** button only downloads the latest deployed `concerts.json`; it cannot start GitHub Actions or call either ticket API. The scheduled/manual GitHub workflow is what contacts the sources, builds a new snapshot and publishes it. All sources are bounded to the configured horizon and use Swedish local dates and daylight-saving rules.
 
 ## Connect Ticketmaster next
 
@@ -103,20 +103,23 @@ The `tzdata` package in `requirements.txt` provides Swedish timezone rules on Wi
 
 ## Add Tickster
 
-Your API-key request is submitted and awaiting Tickster's response, according to your screenshot. No further registration is needed while waiting. The direct venue sources work independently.
+Tickster has supplied the API key. Keep it out of source files, command history and chat. The local key was accepted and stored successfully on 12 September 2026.
 
-1. Use Tickster's published [Request API key](https://developer.tickster.com/register) link. Describe a noncommercial personal concert finder for Stockholm, Uppsala, Falköping and Skövde, with a daily refresh, short factual listings and links back to the event/ticket page. This link returned HTTP 403 to the automated check; try it in your browser. Access approval has not been obtained by Codex.
-2. When approved, add a GitHub Actions repository secret named **`TICKSTER_API_KEY`**, alongside `TICKETMASTER_API_KEY`. The workflow already reads both.
-3. For a local test, use the same secure prompt pattern with the Tickster environment variable:
+For persistent setup on this Windows computer, open a PowerShell terminal in VS Code and run:
 
 ```powershell
-$ticksterApiKey = Read-Host 'Tickster API key' -AsSecureString
-$env:TICKSTER_API_KEY = [System.Net.NetworkCredential]::new('', $ticksterApiKey).Password
-python scripts/fetch_concerts.py
-Remove-Item Env:TICKSTER_API_KEY
+.\scripts\connect-tickster.ps1 -SetupOnly
 ```
 
-Look for **Tickster Sweden: ok** and check the resulting event counts and source links. Keep the Ticketmaster variable set as well if you want to refresh both in that run. The adapter uses `X-API-KEY`, searches each configured city for the observed `musik` and `konsert` tags, paginates, deduplicates search hits, then retrieves performer/venue/date details. Production/collection containers are excluded. Untagged concerts may be missed. `maxDetails` bounds per-run requests; hitting the bound fails the source and retains recent previous data rather than publishing a silently truncated result. Actual Swedish coverage and the key's hourly quota still need checking after approval. [API documentation and schema](https://event.api.tickster.com/swagger/index.html)
+Paste the key at the hidden prompt. The script validates it, then stores it as `.local/tickster-key.xml`, encrypted for the current Windows account and ignored by Git. It never prints the key. After **Tickster key accepted**, run the full local collection with:
+
+```powershell
+.\.local\collector-venv\Scripts\python.exe scripts\fetch_concerts.py --require-ticketmaster --require-tickster
+```
+
+For the daily hosted refresh, add the same value in the repository's **Settings → Secrets and variables → Actions → New repository secret**, with the exact name **`TICKSTER_API_KEY`**. The workflow requires both authenticated providers to succeed before it can publish, so a missing or rejected key leaves the previous live site intact.
+
+Look for **Tickster Sweden: ok** and check the resulting event counts and source links. The adapter retrieves Tickster's documented once-daily compressed event dump in two requests, then locally selects individual performances in the configured cities carrying the observed `musik` or `konsert` tags. This preserves performer, style, venue and time details without exhausting the per-hour request quota. Production/collection containers and untagged events are excluded. The first live run found 259 source records: 158 in Stockholm and 101 in Uppsala; after horizon filtering and deduplication, 257 final records remained. [Event Dump API documentation](https://developer.tickster.com/documentation/eventdump)
 
 ## Enable daily refresh on GitHub Pages when ready
 

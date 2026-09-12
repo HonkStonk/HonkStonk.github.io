@@ -11,7 +11,7 @@
       "musik",
       "konsert"
     ],
-    "maxDetails": 600
+    "maxDumpEvents": 100000
   },
   "venueSources": [
     {

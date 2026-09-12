@@ -1,4 +1,5 @@
 import copy
+import gzip
 import json
 from pathlib import Path
 import sys
@@ -35,32 +36,40 @@ class CollectorTests(unittest.TestCase):
         self.assertIsNone(result['localDate'])
         self.assertIsNone(result['localTime'])
 
-    def test_tickster_paginates_unions_tags_and_ignores_collection_products(self):
-        calls = []
-        def get(url, headers=None):
-            self.assertEqual(headers, {'X-API-KEY': 'private-test-key'})
-            self.assertNotIn('private-test-key', url)
-            params = parse_qs(urlparse(url).query)
-            calls.append(params)
-            if not params:
-                return json.dumps({'id': 'gig', 'name': 'Band', 'infoUrl': 'https://www.tickster.com/gig'})
-            row = {'id': 'gig' if params['skip'] == ['0'] else 'collection',
-                   'eventHierarchyType': 'event' if params['skip'] == ['0'] else 'collection',
-                   'venue': {'country': 'SE', 'city': 'Uppsala'}}
-            return json.dumps({'items': [row], 'totalItems': 2})
-        result = fc.collect_tickster({'cities': ['Uppsala']}, 'private-test-key', NOW, get)
+    def test_tickster_dump_filters_music_city_and_collection_products(self):
+        dump = {'count': 3, 'events': [
+                    {'id': 'gig', 'name': 'Band', 'start': '2026-09-08T22:30:00Z', 'infoUri': 'https://www.tickster.com/gig',
+                     'shopUri': 'https://secure.tickster.com/gig', 'hierarchyType': 'event', 'venueId': 'venue',
+                     'performers': ['Band'], 'tags': ['konsert', 'indie'], 'eventState': 'ReleasedForSale'},
+                    {'id': 'collection', 'name': 'Tour', 'infoUri': 'https://www.tickster.com/tour',
+                     'hierarchyType': 'collection', 'venueId': 'venue', 'tags': ['konsert']},
+                    {'id': 'talk', 'name': 'Talk', 'infoUri': 'https://www.tickster.com/talk',
+                     'hierarchyType': 'event', 'venueId': 'venue', 'tags': ['föreläsning']}],
+                'venues': [{'id': 'venue', 'name': 'Club', 'country': 'se', 'city': 'Uppsala',
+                            'geo': {'latitude': 59.86, 'longitude': 17.64}}]}
+        def get(url):
+            self.assertEqual(parse_qs(urlparse(url).query)['key'], ['private-test-key'])
+            return json.dumps({'id': 'dump-id', 'uri': 'http://event-api-dumps.s3-eu-west-1.amazonaws.com/dump.gz?signature=temporary'})
+        def binary(url):
+            self.assertTrue(url.startswith('https://event-api-dumps.s3-eu-west-1.amazonaws.com/'))
+            return gzip.compress(json.dumps(dump).encode())
+        result = fc.collect_tickster({'cities': ['Uppsala']}, 'private-test-key', NOW, get,
+                                     binary)
         self.assertEqual(len(result), 1)
-        self.assertEqual(len(calls), 5)  # Two tags x two pages, one detail.
+        self.assertEqual(result[0]['artists'], ['Band'])
+        self.assertEqual(result[0]['localDate'], '2026-09-09')
 
-    def test_tickster_incomplete_or_repeated_page_is_a_failure(self):
-        for items in [[], [{'id': 'gig', 'eventHierarchyType': 'collection'}]]:
+    def test_tickster_invalid_dump_is_a_failure(self):
+        metadata = lambda url: json.dumps({'id': 'dump-id', 'uri': 'https://example.com/dump.gz'})
+        for dump in [{'count': 2, 'events': [], 'venues': []}, {'count': 0, 'events': None, 'venues': []}]:
             with self.assertRaises(ValueError):
                 fc.collect_tickster({'cities': ['Uppsala']}, 'test', NOW,
-                                    lambda *args, **kwargs: json.dumps({'totalItems': 2, 'items': items}))
+                                    metadata, lambda url, dump=dump: json.dumps(dump).encode())
 
-    def test_tickster_nullable_empty_collection_is_valid(self):
+    def test_tickster_empty_dump_is_valid(self):
         rows = fc.collect_tickster({'cities': ['Uppsala']}, 'test', NOW,
-                                   lambda *args, **kwargs: json.dumps({'totalItems': 0, 'items': None}))
+                                   lambda url: json.dumps({'id': 'dump-id', 'uri': 'https://example.com/dump.gz'}),
+                                   lambda url: json.dumps({'events': [], 'venues': []}).encode())
         self.assertEqual(rows, [])
 
     def katalin_fixture(self):
