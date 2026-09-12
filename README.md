@@ -13,10 +13,10 @@ python -m http.server 8765 --bind 127.0.0.1
 Open [the local app](http://localhost:8765). Use an HTTP server instead of opening `index.html` as a file, because the app fetches `concerts.json`. Stop the server with Ctrl+C. GPS and compass behavior still needs testing on the iPhone over HTTPS; desktop testing cannot verify physical direction.
 
 - **Beer now:** the existing bottle, curated places and nearest-open/earliest-opening selection.
-- **Concerts:** guitar compass, favourite/style matches, city filters, agenda and source links. Browsing does not request location. Tap **Point to venue** to start navigation; hold the phone flat.
+- **Concerts:** opens in a discovery-first planning view with city filters and chronological recommendations. Open a specific concert only when you want its full details, guitar compass and nearby-beer actions. Browsing does not request location; **Point to venue** starts navigation.
 - **Menu / Tune your taste:** favourite artists, style suggestions, free text, cities and busy venues to watch. Artist 👍/👎 affects that artist. **Hide this gig** only hides that event and offers undo.
-- **Concert feed:** **For you**, **All concerts** and **Busy places** are separate, bounded views. Every view is strictly chronological and expands eight rows at a time.
-- **Calendar:** a day-by-day agenda of concerts and watched busy-place alerts, with literal 30-day, 3-month and all-date ranges.
+- **Concert feed:** **For you**, **All concerts**, **My plans** and **Busy places** are separate, bounded views. Every view is strictly chronological and expands eight rows at a time. Style matches show the actual matching style, such as **Punk** or **Reggae**.
+- **Planning and calendar:** **+ Plan** saves a concert locally. **My calendar** opens a day-by-day agenda of planned concerts by default, with optional all-concert and busy-place views plus literal 30-day, 3-month and all-date ranges.
 - **Beer before:** currently shows curated pubs within 3 km of the venue that are open **now**, with map directions. It does not forecast opening on the gig date.
 - Preferences stay in browser local storage; export/import a backup from the menu. Spotify import is visible in preferences; its button becomes available once the owner configures a Client ID. Each invited visitor signs into their own account (walkthrough below).
 
@@ -160,7 +160,7 @@ No Spotify Client ID/account was supplied, so real consent, API access and the i
 
 Current priority is Stockholm's small punk, hardcore and indie gigs. Kollektivet Livet and Slakthusen are now direct sources. Kafé 44's [Scen 44 page](https://kafe44.org/scen-44/) points to Facebook for current dates; its static website does not provide a dated programme. Cyklopen's checked website did not expose a reliable upcoming concert feed. Both gaps are visible under **About the concert data**, with source links. Neither is counted as an imported feed. Tickster's first authenticated run and targeted Falköping/Skövde venues remain follow-ups. Multiple venues from one operator are not counted as independent nationwide providers.
 
-Last.fm similarity can follow once event coverage is useful. Current matches are **Favourite**, **Title match**, **Style match**, **Style mention** or **Explore**, not inferred musical relationships or invented percentages. This remains a noncommercial hobby project without ads or tracking.
+Last.fm similarity can follow once event coverage is useful. Current matches are **Favourite**, **Title match**, the actual matched style name, or **Explore**, not inferred musical relationships or invented percentages. Descriptions still explain whether a style came from source tags, page wording or BrewPunk's curated calendar. This remains a noncommercial hobby project without ads or tracking.
 
 ## Checks and implementation notes
 

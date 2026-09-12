@@ -10,7 +10,7 @@
         favourites: ['Dina Ögon', 'Amon Amarth', 'Cardigans', 'Eek-a-mouse', 'Asta Kask', 'Kardborrebandet'],
         dislikedArtists: [], styles: [],
         cities: ['Stockholm', 'Falköping', 'Skövde', 'Uppsala'], hiddenEvents: [],
-        watchedVenues: ['Strawberry Arena']
+        watchedVenues: ['Strawberry Arena'], plannedEvents: []
     });
     function key(value) {
         const name = String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -22,9 +22,9 @@
     function validatePreferences(value) {
         if (!value || value.version !== 1) throw new Error('This backup format is not supported.');
         const result = { version: 1 };
-        for (const name of ['favourites', 'dislikedArtists', 'styles', 'cities', 'hiddenEvents', 'watchedVenues']) {
-            const items = value[name] == null && name === 'watchedVenues' ? ['Strawberry Arena'] : value[name];
-            if (!Array.isArray(items) || items.length > (name === 'hiddenEvents' ? 5000 : 200) || items.some(x => typeof x !== 'string' || !x.trim() || x.length > 300)) {
+        for (const name of ['favourites', 'dislikedArtists', 'styles', 'cities', 'hiddenEvents', 'watchedVenues', 'plannedEvents']) {
+            const items = value[name] == null && name === 'watchedVenues' ? ['Strawberry Arena'] : value[name] == null && name === 'plannedEvents' ? [] : value[name];
+            if (!Array.isArray(items) || items.length > (['hiddenEvents', 'plannedEvents'].includes(name) ? 5000 : 200) || items.some(x => typeof x !== 'string' || !x.trim() || x.length > 300)) {
                 throw new Error('Please use a valid Magic Compass preference backup.');
             }
             result[name] = [...new Set(items.map(x => x.trim()))];
@@ -69,10 +69,10 @@
         }
         const style = prefs.styles.find(s => event.styles.some(t => key(t) === key(s) || (' ' + key(t) + ' ').includes(' ' + key(s) + ' ')));
         if (style) return event.styleEvidence === 'description'
-            ? { tier: 1, label: 'Style mention', reason: 'The event page mentions ' + style + ' — check the description' }
+            ? { tier: 1, label: style, reason: 'The event page mentions ' + style + ' — check the description' }
             : event.styleEvidence === 'punk_calendar'
-            ? { tier: 1, label: 'Punk calendar', reason: 'Selected by BrewPunk’s independent punk-gig calendar' }
-            : { tier: 1, label: 'Style match', reason: 'Your taste: ' + style };
+            ? { tier: 1, label: style, reason: 'Selected by BrewPunk’s independent punk-gig calendar' }
+            : { tier: 1, label: style, reason: 'Your taste: ' + style };
         return { tier: 0, label: 'Explore', reason: 'Another gig in your places' };
     }
     function isHidden(event, prefs) {

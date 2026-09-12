@@ -8,13 +8,13 @@ const C = require('../concerts-core.js');
 const now = new Date('2026-09-07T12:00:00Z');
 const gig = overrides => ({ id: 'venue:1', title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 }, localDate: '2027-05-10', localTime: null, status: 'scheduled', url: 'https://example.com/gig', ...overrides });
 
-test('genre words in event prose are labelled as mentions, separate from source genre tags', () => {
+test('taste labels name the matched style while reasons preserve evidence quality', () => {
     const prefs = { ...C.defaultPreferences(), favourites: [], styles: ['Punk'] };
     const event = gig({ artists: [], title: 'Local gig', styles: ['Punk'], styleEvidence: 'description' });
-    assert.equal(C.match(event, prefs).label, 'Style mention');
+    assert.equal(C.match(event, prefs).label, 'Punk');
     assert.match(C.match(event, prefs).reason, /event page mentions Punk/);
-    assert.equal(C.match({ ...event, styleEvidence: undefined }, prefs).label, 'Style match');
-    assert.equal(C.match({ ...event, styleEvidence: 'punk_calendar' }, prefs).label, 'Punk calendar');
+    assert.equal(C.match({ ...event, styleEvidence: undefined }, prefs).label, 'Punk');
+    assert.equal(C.match({ ...event, styleEvidence: 'punk_calendar' }, prefs).label, 'Punk');
 });
 
 test('event hiding never changes artist taste or hides a different date', () => {
@@ -43,7 +43,7 @@ test('busy-place alerts are separate from concerts and follow watched venue pref
 test('venue titles match only an entire favourite name when no lineup exists', () => {
     const prefs = C.defaultPreferences();
     assert.equal(C.match(gig({ artists: [] }), prefs).label, 'Title match');
-    assert.equal(C.inCalendarRange(gig({ artists: [] }), prefs, '30', now), true);
+    assert.equal(C.inCalendarRange(gig({ artists: [] }), prefs, '30', now), false);
     assert.equal(C.match(gig({ artists: [], title: 'A tribute to Amon Amarth' }), prefs).tier, 0);
     assert.equal(C.match(gig({ artists: ['Tribute Band'] }), prefs).tier, 0);
     prefs.favourites = [];
@@ -67,6 +67,8 @@ test('artist aliases and punctuation are normalized without substring identity g
 test('backup round trip, invalid imports and preference conflicts', () => {
     const prefs = C.defaultPreferences();
     assert.deepEqual(C.validatePreferences(JSON.parse(JSON.stringify(prefs))), prefs);
+    const legacy = { ...prefs }; delete legacy.plannedEvents;
+    assert.deepEqual(C.validatePreferences(legacy).plannedEvents, []);
     assert.throws(() => C.validatePreferences({ ...prefs, cities: [] }));
     assert.throws(() => C.validatePreferences({ ...prefs, favourites: 'Amon Amarth' }));
     assert.throws(() => C.validatePreferences({ ...prefs, dislikedArtists: ['Amon Amarth'] }));

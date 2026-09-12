@@ -28,6 +28,7 @@ async function app({ offline = false, spotify = false, spotifyConfig = { clientI
     const elements = new Map([...html.matchAll(/\bid="([^"]+)"/g)].map(m => [m[1], new Element()]));
     elements.get('connectSpotify').disabled = true;
     elements.get('calendarRange').value = 'all';
+    elements.get('calendarScope').value = 'plans';
     elements.get('spotifyRange').value = 'medium_term';
     const document = {
         getElementById(id) { assert.ok(elements.has(id), 'HTML contains #' + id); return elements.get(id); },
@@ -110,7 +111,7 @@ test('Spotify remains opt-in and saves edited choices before redirecting for con
     assert.equal(elements.get('spotifyReviewDialog').open, undefined);
 });
 
-test('concert view loads a real favourite without asking for location; bottle and guitar switch', async () => {
+test('concerts open in planning mode and a chosen gig opens navigation without asking for location', async () => {
     const state = await app();
     const e = id => state.elements.get(id);
     e('concertMode').click();
@@ -118,6 +119,12 @@ test('concert view loads a real favourite without asking for location; bottle an
     assert.equal(e('gigMatch').textContent, 'Favourite');
     assert.equal(state.geolocationStarts, 0);
     assert.equal(e('compassNeedle').hidden, true);
+    assert.equal(e('concertPlanner').hidden, false);
+    assert.equal(e('compassDisplay').hidden, true);
+    assert.equal(e('guitarNeedle').hidden, true);
+    e('gigList').children[0].children[0].click();
+    assert.equal(e('concertPlanner').hidden, true);
+    assert.equal(e('concertDetail').hidden, false);
     assert.equal(e('guitarNeedle').hidden, false);
     e('pointToGig').click();
     await new Promise(resolve => setImmediate(resolve));
@@ -126,10 +133,26 @@ test('concert view loads a real favourite without asking for location; bottle an
     state.context.handleOrientationUpdate({ webkitCompassHeading: 90, alpha: null, absolute: false });
     assert.match(e('guitarNeedle').style.transform, /^rotate\(/);
     assert.equal(e('concertTitle').textContent, 'Amon Amarth');
+    e('backToConcerts').click();
+    assert.equal(e('concertPlanner').hidden, false);
+    assert.equal(e('compassDisplay').hidden, true);
+    e('gigList').children[0].children[0].click();
     e('beerMode').click();
     assert.equal(e('compassNeedle').hidden, false);
     assert.equal(e('guitarNeedle').hidden, true);
     assert.match(e('distanceText').textContent, /^Distance: [\d.]+ km/);
+});
+test('planning a concert saves it, updates My plans and drives the calendar', async () => {
+    const { elements, saved } = await app();
+    elements.get('concertMode').click();
+    elements.get('gigList').children[0].children[1].click();
+    const prefs = JSON.parse(saved.get('magic-compass.preferences.v1'));
+    assert.ok(prefs.plannedEvents.includes('test:amon'));
+    assert.match(elements.get('calendarCount').textContent, /1 concert planned/);
+    elements.get('plannedGigsView').click();
+    assert.match(elements.get('gigList').textContent, /Amon Amarth/);
+    elements.get('calendarButton').click();
+    assert.match(elements.get('calendarList').textContent, /Amon Amarth/);
 });
 test('concert feeds are chronological and venue alerts remain a separate view', async () => {
     const { elements } = await app();
@@ -145,17 +168,19 @@ test('concert feeds are chronological and venue alerts remain a separate view', 
 test('hiding and restoring a gig preserves artist feedback', async () => {
     const { elements, saved } = await app();
     elements.get('concertMode').click();
+    elements.get('gigList').children[0].children[0].click();
     elements.get('hideEventButton').click();
     const prefs = JSON.parse(saved.values().next().value);
     assert.ok(prefs.favourites.includes('Amon Amarth'));
     assert.ok(prefs.hiddenEvents.length);
     assert.notEqual(elements.get('concertTitle').textContent, 'Amon Amarth');
     elements.get('restoreHidden').click();
-    assert.equal(elements.get('concertTitle').textContent, 'Amon Amarth');
+    assert.match(elements.get('gigList').textContent, /Amon Amarth/);
 });
 test('artist skip is an explicit separate action and updates recommendations', async () => {
     const { elements, saved } = await app();
     elements.get('concertMode').click();
+    elements.get('gigList').children[0].children[0].click();
     const feedbackRow = elements.get('artistFeedback').children[0];
     feedbackRow.children[2].click();
     const prefs = JSON.parse(saved.values().next().value);

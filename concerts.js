@@ -12,6 +12,7 @@
     } catch { storageNotice = 'Your saved preferences could not be read. You can import a backup in the menu.'; }
     let snapshot = null;
     let active = false;
+    let detailMode = false;
     let selectedId = null;
     let cityFilter = '';
     let feedMode = 'matches';
@@ -48,14 +49,34 @@
         render();
     }
     function openDialog(id) { $(id).showModal(); }
+    function syncConcertView() {
+        $('concertPlanner').hidden = !active || detailMode;
+        for (const id of ['concertIntro', 'concertDetail', 'guitarNeedle']) $(id).hidden = !active || !detailMode;
+        $('compassDisplay').hidden = active && !detailMode;
+    }
     function switchMode(concerts) {
         active = concerts;
+        if (active) detailMode = false;
         $('beerMode').setAttribute('aria-pressed', String(!active));
         $('concertMode').setAttribute('aria-pressed', String(active));
         for (const id of ['beerIntro', 'startCompass', 'infoDisplay', 'compassNeedle']) $(id).hidden = active;
-        for (const id of ['concertIntro', 'concertView', 'guitarNeedle']) $(id).hidden = !active;
+        syncConcertView();
         if (active) render();
         compass.refresh();
+    }
+    function showPlanner() {
+        detailMode = false;
+        syncConcertView();
+        render();
+        $('concertPlanner').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function openEvent(id) {
+        selectedId = id;
+        detailMode = true;
+        if ($('calendarDialog').open) $('calendarDialog').close();
+        syncConcertView();
+        render();
+        $('concertIntro').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     function dateLabel(event, withTime = true) {
         if (!event.localDate) return 'Date to be announced';
@@ -79,11 +100,26 @@
     function venueAlerts() {
         return (snapshot?.events || []).filter(event => C.venueAlertEligible(event, preferences)).sort(compareEvents);
     }
+    function isPlanned(event) {
+        return [event.id, ...(event.sourceIds || [])].some(id => preferences.plannedEvents.includes(id));
+    }
+    function plannedConcerts(city = cityFilter) {
+        return available(city).filter(isPlanned);
+    }
+    function togglePlan(event) {
+        const previous = [...preferences.plannedEvents];
+        const identities = [event.id, ...(event.sourceIds || [])];
+        const next = isPlanned(event)
+            ? previous.filter(id => !identities.includes(id))
+            : [...new Set([...previous, ...identities])];
+        savePreferences({ ...preferences, plannedEvents: next });
+        notify(isPlanned(event) ? 'Added to My plans.' : 'Removed from My plans.', () => savePreferences({ ...preferences, plannedEvents: previous }));
+    }
     function eventRow(event, alert = false, inCalendar = false) {
-        const row = node(alert ? 'a' : 'button', null, 'gig-row' + (alert ? ' venue-alert' : '') + (inCalendar ? ' calendar-row' : ''));
-        if (!alert) row.type = 'button';
-        row.setAttribute('aria-pressed', String(event.id === selectedId));
-        row.setAttribute('aria-label', event.title + ', ' + dateLabel(event) + ', ' + event.venue.name + ', ' + event.venue.city);
+        const row = node('div', null, 'gig-row' + (alert ? ' venue-alert' : '') + (inCalendar ? ' calendar-row' : ''));
+        const main = node(alert ? 'a' : 'button', null, 'gig-row-main');
+        if (!alert) main.type = 'button';
+        main.setAttribute('aria-label', (alert ? 'Open details for ' : 'View and navigate to ') + event.title + ', ' + dateLabel(event) + ', ' + event.venue.name + ', ' + event.venue.city);
         const date = node('span', null, 'gig-date');
         if (inCalendar) {
             date.className = 'gig-time';
@@ -95,16 +131,20 @@
         const content = node('span');
         content.append(node('span', event.title, 'gig-name'), node('span', event.venue.city + ' · ' + event.venue.name + (event.localDate ? ' · ' + event.localDate.slice(0, 4) : ''), 'gig-meta'));
         if (event.status === 'rescheduled' || event.status === 'postponed') content.append(node('span', event.status === 'rescheduled' ? 'Rescheduled — check event page' : 'Postponed — check event page', 'gig-meta'));
-        row.append(date, content, node('span', alert ? 'Avoid area' : C.match(event, preferences).label, 'gig-match'));
+        main.append(date, content, node('span', alert ? 'Avoid area' : C.match(event, preferences).label, 'gig-match'));
         if (alert) {
-            row.href = C.safeURL(event.url);
-            row.target = '_blank'; row.rel = 'noopener noreferrer';
-        } else row.onclick = () => {
-                selectedId = event.id;
-                if ($('calendarDialog').open) $('calendarDialog').close();
-                render();
-                $('concertIntro').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
+            main.href = C.safeURL(event.url);
+            main.target = '_blank'; main.rel = 'noopener noreferrer';
+            row.append(main);
+        } else {
+            main.onclick = () => openEvent(event.id);
+            const plan = node('button', isPlanned(event) ? '✓ Planned' : '+ Plan', 'plan-toggle');
+            plan.type = 'button';
+            plan.setAttribute('aria-label', (isPlanned(event) ? 'Remove ' : 'Add ') + event.title + (isPlanned(event) ? ' from My plans' : ' to My plans'));
+            plan.setAttribute('aria-pressed', String(isPlanned(event)));
+            plan.onclick = () => togglePlan(event);
+            row.append(main, plan);
+        }
         return row;
     }
     function renderList(container, events, empty, alert = false) {
@@ -122,7 +162,9 @@
         }
     }
     function renderCalendar() {
-        const events = [...available(''), ...venueAlerts()].filter(event => C.inCalendarRange(event, preferences, $('calendarRange').value)).sort(compareEvents);
+        const scope = $('calendarScope').value;
+        const candidates = scope === 'plans' ? plannedConcerts('') : scope === 'alerts' ? venueAlerts() : available('');
+        const events = candidates.filter(event => C.inCalendarRange(event, preferences, $('calendarRange').value)).sort(compareEvents);
         const agenda = $('calendarList');
         agenda.replaceChildren();
         for (const event of events) {
@@ -141,21 +183,26 @@
             }
             group.append(eventRow(event, event.purpose === 'venue_alert', true));
         }
-        if (!events.length) agenda.append(node('p', 'No events in this date range.', 'empty-state'));
+        if (!events.length) agenda.append(node('p', scope === 'plans' ? 'Nothing planned in this date range yet. Add concerts from the discovery list.' : 'No events in this date range.', 'empty-state'));
     }
     function renderFeed(events, matches) {
         const alerts = venueAlerts();
-        const choices = feedMode === 'matches' ? matches : feedMode === 'all' ? events : alerts;
+        const plans = events.filter(isPlanned);
+        const choices = feedMode === 'matches' ? matches : feedMode === 'all' ? events : feedMode === 'planned' ? plans : alerts;
         $('forYouView').setAttribute('aria-pressed', String(feedMode === 'matches'));
         $('allGigsView').setAttribute('aria-pressed', String(feedMode === 'all'));
+        $('plannedGigsView').setAttribute('aria-pressed', String(feedMode === 'planned'));
         $('venueAlertsView').setAttribute('aria-pressed', String(feedMode === 'alerts'));
         $('feedSummary').textContent = feedMode === 'matches' ? matches.length + ' taste matches · soonest first'
             : feedMode === 'all' ? events.length + ' concerts · soonest first'
+            : feedMode === 'planned' ? plans.length + ' concerts you plan to attend'
             : alerts.length + ' events at watched places · tap one for details';
         const visible = choices.slice(0, feedLimit);
-        renderList($('gigList'), visible, feedMode === 'matches' ? 'No taste matches here yet. Try All concerts or tune your taste.' : feedMode === 'all' ? 'No concerts in this view.' : 'No upcoming busy events at your watched places.', feedMode === 'alerts');
+        renderList($('gigList'), visible, feedMode === 'matches' ? 'No taste matches here yet. Try All concerts or tune your taste.' : feedMode === 'all' ? 'No concerts in this view.' : feedMode === 'planned' ? 'Nothing planned yet. Add a concert from For you or All concerts.' : 'No upcoming busy events at your watched places.', feedMode === 'alerts');
         $('showMoreGigs').hidden = visible.length >= choices.length;
         $('showMoreGigs').textContent = 'Show ' + Math.min(8, choices.length - visible.length) + ' more';
+        const totalPlans = plannedConcerts('').length;
+        $('calendarCount').textContent = totalPlans ? totalPlans + (totalPlans === 1 ? ' concert planned' : ' concerts planned') : 'Nothing planned yet';
     }
     function render() {
         const events = available();
@@ -166,6 +213,9 @@
         $('concertSubtitle').textContent = event ? event.venue.city + ' · ' + dateLabel(event) : 'Try a few more artists or styles.';
         $('matchReason').textContent = event ? C.match(event, preferences).reason + (typeof event.listingNote === 'string' ? ' · ' + event.listingNote : '') : 'LET YOUR TASTE LEAD';
         $('gigMatch').textContent = event ? C.match(event, preferences).label : 'No match yet';
+        $('planSelectedButton').textContent = event && isPlanned(event) ? '✓ In my plans' : '＋ Add to my plans';
+        $('planSelectedButton').setAttribute('aria-pressed', String(!!event && isPlanned(event)));
+        $('planSelectedButton').disabled = !event;
         $('pointToGig').disabled = !event || !C.coordinates(event.venue) || event.status === 'postponed';
         $('beerBeforeButton').disabled = !event || !C.coordinates(event.venue);
         $('selectedEventActions').hidden = !event;
@@ -204,7 +254,7 @@
         updateNavigation(compass.getPosition(), compass.getHeading());
     }
     function updateNavigation(position, heading) {
-        if (!active) return;
+        if (!active || !detailMode) return;
         const event = selected();
         if (position && position !== lastPositionSeen) { locationMessage = ''; lastPositionSeen = position; }
         $('gigDistance').textContent = !event ? '—' : !C.coordinates(event.venue) ? 'Venue unmapped' : position ? distance(event).toFixed(1) + ' km' : 'Location off';
@@ -304,8 +354,12 @@
         const event = selected();
         if (!event) return;
         const previous = [...preferences.hiddenEvents];
-        savePreferences({ ...preferences, hiddenEvents: [...new Set([...previous, event.id, ...(event.sourceIds || [])])] });
-        notify('Gig hidden. Your artist preferences are unchanged.', () => savePreferences({ ...preferences, hiddenEvents: previous }));
+        const previousPlans = [...preferences.plannedEvents];
+        const identities = [event.id, ...(event.sourceIds || [])];
+        detailMode = false;
+        savePreferences({ ...preferences, hiddenEvents: [...new Set([...previous, ...identities])], plannedEvents: previousPlans.filter(id => !identities.includes(id)) });
+        syncConcertView();
+        notify('Gig hidden. Your artist preferences are unchanged.', () => savePreferences({ ...preferences, hiddenEvents: previous, plannedEvents: previousPlans }));
     };
     $('restoreHidden').onclick = () => { savePreferences({ ...preferences, hiddenEvents: [] }); $('restoreHidden').textContent = 'Restore hidden gigs (0)'; notify('Hidden gigs restored.'); };
     $('exportPreferences').onclick = () => {
@@ -351,18 +405,22 @@
     $('tuneTasteButton').onclick = openPreferences;
     $('calendarButton').onclick = () => { renderCalendar(); openDialog('calendarDialog'); };
     $('calendarRange').onchange = renderCalendar;
+    $('calendarScope').onchange = renderCalendar;
     $('forYouView').onclick = () => { feedMode = 'matches'; feedLimit = 8; render(); };
     $('allGigsView').onclick = () => { feedMode = 'all'; feedLimit = 8; render(); };
+    $('plannedGigsView').onclick = () => { feedMode = 'planned'; feedLimit = 8; render(); };
     $('venueAlertsView').onclick = () => { feedMode = 'alerts'; feedLimit = 8; render(); };
     $('showMoreGigs').onclick = () => { feedLimit += 8; render(); };
+    $('backToConcerts').onclick = showPlanner;
+    $('planSelectedButton').onclick = () => { const event = selected(); if (event) togglePlan(event); };
     $('pointToGig').onclick = () => { sensorMessage = ''; locationMessage = ''; compass.start(); };
     $('refreshConcerts').onclick = loadConcerts;
     document.querySelectorAll('[data-close]').forEach(button => { button.onclick = () => $(button.dataset.close).close(); });
     window.Concerts = {
-        isActive: () => active,
+        isActive: () => active && detailMode,
         updateNavigation,
-        sensorStatus(message, sticky = false) { sensorMessage = sticky ? message : ''; if (active) $('gigNavigationStatus').textContent = message; },
-        locationError(error) { locationMessage = error.code === 1 ? 'Location permission denied. You can still browse gigs.' : 'Location is unavailable. Try again outside.'; if (active) $('gigNavigationStatus').textContent = locationMessage; }
+        sensorStatus(message, sticky = false) { sensorMessage = sticky ? message : ''; if (active && detailMode) $('gigNavigationStatus').textContent = message; },
+        locationError(error) { locationMessage = error.code === 1 ? 'Location permission denied. You can still browse gigs.' : 'Location is unavailable. Try again outside.'; if (active && detailMode) $('gigNavigationStatus').textContent = locationMessage; }
     };
     window.SpotifyImport?.init({
         getPreferences: () => preferences, savePreferences, openPreferences, notify,
