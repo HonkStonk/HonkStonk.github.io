@@ -188,6 +188,8 @@ def collect_venue(source, now, get=fetch):
         return collect_larrys(source, now, get)
     if source.get("adapter") == "nupagang_venue":
         return collect_nupagang_venue(source, now, get)
+    if source.get("adapter") == "arena_watch":
+        return collect_arena_watch(source, now, get)
     index = Page(get(source["indexUrl"]))
     prefix = source["eventPrefix"]
     links = sorted({urljoin(source["indexUrl"], link).split("#")[0].split("?")[0] for link in index.links})
@@ -275,6 +277,51 @@ def calendar_event(source, url, title, day, local_time, time_kind, now, styles=N
             "dateTime": instant.astimezone(timezone.utc).isoformat() if instant else None,
             "status": "cancelled" if re.search(r"\b(inställt|inställd|cancelled|canceled)\b", title, re.I) else status_name(title),
             "url": url, "ticketUrl": ticket if safe_url(ticket) else None, "lastVerifiedAt": now}
+
+
+def collect_arena_watch(source, now, get=fetch):
+    """Collect every public arena showing; non-music events become local busy-area alerts."""
+    index = CalendarHTML(get(source["indexUrl"])).root
+    cards = {}
+    for card in index.find(cls="card-event"):
+        links = list(card.find("a", "card-event-link"))
+        headings = list(card.find("h3"))
+        if len(links) != 1 or len(headings) != 1 or not links[0].attrs.get("href"):
+            raise ValueError("Arena event card markup changed")
+        cards[links[0].attrs["href"]] = unescape(headings[0].text())
+    links = sorted(cards)
+    prefix = source["eventPrefix"]
+    if not links or len(links) > 80 or any(not url.startswith(prefix) for url in links):
+        raise ValueError("Arena event listing changed or returned no event links")
+    events, seen = [], set()
+    for url in links:
+        page = Page(get(url))
+        found = []
+        for raw in objects(page.json_ld):
+            raw_types = raw.get("@type", []) if isinstance(raw, dict) else []
+            raw_types = [raw_types] if isinstance(raw_types, str) else raw_types
+            if raw.get("name") and raw.get("startDate") and any(str(t).endswith("Event") for t in raw_types):
+                found.append((raw, raw_types))
+        if not found:
+            raise ValueError("Arena event details no longer expose dated events")
+        for raw, raw_types in found:
+            raw = dict(raw)
+            raw["name"] = unescape(raw["name"])
+            if name_key(raw["name"]) in {"showstart", "pit party", "massan oppnar", "massan stanger"}:
+                raw["name"] = cards[url] + " — " + raw["name"]
+            identity = str(raw.get("@id") or (raw["name"] + "|" + raw["startDate"] + "|" + url))
+            if identity in seen:
+                continue
+            seen.add(identity)
+            event = normalize_venue_event(raw, page, url, source, now)
+            digest = hashlib.sha1(identity.encode()).hexdigest()[:20]
+            event["id"] = source["id"] + ":" + digest
+            event["sourceIds"] = [event["id"]]
+            is_music = "MusicEvent" in raw_types
+            event["purpose"] = "concert" if is_music else "venue_alert"
+            event["eventCategory"] = "Music/show" if is_music else "Sport" if "SportsEvent" in raw_types else "Busy event"
+            events.append(event)
+    return events
 
 
 def collect_livet(source, now, get=fetch):

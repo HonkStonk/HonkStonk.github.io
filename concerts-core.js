@@ -9,7 +9,8 @@
         version: 1,
         favourites: ['Dina Ögon', 'Amon Amarth', 'Cardigans', 'Eek-a-mouse', 'Asta Kask', 'Kardborrebandet'],
         dislikedArtists: [], styles: [],
-        cities: ['Stockholm', 'Falköping', 'Skövde', 'Uppsala'], hiddenEvents: []
+        cities: ['Stockholm', 'Falköping', 'Skövde', 'Uppsala'], hiddenEvents: [],
+        watchedVenues: ['Strawberry Arena']
     });
     function key(value) {
         const name = String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -21,8 +22,8 @@
     function validatePreferences(value) {
         if (!value || value.version !== 1) throw new Error('This backup format is not supported.');
         const result = { version: 1 };
-        for (const name of ['favourites', 'dislikedArtists', 'styles', 'cities', 'hiddenEvents']) {
-            const items = value[name];
+        for (const name of ['favourites', 'dislikedArtists', 'styles', 'cities', 'hiddenEvents', 'watchedVenues']) {
+            const items = value[name] == null && name === 'watchedVenues' ? ['Strawberry Arena'] : value[name];
             if (!Array.isArray(items) || items.length > (name === 'hiddenEvents' ? 5000 : 200) || items.some(x => typeof x !== 'string' || !x.trim() || x.length > 300)) {
                 throw new Error('Please use a valid Magic Compass preference backup.');
             }
@@ -78,13 +79,16 @@
         return [event.id, ...(event.sourceIds || [])].some(id => prefs.hiddenEvents.includes(id));
     }
     function eligible(event, prefs, city = '', now = new Date()) {
-        return (!event.localDate || event.localDate >= today(now)) && event.status !== 'cancelled' && !isHidden(event, prefs) && prefs.cities.some(c => key(c) === key(event.venue.city)) && (!city || key(city) === key(event.venue.city)) && match(event, prefs).tier >= 0;
+        return event.purpose !== 'venue_alert' && (!event.localDate || event.localDate >= today(now)) && event.status !== 'cancelled' && !isHidden(event, prefs) && prefs.cities.some(c => key(c) === key(event.venue.city)) && (!city || key(city) === key(event.venue.city)) && match(event, prefs).tier >= 0;
+    }
+    function venueAlertEligible(event, prefs, now = new Date()) {
+        return event.purpose === 'venue_alert' && (!event.localDate || event.localDate >= today(now)) && event.status !== 'cancelled' && !isHidden(event, prefs) && prefs.watchedVenues.some(venue => key(venue) === key(event.venue.name));
     }
     function inCalendarRange(event, prefs, days, now = new Date()) {
-        if (days === 'all' || match(event, prefs).tier === 2 || !event.localDate) return true;
+        if (days === 'all' || !event.localDate) return true;
         const end = new Date(today(now) + 'T12:00:00Z');
         end.setUTCDate(end.getUTCDate() + Number(days));
         return event.localDate <= end.toISOString().slice(0, 10);
     }
-    return { defaultPreferences, key, splitList, validatePreferences, safeURL, coordinates, validDate, validateSnapshot, today, match, isHidden, eligible, inCalendarRange };
+    return { defaultPreferences, key, splitList, validatePreferences, safeURL, coordinates, validDate, validateSnapshot, today, match, isHidden, eligible, venueAlertEligible, inCalendarRange };
 });

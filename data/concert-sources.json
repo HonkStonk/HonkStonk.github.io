@@ -189,9 +189,25 @@
         "Skövde Kulturhus, Skövde": {
           "name": "Skövde Kulturhus",
           "city": "Skövde",
-          "lat": null,
-          "lon": null
+          "lat": 58.3897538,
+          "lon": 13.8507894,
+          "address": "Trädgårdsgatan 9",
+          "coordinateSource": "https://www.skovde.se/uppleva-gora/boka-lokal-och-anlaggning/motes-och-konferenslokaler"
         }
+      }
+    },
+    {
+      "id": "strawberry_arena",
+      "name": "Strawberry Arena: concerts & busy-area alerts",
+      "adapter": "arena_watch",
+      "indexUrl": "https://strawberryarena.se/evenemang/",
+      "eventPrefix": "https://strawberryarena.se/evenemang/",
+      "venue": {
+        "name": "Strawberry Arena",
+        "city": "Solna",
+        "lat": 59.3725,
+        "lon": 18.0,
+        "coordinateSource": "https://strawberryarena.se/besok-arenan/hitta-till-arenan/"
       }
     },
     {

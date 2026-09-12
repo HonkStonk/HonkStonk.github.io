@@ -87,6 +87,20 @@ class SmallVenueTests(unittest.TestCase):
         self.assertEqual(events[0]['localTime'], '19:32')
         self.assertEqual(events[0]['artists'], [])
 
+    def test_arena_watch_separates_sport_alerts_from_concerts_and_keeps_each_showing(self):
+        source = {'id': 'arena', 'adapter': 'arena_watch', 'indexUrl': 'https://arena.example/events/',
+                  'eventPrefix': 'https://arena.example/events/', 'venue': {'name': 'Arena', 'city': 'Solna', 'lat': 59.37, 'lon': 18.0}}
+        listing = '<div class="card-event"><a class="card-event-link" href="https://arena.example/events/aik/"></a><h3>AIK Fotboll</h3></div>'
+        details = {'@context': 'https://schema.org', '@graph': [
+            {'@type': 'SportsEvent', '@id': '#one', 'name': 'Match one', 'startDate': '2026-09-12T15:00:00+02:00'},
+            {'@type': 'SportsEvent', '@id': '#two', 'name': 'Match two', 'startDate': '2026-09-16T19:00:00+02:00'},
+            {'@type': 'MusicEvent', '@id': '#three', 'name': 'Band', 'startDate': '2026-10-01T20:00:00+02:00'}]}
+        events = fc.collect_arena_watch(source, NOW, lambda url: listing if url == source['indexUrl'] else '<script type="application/ld+json">' + json.dumps(details) + '</script>')
+        self.assertEqual(len(events), 3)
+        self.assertEqual([event['purpose'] for event in events], ['venue_alert', 'venue_alert', 'concert'])
+        self.assertEqual(events[1]['localDate'], '2026-09-16')
+        self.assertEqual(len({event['id'] for event in events}), 3)
+
 
 class CredentialTests(unittest.TestCase):
     def test_required_ticketmaster_preflight_does_not_fetch_or_replace_snapshot(self):

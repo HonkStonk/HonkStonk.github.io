@@ -14,6 +14,8 @@
     let active = false;
     let selectedId = null;
     let cityFilter = '';
+    let feedMode = 'matches';
+    let feedLimit = 8;
     let loading = false;
     let sensorMessage = '';
     let locationMessage = '';
@@ -66,52 +68,94 @@
         const position = compass.getPosition();
         return position && C.coordinates(event.venue) ? compass.distance(position.coords.latitude, position.coords.longitude, event.venue.lat, event.venue.lon) : Infinity;
     }
-    function available() {
-        return (snapshot?.events || []).filter(event => C.eligible(event, preferences, cityFilter)).sort((a, b) => {
-            const taste = C.match(b, preferences).tier - C.match(a, preferences).tier;
-            const travel = distance(a) - distance(b);
-            return taste || (Number.isFinite(travel) ? travel : 0) || (a.localDate || '9999').localeCompare(b.localDate || '9999');
-        });
+    function compareEvents(a, b) {
+        return (a.localDate || '9999-99-99').localeCompare(b.localDate || '9999-99-99')
+            || (a.localTime || '99:99').localeCompare(b.localTime || '99:99')
+            || a.title.localeCompare(b.title);
     }
-    function eventRow(event) {
-        const row = node('button', null, 'gig-row');
-        row.type = 'button';
+    function available(city = cityFilter) {
+        return (snapshot?.events || []).filter(event => C.eligible(event, preferences, city)).sort(compareEvents);
+    }
+    function venueAlerts() {
+        return (snapshot?.events || []).filter(event => C.venueAlertEligible(event, preferences)).sort(compareEvents);
+    }
+    function eventRow(event, alert = false, inCalendar = false) {
+        const row = node(alert ? 'a' : 'button', null, 'gig-row' + (alert ? ' venue-alert' : '') + (inCalendar ? ' calendar-row' : ''));
+        if (!alert) row.type = 'button';
         row.setAttribute('aria-pressed', String(event.id === selectedId));
         row.setAttribute('aria-label', event.title + ', ' + dateLabel(event) + ', ' + event.venue.name + ', ' + event.venue.city);
         const date = node('span', null, 'gig-date');
-        if (event.localDate) {
+        if (inCalendar) {
+            date.className = 'gig-time';
+            date.textContent = event.localTime || 'TBA';
+        } else if (event.localDate) {
             const parsed = new Date(event.localDate + 'T12:00:00Z');
             date.append(new Intl.DateTimeFormat('en-GB', { month: 'short', timeZone: 'UTC' }).format(parsed), node('strong', event.localDate.slice(8)));
         } else date.append('DATE', node('strong', '?'));
         const content = node('span');
         content.append(node('span', event.title, 'gig-name'), node('span', event.venue.city + ' · ' + event.venue.name + (event.localDate ? ' · ' + event.localDate.slice(0, 4) : ''), 'gig-meta'));
         if (event.status === 'rescheduled' || event.status === 'postponed') content.append(node('span', event.status === 'rescheduled' ? 'Rescheduled — check event page' : 'Postponed — check event page', 'gig-meta'));
-        row.append(date, content, node('span', C.match(event, preferences).label, 'gig-match'));
-        row.onclick = () => {
-            selectedId = event.id;
-            $('calendarDialog').close();
-            render();
-            $('concertIntro').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
+        row.append(date, content, node('span', alert ? 'Avoid area' : C.match(event, preferences).label, 'gig-match'));
+        if (alert) {
+            row.href = C.safeURL(event.url);
+            row.target = '_blank'; row.rel = 'noopener noreferrer';
+        } else row.onclick = () => {
+                selectedId = event.id;
+                if ($('calendarDialog').open) $('calendarDialog').close();
+                render();
+                $('concertIntro').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
         return row;
     }
-    function renderList(container, events, empty) {
-        container.replaceChildren(...events.map(eventRow));
+    function renderList(container, events, empty, alert = false) {
+        container.replaceChildren(...events.map(event => eventRow(event, alert)));
         if (!events.length) container.append(node('p', empty, 'empty-state'));
     }
     function renderRegions() {
+        $('regionFilters').hidden = feedMode === 'alerts';
         $('regionFilters').replaceChildren();
         for (const city of ['', ...preferences.cities]) {
             const button = node('button', city || 'All places', 'chip');
             button.setAttribute('aria-pressed', String(city === cityFilter));
-            button.onclick = () => { cityFilter = city; selectedId = null; render(); };
+            button.onclick = () => { cityFilter = city; selectedId = null; feedLimit = 8; render(); };
             $('regionFilters').append(button);
         }
     }
     function renderCalendar() {
-        const events = available().filter(event => C.match(event, preferences).tier > 0 && C.inCalendarRange(event, preferences, $('calendarRange').value));
-        events.sort((a, b) => (a.localDate || '9999').localeCompare(b.localDate || '9999'));
-        renderList($('calendarList'), events, 'No matching gigs in this view yet. Try more artists or styles.');
+        const events = [...available(''), ...venueAlerts()].filter(event => C.inCalendarRange(event, preferences, $('calendarRange').value)).sort(compareEvents);
+        const agenda = $('calendarList');
+        agenda.replaceChildren();
+        for (const event of events) {
+            const groupKey = event.localDate || 'unknown';
+            let group = Array.from(agenda.children).find(child => child.dataset?.date === groupKey);
+            if (!group) {
+                group = node('section', null, 'calendar-day'); group.dataset.date = groupKey;
+                const heading = node('h3');
+                if (event.localDate) {
+                    const date = new Date(event.localDate + 'T12:00:00Z');
+                    const weekday = new Intl.DateTimeFormat('en-GB', { weekday: 'long', timeZone: 'UTC' }).format(date);
+                    const month = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
+                    heading.append(node('strong', event.localDate.slice(8)), weekday + ' · ' + month);
+                } else heading.textContent = 'Date to be announced';
+                group.append(heading); agenda.append(group);
+            }
+            group.append(eventRow(event, event.purpose === 'venue_alert', true));
+        }
+        if (!events.length) agenda.append(node('p', 'No events in this date range.', 'empty-state'));
+    }
+    function renderFeed(events, matches) {
+        const alerts = venueAlerts();
+        const choices = feedMode === 'matches' ? matches : feedMode === 'all' ? events : alerts;
+        $('forYouView').setAttribute('aria-pressed', String(feedMode === 'matches'));
+        $('allGigsView').setAttribute('aria-pressed', String(feedMode === 'all'));
+        $('venueAlertsView').setAttribute('aria-pressed', String(feedMode === 'alerts'));
+        $('feedSummary').textContent = feedMode === 'matches' ? matches.length + ' taste matches · soonest first'
+            : feedMode === 'all' ? events.length + ' concerts · soonest first'
+            : alerts.length + ' events at watched places · tap one for details';
+        const visible = choices.slice(0, feedLimit);
+        renderList($('gigList'), visible, feedMode === 'matches' ? 'No taste matches here yet. Try All concerts or tune your taste.' : feedMode === 'all' ? 'No concerts in this view.' : 'No upcoming busy events at your watched places.', feedMode === 'alerts');
+        $('showMoreGigs').hidden = visible.length >= choices.length;
+        $('showMoreGigs').textContent = 'Show ' + Math.min(8, choices.length - visible.length) + ' more';
     }
     function render() {
         const events = available();
@@ -127,7 +171,15 @@
         $('selectedEventActions').hidden = !event;
         if (event) $('eventSourceLink').href = C.safeURL(event.url);
         $('artistFeedback').replaceChildren();
-        for (const artist of event?.artists || []) {
+        const artists = event?.artists || [];
+        let feedbackTarget = $('artistFeedback');
+        if (artists.length > 4) {
+            const details = node('details', null, 'artist-feedback-more');
+            details.append(node('summary', 'Rate ' + artists.length + ' artists'));
+            $('artistFeedback').append(details);
+            feedbackTarget = details;
+        }
+        for (const artist of artists) {
             const row = node('div');
             row.append(node('span', artist));
             for (const [field, other, symbol, label] of [['favourites', 'dislikedArtists', '👍', 'Like'], ['dislikedArtists', 'favourites', '👎', 'Skip']]) {
@@ -144,11 +196,10 @@
                 };
                 row.append(button);
             }
-            $('artistFeedback').append(row);
+            feedbackTarget.append(row);
         }
         renderRegions();
-        renderList($('gigList'), matches, snapshot ? 'No favourite or style matches in the current sources for these places yet. Add a style, explore other gigs, or check back after an update.' : 'Concert data is not available yet. Beer mode still works.');
-        renderList($('otherGigList'), events.filter(event => C.match(event, preferences).tier === 0), 'No other gigs in the current sources for these places.');
+        renderFeed(events, matches);
         renderCalendar();
         updateNavigation(compass.getPosition(), compass.getHeading());
     }
@@ -181,7 +232,9 @@
             snapshot = next;
             const updated = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'Europe/Stockholm' }).format(new Date(snapshot.generatedAt));
             const old = Date.now() - Date.parse(snapshot.generatedAt) > 48 * 60 * 60 * 1000;
-            $('dataStatus').textContent = (old ? 'Older concert data · ' : 'Updated ') + updated + ' · ' + snapshot.events.length + ' gigs in current sources. Coverage is still growing.';
+            const concertCount = snapshot.events.filter(event => event.purpose !== 'venue_alert').length;
+            const alertCount = snapshot.events.length - concertCount;
+            $('dataStatus').textContent = (old ? 'Older event data · ' : 'Updated ') + updated + ' · ' + concertCount + ' concerts' + (alertCount ? ' + ' + alertCount + ' busy-place alerts' : '') + '. Coverage is still growing.';
             $('sourceDetails').replaceChildren();
             for (const source of snapshot.sources) {
                 const text = typeof source.name === 'string' ? source.name : 'Concert source';
@@ -214,6 +267,7 @@
         $('favouriteArtists').value = preferences.favourites.join('\n');
         $('dislikedArtists').value = preferences.dislikedArtists.join('\n');
         $('preferredCities').value = preferences.cities.join(', ');
+        $('watchedVenues').value = preferences.watchedVenues.join('\n');
         $('customStyles').value = preferences.styles.filter(s => !styles.some(t => C.key(t) === C.key(s))).join(', ');
         $('styleOptions').replaceChildren();
         for (const style of styles) {
@@ -232,6 +286,7 @@
                 favourites: C.splitList($('favouriteArtists').value),
                 dislikedArtists: C.splitList($('dislikedArtists').value),
                 cities: C.splitList($('preferredCities').value),
+                watchedVenues: C.splitList($('watchedVenues').value),
                 styles: [...new Set([...Array.from($('styleOptions').querySelectorAll('[aria-pressed="true"]')).map(button => button.textContent), ...C.splitList($('customStyles').value)])]
         });
     }
@@ -296,6 +351,10 @@
     $('tuneTasteButton').onclick = openPreferences;
     $('calendarButton').onclick = () => { renderCalendar(); openDialog('calendarDialog'); };
     $('calendarRange').onchange = renderCalendar;
+    $('forYouView').onclick = () => { feedMode = 'matches'; feedLimit = 8; render(); };
+    $('allGigsView').onclick = () => { feedMode = 'all'; feedLimit = 8; render(); };
+    $('venueAlertsView').onclick = () => { feedMode = 'alerts'; feedLimit = 8; render(); };
+    $('showMoreGigs').onclick = () => { feedLimit += 8; render(); };
     $('pointToGig').onclick = () => { sensorMessage = ''; locationMessage = ''; compass.start(); };
     $('refreshConcerts').onclick = loadConcerts;
     document.querySelectorAll('[data-close]').forEach(button => { button.onclick = () => $(button.dataset.close).close(); });

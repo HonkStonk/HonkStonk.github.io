@@ -39,7 +39,8 @@ async function app({ offline = false, spotify = false, spotifyConfig = { clientI
     // Fixed test records keep scheduled tests independent of touring calendars.
     const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', coverage: { gaps }, sources, events: [
         { id: 'test:amon', providers: ['ticketmaster'], title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], localDate: '2026-10-24', localTime: '18:30', timeKind: 'start', status: 'scheduled', url: 'https://example.com/amon', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } },
-        { id: 'test:other', title: 'Another band', artists: ['Another band'], styles: ['Indie'], localDate: '2027-05-30', localTime: null, timeKind: 'listed', status: 'scheduled', url: 'https://example.com/other', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } }
+        { id: 'test:match', providers: ['arena'], title: 'AIK – Mjällby', artists: [], styles: [], purpose: 'venue_alert', eventCategory: 'Sport', localDate: '2026-09-16', localTime: '19:00', timeKind: 'listed', status: 'scheduled', url: 'https://example.com/match', venue: { name: 'Strawberry Arena', city: 'Solna', lat: 59.37, lon: 18 } },
+        { id: 'test:other', title: 'Another band', artists: ['Another band'], styles: ['Indie'], localDate: '2026-09-20', localTime: null, timeKind: 'listed', status: 'scheduled', url: 'https://example.com/other', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } }
     ] };
     let geolocationStarts = 0;
     class FixedDate extends Date { constructor(...args) { super(...(args.length ? args : ['2026-09-07T12:00:00Z'])); } static now() { return new Date('2026-09-07T12:00:00Z').getTime(); } }
@@ -78,7 +79,7 @@ test('coverage gaps render safely without breaking the concert snapshot', async 
     assert.match(details.textContent, /Scen 44: Not imported yet/);
     assert.equal(details.children[0].children[0].href, 'https://example.com/programme');
     assert.equal(details.children[1].children.length, 0);
-    assert.match(elements.get('dataStatus').textContent, /gigs in current sources/);
+    assert.match(elements.get('dataStatus').textContent, /concerts/);
 });
 
 test('previous Ticketmaster success with saved listings is distinguished from never connected', async () => {
@@ -129,6 +130,17 @@ test('concert view loads a real favourite without asking for location; bottle an
     assert.equal(e('compassNeedle').hidden, false);
     assert.equal(e('guitarNeedle').hidden, true);
     assert.match(e('distanceText').textContent, /^Distance: [\d.]+ km/);
+});
+test('concert feeds are chronological and venue alerts remain a separate view', async () => {
+    const { elements } = await app();
+    elements.get('concertMode').click();
+    assert.equal(elements.get('gigList').children[0].textContent.includes('Amon Amarth'), true);
+    elements.get('allGigsView').click();
+    assert.equal(elements.get('gigList').children[0].textContent.includes('Another band'), true);
+    elements.get('venueAlertsView').click();
+    assert.equal(elements.get('gigList').children.length, 1);
+    assert.match(elements.get('gigList').children[0].textContent, /AIK – Mjällby/);
+    assert.match(elements.get('feedSummary').textContent, /1 events at watched places/);
 });
 test('hiding and restoring a gig preserves artist feedback', async () => {
     const { elements, saved } = await app();

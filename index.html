@@ -61,10 +61,16 @@
             <button id="hideEventButton" class="text-button">Hide this gig</button>
         </div>
         <div id="artistFeedback" class="artist-feedback"></div>
-        <div class="section-heading"><h2>Gigs for you</h2><button id="tuneTasteButton" class="text-button">Tune your taste</button></div>
+        <div class="section-heading"><h2>Concerts</h2><button id="tuneTasteButton" class="text-button">Tune your taste</button></div>
         <div id="regionFilters" class="chip-list" aria-label="Filter by city"></div>
+        <div class="feed-tabs" aria-label="Choose concert view">
+            <button id="forYouView" aria-pressed="true">For you</button>
+            <button id="allGigsView" aria-pressed="false">All concerts</button>
+            <button id="venueAlertsView" aria-pressed="false">Busy places</button>
+        </div>
+        <p id="feedSummary" class="feed-summary"></p>
         <div id="gigList" class="gig-list" aria-live="polite"><p class="empty-state">Looking for gigs…</p></div>
-        <details id="otherEvents"><summary>Other gigs in your places</summary><p class="muted small">Extra options, without a taste match. Nearby events may mean a busier area; this is not live crowd information.</p><div id="otherGigList" class="gig-list"></div></details>
+        <button id="showMoreGigs" class="secondary wide" hidden>Show more</button>
         <p id="dataStatus" class="data-status" role="status"></p>
         <button id="refreshConcerts" class="text-button">Check for updates</button>
         <details class="source-details"><summary>About the concert data</summary><div id="sourceDetails"></div><p>Check the event page before travelling. Times and line-ups can change.</p></details>
@@ -91,6 +97,7 @@
             <label>What else sounds good?</label><div id="styleOptions" class="chip-list"></div>
             <label for="customStyles">More styles</label><input id="customStyles" placeholder="e.g. ska, Swedish indie, doom metal">
             <label for="preferredCities">Cities to show</label><input id="preferredCities" placeholder="Stockholm, Uppsala, Falköping, Skövde" required>
+            <label for="watchedVenues">Places to watch for busy events</label><textarea id="watchedVenues" rows="2" placeholder="Strawberry Arena"></textarea><p class="small muted">Their concerts stay in the concert feed. Sport and other large events appear under “Busy places” so you can avoid the area.</p>
             <details><summary>Artists you'd rather skip</summary><label class="sr-only" for="dislikedArtists">Disliked artists</label><textarea id="dislikedArtists" rows="3" placeholder="One artist per line"></textarea><p class="small muted">This affects the artist. “Hide this gig” only hides that one event.</p></details>
             <p class="small muted">Preferences stay in this browser. No account, ads or tracking.</p>
             <p id="preferencesError" class="form-error" role="alert"></p>
@@ -101,8 +108,8 @@
     </dialog>
     <dialog id="calendarDialog" aria-labelledby="calendarTitle">
         <div class="dialog-heading"><h2 id="calendarTitle">Your gig calendar</h2><button class="icon-button" data-close="calendarDialog" aria-label="Close calendar">×</button></div>
-        <label for="calendarRange">Show</label><select id="calendarRange"><option value="all">All announced dates</option><option value="30">Next 30 days</option><option value="90">Next 3 months</option></select>
-        <p class="small muted">Favourites stay here even when they're further away.</p><div id="calendarList" class="gig-list"></div>
+        <label for="calendarRange">Show</label><select id="calendarRange"><option value="30">Next 30 days</option><option value="90">Next 3 months</option><option value="all">All announced dates</option></select>
+        <p class="small muted">Concerts and watched busy-place alerts, grouped day by day.</p><div id="calendarList" class="calendar-agenda"></div>
     </dialog>
     <dialog id="beerBeforeDialog" aria-labelledby="beerBeforeTitle">
         <div class="dialog-heading"><h2 id="beerBeforeTitle">Beer near the venue</h2><button class="icon-button" data-close="beerBeforeDialog" aria-label="Close beer places">×</button></div>
