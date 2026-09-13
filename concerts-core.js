@@ -84,11 +84,5 @@
     function venueAlertEligible(event, prefs, now = new Date()) {
         return event.purpose === 'venue_alert' && (!event.localDate || event.localDate >= today(now)) && event.status !== 'cancelled' && !isHidden(event, prefs) && prefs.watchedVenues.some(venue => key(venue) === key(event.venue.name));
     }
-    function inCalendarRange(event, prefs, days, now = new Date()) {
-        if (days === 'all' || !event.localDate) return true;
-        const end = new Date(today(now) + 'T12:00:00Z');
-        end.setUTCDate(end.getUTCDate() + Number(days));
-        return event.localDate <= end.toISOString().slice(0, 10);
-    }
-    return { defaultPreferences, key, splitList, validatePreferences, safeURL, coordinates, validDate, validateSnapshot, today, match, isHidden, eligible, venueAlertEligible, inCalendarRange };
+    return { defaultPreferences, key, splitList, validatePreferences, safeURL, coordinates, validDate, validateSnapshot, today, match, isHidden, eligible, venueAlertEligible };
 });

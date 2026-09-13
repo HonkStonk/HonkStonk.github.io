@@ -127,6 +127,7 @@
         } else if (event.localDate) {
             const parsed = new Date(event.localDate + 'T12:00:00Z');
             date.append(new Intl.DateTimeFormat('en-GB', { month: 'short', timeZone: 'UTC' }).format(parsed), node('strong', event.localDate.slice(8)));
+            if (alert) date.append(node('span', event.localTime || 'TBA', 'gig-alert-time'));
         } else date.append('DATE', node('strong', '?'));
         const content = node('span');
         content.append(node('span', event.title, 'gig-name'), node('span', event.venue.city + ' · ' + event.venue.name + (event.localDate ? ' · ' + event.localDate.slice(0, 4) : ''), 'gig-meta'));
@@ -164,7 +165,7 @@
     function renderCalendar() {
         const scope = $('calendarScope').value;
         const candidates = scope === 'plans' ? plannedConcerts('') : scope === 'alerts' ? venueAlerts() : available('');
-        const events = candidates.filter(event => C.inCalendarRange(event, preferences, $('calendarRange').value)).sort(compareEvents);
+        const events = candidates.sort(compareEvents);
         const agenda = $('calendarList');
         agenda.replaceChildren();
         for (const event of events) {
@@ -183,7 +184,7 @@
             }
             group.append(eventRow(event, event.purpose === 'venue_alert', true));
         }
-        if (!events.length) agenda.append(node('p', scope === 'plans' ? 'Nothing planned in this date range yet. Add concerts from the discovery list.' : 'No events in this date range.', 'empty-state'));
+        if (!events.length) agenda.append(node('p', scope === 'plans' ? 'Nothing planned yet. Add concerts from the discovery list.' : 'No announced events.', 'empty-state'));
     }
     function renderFeed(events, matches) {
         const alerts = venueAlerts();
@@ -404,7 +405,6 @@
     $('preferencesButton').onclick = openPreferences;
     $('tuneTasteButton').onclick = openPreferences;
     $('calendarButton').onclick = () => { renderCalendar(); openDialog('calendarDialog'); };
-    $('calendarRange').onchange = renderCalendar;
     $('calendarScope').onchange = renderCalendar;
     $('forYouView').onclick = () => { feedMode = 'matches'; feedLimit = 8; render(); };
     $('allGigsView').onclick = () => { feedMode = 'all'; feedLimit = 8; render(); };

@@ -26,12 +26,6 @@ test('event hiding never changes artist taste or hides a different date', () => 
     assert.equal(C.match(gig(), prefs).tier, 2);
     assert.equal(JSON.stringify(prefs.favourites), before);
 });
-test('calendar date ranges are literal and predictable', () => {
-    const prefs = C.defaultPreferences();
-    assert.equal(C.inCalendarRange(gig(), prefs, '30', now), false);
-    assert.equal(C.inCalendarRange(gig({ artists: ['Other artist'] }), prefs, '30', now), false);
-    assert.equal(C.inCalendarRange(gig(), prefs, 'all', now), true);
-});
 test('busy-place alerts are separate from concerts and follow watched venue preferences', () => {
     const prefs = C.defaultPreferences();
     const alert = gig({ purpose: 'venue_alert', venue: { name: 'Strawberry Arena', city: 'Solna', lat: 59.37, lon: 18 } });
@@ -43,7 +37,6 @@ test('busy-place alerts are separate from concerts and follow watched venue pref
 test('venue titles match only an entire favourite name when no lineup exists', () => {
     const prefs = C.defaultPreferences();
     assert.equal(C.match(gig({ artists: [] }), prefs).label, 'Title match');
-    assert.equal(C.inCalendarRange(gig({ artists: [] }), prefs, '30', now), false);
     assert.equal(C.match(gig({ artists: [], title: 'A tribute to Amon Amarth' }), prefs).tier, 0);
     assert.equal(C.match(gig({ artists: ['Tribute Band'] }), prefs).tier, 0);
     prefs.favourites = [];
