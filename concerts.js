@@ -85,6 +85,17 @@
         if (withTime) label += event.localTime ? ' · ' + (event.timeKind === 'doors' ? 'Doors ' : event.timeKind === 'listed' ? 'Listed time ' : '') + event.localTime : ' · Time TBA';
         return label;
     }
+    function ticketPriceLabel(event) {
+        const price = event.ticketPrice;
+        if (!price) return '';
+        try {
+            return 'From ' + new Intl.NumberFormat('sv-SE', {
+                style: 'currency', currency: price.currency,
+                minimumFractionDigits: Number.isInteger(price.amount) ? 0 : 2,
+                maximumFractionDigits: 2
+            }).format(price.amount);
+        } catch { return ''; }
+    }
     function distance(event) {
         const position = compass.getPosition();
         return position && C.coordinates(event.venue) ? compass.distance(position.coords.latitude, position.coords.longitude, event.venue.lat, event.venue.lon) : Infinity;
@@ -127,8 +138,11 @@
         } else if (event.localDate) {
             const parsed = new Date(event.localDate + 'T12:00:00Z');
             date.append(new Intl.DateTimeFormat('en-GB', { month: 'short', timeZone: 'UTC' }).format(parsed), node('strong', event.localDate.slice(8)));
-            if (alert) date.append(node('span', event.localTime || 'TBA', 'gig-alert-time'));
-        } else date.append('DATE', node('strong', '?'));
+            if (!inCalendar) date.append(node('span', event.localTime || 'TBA', 'gig-list-time'));
+        } else {
+            date.append('DATE', node('strong', '?'));
+            if (!inCalendar) date.append(node('span', event.localTime || 'TBA', 'gig-list-time'));
+        }
         const content = node('span');
         content.append(node('span', event.title, 'gig-name'), node('span', event.venue.city + ' · ' + event.venue.name + (event.localDate ? ' · ' + event.localDate.slice(0, 4) : ''), 'gig-meta'));
         if (event.status === 'rescheduled' || event.status === 'postponed') content.append(node('span', event.status === 'rescheduled' ? 'Rescheduled — check event page' : 'Postponed — check event page', 'gig-meta'));
@@ -220,7 +234,12 @@
         $('pointToGig').disabled = !event || !C.coordinates(event.venue) || event.status === 'postponed';
         $('beerBeforeButton').disabled = !event || !C.coordinates(event.venue);
         $('selectedEventActions').hidden = !event;
-        if (event) $('eventSourceLink').href = C.safeURL(event.url);
+        if (event) {
+            $('eventSourceLink').href = C.safeURL(event.ticketUrl) || C.safeURL(event.url);
+            const priceLabel = ticketPriceLabel(event);
+            $('eventTicketPrice').textContent = priceLabel;
+            $('eventTicketPrice').hidden = !priceLabel;
+        }
         $('artistFeedback').replaceChildren();
         const artists = event?.artists || [];
         let feedbackTarget = $('artistFeedback');

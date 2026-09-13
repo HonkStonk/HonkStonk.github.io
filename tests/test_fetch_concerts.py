@@ -127,10 +127,19 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(set(result['events'][0]['providers']), {'tickster', 'ticketmaster'})
 
     def test_venue_doors_and_show_are_not_confused(self):
-        raw = {'name': 'Amon Amarth', 'startDate': '2026-10-24T17:30:00+02:00', 'performer': {'name': 'Amon Amarth'}}
+        raw = {'name': 'Amon Amarth', 'startDate': '2026-10-24T17:30:00+02:00', 'performer': {'name': 'Amon Amarth'},
+               'offers': [{'url': 'https://tickets.example.com/gig', 'lowPrice': '395', 'priceCurrency': 'sek'}]}
         page = fc.Page('<p>Entréer öppnar <b>17:30</b></p><p>Showstart <b>18:30</b></p>')
         result = fc.normalize_venue_event(raw, page, 'https://example.com/gig', SOURCE, NOW)
         self.assertEqual((result['localTime'], result['timeKind'], result['dateTime']), ('18:30', 'start', '2026-10-24T16:30:00+00:00'))
+        self.assertEqual(result['ticketPrice'], {'amount': 395, 'currency': 'SEK'})
+
+    def test_ticketmaster_uses_the_cheapest_listed_price(self):
+        raw = {'id': '1', 'name': 'Gig', 'url': 'https://example.com/gig', 'dates': {'start': {}},
+               'priceRanges': [{'min': 595, 'max': 795, 'currency': 'SEK'},
+                               {'min': 450.5, 'max': 650, 'currency': 'SEK'}]}
+        self.assertEqual(fc.normalize_ticketmaster(raw, NOW)['ticketPrice'],
+                         {'amount': 450.5, 'currency': 'SEK'})
 
     def test_date_only_stays_without_time_or_utc_instant(self):
         result = fc.normalize_venue_event({'name': 'Gig', 'startDate': '2026-10-24'}, fc.Page(''), 'https://example.com/gig', SOURCE, NOW)

@@ -12,6 +12,7 @@ from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from html import unescape
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -134,6 +135,33 @@ def status_name(value):
     return "scheduled"
 
 
+def ticket_price(amount, currency):
+    if amount is None or isinstance(amount, bool) or not isinstance(currency, str):
+        return None
+    try:
+        amount = float(amount)
+    except (TypeError, ValueError):
+        return None
+    currency = currency.strip().upper()
+    if not math.isfinite(amount) or amount < 0 or amount > 10_000_000 or not re.fullmatch(r"[A-Z]{3}", currency):
+        return None
+    return {"amount": int(amount) if amount.is_integer() else amount, "currency": currency}
+
+
+def cheapest_offer(offers, amount_keys=("lowPrice", "price")):
+    offers = offers if isinstance(offers, list) else [offers]
+    prices = []
+    for offer in offers:
+        if not isinstance(offer, dict):
+            continue
+        amount = next((offer.get(key) for key in amount_keys if offer.get(key) is not None), None)
+        price = ticket_price(amount, offer.get("priceCurrency") or offer.get("currency"))
+        if price:
+            prices.append(price)
+    currencies = {price["currency"] for price in prices}
+    return min(prices, key=lambda price: price["amount"]) if len(currencies) == 1 else None
+
+
 def normalize_venue_event(raw, page, url, source, now):
     start = raw.get("startDate")
     if not start:
@@ -160,8 +188,9 @@ def normalize_venue_event(raw, page, url, source, now):
     artists = [item["name"] for item in performer if isinstance(item, dict) and item.get("name")]
     event_id = source["id"] + ":" + urlparse(url).path.rstrip("/").split("/")[-1]
     offers = raw.get("offers", {})
-    offers = offers[0] if isinstance(offers, list) and offers else offers
-    ticket_url = offers.get("url") if isinstance(offers, dict) else None
+    offer_list = offers if isinstance(offers, list) else [offers]
+    ticket_url = next((offer.get("url") for offer in offer_list if isinstance(offer, dict) and safe_url(offer.get("url"))), None)
+    lowest_price = cheapest_offer(offers)
     return {
         "id": event_id, "sourceIds": [event_id], "providers": [source["id"]],
         "title": raw["name"], "artists": artists,
@@ -170,6 +199,7 @@ def normalize_venue_event(raw, page, url, source, now):
         "timeKind": time_kind, "timeZone": "Europe/Stockholm", "dateTime": date_time,
         "status": status_name(raw.get("eventStatus", "")), "url": url,
         "ticketUrl": ticket_url if safe_url(ticket_url) else None, "lastVerifiedAt": now,
+        **({"ticketPrice": lowest_price} if lowest_price else {}),
     }
 
 
@@ -789,6 +819,7 @@ def normalize_ticketmaster(raw, now):
     location = venue.get("location", {})
     event_id = "ticketmaster:" + raw["id"]
     styles = {item.get(level, {}).get("name") for item in raw.get("classifications", []) for level in ("genre", "subGenre")}
+    lowest_price = cheapest_offer(raw.get("priceRanges", []), ("min",))
     return {
         "id": event_id, "sourceIds": [event_id], "providers": ["ticketmaster"],
         "title": raw["name"], "artists": [a["name"] for a in attractions if a.get("name")],
@@ -800,6 +831,7 @@ def normalize_ticketmaster(raw, now):
         "timeKind": "listed", "timeZone": dates.get("timezone") or venue.get("timezone") or "Europe/Stockholm",
         "dateTime": start.get("dateTime"), "status": status_name(dates.get("status", {}).get("code", "")),
         "url": raw["url"], "lastVerifiedAt": now,
+        **({"ticketPrice": lowest_price} if lowest_price else {}),
     }
 
 
@@ -892,6 +924,10 @@ def validate(events):
             datetime.strptime(event["localDate"], "%Y-%m-%d")
         if event["localTime"]:
             datetime.strptime(event["localTime"], "%H:%M")
+        price = event.get("ticketPrice")
+        if price is not None and ticket_price(price.get("amount") if isinstance(price, dict) else None,
+                                               price.get("currency") if isinstance(price, dict) else None) != price:
+            raise ValueError("Invalid ticket price")
         if not isinstance(event["artists"], list) or any(not isinstance(a, str) or not a.strip() for a in event["artists"]) or not isinstance(event["venue"].get("city"), str):
             raise ValueError("Invalid event artist or venue data")
 
