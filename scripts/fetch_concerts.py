@@ -163,6 +163,67 @@ def cheapest_offer(offers, amount_keys=("lowPrice", "price")):
     return min(prices, key=lambda price: price["amount"]) if len(currencies) == 1 else None
 
 
+def sek_price_range(text):
+    """Read the lowest amount from a short Swedish price field such as 450–470 kr."""
+    text = unescape(str(text or "")).replace("\xa0", " ")
+    if not re.search(r"\b(?:kr|SEK)\b", text, re.I):
+        return None
+    tokens = re.findall(r"(?<!\d)(\d{1,3}(?:[ ]\d{3})+(?:[,.]\d{1,2})?|\d+(?:[,.]\d{1,2})?)(?!\d)", text)
+    amounts = []
+    for token in tokens:
+        try:
+            amounts.append(float(token.replace(" ", "").replace(",", ".")))
+        except ValueError:
+            pass
+    return ticket_price(min(amounts), "SEK") if amounts else None
+
+
+def tickster_storefront_price(html):
+    """Read selectable product prices without mistaking dates or cart totals for prices."""
+    tree = CalendarHTML(html).root
+    amounts = []
+    for block in tree.find(cls="price-quantity"):
+        for token in re.findall(r"(\d{1,3}(?:[ \xa0]\d{3})*(?:[,.]\d{1,2})?)\s*kr\b", block.text(), re.I):
+            try:
+                amount = float(token.replace(" ", "").replace("\xa0", "").replace(",", "."))
+                if amount > 0:
+                    amounts.append(amount)
+            except ValueError:
+                pass
+    return ticket_price(min(amounts), "SEK") if amounts else None
+
+
+def enrich_tickster_storefront_prices(events, opener_factory=None):
+    allowed_hosts = {"secure.tickster.com", "www.tickster.com", "biljett.debaser.se", "biljett.kulturaktiebolaget.se"}
+    sessions = {}
+    own_sessions = opener_factory is None
+    opener_factory = opener_factory or (lambda: build_opener(HTTPCookieProcessor(CookieJar())))
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/140.0 Safari/537.36",
+        "Accept-Language": "sv-SE,sv;q=0.9,en;q=0.8",
+        "Accept": "text/html,application/xhtml+xml",
+    }
+    for event in events:
+        url = event.get("ticketUrl")
+        host = urlparse(str(url or "")).hostname
+        if event.get("ticketPrice") or host not in allowed_hosts:
+            continue
+        try:
+            opener = sessions.setdefault(host, opener_factory())
+            response = opener.open(Request(url, headers=headers), timeout=20)
+            content = response.read(4_000_001)
+            if len(content) > 4_000_000:
+                continue
+            price = tickster_storefront_price(content.decode("utf-8"))
+            if price:
+                event["ticketPrice"] = price
+        except (HTTPError, URLError, TimeoutError, OSError, UnicodeDecodeError, ValueError):
+            pass
+        if own_sessions:
+            time.sleep(0.1)
+    return events
+
+
 def ticketmaster_selection_price(data):
     if not isinstance(data, dict) or data.get("maintenance") or not data.get("hasEnabledTicketTypes"):
         return None
@@ -465,9 +526,13 @@ def collect_livet(source, now, get=fetch):
         doors = fields.get("Dörrar")
         if doors and doors.strip() in {"-", "–", "TBA"}:
             doors = None
-        events.append(calendar_event(source, link, title, day, doors, "doors", now, styles,
-                                     ticket=tickets[0].attrs.get("href") if tickets else None))
-    return events
+        event = calendar_event(source, link, title, day, doors, "doors", now, styles,
+                               ticket=tickets[0].attrs.get("href") if tickets else None)
+        price = sek_price_range(fields.get("Pris"))
+        if price:
+            event["ticketPrice"] = price
+        events.append(event)
+    return enrich_tickster_storefront_prices(events)
 
 
 SWEDISH_MONTHS = {name: i for i, name in enumerate(["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"], 1)}
@@ -857,7 +922,7 @@ def collect_tickster(config, api_key, now, get=fetch, get_binary=fetch_binary):
         event = dict(raw)
         event["venue"] = venue
         events.append(normalize_tickster(event, now))
-    return events
+    return enrich_tickster_storefront_prices(events) if get is fetch and get_binary is fetch_binary else events
 
 
 def number_or_none(value, maximum):

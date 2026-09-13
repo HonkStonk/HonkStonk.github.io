@@ -150,6 +150,13 @@ class CollectorTests(unittest.TestCase):
         ]}
         self.assertEqual(fc.ticketmaster_selection_price(selection), {'amount': 545, 'currency': 'SEK'})
 
+    def test_tickster_storefront_uses_the_lowest_product_price_only(self):
+        html = '''<p>Event 14/9 2026</p>
+          <div class="price-quantity"><div>350 kr</div></div>
+          <div class="price-quantity"><div>Student 299,50 kr</div></div>
+          <div class="cart">0 kr</div>'''
+        self.assertEqual(fc.tickster_storefront_price(html), {'amount': 299.5, 'currency': 'SEK'})
+
     def test_date_only_stays_without_time_or_utc_instant(self):
         result = fc.normalize_venue_event({'name': 'Gig', 'startDate': '2026-10-24'}, fc.Page(''), 'https://example.com/gig', SOURCE, NOW)
         self.assertIsNone(result['localTime'])

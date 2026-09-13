@@ -2,6 +2,7 @@
 import sys
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'scripts'))
 import fetch_concerts as fc
@@ -16,10 +17,11 @@ def livet_card(slug='punk', day='2026-10-25 19:00:00'):
     return f'<div class="event"><time datetime="{day}">Tomorrow</time><h3><a href="https://venue.example/event/{slug}/">Band</a></h3></div>'
 
 
-def livet_info(title='Band + Support', category='Punk, Konsert', doors='19:00'):
+def livet_info(title='Band + Support', category='Punk, Konsert', doors='19:00', price='450 - 470 kr'):
     return f'''<div class="info-box info-box-event"><h1>{title}</h1><table class="event-info">
       <tr><td class="key">Vad</td><td class="value">{category}</td></tr>
-      <tr><td class="key">Dörrar</td><td class="value">{doors}</td></tr></table>
+      <tr><td class="key">Dörrar</td><td class="value">{doors}</td></tr>
+      <tr><td class="key">Pris</td><td class="value">{price}</td></tr></table>
       <a class="buy-ticket" href="https://tickets.example/gig">Buy</a></div>'''
 
 
@@ -46,6 +48,7 @@ class StockholmCalendarTests(unittest.TestCase):
         self.assertEqual(gig['dateTime'], '2026-10-25T18:00:00+00:00')
         self.assertEqual(gig['timeKind'], 'doors')
         self.assertEqual(gig['styles'], ['Punk'])
+        self.assertEqual(gig['ticketPrice'], {'amount': 450, 'currency': 'SEK'})
         self.assertEqual(gig['artists'], [])  # A title is not a verified performer list.
 
     def test_livet_repeated_pages_and_conflicting_summaries_fail(self):
@@ -97,7 +100,8 @@ class StockholmCalendarTests(unittest.TestCase):
             if s['id'] == 'slakthusen':
                 raise ValueError('Markup changed')
             return []
-        result = fc.refresh(config, previous, NOW, venue_collector=collect)
+        with patch.dict(fc.os.environ, {'TICKETMASTER_API_KEY': '', 'TICKSTER_API_KEY': ''}):
+            result = fc.refresh(config, previous, NOW, venue_collector=collect)
         self.assertIn(old['id'], [e['id'] for e in result['events']])
         self.assertEqual(result['sources'][0]['status'], 'error')
 
