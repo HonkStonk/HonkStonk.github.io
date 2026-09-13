@@ -17,7 +17,7 @@ Open [the local app](http://localhost:8765). Use an HTTP server instead of openi
 - **Menu / Tune your taste:** favourite artists, style suggestions, free text, cities and busy venues to watch. Artist 👍/👎 affects that artist. **Hide this gig** only hides that event and offers undo.
 - **Concert feed:** **For you**, **All concerts**, **My plans** and **Busy places** are separate, bounded views. Every view shows dates and listed times, stays strictly chronological and expands eight rows at a time. Style matches show the actual matching style, such as **Punk** or **Reggae**.
 - **Planning and calendar:** **+ Plan** saves a concert locally. **My calendar** opens a day-by-day agenda of every announced date, showing planned concerts by default with optional all-concert and busy-place views.
-- **Ticket prices:** when a provider publishes a price range, concert details show the cheapest listed price beside the ticket link. Events without reliable price data remain unlabeled.
+- **Ticket prices:** when a provider publishes a price range, concert details show the cheapest listed per-ticket price beside the ticket link. Ticketmaster prices include its displayed per-ticket service fee; order-level fees that depend on checkout choices are not included. Events without reliable price data remain unlabeled.
 - **Beer before:** currently shows curated pubs within 3 km of the venue that are open **now**, with map directions. It does not forecast opening on the gig date.
 - Preferences stay in browser local storage; export/import a backup from the menu. Spotify import is visible in preferences; its button becomes available once the owner configures a Client ID. Each invited visitor signs into their own account (walkthrough below).
 

@@ -195,6 +195,16 @@ test('artist skip is an explicit separate action and updates recommendations', a
     assert.deepEqual(prefs.hiddenEvents, []);
     assert.notEqual(elements.get('concertTitle').textContent, 'Amon Amarth');
 });
+test('a title-only concert still offers explicit like and skip controls', async () => {
+    const { elements } = await app();
+    elements.get('concertMode').click();
+    elements.get('allGigsView').click();
+    elements.get('gigList').children[0].children[0].click();
+    const feedback = elements.get('artistFeedback');
+    assert.match(feedback.textContent, /Another band/);
+    assert.equal(feedback.children[0].children[1].textContent, '👍');
+    assert.equal(feedback.children[0].children[2].textContent, '👎');
+});
 test('an invalid import keeps existing preferences and reports the error', async () => {
     const { elements, saved } = await app();
     elements.get('restoreHidden').click();

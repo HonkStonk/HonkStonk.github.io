@@ -18,9 +18,10 @@ from pathlib import Path
 import re
 import time
 import unicodedata
+from http.cookiejar import CookieJar
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urljoin, urlparse, parse_qs, unquote, quote
-from urllib.request import Request, urlopen
+from urllib.request import Request, urlopen, build_opener, HTTPCookieProcessor
 from zoneinfo import ZoneInfo
 from collector_credentials import load_ticketmaster_key, load_tickster_key
 
@@ -160,6 +161,64 @@ def cheapest_offer(offers, amount_keys=("lowPrice", "price")):
             prices.append(price)
     currencies = {price["currency"] for price in prices}
     return min(prices, key=lambda price: price["amount"]) if len(currencies) == 1 else None
+
+
+def ticketmaster_selection_price(data):
+    if not isinstance(data, dict) or data.get("maintenance") or not data.get("hasEnabledTicketTypes"):
+        return None
+    amounts = []
+    for ticket_type in data.get("ticketTypes", []):
+        if (not isinstance(ticket_type, dict) or ticket_type.get("locked") or ticket_type.get("membershipLocked")
+                or ticket_type.get("upsell") or not any(quantity > 0 for quantity in ticket_type.get("quantities", []) if isinstance(quantity, int))):
+            continue
+        for price in ticket_type.get("prices", []):
+            if not isinstance(price, dict):
+                continue
+            parts = [price.get("faceValue"), price.get("serviceFeeChargesValue", 0), price.get("upsellFeeChargesValue", 0)]
+            if any(value is None or isinstance(value, bool) for value in parts):
+                continue
+            try:
+                amount = sum(float(value) for value in parts)
+            except (TypeError, ValueError):
+                continue
+            if math.isfinite(amount) and amount >= 0:
+                amounts.append(amount)
+    return ticket_price(min(amounts), "SEK") if amounts else None
+
+
+def enrich_ticketmaster_storefront_prices(events, opener=None):
+    """Add the all-in per-ticket price shown by ticketmaster.se when available."""
+    candidates = {}
+    for event in events:
+        if event.get("ticketPrice"):
+            continue
+        match = re.search(r"/(\d{6,})(?:[/?#]|$)", event.get("url", ""))
+        if match:
+            candidates[match.group(1)] = event
+    if not candidates:
+        return events
+    own_opener = opener is None
+    opener = opener or build_opener(HTTPCookieProcessor(CookieJar()))
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/140.0 Safari/537.36",
+        "Accept-Language": "sv-SE,sv;q=0.9,en;q=0.8",
+    }
+    try:
+        opener.open(Request("https://www.ticketmaster.se/", headers=headers), timeout=20).read()
+    except (HTTPError, URLError, TimeoutError, OSError):
+        return events
+    for event_id, event in candidates.items():
+        try:
+            request_headers = {**headers, "Accept": "application/json", "Referer": event["url"]}
+            response = opener.open(Request(f"https://www.ticketmaster.se/api/ticketselection/{event_id}", headers=request_headers), timeout=20)
+            price = ticketmaster_selection_price(json.loads(response.read().decode("utf-8")))
+            if price:
+                event["ticketPrice"] = price
+        except (HTTPError, URLError, TimeoutError, OSError, UnicodeDecodeError, json.JSONDecodeError):
+            pass
+        if own_opener:
+            time.sleep(0.1)
+    return events
 
 
 def normalize_venue_event(raw, page, url, source, now):
@@ -879,12 +938,12 @@ def collect_ticketmaster(config, api_key, now, get=fetch):
             cursor = finish
         for flag in ("includeTBA", "includeTBD"):
             window(city, unknown=flag)
-    return list(rows.values())
+    return enrich_ticketmaster_storefront_prices(list(rows.values()))
 
 
 def deduplicate(events, previous=()):
     old_ids = {alias: event["id"] for event in previous for alias in event.get("sourceIds", [event["id"]])}
-    result, fingerprints = {}, {}
+    result, fingerprints, performances = {}, {}, {}
     for event in events:
         event = dict(event)
         source_ids = event.get("sourceIds", [event["id"]])
@@ -892,9 +951,16 @@ def deduplicate(events, previous=()):
         fingerprint = None
         if event["artists"] and event["localDate"] and event["localTime"]:
             fingerprint = (tuple(sorted(name_key(a) for a in event["artists"])), name_key(event["venue"]["name"]), name_key(event["venue"]["city"]), event["localDate"], event["localTime"], event["timeKind"])
+        performance = (name_key(event["title"]), name_key(event["venue"]["name"]), name_key(event["venue"]["city"]), event["localDate"]) if event["localDate"] else None
         # Never combine separate source records from the same provider merely on
         # a fingerprint (festival products can share artist/venue/date/time).
         candidate = fingerprints.get(fingerprint) if fingerprint else None
+        performance_candidate = performances.get(performance) if performance else None
+        # A venue's title-only/doors record and a provider's artist/show record
+        # describe the same performance. Keep separately identified products
+        # when both sources already provide artist lineups.
+        if not candidate and performance_candidate and (not performance_candidate["artists"] or not event["artists"]):
+            candidate = performance_candidate
         target = result.get(event["id"])
         if not target and candidate and not set(candidate["providers"]) & set(event["providers"]):
             target = candidate
@@ -902,15 +968,21 @@ def deduplicate(events, previous=()):
             merged_ids = sorted(set(target["sourceIds"] + source_ids))
             merged_providers = sorted(set(target["providers"] + event["providers"]))
             merged_styles = sorted(set(target["styles"] + event["styles"]))
+            merged_artists = list(dict.fromkeys(target["artists"] + event["artists"]))
+            prices = [price for price in (target.get("ticketPrice"), event.get("ticketPrice")) if price]
             if event.get("lastVerifiedAt", "") > target.get("lastVerifiedAt", ""):
                 canonical_id = target["id"]
                 target.update(event)
                 target["id"] = canonical_id
-            target.update(sourceIds=merged_ids, providers=merged_providers, styles=merged_styles)
+            target.update(sourceIds=merged_ids, providers=merged_providers, styles=merged_styles, artists=merged_artists)
+            if prices and len({price["currency"] for price in prices}) == 1:
+                target["ticketPrice"] = min(prices, key=lambda price: price["amount"])
         else:
             result[event["id"]] = event
             if fingerprint:
                 fingerprints[fingerprint] = event
+            if performance:
+                performances[performance] = event
     return list(result.values())
 
 

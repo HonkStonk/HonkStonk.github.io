@@ -241,7 +241,10 @@
             $('eventTicketPrice').hidden = !priceLabel;
         }
         $('artistFeedback').replaceChildren();
-        const artists = event?.artists || [];
+        // Some venue calendars publish only a concert title, without a separate
+        // lineup. The title is still a useful explicit preference target and is
+        // already handled as an exact-title match by ConcertCore.
+        const artists = event ? (event.artists.length ? event.artists : [event.title]) : [];
         let feedbackTarget = $('artistFeedback');
         if (artists.length > 4) {
             const details = node('details', null, 'artist-feedback-more');

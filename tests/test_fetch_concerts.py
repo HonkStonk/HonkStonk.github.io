@@ -141,6 +141,15 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(fc.normalize_ticketmaster(raw, NOW)['ticketPrice'],
                          {'amount': 450.5, 'currency': 'SEK'})
 
+    def test_ticketmaster_selection_price_includes_the_displayed_service_fee(self):
+        selection = {'maintenance': False, 'hasEnabledTicketTypes': True, 'ticketTypes': [
+            {'locked': False, 'membershipLocked': False, 'upsell': False, 'quantities': [0, 1, 2],
+             'prices': [{'faceValue': 495, 'serviceFeeChargesValue': 50, 'upsellFeeChargesValue': 0}]},
+            {'locked': True, 'membershipLocked': False, 'upsell': False, 'quantities': [0, 1],
+             'prices': [{'faceValue': 100, 'serviceFeeChargesValue': 0, 'upsellFeeChargesValue': 0}]},
+        ]}
+        self.assertEqual(fc.ticketmaster_selection_price(selection), {'amount': 545, 'currency': 'SEK'})
+
     def test_date_only_stays_without_time_or_utc_instant(self):
         result = fc.normalize_venue_event({'name': 'Gig', 'startDate': '2026-10-24'}, fc.Page(''), 'https://example.com/gig', SOURCE, NOW)
         self.assertIsNone(result['localTime'])
@@ -159,6 +168,16 @@ class CollectorTests(unittest.TestCase):
         result = fc.deduplicate([a, a, b])
         self.assertEqual(len(result), 1)
         self.assertEqual(set(result[0]['sourceIds']), {'venue:a', 'ticketmaster:1'})
+
+    def test_cross_source_doors_and_show_records_merge_artist_and_price(self):
+        venue = event()
+        venue.update(artists=[], localTime='19:00', timeKind='doors')
+        ticketmaster = event('ticketmaster:1')
+        ticketmaster.update(localTime='20:00', timeKind='listed', ticketPrice={'amount': 545, 'currency': 'SEK'})
+        result = fc.deduplicate([venue, ticketmaster])
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['artists'], ['Amon Amarth'])
+        self.assertEqual(result[0]['ticketPrice'], {'amount': 545, 'currency': 'SEK'})
 
     def test_distinct_nights_and_products_are_preserved(self):
         self.assertEqual(len(fc.deduplicate([event(), event('venue:b')])), 2)
