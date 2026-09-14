@@ -171,6 +171,28 @@ test('concert feeds are chronological and venue alerts remain a separate view', 
     assert.match(elements.get('gigList').children[0].textContent, /19:00/);
     assert.match(elements.get('feedSummary').textContent, /1 events at watched places/);
 });
+test('For you and All concerts browse every gig one listing month at a time', async () => {
+    const { elements } = await app();
+    elements.get('concertMode').click();
+    assert.equal(elements.get('feedMonthLabel').textContent, 'May 2027');
+    assert.equal(elements.get('feedMonthNav').hidden, false);
+    assert.equal(elements.get('showMoreGigs').hidden, true);
+    assert.match(elements.get('gigList').textContent, /Amon Amarth/);
+
+    elements.get('allGigsView').click();
+    assert.equal(elements.get('feedMonthLabel').textContent, 'September 2026');
+    assert.match(elements.get('gigList').textContent, /Another band/);
+    assert.doesNotMatch(elements.get('gigList').textContent, /Amon Amarth/);
+    assert.equal(elements.get('previousFeedMonth').disabled, true);
+    assert.equal(elements.get('nextFeedMonth').disabled, false);
+
+    elements.get('nextFeedMonth').click();
+    assert.equal(elements.get('feedMonthLabel').textContent, 'May 2027');
+    assert.match(elements.get('gigList').textContent, /Amon Amarth/);
+    assert.doesNotMatch(elements.get('gigList').textContent, /Another band/);
+    elements.get('previousFeedMonth').click();
+    assert.equal(elements.get('feedMonthLabel').textContent, 'September 2026');
+});
 test('hiding and restoring a gig preserves artist feedback', async () => {
     const { elements, saved } = await app();
     elements.get('concertMode').click();

@@ -17,6 +17,7 @@
     let cityFilter = '';
     let feedMode = 'matches';
     let feedLimit = 8;
+    const feedMonths = { matches: null, all: null };
     let loading = false;
     let sensorMessage = '';
     let locationMessage = '';
@@ -172,7 +173,14 @@
         for (const city of ['', ...preferences.cities]) {
             const button = node('button', city || 'All places', 'chip');
             button.setAttribute('aria-pressed', String(city === cityFilter));
-            button.onclick = () => { cityFilter = city; selectedId = null; feedLimit = 8; render(); };
+            button.onclick = () => {
+                cityFilter = city;
+                selectedId = null;
+                feedLimit = 8;
+                feedMonths.matches = null;
+                feedMonths.all = null;
+                render();
+            };
             $('regionFilters').append(button);
         }
     }
@@ -212,9 +220,26 @@
             : feedMode === 'all' ? events.length + ' concerts · soonest first'
             : feedMode === 'planned' ? plans.length + ' concerts you plan to attend'
             : alerts.length + ' events at watched places · tap one for details';
-        const visible = choices.slice(0, feedLimit);
+        const monthBased = feedMode === 'matches' || feedMode === 'all';
+        let visible;
+        if (monthBased) {
+            const months = [...new Set(choices.map(event => event.localDate ? event.localDate.slice(0, 7) : 'unknown'))];
+            let month = feedMonths[feedMode];
+            if (!months.includes(month)) month = months[0] || null;
+            feedMonths[feedMode] = month;
+            visible = month ? choices.filter(event => (event.localDate ? event.localDate.slice(0, 7) : 'unknown') === month) : [];
+            const index = months.indexOf(month);
+            const previous = $('previousFeedMonth');
+            const next = $('nextFeedMonth');
+            $('feedMonthLabel').textContent = month === 'unknown' ? 'Date TBA' : month ? new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(month + '-01T12:00:00Z')) : 'No months available';
+            previous.disabled = index <= 0;
+            next.disabled = index < 0 || index >= months.length - 1;
+            previous.dataset.month = previous.disabled ? '' : months[index - 1];
+            next.dataset.month = next.disabled ? '' : months[index + 1];
+        } else visible = choices.slice(0, feedLimit);
+        $('feedMonthNav').hidden = !monthBased;
         renderList($('gigList'), visible, feedMode === 'matches' ? 'No taste matches here yet. Try All concerts or tune your taste.' : feedMode === 'all' ? 'No concerts in this view.' : feedMode === 'planned' ? 'Nothing planned yet. Add a concert from For you or All concerts.' : 'No upcoming busy events at your watched places.', feedMode === 'alerts');
-        $('showMoreGigs').hidden = visible.length >= choices.length;
+        $('showMoreGigs').hidden = monthBased || visible.length >= choices.length;
         $('showMoreGigs').textContent = 'Show ' + Math.min(8, choices.length - visible.length) + ' more';
         const totalPlans = plannedConcerts('').length;
         $('calendarCount').textContent = totalPlans ? totalPlans + (totalPlans === 1 ? ' concert planned' : ' concerts planned') : 'Nothing planned yet';
@@ -433,6 +458,8 @@
     $('plannedGigsView').onclick = () => { feedMode = 'planned'; feedLimit = 8; render(); };
     $('venueAlertsView').onclick = () => { feedMode = 'alerts'; feedLimit = 8; render(); };
     $('showMoreGigs').onclick = () => { feedLimit += 8; render(); };
+    $('previousFeedMonth').onclick = () => { feedMonths[feedMode] = $('previousFeedMonth').dataset.month || feedMonths[feedMode]; render(); };
+    $('nextFeedMonth').onclick = () => { feedMonths[feedMode] = $('nextFeedMonth').dataset.month || feedMonths[feedMode]; render(); };
     $('backToConcerts').onclick = showPlanner;
     $('planSelectedButton').onclick = () => { const event = selected(); if (event) togglePlan(event); };
     $('pointToGig').onclick = () => { sensorMessage = ''; locationMessage = ''; compass.start(); };

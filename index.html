@@ -41,6 +41,11 @@
             <button id="venueAlertsView" aria-pressed="false">Busy places</button>
         </div>
         <p id="feedSummary" class="feed-summary"></p>
+        <nav id="feedMonthNav" class="month-nav" aria-label="Choose concert month">
+            <button id="previousFeedMonth" type="button" aria-label="Previous concert month">&#8592;</button>
+            <strong id="feedMonthLabel" aria-live="polite"></strong>
+            <button id="nextFeedMonth" type="button" aria-label="Next concert month">&#8594;</button>
+        </nav>
         <div id="gigList" class="gig-list" aria-live="polite"><p class="empty-state">Looking for gigs…</p></div>
         <button id="showMoreGigs" class="secondary wide" hidden>Show more</button>
         <p id="dataStatus" class="data-status" role="status"></p>

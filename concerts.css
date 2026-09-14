@@ -67,6 +67,9 @@ a { color:var(--amber); text-underline-offset:3px; }
 .app-shell .feed-tabs button { min-height:40px; padding:6px 4px; border:0; background:transparent; color:var(--muted); font-size:.82rem; }
 .app-shell .feed-tabs button[aria-pressed="true"] { background:#3b3019; color:#ffe0a0; }
 .feed-summary { min-height:1.4em; margin:8px 1px 5px; color:var(--muted); font-size:.82rem; }
+.month-nav { display:grid; grid-template-columns:44px 1fr 44px; align-items:center; gap:8px; margin:6px 0 5px; }
+.month-nav strong { text-align:center; color:#ffe0a0; font-size:1rem; font-weight:600; }
+.app-shell .month-nav button { padding:0; border:1px solid var(--line); background:var(--panel); color:var(--amber); font-size:1.15rem; }
 #showMoreGigs { margin-top:10px; }
 .gig-row { width:100%; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; border-top:1px solid var(--line); }
 .gig-row-main { min-width:0; display:grid; grid-template-columns:40px minmax(0,1fr) auto; align-items:center; gap:12px; text-align:left; border:0; background:transparent; color:inherit; padding:13px 4px 13px 2px; border-radius:0 !important; }
