@@ -9,7 +9,7 @@
         version: 1,
         favourites: ['Dina Ögon', 'Amon Amarth', 'Cardigans', 'Eek-a-mouse', 'Asta Kask', 'Kardborrebandet'],
         dislikedArtists: [], styles: [],
-        cities: ['Stockholm', 'Falköping', 'Skövde', 'Uppsala'], hiddenEvents: [],
+        cities: ['Stockholm', 'Göteborg', 'Malmö', 'Falköping', 'Skövde', 'Uppsala'], hiddenEvents: [],
         watchedVenues: ['Strawberry Arena'], plannedEvents: []
     });
     function key(value) {

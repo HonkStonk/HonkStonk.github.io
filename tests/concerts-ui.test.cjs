@@ -23,12 +23,10 @@ class Element {
     querySelectorAll(selector) { return this.children.filter(c => c instanceof Element && selector === '[aria-pressed="true"]' && c.getAttribute('aria-pressed') === 'true'); }
 }
 
-async function app({ offline = false, spotify = false, spotifyConfig = { clientId: 'a'.repeat(32) }, gaps = [], sources = [] } = {}) {
+async function app({ offline = false, gaps = [], sources = [], coverageCities = ['Stockholm', 'Göteborg', 'Malmö'] } = {}) {
     const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
     const elements = new Map([...html.matchAll(/\bid="([^"]+)"/g)].map(m => [m[1], new Element()]));
-    elements.get('connectSpotify').disabled = true;
     elements.get('calendarScope').value = 'plans';
-    elements.get('spotifyRange').value = 'medium_term';
     const document = {
         getElementById(id) { assert.ok(elements.has(id), 'HTML contains #' + id); return elements.get(id); },
         createElement: tag => new Element(tag),
@@ -37,7 +35,7 @@ async function app({ offline = false, spotify = false, spotifyConfig = { clientI
     const saved = new Map();
     const session = new Map();
     // Fixed test records keep scheduled tests independent of touring calendars.
-    const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', coverage: { gaps }, sources, events: [
+    const snapshot = { schemaVersion: 1, generatedAt: '2026-09-07T12:00:00Z', coverage: { cities: coverageCities, gaps }, sources, events: [
         { id: 'test:amon', providers: ['ticketmaster'], title: 'Amon Amarth', artists: ['Amon Amarth'], styles: ['Metal'], localDate: '2027-05-10', localTime: '18:30', timeKind: 'start', status: 'scheduled', url: 'https://example.com/amon', ticketUrl: 'https://tickets.example.com/amon', ticketPrice: { amount: 495, currency: 'SEK' }, venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } },
         { id: 'test:match', providers: ['arena'], title: 'AIK – Mjällby', artists: [], styles: [], purpose: 'venue_alert', eventCategory: 'Sport', localDate: '2026-09-16', localTime: '19:00', timeKind: 'listed', status: 'scheduled', url: 'https://example.com/match', venue: { name: 'Strawberry Arena', city: 'Solna', lat: 59.37, lon: 18 } },
         { id: 'test:other', title: 'Another band', artists: ['Another band'], styles: ['Indie'], localDate: '2026-09-20', localTime: null, timeKind: 'listed', status: 'scheduled', url: 'https://example.com/other', venue: { name: 'Hovet', city: 'Stockholm', lat: 59.29, lon: 18.08 } }
@@ -53,21 +51,20 @@ async function app({ offline = false, spotify = false, spotifyConfig = { clientI
         setTimeout: () => 1, clearTimeout() {}, setInterval: () => 1, clearInterval() {},
         localStorage: { getItem: k => saved.get(k) || null, setItem: (k, v) => saved.set(k, v) },
         navigator: { geolocation: { watchPosition() { geolocationStarts++; return 1; }, clearWatch() {} } },
-        fetch: async url => { if (offline) throw new Error('offline'); return { ok: true, json: async () => url === './spotify-config.json' ? spotifyConfig : snapshot }; }
+        fetch: async () => { if (offline) throw new Error('offline'); return { ok: true, json: async () => snapshot }; }
     });
     context.window = context;
-    for (const file of ['script.js', 'concerts-core.js', ...(spotify ? ['spotify.js'] : []), 'concerts.js']) vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
+    for (const file of ['beer-places.js', 'script.js', 'concerts-core.js', 'concerts.js']) vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
     await new Promise(resolve => setImmediate(resolve));
     return { context, elements, saved, get geolocationStarts() { return geolocationStarts; } };
 }
 
-test('Spotify configuration gates sign-in and explains the invited-user restriction', async () => {
-    const absent = await app({ spotify: true, spotifyConfig: { clientId: '' } });
-    assert.equal(absent.elements.get('connectSpotify').disabled, true);
-    assert.equal(absent.elements.get('connectSpotify').onclick, undefined);
-    const invited = await app({ spotify: true });
-    assert.equal(invited.elements.get('connectSpotify').disabled, false);
-    assert.match(invited.elements.get('spotifyAvailability').textContent, /invited testers only/);
+test('the taste menu reports which selected cities are in the daily collection', async () => {
+    const { elements } = await app();
+    elements.get('preferencesButton').click();
+    assert.match(elements.get('cityCoverage').textContent, /Stockholm, Göteborg, Malmö/);
+    assert.match(elements.get('cityCoverage').textContent, /No collected feed is currently available for: Falköping, Skövde, Uppsala/);
+    assert.equal(elements.get('collectedCities').children.length, 3);
 });
 
 test('coverage gaps render safely without breaking the concert snapshot', async () => {
@@ -96,18 +93,6 @@ test('previous Ticketmaster success with saved listings is distinguished from ne
         assert.doesNotMatch(rows[0].textContent, /not connected yet/);
         assert.match(rows[1].textContent, /not connected yet/);
     }
-});
-
-test('Spotify remains opt-in and saves edited choices before redirecting for consent', async () => {
-    const { context, elements, saved } = await app({ spotify: true });
-    assert.equal(context.location.href, 'https://example.com/index.html');
-    elements.get('preferencesButton').click();
-    elements.get('favouriteArtists').value = 'New favourite';
-    await elements.get('connectSpotify').click();
-    assert.equal(new URL(context.location.href).origin, 'https://accounts.spotify.com');
-    const prefs = JSON.parse(saved.get('magic-compass.preferences.v1'));
-    assert.deepEqual(prefs.favourites, ['New favourite']);
-    assert.equal(elements.get('spotifyReviewDialog').open, undefined);
 });
 
 test('concerts open in planning mode and a chosen gig opens navigation without asking for location', async () => {

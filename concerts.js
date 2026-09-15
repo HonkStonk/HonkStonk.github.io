@@ -49,6 +49,23 @@
         catch { notify('Storage is unavailable. Export a backup to keep these changes.'); }
         render();
     }
+    function updateCityCoverage() {
+        const cities = Array.isArray(snapshot?.coverage?.cities)
+            ? snapshot.coverage.cities.filter(city => typeof city === 'string' && city.trim())
+            : [];
+        $('collectedCities').replaceChildren(...cities.map(city => {
+            const option = node('option');
+            option.value = city;
+            return option;
+        }));
+        if (!cities.length) {
+            $('cityCoverage').textContent = 'City choices filter the concerts collected by the daily update.';
+            return;
+        }
+        const missing = preferences.cities.filter(city => !cities.some(covered => C.key(covered) === C.key(city)));
+        $('cityCoverage').textContent = 'Daily collection covers: ' + cities.join(', ') + '.'
+            + (missing.length ? ' No collected feed is currently available for: ' + missing.join(', ') + '.' : '');
+    }
     function openDialog(id) { $(id).showModal(); }
     function syncConcertView() {
         $('concertPlanner').hidden = !active || detailMode;
@@ -328,6 +345,7 @@
             if (!response.ok) throw new Error('Unavailable');
             const next = C.validateSnapshot(await response.json());
             snapshot = next;
+            updateCityCoverage();
             const updated = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeZone: 'Europe/Stockholm' }).format(new Date(snapshot.generatedAt));
             const old = Date.now() - Date.parse(snapshot.generatedAt) > 48 * 60 * 60 * 1000;
             const concertCount = snapshot.events.filter(event => event.purpose !== 'venue_alert').length;
@@ -377,6 +395,7 @@
         }
         $('preferencesError').textContent = '';
         $('restoreHidden').textContent = 'Restore hidden gigs (' + preferences.hiddenEvents.length + ')';
+        updateCityCoverage();
         openDialog('preferencesDialog');
     }
     function preferencesFromForm() {
@@ -471,10 +490,6 @@
         sensorStatus(message, sticky = false) { sensorMessage = sticky ? message : ''; if (active && detailMode) $('gigNavigationStatus').textContent = message; },
         locationError(error) { locationMessage = error.code === 1 ? 'Location permission denied. You can still browse gigs.' : 'Location is unavailable. Try again outside.'; if (active && detailMode) $('gigNavigationStatus').textContent = locationMessage; }
     };
-    window.SpotifyImport?.init({
-        getPreferences: () => preferences, savePreferences, openPreferences, notify,
-        beforeConnect: () => savePreferences(preferencesFromForm()), showConcerts: () => switchMode(true)
-    });
     loadConcerts();
     if (storageNotice) notify(storageNotice);
 })();

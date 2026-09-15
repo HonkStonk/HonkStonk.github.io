@@ -1,6 +1,8 @@
 # Magic Compass: concert extension plan
 
-Recorded: 2026-09-05. Updated: 2026-09-09. Status: Stockholm venue expansion and clearer Spotify/Ticketmaster status implemented locally; no push or deployment by Codex.
+Recorded: 2026-09-05. Updated: 2026-09-15. Status: broader city collection and additive beer-place coverage implemented locally; no push or deployment by Codex.
+
+Current direction (2026-09-15): the Spotify account-import feature, setup guide, configuration, UI and tests have been removed. Older references below are retained only as implementation history and are not current instructions.
 
 This document preserves the project brief and inspection findings for later Codex sessions. User requirements below are established; interface, sources, milestones and architecture below are recommendations unless explicitly marked otherwise. Update this document when the user supplies preferences or makes decisions. Test the update.
 

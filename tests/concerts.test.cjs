@@ -86,9 +86,18 @@ function beerHarness() {
     const doc = { getElementById(id) { if (!elements.has(id)) elements.set(id, { style: {}, textContent: '', addEventListener() {} }); return elements.get(id); } };
     const window = { addEventListener() {}, removeEventListener() {} };
     const context = vm.createContext({ document: doc, window, navigator: {}, console: { log() {}, warn() {}, error() {} }, Date, setInterval, clearInterval });
+    vm.runInContext(fs.readFileSync(path.join(root, 'beer-places.js'), 'utf8'), context);
     vm.runInContext(fs.readFileSync(path.join(root, 'script.js'), 'utf8'), context);
     return { context, window, elements };
 }
+test('additive beer data provides five places per newly covered city', () => {
+    const { window } = beerHarness();
+    const counts = Object.groupBy(window.MagicCompassBeerPlaces, place => place.city);
+    for (const city of ['Göteborg', 'Malmö', 'Uppsala', 'Skövde', 'Falköping']) {
+        assert.equal(counts[city].length, 5);
+        assert.ok(counts[city].some(place => !place.name.startsWith('Systembolaget')));
+    }
+});
 test('opening-hours boundaries and overnight beer behavior remain intact', () => {
     const { context } = beerHarness();
     const check = (date, hours) => context.getShopStatus(date, hours);
@@ -99,6 +108,9 @@ test('opening-hours boundaries and overnight beer behavior remain intact', () =>
     assert.equal(check(new Date(2026, 8, 6, 5), { 6: [20, 5], 0: null }).status, 'closed');
     assert.equal(check(new Date(2026, 8, 6, 0), { 6: [11, 0], 0: [13, 20] }).status, 'closed');
     assert.equal(check(new Date(2026, 8, 5, 23, 59), { 6: [11, 24], 0: null }).status, 'open');
+    assert.equal(check(new Date(2026, 8, 7, 11, 15), { 1: [11.5, 0.5] }).status, 'closed');
+    assert.equal(check(new Date(2026, 8, 7, 11, 30), { 1: [11.5, 0.5] }).status, 'open');
+    assert.equal(check(new Date(2026, 8, 8, 0, 15), { 1: [11.5, 0.5], 2: null }).status, 'open');
 });
 test('concert sensor updates bypass automatic beer targeting, switching back restores it', () => {
     const { context, window, elements } = beerHarness();

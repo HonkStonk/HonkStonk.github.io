@@ -301,6 +301,18 @@ const beerShops = [
     { name: "Systembolaget Boländerna Uppsala", lat: 59.847308235139515, lon: 17.687312396781717, hours: standardSystemet }
 ];
 
+// Keep the original list above as the permanent baseline. New places live in
+// beer-places.js so they can be reviewed, extended or retired independently.
+for (const place of Array.isArray(window.MagicCompassBeerPlaces) ? window.MagicCompassBeerPlaces : []) {
+    const validHours = place.hours && Object.values(place.hours).every(value => value === null
+        || (Array.isArray(value) && value.length === 2 && value.every(hour => Number.isFinite(hour) && hour >= 0 && hour <= 24)));
+    if (typeof place.name === 'string' && place.name.trim() && Number.isFinite(place.lat)
+        && Math.abs(place.lat) <= 90 && Number.isFinite(place.lon) && Math.abs(place.lon) <= 180 && validHours
+        && !beerShops.some(existing => existing.name.toLocaleLowerCase() === place.name.toLocaleLowerCase())) {
+        beerShops.push(place);
+    }
+}
+
 
 // --- State Variables ---
 let currentPosition = null;
@@ -450,6 +462,9 @@ function getShopStatus(now, shopHours) {
     let status = 'closed';
     let eventType = 'opens';
     let nextEventTime = null;
+    const setHour = (date, hour) => date.setHours(
+        Math.floor(hour), Math.round((hour - Math.floor(hour)) * 60), 0, 0
+    );
 
     // --- Check yesterday's hours first for overnight opening ---
     const yesterdayDay = (currentDay + 6) % 7; // Day before today
@@ -466,7 +481,7 @@ function getShopStatus(now, shopHours) {
                 status = 'open';
                 eventType = 'closes';
                 nextEventTime = new Date(now);
-                nextEventTime.setHours(yClose, 0, 0, 0); // Closing time is today at yClose hour
+                setHour(nextEventTime, yClose); // Closing time is today at yClose hour
                 // We've determined the status, no need to check today's opening further for this case
             }
         }
@@ -487,13 +502,13 @@ function getShopStatus(now, shopHours) {
                     status = 'open';
                     eventType = 'closes';
                     nextEventTime = new Date(now);
-                    nextEventTime.setHours(closeTime, 0, 0, 0);
+                    setHour(nextEventTime, closeTime);
                 } else if (currentTimeInMinutes < openTimeInMinutes) {
                     // Closed, opens later today
                     status = 'closed';
                     eventType = 'opens';
                     nextEventTime = new Date(now);
-                    nextEventTime.setHours(openTime, 0, 0, 0);
+                    setHour(nextEventTime, openTime);
                 }
                 // else: closed past closing time today, will be handled by 'find next opening' logic below
 
@@ -505,13 +520,13 @@ function getShopStatus(now, shopHours) {
                     nextEventTime = new Date(now);
                     // Set date to tomorrow
                     nextEventTime.setDate(now.getDate() + 1);
-                    nextEventTime.setHours(closeTime, 0, 0, 0);
+                    setHour(nextEventTime, closeTime);
                 } else {
                     // Currently closed, before opening time today (but will close tomorrow)
                     status = 'closed';
                     eventType = 'opens';
                     nextEventTime = new Date(now);
-                    nextEventTime.setHours(openTime, 0, 0, 0); // Opens later today
+                    setHour(nextEventTime, openTime); // Opens later today
                 }
             }
         }
@@ -563,7 +578,7 @@ function getShopStatus(now, shopHours) {
              const nextOpeningHour = nextOpeningHours[0];
              nextEventTime = new Date(now);
              nextEventTime.setDate(now.getDate() + daysToAdd); // Set to the correct future date
-             nextEventTime.setHours(nextOpeningHour, 0, 0, 0); // Set to opening time
+             setHour(nextEventTime, nextOpeningHour); // Set to opening time
          } else {
              // Only log error if we didn't find anything after checking 7+ days
               if (attempts >= 7) console.error("Could not find next valid opening day within 7 days.");

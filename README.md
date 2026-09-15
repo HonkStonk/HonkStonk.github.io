@@ -12,14 +12,14 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Open [the local app](http://localhost:8765). Use an HTTP server instead of opening `index.html` as a file, because the app fetches `concerts.json`. Stop the server with Ctrl+C. GPS and compass behavior still needs testing on the iPhone over HTTPS; desktop testing cannot verify physical direction.
 
-- **Beer now:** the existing bottle, curated places and nearest-open/earliest-opening selection.
+- **Beer now:** the existing bottle, curated places and nearest-open/earliest-opening selection. The original list in `script.js` remains the permanent baseline; new city additions live in `beer-places.js`.
 - **Concerts:** opens in a discovery-first planning view with city filters and chronological recommendations. Open a specific concert only when you want its full details, guitar compass and nearby-beer actions. Browsing does not request location; **Point to venue** starts navigation.
 - **Menu / Tune your taste:** favourite artists, style suggestions, free text, cities and busy venues to watch. Artist 👍/👎 affects that artist. **Hide this gig** only hides that event and offers undo.
 - **Concert feed:** **For you**, **All concerts**, **My plans** and **Busy places** are separate views. **For you** and **All concerts** show every listing one month at a time, with arrows to move between months that have gigs. **My plans** and **Busy places** expand eight rows at a time. Every view shows dates and listed times and stays strictly chronological. Style matches show the actual matching style, such as **Punk** or **Reggae**.
 - **Planning and calendar:** **+ Plan** saves a concert locally. **My calendar** opens a day-by-day agenda of every announced date, showing planned concerts by default with optional all-concert and busy-place views.
 - **Ticket prices:** when a provider publishes a price range, concert details show the cheapest listed per-ticket price beside the ticket link. Prices are read from venue pages, Ticketmaster's selectable inventory and Tickster storefront products. Ticketmaster prices include its displayed per-ticket service fee; order-level fees that depend on checkout choices are not included. Events without reliable price data remain unlabeled.
 - **Beer before:** currently shows curated pubs within 3 km of the venue that are open **now**, with map directions. It does not forecast opening on the gig date.
-- Preferences stay in browser local storage; export/import a backup from the menu. Spotify import is visible in preferences; its button becomes available once the owner configures a Client ID. Each invited visitor signs into their own account (walkthrough below).
+- Preferences stay in browser local storage; export/import a backup from the menu. No third-party music account is required.
 
 ## Real concert data: what works now
 
@@ -60,7 +60,7 @@ These are real source-linked records, not UI demo events. `concerts.json` includ
 
 Katalin collection follows the upcoming calendar's pagination, then reads only those events' public WordPress metadata in batches. It uses the event date, not the post publication date, and includes only configured music genres; stand-up, lectures and ambiguous categories are excluded. The venue's own [map link](https://maps.app.goo.gl/E2k2n47qSQVMwUGg7) supplies coordinates. Katalin does not expose a structured line-up, so artist lists remain empty. An exact whole-title match to a favourite is labelled **Title match — check the line-up**; names embedded in tribute titles or descriptions are not assumed to be performers. Genre matches still work.
 
-An empty city view means **no matches in current coverage**, not that there are no concerts there. The app's **Check for updates** button only downloads the latest deployed `concerts.json`; it cannot start GitHub Actions or call either ticket API. The scheduled/manual GitHub workflow is what contacts the sources, builds a new snapshot and publishes it. All sources are bounded to the configured horizon and use Swedish local dates and daylight-saving rules.
+An empty city view means **no matches in current coverage**, not that there are no concerts there. The app's **Check for updates** button only downloads the latest deployed `concerts.json`; it cannot start GitHub Actions or call either ticket API. The scheduled/manual GitHub workflow is what contacts the sources, builds a new snapshot and publishes it. The taste menu now shows the cities included in that snapshot and warns when a selected city is outside collection coverage. All sources are bounded to the configured horizon and use Swedish local dates and daylight-saving rules.
 
 ## Connect Ticketmaster next
 
@@ -91,7 +91,7 @@ If your Ticketmaster app already shows **Approved**, with **Public APIs Enabled*
 
 To update the app you're previewing locally, use the PowerShell commands below in a new terminal in this repository and paste the Consumer Key when prompted. The existing preview server can keep running. When the collector finishes, look for **`Ticketmaster Sweden: ok`**, then use **Check for updates** in Concerts. A GitHub Actions secret is only available to GitHub workflows; adding it there does not configure your local terminal. For the GitHub workflow, a run with **Publish** unchecked fetches/tests and uploads an artifact without updating the live site.
 
-The collector searches music in Stockholm, Uppsala, Falköping and Skövde over the next 365 days. Edit `data/concert-sources.json` to expand collection. Changing cities in the app filters known events; it does not change server-side collection. Date windows split automatically to respect the API's deep-paging cap; unknown-date events are also queried. Requests are paced below two per second, with bounded retries. [Discovery API documentation](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
+The collector searches music in Stockholm, Göteborg, Malmö, Falköping, Skövde, Uppsala, Linköping, Jönköping, Örebro, Västerås, Lund and Helsingborg over the next 365 days. Edit `data/concert-sources.json` to expand collection. Changing cities in the app filters known events already present in the daily snapshot; it does not start a new server-side collection. Date windows split automatically to respect the API's deep-paging cap; unknown-date events are also queried. Requests are paced below two per second, with bounded retries. [Discovery API documentation](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
 
 For a local authenticated refresh in PowerShell, enter the key without adding it to command history:
 
@@ -138,40 +138,21 @@ If one source fails, its recent previous records are retained for up to seven da
 
 `scripts/package_site.py` stages an explicit allowlist of public app files, excluding credentials, personal preferences, tests and collector tooling. GitHub Pages is configured to deploy that artifact, because a `GITHUB_TOKEN` commit alone does not trigger a Pages build. [GitHub Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [Publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
-## Optional Spotify setup
-
-**Start with the [click-by-click Spotify walkthrough](docs/spotify-setup.md).** It separates your one-time app registration from each visitor's sign-in and gives exact field values, success checks and troubleshooting.
-
-The flow is implemented: **Concerts → Tune your taste → Connect Spotify → sign in to your own Spotify account → consent → review artists → Add selected artists**. Registering Magic Compass under your developer account identifies the app; it does not make visitors import your music. Visitors do not need developer accounts or API keys.
-
-The connection section is visible, with a disabled button until a valid public Client ID is configured. Development-mode apps say **invited testers only**. Nothing contacts Spotify until the user starts sign-in. Declining returns to the artist/style form. Imports preserve explicit dislikes and hidden gigs, and merge only selected artists into favourites. Tokens are used for this one import and are not saved; reconnect to import again. Users can remove imported favourites in the menu and revoke the app at [Spotify account apps](https://www.spotify.com/account/apps/).
-
-1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard), create an app named **Magic Compass**, and select **Web API** if asked. Website: `https://honkstonk.github.io/`.
-2. In the app settings, register these exact redirect URIs:
-   - `https://honkstonk.github.io/index.html`
-   - `http://127.0.0.1:8765/index.html` for local testing.
-3. Copy **Client ID** into the `clientId` value in `spotify-config.json`. This is public configuration and can be committed. **Do not use Client Secret**; the browser uses OAuth PKCE with a random, short-lived, single-use state/verifier. [Spotify PKCE guide](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
-4. Add permitted test accounts in **Settings → Users Management**. Open the local app at `http://127.0.0.1:8765/index.html`, then use the menu's Spotify option. Spotify rejects `localhost` callback addresses; begin and finish in the same browser tab/origin. Local preferences belong to that origin, so switching from `localhost` to `127.0.0.1` uses separate browser storage. [Redirect URI requirements](https://developer.spotify.com/documentation/web-api/concepts/redirect_uri)
-
-Spotify currently requires Premium for the development-mode app owner and limits an app to five allowlisted users. A public consent button does not let unlimited visitors bypass that limit. Extended access requires an eligible organization and at least 250,000 monthly active users, among other criteria; this hobby project does not meet those stated requirements. The `accessMode` configuration changes explanatory text only, not access rights. The import requests only `user-top-read`, fetching up to 50 artists for the chosen approximate four-week, six-month or one-year period. Spotify ranks these by listening affinity, not raw play counts. Artist genres are deprecated, so the importer does not rely on them. [Quota modes](https://developer.spotify.com/documentation/web-api/concepts/quota-modes), [Top items](https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks)
-
-No Spotify Client ID/account was supplied, so real consent, API access and the iPhone Safari/installed-PWA return path remain unverified. Unit tests cover PKCE, state/expiry/replay checks, denial, 403/429 responses, no token storage and safe preference merging. The menu keeps manual artist/style entry available regardless of Spotify access.
-
 ## Further event coverage
 
 Current priority is Stockholm's small punk, hardcore and indie gigs. Kollektivet Livet and Slakthusen are now direct sources. Kafé 44's [Scen 44 page](https://kafe44.org/scen-44/) points to Facebook for current dates; its static website does not provide a dated programme. Cyklopen's checked website did not expose a reliable upcoming concert feed. Both gaps are visible under **About the concert data**, with source links. Neither is counted as an imported feed. Tickster's first authenticated run and targeted Falköping/Skövde venues remain follow-ups. Multiple venues from one operator are not counted as independent nationwide providers.
 
-Last.fm similarity can follow once event coverage is useful. Current matches are **Favourite**, **Title match**, the actual matched style name, or **Explore**, not inferred musical relationships or invented percentages. Descriptions still explain whether a style came from source tags, page wording or BrewPunk's curated calendar. This remains a noncommercial hobby project without ads or tracking.
+Current matches are **Favourite**, **Title match**, the actual matched style name, or **Explore**, not inferred musical relationships or invented percentages. Descriptions still explain whether a style came from source tags, page wording or BrewPunk's curated calendar. This remains a noncommercial hobby project without ads or tracking.
 
 ## Checks and implementation notes
 
 ```powershell
 python -m unittest discover -s tests -v
-node --test tests/concerts.test.cjs tests/concerts-ui.test.cjs tests/spotify.test.cjs
+node --test tests/concerts.test.cjs tests/concerts-ui.test.cjs
 python scripts/package_site.py
 ```
 
-JavaScript tests need Node 22+; it is a development tool only. A verified portable Node executable was used locally under ignored `.local/node/`. Python collector tests, JavaScript rules/controller tests and syntax checks cover feedback separation, mode switching, overnight hours, date uncertainty, deduplication, rescheduling, failed refreshes and import validation. DOM doubles do not verify browser layout, native dialogs or physical compass direction. iPhone Safari/installed-PWA testing is still needed. No offline cache has been added to `sw.js`.
+JavaScript tests need Node 22+; it is a development tool only. A verified portable Node executable was used locally under ignored `.local/node/`. Python collector tests, JavaScript rules/controller tests and syntax checks cover feedback separation, mode switching, additive beer data, overnight hours, city coverage, date uncertainty, deduplication, rescheduling, failed refreshes and import validation. DOM doubles do not verify browser layout, native dialogs or physical compass direction. iPhone Safari/installed-PWA testing is still needed. No offline cache has been added to `sw.js`.
 
 The original bottle image is unchanged. The concert needle uses the user-supplied `guitar.png`, displayed upright with its aspect ratio preserved. The shared destination compass has no N/E/S/W labels. Previous needle images are excluded from the Pages artifact; the old Lucide license remains in the source checkout.
 

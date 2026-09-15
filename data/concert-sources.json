@@ -1,9 +1,17 @@
 {
   "cities": [
     "Stockholm",
+    "Göteborg",
+    "Malmö",
     "Falköping",
     "Skövde",
-    "Uppsala"
+    "Uppsala",
+    "Linköping",
+    "Jönköping",
+    "Örebro",
+    "Västerås",
+    "Lund",
+    "Helsingborg"
   ],
   "horizonDays": 365,
   "tickster": {
