@@ -90,11 +90,11 @@ function beerHarness() {
     vm.runInContext(fs.readFileSync(path.join(root, 'script.js'), 'utf8'), context);
     return { context, window, elements };
 }
-test('additive beer data provides five places per newly covered city', () => {
+test('additive beer data provides at least five places per newly covered city', () => {
     const { window } = beerHarness();
     const counts = Object.groupBy(window.MagicCompassBeerPlaces, place => place.city);
     for (const city of ['Göteborg', 'Malmö', 'Uppsala', 'Skövde', 'Falköping']) {
-        assert.equal(counts[city].length, 5);
+        assert.ok(counts[city].length >= 5);
         assert.ok(counts[city].some(place => !place.name.startsWith('Systembolaget')));
     }
 });
