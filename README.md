@@ -130,7 +130,7 @@ The local changes have not been pushed, deployed or activated. `.github/workflow
 
 1. After reviewing and pushing the changes to `main`, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
 2. Open **Actions → Refresh concerts and publish Pages → Run workflow**.
-3. Leave **Publish** unchecked for a fetch/test run that only uploads the public site artifact. Check **Publish** when you want that run to update the live site.
+3. **Publish** defaults to checked so a manual refresh updates the live site. Uncheck it only for a fetch/test run that should not deploy.
 
 The schedule will publish daily at 05:23 UTC once this workflow is present on the default branch and Pages is configured. It uses the current published snapshot for failure recovery, then fetches and validates data and explicitly deploys a Pages artifact. It does not repeatedly commit vendor data to `main`. If the site address changes, update the workflow's `--previous-url`.
 
