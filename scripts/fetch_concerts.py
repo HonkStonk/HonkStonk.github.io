@@ -311,8 +311,13 @@ def normalize_venue_event(raw, page, url, source, now):
     offer_list = offers if isinstance(offers, list) else [offers]
     ticket_url = next((offer.get("url") for offer in offer_list if isinstance(offer, dict) and safe_url(offer.get("url"))), None)
     lowest_price = cheapest_offer(offers)
+    providers = [source["id"]]
+    ticket_provider = source.get("ticketProvider")
+    if (ticket_provider and ticket_url and urlparse(ticket_url).hostname
+            and urlparse(ticket_url).hostname.lower().endswith(ticket_provider["host"])):
+        providers.append(ticket_provider["id"])
     return {
-        "id": event_id, "sourceIds": [event_id], "providers": [source["id"]],
+        "id": event_id, "sourceIds": [event_id], "providers": providers,
         "title": raw["name"], "artists": artists,
         "styles": sorted({style for artist in artists for style in source.get("artistStyles", {}).get(name_key(artist), [])}),
         "venue": source["venue"], "localDate": local_date, "localTime": local_time,
@@ -324,6 +329,8 @@ def normalize_venue_event(raw, page, url, source, now):
 
 
 def collect_venue(source, now, get=fetch):
+    if source.get("adapter") == "pustervik":
+        return collect_pustervik(source, now, get)
     if source.get("adapter") == "katalin":
         return collect_katalin(source, now, get)
     if source.get("adapter") == "kollektivet_livet":
@@ -354,6 +361,36 @@ def collect_venue(source, now, get=fetch):
             raise ValueError("Venue event schema changed; previous data retained")
         events.append(normalize_venue_event(found[0], page, url, source, now))
     return events
+
+
+def collect_pustervik(source, now, get=fetch):
+    """Collect Pustervik's public calendar, excluding non-concert events."""
+    index = Page(get(source["indexUrl"]))
+    links = sorted({urljoin(source["indexUrl"], link).split("#")[0].split("?")[0]
+                    for link in index.links if link.startswith("/evenemang/")})
+    if not links or len(links) > 350:
+        raise ValueError("Pustervik calendar changed or returned no event links")
+    events = []
+    for url in links:
+        page = Page(get(url))
+        found = [raw for raw in objects(page.json_ld)
+                 if raw.get("@type") in {"Event", "MusicEvent"} and raw.get("startDate")]
+        if len(found) != 1:
+            raise ValueError("Pustervik event schema changed")
+        raw = found[0]
+        performers = raw.get("performer", [])
+        performers = performers if isinstance(performers, list) else [performers]
+        if not any(isinstance(item, dict) and item.get("name") for item in performers):
+            continue
+        event = normalize_venue_event(raw, page, url, source, now)
+        event["styles"] = [label for label, pattern in source.get("stylePatterns", {}).items()
+                           if re.search(pattern, raw.get("name", ""), re.I)]
+        if event["styles"]:
+            event["styleEvidence"] = "title"
+        events.append(event)
+    if not events:
+        raise ValueError("Pustervik calendar returned no concerts")
+    return enrich_tickster_storefront_prices(events)
 
 
 def plain_text(value):
@@ -1091,6 +1128,12 @@ def refresh(config, previous, now, venue_collector=collect_venue, ticketmaster_c
         if entry["status"] != "ok":
             events.extend(e for e in previous.get("events", []) if source_id in e.get("providers", []) and (not e.get("lastVerifiedAt") or datetime.fromisoformat(now) - datetime.fromisoformat(e["lastVerifiedAt"]) <= timedelta(days=7)))
         sources.append(entry)
+    for provider in config.get("providerSources", []):
+        count = sum(provider["id"] in event.get("providers", []) for event in events)
+        sources.append({"id": provider["id"], "name": provider["name"],
+                        "status": "ok" if count else "not_configured",
+                        "lastSuccess": now if count else old_sources.get(provider["id"], {}).get("lastSuccess"),
+                        "eventCount": count})
     if not any(s["status"] == "ok" for s in sources):
         raise RuntimeError("No source could be refreshed. The existing snapshot was not replaced.")
     # Source dates are Swedish local dates. Keeping a show through its local day

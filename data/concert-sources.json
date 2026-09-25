@@ -21,7 +21,54 @@
     ],
     "maxDumpEvents": 100000
   },
+  "providerSources": [
+    {
+      "id": "axs",
+      "name": "AXS Sweden (ticket links)",
+      "indexUrl": "https://www.axs.com/se"
+    }
+  ],
   "venueSources": [
+    {
+      "id": "pustervik",
+      "name": "Pustervik, Göteborg",
+      "adapter": "pustervik",
+      "indexUrl": "https://www.pustervik.nu/kalender",
+      "eventPrefix": "https://www.pustervik.nu/evenemang/",
+      "venue": {
+        "name": "Pustervik",
+        "city": "Göteborg",
+        "lat": 57.699507,
+        "lon": 11.953645,
+        "address": "Järntorgsgatan 12–14",
+        "coordinateSource": "https://www.pustervik.nu/"
+      },
+      "stylePatterns": {
+        "Punk": "\\bpunk\\w*\\b",
+        "Indie": "\\bindie\\w*\\b",
+        "Metal": "\\b(?:metal\\w*|doom|sludge)\\b",
+        "Rock": "\\brock\\w*\\b",
+        "Jazz": "\\bjazz\\w*\\b",
+        "Pop": "\\bpop\\w*\\b"
+      }
+    },
+    {
+      "id": "avicii_arena",
+      "name": "Avicii Arena, Stockholm",
+      "indexUrl": "https://aviciiarena.se/evenemang/musik-show/",
+      "eventPrefix": "https://aviciiarena.se/evenemang/musik-show/",
+      "ticketProvider": {
+        "id": "axs",
+        "host": "axs.com"
+      },
+      "venue": {
+        "name": "Avicii Arena",
+        "city": "Stockholm",
+        "lat": 59.29355,
+        "lon": 18.08355,
+        "coordinateSource": "https://aviciiarena.se/besok-arenan/hitta-till-arenan/"
+      }
+    },
     {
       "id": "hovet",
       "name": "Hovet / Stockholm Live",

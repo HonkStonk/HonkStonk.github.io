@@ -37,6 +37,34 @@ def event(identifier="venue:a", date="2026-10-24"):
 
 
 class CollectorTests(unittest.TestCase):
+    def test_pustervik_keeps_performer_events_and_skips_quizzes(self):
+        source = {
+            "id": "pustervik", "adapter": "pustervik",
+            "indexUrl": "https://pustervik.example/kalender",
+            "eventPrefix": "https://pustervik.example/evenemang/",
+            "venue": {"name": "Pustervik", "city": "Göteborg", "lat": 57.7, "lon": 11.95}
+        }
+        listing = '<a href="/evenemang/band">Band</a><a href="/evenemang/quiz">Quiz</a>'
+        def page(name, performer=None):
+            raw = {"@context": "https://schema.org", "@type": "Event", "name": name,
+                   "startDate": "2026-10-10T19:00:00"}
+            if performer:
+                raw["performer"] = {"@type": "MusicGroup", "name": performer}
+            return '<script type="application/ld+json">' + json.dumps(raw) + '</script>'
+        pages = {source["indexUrl"]: listing,
+                 "https://pustervik.example/evenemang/band": page("Band live", "Band"),
+                 "https://pustervik.example/evenemang/quiz": page("Quiz")}
+        result = fc.collect_venue(source, NOW, pages.__getitem__)
+        self.assertEqual([event["title"] for event in result], ["Band live"])
+
+    def test_venue_event_attributes_matching_ticket_provider(self):
+        source = {"id": "arena", "venue": {"name": "Arena", "city": "Stockholm"},
+                  "ticketProvider": {"id": "axs", "host": "axs.com"}}
+        raw = {"name": "Gig", "startDate": "2026-10-10T19:00:00",
+               "offers": {"url": "https://www.axs.com/se/events/123"}}
+        event = fc.normalize_venue_event(raw, fc.Page(""), "https://arena.example/gig", source, NOW)
+        self.assertEqual(event["providers"], ["arena", "axs"])
+
     def test_daily_collection_keeps_major_filter_cities_available(self):
         config = json.loads(
             (
